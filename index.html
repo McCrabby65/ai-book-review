@@ -1,0 +1,2738 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Critic Forge</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Marked.js CDN for Markdown Parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              300: '#86efac',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              900: '#14532d',
+              950: '#052e16',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Markdown Heading Font Sizes */
+    .prose h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      color: #f8fafc;
+    }
+    .prose h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-top: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #f1f5f9;
+    }
+    .prose h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #e2e8f0;
+    }
+    .prose h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 0.85rem;
+      margin-bottom: 0.4rem;
+      color: #cbd5e1;
+    }
+    .prose h5, .prose h6 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 0.75rem;
+      margin-bottom: 0.3rem;
+      color: #94a3b8;
+    }
+
+    /* List Styling for Markdown Preview & Reader View */
+    .prose ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .prose ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .prose li {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+      padding-left: 0.25rem;
+    }
+
+    .prose ol ol {
+      list-style-type: lower-alpha;
+    }
+
+    .prose ul ul {
+      list-style-type: circle;
+    }
+
+    /* Blockquote & Markdown Formatting Styles */
+    .prose blockquote {
+      border-left: 4px solid #22c55e;
+      padding-left: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      font-style: italic;
+      color: #94a3b8;
+      background-color: rgba(30, 41, 59, 0.3);
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-top-right-radius: 0.375rem;
+      border-bottom-right-radius: 0.375rem;
+    }
+
+    /* Long-form reading column (Reader view and Author preview):
+       serif text, ~66 characters per line, centered with side padding that scales with width */
+    .reading {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+      font-size: 1.125rem;
+      line-height: 1.75;
+      padding: 2rem max(1.25rem, calc((100% - 66ch) / 2)) 4rem;
+    }
+    .reading p { margin: 0 0 1.1em; }
+    .reading > br { display: none; } /* spacer <br/> lines between paragraphs; paragraph margins handle spacing */
+    .reading h1, .reading h2 { line-height: 1.25; }
+    .about-blurb p { margin: 0 0 1em; }
+    .reader-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: -0.25rem 0 1.75rem; font-family: ui-sans-serif, system-ui, sans-serif; }
+    .reader-meta:empty { display: none; }
+
+    /* Chapter editor: proportional font, ~80 characters wide. A highlighted copy of the text sits
+       behind a transparent textarea so <br/> spacer lines can be shown faintly. Both layers must
+       share identical font, padding and wrapping. */
+    .editor-text {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      letter-spacing: normal;
+      padding: 1.5rem max(1.25rem, calc((100% - 80ch) / 2)) 4rem;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      word-break: normal;
+      tab-size: 4;
+      box-sizing: border-box;
+      border: 0;
+      margin: 0;
+      scrollbar-gutter: stable;
+    }
+    #chapterEditor {
+      color: transparent;
+      caret-color: #f1f5f9;
+      background: transparent;
+      z-index: 1;
+      overflow-y: auto;
+    }
+    #chapterEditor::selection { background: rgba(34, 197, 94, 0.35); color: transparent; }
+    #chapterEditor::placeholder { color: #94a3b8; }
+    #editorBackdrop {
+      color: #f1f5f9;
+      background: #020617;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    #chapterEditor.hidden ~ #editorBackdrop { display: none; }
+    #editorBackdrop .md-spacer { color: #475569; }  /* <br/> lines: deliberately faint */
+    #editorBackdrop .md-heading { color: #86efac; }
+
+    .prose hr {
+      border: none;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col font-sans overflow-hidden bg-slate-950 text-slate-100 antialiased">
+
+  <!-- TOP NAVBAR -->
+  <header class="min-h-16 border-b border-slate-800 bg-slate-900/80 backdrop-blur px-3 md:px-4 py-2 md:py-0 flex flex-wrap items-center justify-between gap-2 z-10 shrink-0">
+    <div class="flex items-center gap-2 md:gap-4 min-w-0">
+      <!-- Chapters drawer button (phones / small tablets only) -->
+      <button id="sidebarToggleBtn" onclick="toggleSidebar()" class="md:hidden bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 rounded-lg px-3 py-1.5 text-sm font-medium" aria-label="Show chapters" aria-controls="sidebar" aria-expanded="false">
+        ☰ <span class="hidden sm:inline">Chapters</span>
+      </button>
+      <div class="flex items-center space-x-2">
+        <span class="text-2xl">📚</span>
+        <h1 class="hidden sm:block font-bold text-lg tracking-wide text-white">AI Critic Forge</h1>
+      </div>
+
+      <!-- Book Selector Dropdown, Word Count Badge & New Book Trigger -->
+      <div class="flex items-center gap-2 min-w-0">
+        <select id="bookSelect" aria-label="Book" onchange="switchBook(this.value)" class="max-w-[11rem] sm:max-w-none bg-slate-800 border border-slate-700 text-slate-200 text-sm rounded-lg focus:ring-brand-500 focus:border-brand-500 px-3 py-1.5 pr-8 cursor-pointer">
+          <option value="">Loading books...</option>
+        </select>
+
+        <!-- Total Book Word Count Badge with Trigger Button -->
+        <span id="bookWordCountBadge" class="hidden sm:flex bg-slate-800/80 border border-slate-700/80 text-slate-300 text-xs px-2.5 py-1 rounded-lg font-medium items-center space-x-1.5" title="Total Word Count for Selected Book">
+          <span>📝</span>
+          <span id="bookWordCountValue">-- words</span>
+          <button id="calcWordCountBtn" onclick="updateBookWordCountUI()" class="text-slate-400 hover:text-white ml-1 transition-colors text-xs" title="Recalculate Word Count">
+            🔄
+          </button>
+        </span>
+
+        <!-- New Book Button (Visible strictly in Author Mode) -->
+        <button id="newBookBtn" onclick="openNewBookModal()" class="hidden text-xs bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 hover:text-white px-2.5 py-1.5 rounded-lg font-medium transition-colors">
+          + New Book
+        </button>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2 md:gap-3">
+      <!-- Export Book (EPUB / PDF) -->
+      <!-- Shown only in Author Mode with a GitHub token that has write access to the repo -->
+      <div class="relative hidden" id="exportMenuWrap">
+        <button id="exportBtn" onclick="toggleExportMenu(event)" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 hover:text-white text-xs px-3 py-1.5 rounded-lg font-medium transition-colors" title="Download the whole book">
+          ⬇ <span id="exportBtnLabel" class="hidden sm:inline">Export Book</span>
+        </button>
+        <div id="exportMenu" class="hidden absolute right-0 mt-1 w-56 bg-slate-900 border border-slate-700 rounded-lg shadow-2xl overflow-hidden z-50 text-xs">
+          <button onclick="exportBook('epub')" class="w-full text-left px-3 py-2 hover:bg-slate-800 text-slate-200">
+            📘 EPUB <span class="text-slate-400">— for e-readers</span>
+          </button>
+          <button onclick="exportBook('pdf')" class="w-full text-left px-3 py-2 hover:bg-slate-800 text-slate-200 border-t border-slate-800">
+            📄 PDF <span class="text-slate-400">— opens print, choose "Save as PDF"</span>
+          </button>
+          <button onclick="exportBook('md')" class="w-full text-left px-3 py-2 hover:bg-slate-800 text-slate-200 border-t border-slate-800">
+            📝 Markdown <span class="text-slate-400">— single .md file</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mode Switcher -->
+      <div class="flex items-center bg-slate-800 border border-slate-700 rounded-lg p-1 text-xs">
+        <button id="viewModeBtn" onclick="setMode('view')" class="px-3 py-1 rounded-md font-medium transition-colors bg-brand-700 text-white">
+          📖 <span class="hidden sm:inline">Reader Mode</span><span class="sm:hidden">Read</span>
+        </button>
+        <button id="authorModeBtn" onclick="setMode('author')" class="px-3 py-1 rounded-md font-medium transition-colors text-slate-400 hover:text-white">
+          ⚡ <span class="hidden sm:inline">Author Mode</span><span class="sm:hidden">Write</span>
+        </button>
+      </div>
+
+      <!-- Settings Button (Author Mode Only) -->
+      <button id="settingsBtn" onclick="toggleSettingsModal()" class="hidden bg-slate-800 hover:bg-slate-700 border border-slate-700 p-2 rounded-lg text-slate-300 hover:text-white transition-colors" title="Settings & API Keys">
+        ⚙
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN WORKSPACE -->
+  <div class="flex flex-1 overflow-hidden min-h-0">
+
+    <!-- Dimmed backdrop behind the chapters drawer (phones / small tablets) -->
+    <div id="sidebarOverlay" onclick="closeSidebar()" class="hidden fixed inset-0 bg-slate-950/70 z-30 md:hidden"></div>
+
+    <!-- LEFT SIDEBAR: CHAPTER TABLE OF CONTENTS (drawer below md) -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-72 -translate-x-full transition-transform duration-200 md:static md:z-auto md:w-64 md:translate-x-0 border-r border-slate-800 bg-slate-900 md:bg-slate-900/50 flex flex-col shrink-0">
+      <div class="p-3 border-b border-slate-800 flex items-center justify-between">
+        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Chapters</span>
+        <button id="newChapterBtn" onclick="promptNewChapter()" aria-label="Add a new chapter" title="Add a new chapter" class="hidden w-7 h-7 flex items-center justify-center rounded border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 text-base leading-none transition-colors">
+          +
+        </button>
+      </div>
+
+      <!-- Inline "new chapter" form (Author Mode) -->
+      <form id="newChapterForm" onsubmit="submitNewChapter(event)" class="hidden p-3 border-b border-slate-800 space-y-2">
+        <label for="newChapterTitle" class="block text-xs font-medium text-slate-300">New chapter title</label>
+        <input type="text" id="newChapterTitle" placeholder="e.g. Chapter 28: The Reckoning" onkeydown="if (event.key === 'Escape') { event.stopPropagation(); cancelNewChapter(); }" class="w-full bg-slate-800 border border-slate-700 rounded px-2 py-1.5 text-sm text-slate-100 focus:outline-none focus:border-brand-500" />
+        <p id="newChapterError" class="hidden text-xs text-rose-400"></p>
+        <div class="flex justify-end gap-2">
+          <button type="button" onclick="cancelNewChapter()" class="px-2.5 py-1 rounded text-xs bg-slate-800 text-slate-300 hover:bg-slate-700">Cancel</button>
+          <button type="submit" class="px-2.5 py-1 rounded text-xs bg-brand-700 text-white font-medium hover:bg-brand-600">Add Chapter</button>
+        </div>
+      </form>
+
+      <nav id="chapterList" class="flex-1 overflow-y-auto p-2 space-y-1" aria-label="Chapters">
+        <!-- Chapter items injected dynamically -->
+      </nav>
+
+      <!-- AGENT STATUS PANEL (Author Mode) -->
+      <div id="agentStatusPanel" class="hidden border-t border-slate-800 p-3 bg-slate-900/80">
+        <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex justify-between items-center">
+          <span>AI Agents</span>
+          <button onclick="runAllAgents()" id="runAllBtn" title="Run every agent on the whole book" class="text-xs bg-transparent border border-brand-600 text-brand-300 hover:bg-brand-900/40 hover:text-white px-2 py-0.5 rounded transition-colors normal-case tracking-normal">
+            <span id="runAllLabel">Review Book (All)</span>
+          </button>
+        </div>
+        <div id="agentList" class="space-y-1.5 text-xs">
+          <!-- Agent status badges injected dynamically -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- CENTER & BOTTOM: VERTICAL SPLIT WORKSPACE -->
+    <main class="flex-1 flex flex-col overflow-hidden">
+
+      <!-- TOP PANEL (67% Height): MANUSCRIPT EDITOR / READER / PREVIEW -->
+      <section id="manuscriptPanel" class="flex-1 min-h-0 flex flex-col border-b border-slate-800 bg-slate-950 overflow-hidden">
+        <div class="min-h-10 border-b border-slate-800 bg-slate-900/30 px-4 py-1.5 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400 shrink-0">
+          <div class="flex items-center gap-2 min-w-0">
+            <span id="currentChapterTitle" class="font-medium text-slate-200 truncate min-w-0">No chapter selected</span>
+            <!-- Rename chapter (Author Mode only) -->
+            <button id="renameChapterBtn" onclick="startRenameChapter()" aria-label="Rename this chapter" title="Rename this chapter" class="hidden shrink-0 px-2 py-0.5 rounded border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">✎ Rename</button>
+            <form id="renameChapterForm" onsubmit="submitRenameChapter(event)" class="hidden flex items-center gap-2 min-w-0">
+              <label for="renameChapterInput" class="sr-only">Chapter title</label>
+              <input id="renameChapterInput" type="text" onkeydown="if (event.key === 'Escape') { event.stopPropagation(); cancelRenameChapter(); }" class="w-[28rem] max-w-[55vw] bg-slate-800 border border-slate-700 rounded px-2 py-1 text-sm text-slate-100 focus:outline-none focus:border-brand-500" />
+              <button type="submit" class="shrink-0 px-2.5 py-1 rounded bg-brand-700 hover:bg-brand-600 text-white font-medium">Save</button>
+              <button type="button" onclick="cancelRenameChapter()" class="shrink-0 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">Cancel</button>
+              <span id="renameChapterError" class="hidden text-rose-400"></span>
+            </form>
+          </div>
+
+          <div id="editorControls" class="hidden flex flex-wrap items-center gap-2 sm:gap-3">
+            <!-- Edit / Preview Mode Toggle -->
+            <div class="flex items-center bg-slate-800 border border-slate-700 rounded p-0.5 text-xs">
+              <button id="editSubTabBtn" onclick="setEditorTab('edit')" class="px-2.5 py-0.5 rounded font-medium bg-slate-700 text-white">
+                ✏ Edit
+              </button>
+              <button id="previewSubTabBtn" onclick="setEditorTab('preview')" class="px-2.5 py-0.5 rounded font-medium text-slate-400 hover:text-white">
+                👁 Preview
+              </button>
+            </div>
+
+            <span id="saveStatus" class="text-slate-400 text-xs">Saved</span>
+            <button id="commitChapterBtn" onclick="saveCurrentChapter()" class="bg-brand-700 hover:bg-brand-600 text-white px-2.5 py-1 rounded font-medium transition-colors">
+              💾 Commit Chapter
+            </button>
+          </div>
+        </div>
+
+        <!-- DEMOGRAPHIC ANALYSIS BADGE BAR -->
+        <div id="demographicBar" class="hidden bg-slate-900/60 border-b border-slate-800/80 px-4 py-2 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-300 shrink-0">
+          <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+            <span class="font-semibold text-slate-400 text-xs uppercase tracking-wider">Demographic Analysis:</span>
+            <div id="demographicBadges" class="flex flex-wrap items-center gap-2">
+              <span class="bg-slate-800 border border-slate-700 px-2 py-0.5 rounded text-xs text-slate-400 italic">Save chapter or click Analyze...</span>
+            </div>
+            <button id="runDemographicsBtn" onclick="runManualDemographics()" class="hidden bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white px-2 py-0.5 rounded text-xs font-medium transition-colors">
+              ⚡ Analyze
+            </button>
+          </div>
+          <span id="demographicRationale" class="text-xs text-slate-400 truncate max-w-sm hidden" title=""></span>
+        </div>
+
+        <div class="flex-1 relative overflow-hidden">
+          <!-- Empty state: shown when there are no books, or the selected book has no chapters -->
+          <div id="emptyState" class="hidden absolute inset-0 z-20 bg-slate-950 flex items-center justify-center p-6 text-center">
+            <div class="max-w-md space-y-3">
+              <div class="text-4xl" aria-hidden="true">📚</div>
+              <h2 id="emptyStateTitle" class="text-lg font-semibold text-slate-100"></h2>
+              <p id="emptyStateText" class="text-sm text-slate-400"></p>
+              <button id="emptyStateAction" class="hidden px-4 py-2 rounded-lg bg-brand-700 hover:bg-brand-600 text-white text-sm font-medium transition-colors"></button>
+            </div>
+          </div>
+
+          <!-- About this book: title page with the blurb -->
+          <div id="aboutPage" class="reading hidden absolute inset-0 z-10 overflow-y-auto bg-slate-950 text-slate-200" aria-live="polite"></div>
+
+          <!-- Reader View (View Mode) -->
+          <div id="chapterViewer" class="reading absolute inset-0 overflow-y-auto prose prose-invert prose-slate text-slate-200">
+            <p class="text-slate-400 italic">Select a chapter from the left menu to start reading.</p>
+          </div>
+
+          <!-- Markdown Editor (Author Mode) -->
+          <textarea id="chapterEditor" aria-label="Chapter text (Markdown)" spellcheck="true" oninput="markUnsaved(); syncEditorBackdrop();" onscroll="syncEditorScroll()" class="editor-text hidden absolute inset-0 w-full h-full resize-none outline-none focus:ring-0" placeholder="Write your chapter markdown here..."></textarea>
+          <div id="editorBackdrop" class="editor-text absolute inset-0" aria-hidden="true"></div>
+
+          <!-- Markdown Live Preview Panel (Author Mode) -->
+          <div id="authorPreviewPanel" class="reading hidden absolute inset-0 overflow-y-auto prose prose-invert prose-slate text-slate-200 bg-slate-950">
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM PANEL (33% Height): MULTI-AGENT CRITIQUE DASHBOARD -->
+      <section id="reviewPanel" class="h-1/3 flex flex-col bg-slate-900/30 overflow-hidden border-t border-slate-800">
+        <!-- Review Tabs Header -->
+        <div class="h-10 border-b border-slate-800 bg-slate-900/50 px-3 flex items-center shrink-0">
+          <button id="reviewToggleBtn" onclick="toggleReviewPanel()" aria-expanded="true" aria-controls="reviewContent" class="shrink-0 mr-3 px-2 py-1 rounded text-xs font-semibold text-slate-200 hover:text-white hover:bg-slate-800 transition-colors">
+            <span id="reviewToggleIcon">▾</span> Reviews<span id="reviewToggleCount" class="text-slate-400 font-normal"></span>
+          </button>
+          <div id="reviewHeaderControls" class="flex-1 min-w-0 flex items-center justify-between overflow-x-auto">
+          <div class="flex items-center space-x-3">
+            <div class="flex items-center bg-slate-800 border border-slate-700 rounded p-0.5 text-xs shrink-0" title="Choose what the agents review">
+              <button id="scopeBookBtn" onclick="setReviewScope('book')" class="px-2.5 py-0.5 rounded font-medium bg-slate-700 text-white">📘 Whole Book</button>
+              <button id="scopeChapterBtn" onclick="setReviewScope('chapter')" class="px-2.5 py-0.5 rounded font-medium text-slate-400 hover:text-white">📄 Chapter</button>
+            </div>
+            <div id="agentTabs" class="flex space-x-1">
+              <!-- Tabs generated dynamically -->
+            </div>
+          </div>
+          <button id="runCurrentAgentBtn" onclick="runCurrentSelectedAgent()" class="hidden text-xs bg-transparent border border-brand-600 text-brand-300 hover:bg-brand-900/40 hover:text-white px-2.5 py-1 rounded font-medium transition-colors shrink-0 ml-2">
+            <span id="runOneLabel">▶ Review Book</span>
+          </button>
+          </div>
+        </div>
+
+        <!-- Critique Display Area -->
+        <div id="reviewContent" class="flex-1 p-5 overflow-y-auto prose prose-invert prose-slate max-w-4xl w-full mx-auto text-slate-300 text-sm leading-relaxed">
+          <div class="text-slate-400 italic">Select an agent tab to read their evaluation.</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- NEW BOOK MODAL (Author Mode Only) -->
+  <div id="newBookModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div role="dialog" aria-modal="true" aria-labelledby="newBookModalTitle" class="bg-slate-900 border border-slate-800 rounded-xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col">
+      <div class="p-4 border-b border-slate-800 flex justify-between items-center">
+        <h2 id="newBookModalTitle" class="font-semibold text-white">Create New Book Project</h2>
+        <button onclick="toggleNewBookModal()" aria-label="Close" class="text-slate-400 hover:text-white">✕</button>
+      </div>
+
+      <div class="p-6 space-y-4 text-sm">
+        <div>
+          <label for="newBookTitle" class="block font-medium text-slate-200 mb-1">Book Title *</label>
+          <input type="text" id="newBookTitle" placeholder="e.g. Dragon Rising" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500" />
+        </div>
+        <div>
+          <label for="newBookAuthor" class="block font-medium text-slate-200 mb-1">Author Name *</label>
+          <input type="text" id="newBookAuthor" placeholder="e.g. J. R. Author" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500" />
+        </div>
+        <div>
+          <label for="newBookGenre" class="block font-medium text-slate-200 mb-1">Genre *</label>
+          <input type="text" id="newBookGenre" placeholder="e.g. Epic Fantasy" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500" />
+        </div>
+        <div id="newBookFirstChapterField">
+          <label for="newBookFirstChapter" class="block font-medium text-slate-200 mb-1">First Chapter Title</label>
+          <input type="text" id="newBookFirstChapter" placeholder="Chapter 1" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500" />
+          <p class="text-xs text-slate-400 mt-1">You can rename any chapter later with ✎ Rename above the editor.</p>
+        </div>
+        <div>
+          <label for="newBookBlurb" class="block font-medium text-slate-200 mb-1">Blurb / Summary</label>
+          <textarea id="newBookBlurb" rows="6" placeholder="Back-cover copy readers will see on the book's title page (about 100–250 words works best)." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500 resize-y"></textarea>
+          <p class="text-xs text-slate-400 mt-1">Shown to readers on the book's "About this book" page and sent to the AI agents as context.</p>
+        </div>
+      </div>
+
+      <div class="p-4 border-t border-slate-800 bg-slate-900/50 flex justify-end space-x-2">
+        <button onclick="toggleNewBookModal()" class="px-4 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">Cancel</button>
+        <button id="newBookSubmitBtn" onclick="createNewBookSubmit()" class="px-4 py-2 rounded-lg bg-brand-700 text-white font-medium hover:bg-brand-600 transition-colors">Create Book</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS MODAL -->
+  <div id="settingsModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle" class="bg-slate-900 border border-slate-800 rounded-xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+      <div class="p-4 border-b border-slate-800 flex justify-between items-center">
+        <h2 id="settingsModalTitle" class="font-semibold text-white">Author Settings & Agent Assignment</h2>
+        <button onclick="toggleSettingsModal()" aria-label="Close" class="text-slate-400 hover:text-white">✕</button>
+      </div>
+
+      <div class="p-6 overflow-y-auto space-y-6 text-sm">
+        
+        <!-- GitHub Token -->
+        <div>
+          <label for="ghTokenInput" class="block font-medium text-slate-200 mb-1">GitHub Personal Access Token (PAT)</label>
+          <input type="password" id="ghTokenInput" placeholder="ghp_..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500" />
+          <p class="text-xs text-slate-400 mt-1">Requires <code class="bg-slate-800 px-1 py-0.5 rounded">repo</code> or <code class="bg-slate-800 px-1 py-0.5 rounded">contents:write</code> scope for Author Mode committing.</p>
+        </div>
+
+        <!-- GitHub Repo Info -->
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="ghOwnerInput" class="block font-medium text-slate-200 mb-1">GitHub Owner / Username</label>
+            <input type="text" id="ghOwnerInput" placeholder="username" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500" />
+          </div>
+          <div>
+            <label for="ghRepoInput" class="block font-medium text-slate-200 mb-1">GitHub Repository Name</label>
+            <input type="text" id="ghRepoInput" placeholder="my-book-repo" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500" />
+          </div>
+        </div>
+
+        <hr class="border-slate-800" />
+
+        <!-- Provider API Keys & Model Defaults -->
+        <h3 class="font-semibold text-slate-200">AI Provider Keys & Selected Models</h3>
+        <div class="space-y-4">
+          
+          <!-- Gemini -->
+          <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-800 space-y-2">
+            <div class="flex justify-between items-center">
+              <label for="geminiKeyInput" class="text-xs font-semibold text-slate-200">Google Gemini API</label>
+              <select id="geminiModelInput" aria-label="Google Gemini model" class="bg-slate-800 border border-slate-700 text-xs rounded px-2 py-1 text-slate-200">
+                <option value="gemini-3.8-flash">gemini-3.8-flash (Recommended)</option>
+                <option value="gemini-2.5-flash">gemini-2.5-flash</option>
+                <option value="gemini-2.5-pro">gemini-2.5-pro</option>
+              </select>
+            </div>
+            <input type="password" id="geminiKeyInput" placeholder="Gemini API Key" class="w-full bg-slate-800 border border-slate-700 rounded px-3 py-1.5 text-slate-100 text-xs focus:outline-none focus:border-brand-500" />
+          </div>
+
+          <!-- OpenAI -->
+          <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-800 space-y-2">
+            <div class="flex justify-between items-center">
+              <label for="openaiKeyInput" class="text-xs font-semibold text-slate-200">OpenAI API</label>
+              <select id="openaiModelInput" aria-label="OpenAI model" class="bg-slate-800 border border-slate-700 text-xs rounded px-2 py-1 text-slate-200">
+                <option value="gpt-4o">gpt-4o</option>
+                <option value="gpt-4o-mini">gpt-4o-mini</option>
+              </select>
+            </div>
+            <input type="password" id="openaiKeyInput" placeholder="OpenAI API Key" class="w-full bg-slate-800 border border-slate-700 rounded px-3 py-1.5 text-slate-100 text-xs focus:outline-none focus:border-brand-500" />
+          </div>
+
+          <!-- Anthropic -->
+          <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-800 space-y-2">
+            <div class="flex justify-between items-center">
+              <label for="anthropicKeyInput" class="text-xs font-semibold text-slate-200">Anthropic Claude API</label>
+              <select id="anthropicModelInput" aria-label="Anthropic Claude model" class="bg-slate-800 border border-slate-700 text-xs rounded px-2 py-1 text-slate-200">
+                <option value="claude-sonnet-5-5">claude-sonnet-5.5 (Recommended)</option>
+                <option value="claude-opus-5-5">claude-opus-5.5</option>
+                <option value="claude-haiku-4-5-20251001">claude-haiku-4.5</option>
+              </select>
+            </div>
+            <input type="password" id="anthropicKeyInput" placeholder="Anthropic API Key" class="w-full bg-slate-800 border border-slate-700 rounded px-3 py-1.5 text-slate-100 text-xs focus:outline-none focus:border-brand-500" />
+          </div>
+
+          <!-- Groq -->
+          <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-800 space-y-2">
+            <div class="flex justify-between items-center">
+              <label for="groqKeyInput" class="text-xs font-semibold text-slate-200">Groq API</label>
+              <select id="groqModelInput" aria-label="Groq model" class="bg-slate-800 border border-slate-700 text-xs rounded px-2 py-1 text-slate-200">
+                <option value="openai/gpt-oss-120b">openai/gpt-oss-120b (Recommended)</option>
+                <option value="openai/gpt-oss-20b">openai/gpt-oss-20b (faster)</option>
+                <option value="qwen/qwen3.8-27b">qwen/qwen3.8-27b (preview)</option>
+              </select>
+            </div>
+            <input type="password" id="groqKeyInput" placeholder="Groq API Key" class="w-full bg-slate-800 border border-slate-700 rounded px-3 py-1.5 text-slate-100 text-xs focus:outline-none focus:border-brand-500" />
+          </div>
+
+          <!-- OpenRouter (one key, hundreds of models from many providers) -->
+          <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-800 space-y-2">
+            <div class="flex justify-between items-center gap-3">
+              <label for="openrouterKeyInput" class="text-xs font-semibold text-slate-200 shrink-0">OpenRouter API</label>
+              <input type="text" id="openrouterModelInput" list="openrouterModelList" aria-label="OpenRouter model" placeholder="Model, e.g. anthropic/… (type to search)" autocomplete="off" spellcheck="false" class="flex-1 min-w-0 max-w-xs bg-slate-800 border border-slate-700 text-xs rounded px-2 py-1 text-slate-200 focus:outline-none focus:border-brand-500" />
+              <datalist id="openrouterModelList"></datalist>
+            </div>
+            <input type="password" id="openrouterKeyInput" placeholder="OpenRouter API Key (sk-or-...)" class="w-full bg-slate-800 border border-slate-700 rounded px-3 py-1.5 text-slate-100 text-xs focus:outline-none focus:border-brand-500" />
+            <p id="openrouterModelHint" class="text-xs text-slate-400">Pick any model OpenRouter offers. For whole-book reviews choose one with at least a 128k context window.</p>
+          </div>
+
+        </div>
+
+        <hr class="border-slate-800" />
+
+        <!-- Per-Agent Provider Assignment -->
+        <h3 class="font-semibold text-slate-200">Assign Provider to Each Agent</h3>
+        <div id="agentAssignmentsConfig" class="space-y-3">
+          <!-- Dynamic Agent Assignment UI controls injected via JS -->
+        </div>
+
+        <hr class="border-slate-800" />
+
+        <!-- Reading-level analysis (⚡ Analyze) -->
+        <h3 class="font-semibold text-slate-200">Reading-Level Analysis (⚡ Analyze)</h3>
+        <p class="text-xs text-slate-400 -mt-4">Used by the Analyze button and the automatic check after each Commit Chapter. The word count is calculated in your browser and doesn't use AI.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="analysisProviderInput" class="block font-medium text-slate-200 mb-1">Provider</label>
+            <select id="analysisProviderInput" onchange="updateAnalysisModelOptions()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500">
+              <option value="gemini">Google Gemini</option>
+              <option value="openai">OpenAI</option>
+              <option value="anthropic">Anthropic Claude</option>
+              <option value="groq">Groq</option>
+              <option value="openrouter">OpenRouter</option>
+            </select>
+          </div>
+          <div>
+            <label for="analysisModelInput" class="block font-medium text-slate-200 mb-1">Model</label>
+            <input type="text" id="analysisModelInput" list="analysisModelList" autocomplete="off" spellcheck="false" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500" />
+            <datalist id="analysisModelList"></datalist>
+          </div>
+        </div>
+        <p id="analysisModelHint" class="text-xs text-slate-400 -mt-4">Leave the model blank to use the model chosen on that provider's card above. The provider's API key above is used.</p>
+
+      </div>
+
+      <div class="p-4 border-t border-slate-800 bg-slate-900/50 flex justify-end space-x-2">
+        <button onclick="toggleSettingsModal()" class="px-4 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">Cancel</button>
+        <button onclick="saveSettings()" class="px-4 py-2 rounded-lg bg-brand-700 text-white font-medium hover:bg-brand-600 transition-colors">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLICATION LOGIC -->
+  <script>
+    // --- AGENT DEFINITIONS ---
+    const AGENTS = {
+      publisher: {
+        name: "The Publisher",
+        role: "Acquisitions & Market Feasibility",
+        icon: "💼",
+        provider: "gemini",
+        bookPrompt: `You are a senior acquisitions editor at a major publishing house. Analyze the complete manuscript for commercial potential, the strength of the opening hook, target demographic alignment, overall pacing across the book, comparable titles, and marketability. Provide direct, pragmatic advice on whether and how this book could sell.`,
+        chapterPrompt: `You are a senior acquisitions editor at a major publishing house. Analyze the submitted chapter for commercial potential, narrative hooks in the opening, target demographic alignment, pacing, and overall marketability. Provide direct, pragmatic advice.`
+      },
+      editor: {
+        name: "Developmental Editor",
+        role: "Structure & Narrative Mechanics",
+        icon: "📐",
+        provider: "anthropic",
+        bookPrompt: `You are an expert developmental editor. Evaluate the complete manuscript for overall structure and story arc, continuity between chapters, character arcs and motivations, plot logic and setups/payoffs, world-building coherence, pacing drag points, and chapter balance. Focus on actionable improvements to story mechanics, citing specific chapters.`,
+        chapterPrompt: `You are an expert developmental editor. Evaluate the chapter for structural continuity, character motivations, plot logic, world-building coherence, pacing drag points, and scene balance. Focus on actionable improvements to story mechanics.`
+      },
+      writer: {
+        name: "Fellow Writer",
+        role: "Prose & Narrative Craft",
+        icon: "✍️",
+        provider: "openai",
+        bookPrompt: `You are an experienced peer fiction author. Read the complete manuscript and focus on prose rhythm, voice consistency across chapters, sensory engagement, dialogue naturalism, word choice, subtext, and chapter/scene transitions. Offer collaborative suggestions to elevate the writing quality, citing specific chapters and passages.`,
+        chapterPrompt: `You are an experienced peer fiction author. Focus on prose rhythm, sensory engagement, dialogue naturalism, word choice, subtext, and scene transitions. Offer collaborative suggestions to elevate the writing quality.`
+      },
+      genre_fan: {
+        name: "Core Genre Fan",
+        role: "Target Audience Enthusiast",
+        icon: "🔥",
+        provider: "gemini",
+        bookPrompt: `You are an avid reader who reads dozens of books in this specific genre every year. Critique the complete manuscript based on trope execution, emotional payoff, character appeal, immersion, the strength of the ending, and overall satisfaction for fans of the genre.`,
+        chapterPrompt: `You are an avid reader who reads dozens of books in this specific genre every year. Critique the chapter based on trope execution, emotional payoff, character appeal, immersion, and overall satisfaction for fans of the genre.`
+      },
+      genre_skeptic: {
+        name: "Genre Skeptic",
+        role: "Newcomer Perspective",
+        icon: "🧐",
+        provider: "gemini",
+        bookPrompt: `You are a general fiction reader trying this genre for the first time. Evaluate the complete manuscript for clarity, lore accessibility, cognitive load, relatable human conflict, where you would have been tempted to stop reading, and whether the book hooks and holds someone who isn't already sold on the genre.`,
+        chapterPrompt: `You are a general fiction reader trying this genre for the first time. Evaluate the chapter for clarity, lore accessibility, cognitive load, relatable human conflict, and whether it hooks someone who isn't already sold on the genre.`
+      }
+    };
+
+    // --- STATE MANAGEMENT ---
+    let state = {
+      mode: 'view', // 'view' or 'author'
+      editorTab: 'edit', // 'edit' or 'preview'
+      booksData: null,
+      currentBookId: null,
+      currentChapterId: null,
+      loadingChapterId: null, // Tracks active chapter fetch to prevent race conditions
+      selectedAgentKey: 'publisher',
+      reviews: {},
+      reviewErrors: {},
+      reviewMeta: {}, // per-agent saved review metadata
+      reviewScope: 'book',
+      viewingAbout: false, // showing the book's "About this book" title page
+      bookModalMode: 'create', // New Book window: 'create' or 'edit'
+      reviewsOpen: { view: false, author: true }, // review panel expanded? remembered per mode
+      unsavedChanges: false, // editor text differs from the last loaded/committed version
+      editVersion: 0,        // bumped on every edit; used to detect edits made during a commit
+      patStatus: 'unknown', // GitHub token check: 'unknown' | 'checking' | 'valid' | 'invalid'
+      patCheckedFor: null,  // token/owner/repo combination the status applies to // 'book' (whole manuscript) or 'chapter' (current chapter)
+      demographicData: null,
+      bookWordCounts: {},
+      settings: {
+        ghToken: '',
+        ghOwner: '',
+        ghRepo: '',
+        geminiKey: '',
+        geminiModel: 'gemini-3.8-flash',
+        openaiKey: '',
+        openaiModel: 'gpt-4o',
+        anthropicKey: '',
+        anthropicModel: 'claude-sonnet-5-5',
+        groqKey: '',
+        groqModel: 'openai/gpt-oss-120b',
+        openrouterKey: '',
+        openrouterModel: '',
+        analysisProvider: 'gemini', // provider for ⚡ Analyze (reading level / age group)
+        analysisModel: '',          // blank = use that provider's model from its card
+        agentProviders: {
+          publisher: 'gemini',
+          editor: 'anthropic',
+          writer: 'openai',
+          genre_fan: 'gemini',
+          genre_skeptic: 'gemini'
+        }
+      }
+    };
+
+    // --- INITIALIZATION ---
+    window.addEventListener('DOMContentLoaded', () => {
+      loadSettings();
+      initApp();
+    });
+
+    // Public repository the books are read from. Readers need no GitHub login or token:
+    // the repo is public, so chapters and reviews load anonymously from raw.githubusercontent.com.
+    // On a GitHub Pages URL (<owner>.github.io/<repo>/) the owner/repo are detected automatically;
+    // otherwise these defaults are used. Settings (⚙) can still override them.
+    const DEFAULT_GH_OWNER = 'buswain65';
+    const DEFAULT_GH_REPO = 'ai-book-review';
+
+    function detectRepoFromUrl() {
+      const m = location.hostname.match(/^([^.]+)\.github\.io$/i);
+      if (!m) return null;
+      const firstPath = location.pathname.split('/').filter(Boolean)[0];
+      return { owner: m[1], repo: firstPath && !firstPath.includes('.') ? firstPath : `${m[1]}.github.io` };
+    }
+
+    function loadSettings() {
+      let saved = null;
+      try { saved = localStorage.getItem('storyforge_settings'); } catch (e) {}
+      if (saved) {
+        state.settings = { ...state.settings, ...JSON.parse(saved) };
+      }
+      const detected = detectRepoFromUrl();
+      if (!state.settings.ghOwner) state.settings.ghOwner = detected ? detected.owner : DEFAULT_GH_OWNER;
+      if (!state.settings.ghRepo) state.settings.ghRepo = detected ? detected.repo : DEFAULT_GH_REPO;
+      // Groq retired Llama 3.3 70B / Llama 3.1 8B (Aug 2026) and Mixtral; move saved settings to the replacement.
+      const retiredGroq = ['llama-3.3-70b-versatile', 'llama-3.1-8b-instant', 'mixtral-8x7b-32768', 'mistral-saba-24b', 'qwen/qwen3-32b', 'qwen/qwen3.6-27b'];
+      if (retiredGroq.includes(state.settings.groqModel)) state.settings.groqModel = 'openai/gpt-oss-120b';
+      if (state.settings.analysisProvider === 'groq' && retiredGroq.includes(state.settings.analysisModel)) state.settings.analysisModel = '';
+
+      // One-time migration: whole-book reviews are too large for Groq's free tier
+      if (!state.settings.wholeBookMigrated) {
+        if (state.settings.agentProviders && state.settings.agentProviders.genre_fan === 'groq') {
+          state.settings.agentProviders.genre_fan = 'gemini';
+        }
+        state.settings.wholeBookMigrated = true;
+        try { localStorage.setItem('storyforge_settings', JSON.stringify(state.settings)); } catch (e) {}
+      }
+      
+      document.getElementById('ghTokenInput').value = state.settings.ghToken || '';
+      document.getElementById('ghOwnerInput').value = state.settings.ghOwner || '';
+      document.getElementById('ghRepoInput').value = state.settings.ghRepo || '';
+      
+      document.getElementById('geminiKeyInput').value = state.settings.geminiKey || '';
+      document.getElementById('geminiModelInput').value = state.settings.geminiModel || 'gemini-3.8-flash';
+      
+      document.getElementById('openaiKeyInput').value = state.settings.openaiKey || '';
+      document.getElementById('openaiModelInput').value = state.settings.openaiModel || 'gpt-4o';
+
+      document.getElementById('anthropicKeyInput').value = state.settings.anthropicKey || '';
+      document.getElementById('anthropicModelInput').value = state.settings.anthropicModel || 'claude-sonnet-5-5';
+
+      document.getElementById('groqKeyInput').value = state.settings.groqKey || '';
+      document.getElementById('groqModelInput').value = state.settings.groqModel || 'openai/gpt-oss-120b';
+
+      document.getElementById('openrouterKeyInput').value = state.settings.openrouterKey || '';
+      document.getElementById('openrouterModelInput').value = state.settings.openrouterModel || '';
+
+      document.getElementById('analysisProviderInput').value = state.settings.analysisProvider || 'gemini';
+      document.getElementById('analysisModelInput').value = state.settings.analysisModel || '';
+      updateAnalysisModelOptions();
+
+      renderAgentSettingsUI();
+    }
+
+    function renderAgentSettingsUI() {
+      const container = document.getElementById('agentAssignmentsConfig');
+      container.innerHTML = Object.entries(AGENTS).map(([key, agent]) => {
+        const currentProvider = state.settings.agentProviders[key] || agent.provider;
+        return `
+          <div class="flex items-center justify-between bg-slate-800/40 p-2.5 rounded-lg border border-slate-800 text-xs">
+            <span class="font-medium text-slate-200">${agent.icon} ${agent.name}</span>
+            <select id="agent-provider-select-${key}" aria-label="Provider for ${agent.name}" class="bg-slate-800 border border-slate-700 text-slate-200 rounded px-2 py-1 text-xs">
+              <option value="gemini" ${currentProvider === 'gemini' ? 'selected' : ''}>Google Gemini</option>
+              <option value="openai" ${currentProvider === 'openai' ? 'selected' : ''}>OpenAI</option>
+              <option value="anthropic" ${currentProvider === 'anthropic' ? 'selected' : ''}>Anthropic Claude</option>
+              <option value="groq" ${currentProvider === 'groq' ? 'selected' : ''}>Groq</option>
+              <option value="openrouter" ${currentProvider === 'openrouter' ? 'selected' : ''}>OpenRouter</option>
+            </select>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function saveSettings() {
+      state.settings.ghToken = document.getElementById('ghTokenInput').value.trim();
+      state.settings.ghOwner = document.getElementById('ghOwnerInput').value.trim();
+      state.settings.ghRepo = document.getElementById('ghRepoInput').value.trim();
+      
+      state.settings.geminiKey = document.getElementById('geminiKeyInput').value.trim();
+      state.settings.geminiModel = document.getElementById('geminiModelInput').value;
+
+      state.settings.openaiKey = document.getElementById('openaiKeyInput').value.trim();
+      state.settings.openaiModel = document.getElementById('openaiModelInput').value;
+
+      state.settings.anthropicKey = document.getElementById('anthropicKeyInput').value.trim();
+      state.settings.anthropicModel = document.getElementById('anthropicModelInput').value;
+
+      state.settings.groqKey = document.getElementById('groqKeyInput').value.trim();
+      state.settings.groqModel = document.getElementById('groqModelInput').value;
+
+      state.settings.openrouterKey = document.getElementById('openrouterKeyInput').value.trim();
+      state.settings.openrouterModel = document.getElementById('openrouterModelInput').value.trim();
+
+      state.settings.analysisProvider = document.getElementById('analysisProviderInput').value;
+      state.settings.analysisModel = document.getElementById('analysisModelInput').value.trim();
+
+      Object.keys(AGENTS).forEach(key => {
+        const select = document.getElementById(`agent-provider-select-${key}`);
+        if (select) {
+          state.settings.agentProviders[key] = select.value;
+        }
+      });
+
+      localStorage.setItem('storyforge_settings', JSON.stringify(state.settings));
+      toggleSettingsModal();
+      initApp();
+      refreshPatStatus();
+    }
+
+    // --- GITHUB TOKEN (PAT) CHECK ---
+    // A token counts as valid when GitHub accepts it and it has write (push) access to the repo.
+    async function refreshPatStatus() {
+      const { ghToken, ghOwner, ghRepo } = state.settings;
+      const key = `${ghToken}|${ghOwner}|${ghRepo}`;
+      if (state.patCheckedFor === key && state.patStatus !== 'unknown') { updateExportVisibility(); return; }
+      state.patCheckedFor = key;
+
+      if (!ghToken || !ghOwner || !ghRepo) {
+        state.patStatus = 'invalid';
+        updateExportVisibility();
+        return;
+      }
+      state.patStatus = 'checking';
+      updateExportVisibility();
+      let status = 'invalid';
+      try {
+        const res = await fetch(`https://api.github.com/repos/${ghOwner}/${ghRepo}`, {
+          headers: { "Accept": "application/vnd.github+json", "Authorization": `token ${ghToken}` },
+          cache: "no-store"
+        });
+        if (res.ok) {
+          const repo = await res.json();
+          if (repo.permissions && (repo.permissions.push || repo.permissions.admin)) status = 'valid';
+        }
+      } catch (e) {
+        console.warn("Could not verify GitHub token:", e);
+      }
+      if (state.patCheckedFor === key) {
+        state.patStatus = status;
+        updateExportVisibility();
+      }
+    }
+
+    function updateExportVisibility() {
+      const allowed = state.mode === 'author' && state.patStatus === 'valid';
+      document.getElementById('exportMenuWrap').classList.toggle('hidden', !allowed);
+      if (!allowed) document.getElementById('exportMenu').classList.add('hidden');
+    }
+
+    // --- MODALS: open/close, Escape to close, focus kept inside while open ---
+    let modalReturnFocus = null;
+    function openModal(id) {
+      modalReturnFocus = document.activeElement;
+      const modal = document.getElementById(id);
+      modal.classList.remove('hidden');
+      const first = modal.querySelector('input, select, textarea, button:not([aria-label="Close"])');
+      if (first) first.focus();
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+      if (modalReturnFocus && document.body.contains(modalReturnFocus)) modalReturnFocus.focus();
+      modalReturnFocus = null;
+    }
+    function openModalId() {
+      return ['newBookModal', 'settingsModal'].find(id => !document.getElementById(id).classList.contains('hidden'));
+    }
+    document.addEventListener('keydown', e => {
+      const id = openModalId();
+      if (!id) return;
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        closeModal(id);
+        return;
+      }
+      if (e.key === 'Tab') {
+        const focusable = [...document.getElementById(id).querySelectorAll('button, input, select, textarea, a[href]')]
+          .filter(el => !el.disabled && el.offsetParent !== null);
+        if (!focusable.length) return;
+        const first = focusable[0], last = focusable[focusable.length - 1];
+        if (!document.getElementById(id).contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+        else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    }, true);
+
+    function toggleSettingsModal() {
+      if (document.getElementById('settingsModal').classList.contains('hidden')) {
+        openModal('settingsModal');
+        loadOpenRouterModels();
+      } else {
+        closeModal('settingsModal');
+      }
+    }
+
+    // OpenRouter's model list is public (no key needed); it fills the model search box in Settings.
+    let openRouterModelsLoaded = null;
+    function loadOpenRouterModels() {
+      if (openRouterModelsLoaded) return openRouterModelsLoaded;
+      openRouterModelsLoaded = (async () => {
+        try {
+          const res = await fetch("https://openrouter.ai/api/v1/models");
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+          const models = (data.data || []).slice().sort((a, b) => a.id.localeCompare(b.id));
+          const fmtCtx = n => !n ? '' : n >= 1000000 ? `${(n / 1000000).toFixed(n % 1000000 ? 1 : 0)}M` : `${Math.round(n / 1000)}k`;
+          const esc = t => String(t ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+          document.getElementById('openrouterModelList').innerHTML = models
+            .map(m => `<option value="${esc(m.id)}" label="${esc(m.name || m.id)}${m.context_length ? ' — ' + fmtCtx(m.context_length) + ' context' : ''}"></option>`)
+            .join('');
+          document.getElementById('openrouterModelHint').innerText =
+            `${models.length} models available — type to search (e.g. "claude", "gemini", "llama"). For whole-book reviews choose one with at least a 128k context window.`;
+        } catch (e) {
+          openRouterModelsLoaded = null; // try again next time Settings opens
+          document.getElementById('openrouterModelHint').innerText =
+            "Couldn't load OpenRouter's model list. You can still type a model ID from openrouter.ai/models (e.g. provider/model-name).";
+        }
+      })();
+      return openRouterModelsLoaded;
+    }
+
+    function toggleNewBookModal() {
+      if (document.getElementById('newBookModal').classList.contains('hidden')) openNewBookModal();
+      else closeModal('newBookModal');
+    }
+
+    // --- CHAPTER EDITOR: highlighted backdrop behind the textarea ---
+    function escapeHtml(str) {
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    function syncEditorBackdrop() {
+      const editor = document.getElementById('chapterEditor');
+      const backdrop = document.getElementById('editorBackdrop');
+      const text = editor.value;
+      const html = text.split('\n').map(line => {
+        const safe = escapeHtml(line);
+        if (/^\s*(<br\s*\/?>\s*)+$/i.test(line)) return `<span class="md-spacer">${safe}</span>`;
+        if (/^#{1,6}\s/.test(line)) return `<span class="md-heading">${safe}</span>`;
+        return safe;
+      }).join('\n');
+      backdrop.innerHTML = html + (text.endsWith('\n') ? '\u200b' : ''); // a trailing newline needs a character to take up its line, as in the textarea
+      syncEditorScroll();
+    }
+    function syncEditorScroll() {
+      const editor = document.getElementById('chapterEditor');
+      document.getElementById('editorBackdrop').scrollTop = editor.scrollTop;
+    }
+    // Keep the backdrop in step whenever code (not typing) replaces the editor text.
+    (function () {
+      const desc = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value');
+      const editor = document.getElementById('chapterEditor');
+      Object.defineProperty(editor, 'value', {
+        get() { return desc.get.call(this); },
+        set(v) { desc.set.call(this, v); syncEditorBackdrop(); },
+        configurable: true
+      });
+    })();
+
+    // --- LAYOUT: CHAPTERS DRAWER (phones) & COLLAPSIBLE REVIEW PANEL ---
+    function openSidebar() {
+      document.getElementById('sidebar').classList.remove('-translate-x-full');
+      document.getElementById('sidebarOverlay').classList.remove('hidden');
+      document.getElementById('sidebarToggleBtn').setAttribute('aria-expanded', 'true');
+    }
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.add('-translate-x-full'); // no effect at md+ (md:translate-x-0 wins)
+      document.getElementById('sidebarOverlay').classList.add('hidden');
+      document.getElementById('sidebarToggleBtn').setAttribute('aria-expanded', 'false');
+    }
+    function toggleSidebar() {
+      if (document.getElementById('sidebar').classList.contains('-translate-x-full')) openSidebar(); else closeSidebar();
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
+
+    function toggleReviewPanel() {
+      state.reviewsOpen[state.mode] = !state.reviewsOpen[state.mode];
+      applyReviewPanelState();
+    }
+    function applyReviewPanelState() {
+      const open = !!state.reviewsOpen[state.mode];
+      const panel = document.getElementById('reviewPanel');
+      panel.classList.toggle('h-1/3', open);
+      document.getElementById('reviewHeaderControls').classList.toggle('hidden', !open);
+      document.getElementById('reviewContent').classList.toggle('hidden', !open);
+      document.getElementById('reviewToggleIcon').innerText = open ? '▾' : '▸';
+      document.getElementById('reviewToggleBtn').setAttribute('aria-expanded', String(open));
+      const ready = Object.keys(AGENTS).filter(k => state.reviews[k] && !String(state.reviews[k]).startsWith('*')).length;
+      document.getElementById('reviewToggleCount').innerText = open ? '' : ` (${ready} available) — click to open`;
+    }
+
+    // Reader view: demographic badges sit under the chapter title instead of in a full-width bar.
+    const readerMetaEl = document.createElement('div');
+    readerMetaEl.className = 'reader-meta';
+    function placeReaderMeta() {
+      const body = document.getElementById('chapterViewer');
+      const first = body.firstElementChild;
+      if (first && /^H[1-3]$/.test(first.tagName)) first.after(readerMetaEl);
+      else body.prepend(readerMetaEl);
+    }
+
+    // --- EMPTY STATES: no books at all, or a book with no chapters ---
+    function libraryStatus() {
+      const books = (state.booksData && state.booksData.books) || [];
+      const book = books.find(b => b.id === state.currentBookId);
+      if (!books.length || !book) return 'no-books';
+      if (!book.chapters.length) return 'no-chapters';
+      return 'ok';
+    }
+
+    function setDisabled(id, disabled) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.disabled = disabled;
+      el.classList.toggle('opacity-40', disabled);
+      el.classList.toggle('cursor-not-allowed', disabled);
+      el.classList.toggle('pointer-events-none', disabled);
+    }
+
+    function updateEmptyState() {
+      if (!state.booksData) return;
+      const status = libraryStatus();
+      const author = state.mode === 'author';
+      const overlay = document.getElementById('emptyState');
+      const titleEl = document.getElementById('emptyStateTitle');
+      const textEl = document.getElementById('emptyStateText');
+      const actionEl = document.getElementById('emptyStateAction');
+      const book = state.booksData.books.find(b => b.id === state.currentBookId);
+
+      overlay.classList.toggle('hidden', status === 'ok');
+      actionEl.classList.add('hidden');
+      actionEl.onclick = null;
+
+      if (status === 'no-books') {
+        titleEl.innerText = 'No books yet';
+        textEl.innerText = author ? 'Click + New Book to start one.' : 'There are no books to read yet. Check back soon.';
+        if (author) {
+          actionEl.innerText = '+ New Book';
+          actionEl.onclick = () => openNewBookModal();
+          actionEl.classList.remove('hidden');
+        }
+        document.getElementById('currentChapterTitle').innerText = 'No books yet';
+        document.getElementById('chapterList').innerHTML = `<p class="px-3 py-2 text-sm text-slate-400">No books yet.</p>`;
+        document.getElementById('bookWordCountValue').innerText = '-- words';
+      } else if (status === 'no-chapters') {
+        titleEl.innerText = 'No chapters yet';
+        textEl.innerText = author ? `"${book.title}" doesn't have any chapters yet. Click + next to Chapters to add one.` : `"${book.title}" doesn't have any chapters yet. Check back soon.`;
+        if (author) {
+          actionEl.innerText = '+ Add a Chapter';
+          actionEl.onclick = () => { openSidebar(); promptNewChapter(); };
+          actionEl.classList.remove('hidden');
+        }
+        document.getElementById('currentChapterTitle').innerText = `${book.title} — no chapters yet`;
+        document.getElementById('chapterList').innerHTML = `<p class="px-3 py-2 text-sm text-slate-400">No chapters yet.</p>`;
+      }
+
+      // Buttons that need a book / a chapter
+      const noBook = status === 'no-books';
+      const noChapter = status !== 'ok';
+      ['commitChapterBtn', 'runAllBtn', 'runCurrentAgentBtn', 'runDemographicsBtn', 'renameChapterBtn', 'exportBtn', 'editSubTabBtn', 'previewSubTabBtn']
+        .forEach(id => setDisabled(id, noChapter));
+      setDisabled('newChapterBtn', noBook);
+      setDisabled('calcWordCountBtn', noBook);
+      document.getElementById('scopeBookBtn').disabled = noChapter;
+      document.getElementById('scopeChapterBtn').disabled = noChapter;
+      if (noChapter) renderReviewContent();
+    }
+
+    // --- UNSAVED-CHANGES GUARD ---
+    // Ask before any action that would replace the editor text while it has uncommitted edits.
+    function confirmDiscardChanges() {
+      if (!state.unsavedChanges) return true;
+      const book = state.booksData && state.booksData.books.find(b => b.id === state.currentBookId);
+      const chap = book && book.chapters.find(c => c.id === state.currentChapterId);
+      const name = chap ? `"${chap.title}"` : "this chapter";
+      if (!confirm(`You have unsaved changes to ${name}.\n\nDiscard them? Click Cancel to stay and commit your changes first.`)) return false;
+      state.unsavedChanges = false;
+      return true;
+    }
+
+    window.addEventListener('beforeunload', e => {
+      if (state.unsavedChanges) {
+        e.preventDefault();
+        e.returnValue = ''; // browsers show their own "Leave site?" message
+      }
+    });
+
+    function markUnsaved() {
+      state.unsavedChanges = true;
+      state.editVersion++;
+      const statusEl = document.getElementById('saveStatus');
+      statusEl.innerText = "Unsaved changes";
+      statusEl.className = "text-amber-400 text-xs";
+    }
+
+    function setEditorTab(tab) {
+      state.editorTab = tab;
+      const editBtn = document.getElementById('editSubTabBtn');
+      const prevBtn = document.getElementById('previewSubTabBtn');
+      const editor = document.getElementById('chapterEditor');
+      const previewPanel = document.getElementById('authorPreviewPanel');
+
+      if (tab === 'preview') {
+        editBtn.className = "px-2.5 py-0.5 rounded font-medium text-slate-400 hover:text-white";
+        prevBtn.className = "px-2.5 py-0.5 rounded font-medium bg-slate-700 text-white";
+        
+        const markdown = editor.value;
+        previewPanel.innerHTML = marked.parse(markdown || "*No content to preview*");
+        
+        editor.classList.add('hidden');
+        previewPanel.classList.remove('hidden');
+      } else {
+        prevBtn.className = "px-2.5 py-0.5 rounded font-medium text-slate-400 hover:text-white";
+        editBtn.className = "px-2.5 py-0.5 rounded font-medium bg-slate-700 text-white";
+        
+        previewPanel.classList.add('hidden');
+        editor.classList.remove('hidden');
+      }
+    }
+
+    function setMode(mode) {
+      state.mode = mode;
+      const viewBtn = document.getElementById('viewModeBtn');
+      const authorBtn = document.getElementById('authorModeBtn');
+      const settingsBtn = document.getElementById('settingsBtn');
+      const newBookBtn = document.getElementById('newBookBtn');
+      const newChapBtn = document.getElementById('newChapterBtn');
+      const statusPanel = document.getElementById('agentStatusPanel');
+      const controls = document.getElementById('editorControls');
+      const runBtn = document.getElementById('runCurrentAgentBtn');
+      const runDemoBtn = document.getElementById('runDemographicsBtn');
+      const viewer = document.getElementById('chapterViewer');
+      const editor = document.getElementById('chapterEditor');
+      const authorPreview = document.getElementById('authorPreviewPanel');
+
+      if (mode === 'author') {
+        viewBtn.className = "px-3 py-1 rounded-md font-medium transition-colors text-slate-400 hover:text-white";
+        authorBtn.className = "px-3 py-1 rounded-md font-medium transition-colors bg-brand-700 text-white";
+        settingsBtn.classList.remove('hidden');
+        newBookBtn.classList.remove('hidden');
+        newChapBtn.classList.remove('hidden');
+        statusPanel.classList.remove('hidden');
+        controls.classList.remove('hidden');
+        runBtn.classList.remove('hidden');
+        runDemoBtn.classList.remove('hidden');
+        viewer.classList.add('hidden');
+
+        setEditorTab(state.editorTab);
+      } else {
+        authorBtn.className = "px-3 py-1 rounded-md font-medium transition-colors text-slate-400 hover:text-white";
+        viewBtn.className = "px-3 py-1 rounded-md font-medium transition-colors bg-brand-700 text-white";
+        settingsBtn.classList.add('hidden');
+        newBookBtn.classList.add('hidden');
+        newChapBtn.classList.add('hidden');
+        statusPanel.classList.add('hidden');
+        controls.classList.add('hidden');
+        runBtn.classList.add('hidden');
+        runDemoBtn.classList.add('hidden');
+        editor.classList.add('hidden');
+        authorPreview.classList.add('hidden');
+        viewer.classList.remove('hidden');
+      }
+      document.getElementById('demographicBar').classList.toggle('hidden', mode !== 'author');
+      if (mode !== 'author') document.getElementById('newChapterForm').classList.add('hidden');
+      document.getElementById('renameChapterBtn').classList.toggle('hidden', mode !== 'author');
+      if (mode !== 'author') cancelRenameChapter(false);
+      renderAgentTabs();
+      renderAgentStatus();
+      applyReviewPanelState();
+      updateExportVisibility();
+      updateEmptyState();
+      applyAboutChrome();
+      if (state.viewingAbout) renderAboutPage();
+      if (mode === 'author' && !state.currentChapterId && libraryStatus() === 'ok') {
+        const book = state.booksData.books.find(b => b.id === state.currentBookId);
+        if (book) loadChapter(book.chapters[0].id); // Author mode opens the first chapter when none has been opened yet
+      }
+      if (mode === 'author') refreshPatStatus();
+    }
+
+    // --- GITHUB FETCH HELPERS ---
+    function getGitHubHeaders(requireAuth = false) {
+      const headers = { "Accept": "application/vnd.github.v3+json" };
+      if (state.mode === 'author' || requireAuth) {
+        if (state.settings.ghToken) {
+          headers["Authorization"] = `token ${state.settings.ghToken}`;
+        }
+      }
+      return headers;
+    }
+
+    async function fetchGitHubRaw(path) {
+      if (!state.settings.ghOwner || !state.settings.ghRepo) return null;
+      const { ghOwner, ghRepo, ghToken } = state.settings;
+      let res;
+      if (state.mode === 'author' && ghToken) {
+        // Authenticated reads go through api.github.com, which allows the Authorization
+        // header from a browser (raw.githubusercontent.com does not) and is never stale.
+        const url = `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${path}?ref=main&t=${Date.now()}`;
+        res = await fetch(url, {
+          headers: { "Accept": "application/vnd.github.raw", "Authorization": `token ${ghToken}` },
+          cache: "no-store"
+        });
+      } else {
+        // Public reads: no custom headers, so the browser makes a simple CORS request.
+        const url = `https://raw.githubusercontent.com/${ghOwner}/${ghRepo}/main/${path}?cb=${Date.now()}`;
+        res = await fetch(url, { cache: "no-store" });
+      }
+      if (!res.ok) return null;
+      return await res.text();
+    }
+
+    async function initApp() {
+      renderScopeUI();
+      applyReviewPanelState();
+      renderAgentTabs();
+      renderAgentStatus();
+
+      try {
+        if (state.settings.ghOwner && state.settings.ghRepo) {
+          const rawJson = await fetchGitHubRaw("books.json");
+          if (rawJson) {
+            state.booksData = JSON.parse(rawJson);
+          }
+        }
+      } catch (e) {
+        console.warn("Could not fetch remote books.json, loading fallback data.", e);
+      }
+
+      if (!state.booksData) {
+        state.booksData = {
+          books: [
+            {
+              id: "dragon-rising",
+              title: "Dragon Rising",
+              author: "J. R. Author",
+              genre: "High Fantasy",
+              blurb: "An ancient magic reawakens in a kingdom on the brink of war.",
+              chapters: [
+                { id: "ch01-the-awakening", title: "Chapter 1: The Awakening", file: "ch01-the-awakening.md" }
+              ]
+            }
+          ]
+        };
+      }
+
+      if (!Array.isArray(state.booksData.books)) state.booksData.books = [];
+
+      renderBookDropdown();
+      if (state.booksData.books.length > 0) {
+        switchBook(state.booksData.books[0].id);
+      }
+      updateEmptyState();
+    }
+
+    function renderBookDropdown() {
+      const select = document.getElementById('bookSelect');
+      if (!state.booksData.books.length) {
+        select.innerHTML = `<option value="">No books yet</option>`;
+        return;
+      }
+      select.innerHTML = state.booksData.books.map(b => {
+        const count = state.bookWordCounts[b.id];
+        const countStr = count !== undefined ? ` (${count.toLocaleString()} words)` : '';
+        return `<option value="${b.id}">${b.title}${countStr}</option>`;
+      }).join('');
+    }
+
+    async function calculateBookWordCount(book) {
+      if (!book) return 0;
+      let totalWords = 0;
+
+      for (const chap of book.chapters) {
+        const path = `books/${book.id}/chapters/${chap.file}`;
+        const content = await fetchGitHubRaw(path);
+        
+        if (content) {
+          const words = countWords(content);
+          totalWords += words;
+        }
+      }
+
+      state.bookWordCounts[book.id] = totalWords;
+      return totalWords;
+    }
+
+    async function updateBookWordCountUI() {
+      const book = state.booksData.books.find(b => b.id === state.currentBookId);
+      if (!book) return;
+
+      const valEl = document.getElementById('bookWordCountValue');
+      const calcBtn = document.getElementById('calcWordCountBtn');
+      valEl.innerText = "Calculating...";
+      calcBtn.classList.add('animate-spin');
+
+      const totalWords = await calculateBookWordCount(book);
+      
+      valEl.innerText = `${totalWords.toLocaleString()} words`;
+      calcBtn.classList.remove('animate-spin');
+      renderBookDropdown();
+      document.getElementById('bookSelect').value = state.currentBookId;
+    }
+
+    function switchBook(bookId) {
+      if (!confirmDiscardChanges()) {
+        document.getElementById('bookSelect').value = state.currentBookId; // undo the dropdown change
+        return;
+      }
+      state.currentBookId = bookId;
+      const book = state.booksData.books.find(b => b.id === bookId);
+      
+      const cached = state.bookWordCounts[bookId];
+      document.getElementById('bookWordCountValue').innerText = cached !== undefined ? `${cached.toLocaleString()} words` : "-- words";
+
+      renderChapterList(book);
+      if (state.reviewScope === 'book') loadReviews();
+      if (book && book.chapters.length > 0 && state.mode !== 'author') {
+        // Readers land on the title page; the first chapter loads when they start reading.
+        state.currentChapterId = null;
+        state.demographicData = null;
+        renderDemographicUI();
+        showAboutPage();
+      } else if (book && book.chapters.length > 0) {
+        loadChapter(book.chapters[0].id);
+      } else {
+        // No chapters: clear the previous book's chapter so nothing can be committed to the wrong place.
+        state.currentChapterId = null;
+        state.unsavedChanges = false;
+        document.getElementById('chapterEditor').value = '';
+        state.demographicData = null;
+        renderDemographicUI();
+        if (state.reviewScope === 'chapter') loadReviews();
+      }
+      updateEmptyState();
+    }
+
+    function renderChapterList(book) {
+      const list = document.getElementById('chapterList');
+      if (!book) return;
+      const aboutBtn = `
+        <button onclick="showAboutPage(); closeSidebar();" id="chap-btn-__about" class="w-full text-left px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 transition-colors block border-b border-slate-800/80 mb-1">
+          <span class="block text-sm font-medium">📖 About this book</span>
+        </button>`;
+      list.innerHTML = aboutBtn + book.chapters.map(c => {
+        // "Chapter 5: Hello World" -> small "Chapter 5" label + "Hello World" (wraps to 2 lines)
+        const m = String(c.title).match(/^([^:]{1,30}):\s*(.+)$/);
+        const label = m ? m[1] : '';
+        const name = m ? m[2] : c.title;
+        const safeTitle = String(c.title).replace(/"/g, '&quot;');
+        return `
+        <button onclick="loadChapter('${c.id}'); closeSidebar();" id="chap-btn-${c.id}" title="${safeTitle}" class="w-full text-left px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 transition-colors block">
+          ${label ? `<span class="block text-xs uppercase tracking-wide text-slate-400">${label}</span>` : ''}
+          <span class="block text-sm font-medium leading-snug line-clamp-2">${name}</span>
+        </button>`;
+      }).join('');
+    }
+
+    async function loadChapter(chapterId) {
+      // Returning from the title page to the chapter already open: just show it again (keeps unsaved edits).
+      if (state.viewingAbout && chapterId === state.currentChapterId && document.getElementById('chapterEditor').value) {
+        hideAboutPage();
+        const book = state.booksData.books.find(b => b.id === state.currentBookId);
+        const chap = book && book.chapters.find(c => c.id === chapterId);
+        if (chap) document.getElementById('currentChapterTitle').innerText = `${book.title} — ${chap.title}`;
+        const activeBtn = document.getElementById(`chap-btn-${chapterId}`);
+        if (activeBtn) activeBtn.classList.add('bg-slate-800', 'text-white');
+        return;
+      }
+      if (!confirmDiscardChanges()) return;
+      cancelRenameChapter(false);
+      state.unsavedChanges = false;
+      state.currentChapterId = chapterId;
+      state.loadingChapterId = chapterId; // Set active loading request lock
+      hideAboutPage();
+      updateEmptyState();
+
+      // Highlight Active Sidebar Button
+      document.querySelectorAll('#chapterList button').forEach(b => b.classList.remove('bg-slate-800', 'text-white'));
+      const activeBtn = document.getElementById(`chap-btn-${chapterId}`);
+      if (activeBtn) activeBtn.classList.add('bg-slate-800', 'text-white');
+
+      const book = state.booksData.books.find(b => b.id === state.currentBookId);
+      const chap = book.chapters.find(c => c.id === chapterId);
+      document.getElementById('currentChapterTitle').innerText = `${book.title} — ${chap.title}`;
+
+      // Clear existing chapter state & show placeholders
+      document.getElementById('chapterEditor').value = "Loading chapter content from GitHub...";
+      document.getElementById('chapterViewer').innerHTML = "<p class='text-slate-400 italic animate-pulse'>Loading chapter content from GitHub...</p>";
+      document.getElementById('authorPreviewPanel').innerHTML = "<p class='text-slate-400 italic animate-pulse'>Loading preview...</p>";
+
+      const statusEl = document.getElementById('saveStatus');
+      statusEl.innerText = "Loading...";
+      statusEl.className = "text-slate-400 text-xs";
+
+      state.demographicData = null;
+      renderDemographicUI();
+
+      // Fetch chapter markdown content
+      let content = "";
+      if (state.settings.ghOwner && state.settings.ghRepo) {
+        const path = `books/${book.id}/chapters/${chap.file}`;
+        try {
+          content = await fetchGitHubRaw(path);
+        } catch (err) {
+          console.error(`Failed to load ${path}:`, err);
+          if (state.loadingChapterId !== chapterId) return;
+          const msg = `Could not load this chapter from GitHub (${err.message}). Check your connection and GitHub settings, then select the chapter again.`;
+          document.getElementById('chapterEditor').value = msg;
+          document.getElementById('chapterViewer').innerHTML = `<p class='text-rose-400'>${msg}</p>`;
+          document.getElementById('authorPreviewPanel').innerHTML = `<p class='text-rose-400'>${msg}</p>`;
+          statusEl.innerText = "❌ Load failed";
+          statusEl.className = "text-rose-400 text-xs";
+          return;
+        }
+      }
+
+      if (state.loadingChapterId !== chapterId) return;
+
+      if (!content) {
+        content = `# ${chap.title}\n\nStart writing your chapter content here...`;
+      }
+
+      document.getElementById('chapterEditor').value = content;
+      document.getElementById('chapterViewer').innerHTML = marked.parse(content);
+      placeReaderMeta();
+      if (state.editorTab === 'preview') {
+        document.getElementById('authorPreviewPanel').innerHTML = marked.parse(content);
+      }
+
+      statusEl.innerText = "Saved";
+      statusEl.className = "text-slate-400 text-xs";
+
+      loadChapterDemographics();
+      if (state.reviewScope === 'chapter') loadReviews();
+    }
+
+    async function loadChapterDemographics() {
+      const targetChapId = state.currentChapterId;
+      state.demographicData = null;
+      renderDemographicUI();
+
+      if (state.settings.ghOwner && state.settings.ghRepo) {
+        try {
+          const path = `books/${state.currentBookId}/demographics/${targetChapId}.json`;
+          const rawData = await fetchGitHubRaw(path);
+          if (rawData && state.currentChapterId === targetChapId) {
+            state.demographicData = JSON.parse(rawData);
+            renderDemographicUI();
+          }
+        } catch (e) {
+          // No demographic file saved yet
+        }
+      }
+    }
+
+    function renderDemographicUI() {
+      const badgeContainer = document.getElementById('demographicBadges');
+      const rationaleEl = document.getElementById('demographicRationale');
+
+      if (!state.demographicData) {
+        readerMetaEl.innerHTML = '';
+        badgeContainer.innerHTML = `<span class="bg-slate-800 border border-slate-700 px-2 py-0.5 rounded text-xs text-slate-400 italic">Save chapter or click Analyze...</span>`;
+        rationaleEl.classList.add('hidden');
+        return;
+      }
+
+      const d = state.demographicData;
+      badgeContainer.innerHTML = `
+        <span class="bg-brand-950/60 border border-brand-700/60 text-brand-300 font-medium px-2 py-0.5 rounded text-xs">🎯 ${d.target_age_group}</span>
+        <span class="bg-slate-800 border border-slate-700 text-slate-300 px-2 py-0.5 rounded text-xs">📖 ${d.reading_level}</span>
+        <span class="bg-slate-800 border border-slate-700 text-slate-300 px-2 py-0.5 rounded text-xs">🔥 Intensity: ${d.content_rating}</span>
+      `;
+
+      readerMetaEl.innerHTML = badgeContainer.innerHTML;
+      readerMetaEl.title = d.rationale || '';
+      placeReaderMeta();
+
+      if (d.rationale) {
+        rationaleEl.innerText = d.rationale;
+        rationaleEl.title = d.provider ? `${d.rationale}\n\nAnalyzed by ${PROVIDER_LABELS[d.provider] || d.provider} (${d.model})` : d.rationale;
+        rationaleEl.classList.remove('hidden');
+      }
+    }
+
+    async function runManualDemographics() {
+      if (libraryStatus() !== 'ok') return;
+      const btn = document.getElementById('runDemographicsBtn');
+      btn.innerText = "⏳ Analyzing...";
+      btn.disabled = true;
+
+      const content = document.getElementById('chapterEditor').value;
+      await analyzeChapterDemographics(content);
+
+      btn.innerText = "⚡ Analyze";
+      btn.disabled = false;
+    }
+
+    // --- PROVIDER HELPERS (shared) ---
+    const PROVIDER_LABELS = { gemini: 'Google Gemini', openai: 'OpenAI', anthropic: 'Anthropic Claude', groq: 'Groq', openrouter: 'OpenRouter' };
+
+    function providerKey(provider) {
+      return state.settings[`${provider}Key`] || '';
+    }
+
+    // The model chosen on a provider's card in Settings (or its built-in default).
+    function providerDefaultModel(provider) {
+      const defaults = { gemini: 'gemini-3.8-flash', openai: 'gpt-4o', anthropic: 'claude-sonnet-5-5', groq: 'openai/gpt-oss-120b', openrouter: '' };
+      return state.settings[`${provider}Model`] || defaults[provider] || '';
+    }
+
+    // Send one prompt to any configured provider and return the text reply.
+    async function callAIProvider(provider, model, systemPrompt, userPrompt) {
+      const key = providerKey(provider);
+      const label = PROVIDER_LABELS[provider] || provider;
+      if (!key) throw new Error(`Add a ${label} API key in Settings (⚙).`);
+      if (!model) throw new Error(`Choose a ${label} model in Settings (⚙).`);
+      switch (provider) {
+        case 'gemini': return callGemini(key, model, systemPrompt, userPrompt);
+        case 'openai': return callOpenAI(key, model, systemPrompt, userPrompt);
+        case 'anthropic': return callAnthropic(key, model, systemPrompt, userPrompt);
+        case 'groq': return callGroq(key, model, systemPrompt, userPrompt);
+        case 'openrouter': return callOpenRouter(key, model, systemPrompt, userPrompt);
+        default: throw new Error(`Unknown provider "${provider}".`);
+      }
+    }
+
+    // Settings: suggest models for the provider chosen for ⚡ Analyze.
+    function updateAnalysisModelOptions() {
+      const provider = document.getElementById('analysisProviderInput').value;
+      const list = document.getElementById('analysisModelList');
+      if (provider === 'openrouter') {
+        list.innerHTML = document.getElementById('openrouterModelList').innerHTML;
+        loadOpenRouterModels().then(() => {
+          if (document.getElementById('analysisProviderInput').value === 'openrouter') {
+            list.innerHTML = document.getElementById('openrouterModelList').innerHTML;
+          }
+        });
+      } else {
+        const select = document.getElementById(`${provider}ModelInput`);
+        list.innerHTML = select ? [...select.options].map(o => `<option value="${o.value}"></option>`).join('') : '';
+      }
+      const cardModelEl = document.getElementById(`${provider}ModelInput`);
+      const cardModel = (cardModelEl && cardModelEl.value) || providerDefaultModel(provider);
+      document.getElementById('analysisModelInput').placeholder = cardModel ? `Blank = ${cardModel}` : 'Type a model ID';
+    }
+
+    function analysisProviderAndModel() {
+      const provider = state.settings.analysisProvider || 'gemini';
+      const model = state.settings.analysisModel || providerDefaultModel(provider);
+      return { provider, model };
+    }
+
+    function showDemographicError(message) {
+      const badgeContainer = document.getElementById('demographicBadges');
+      const safe = String(message).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+      badgeContainer.innerHTML = `<span class="bg-amber-950/40 border border-amber-800/60 text-amber-300 px-2 py-0.5 rounded text-xs" title="${safe}">⚠️ Analysis failed: ${safe}</span>`;
+    }
+
+    async function analyzeChapterDemographics(chapterText) {
+      const { provider, model } = analysisProviderAndModel();
+      const targetBookId = state.currentBookId;
+      const targetChapId = state.currentChapterId;
+
+      const prompt = `Analyze the following manuscript chapter and estimate its target reader age demographic, reading complexity, content intensity, and rationale.
+Return strictly a valid JSON object matching this schema (do not wrap in code blocks or extra text):
+{
+  "target_age_group": "Middle Grade (8-12) | Young Adult (12-18) | New Adult (18-25) | Adult (18+)",
+  "reading_level": "e.g. Grade 8-9 Level",
+  "content_rating": "Mild | Moderate | Explicit",
+  "rationale": "One-sentence explanation focusing on vocabulary, scene intensity, and thematic complexity."
+}
+
+Chapter Text:
+${chapterText.slice(0, 4000)}`;
+
+      try {
+        const rawResponse = await callAIProvider(provider, model, "You are an expert literary demographic and readability analyzer.", prompt);
+
+        // Accept replies wrapped in code fences or with extra text around the JSON object.
+        const cleaned = rawResponse.replace(/```json/gi, '').replace(/```/g, '').trim();
+        const match = cleaned.match(/\{[\s\S]*\}/);
+        let demoJson;
+        try { demoJson = JSON.parse(match ? match[0] : cleaned); }
+        catch (e) { throw new Error(`${PROVIDER_LABELS[provider]} (${model}) didn't return valid JSON. Try a different model.`); }
+        demoJson.provider = provider;
+        demoJson.model = model;
+
+        if (state.currentBookId !== targetBookId || state.currentChapterId !== targetChapId) return; // user moved on
+        state.demographicData = demoJson;
+        renderDemographicUI();
+
+        if (state.settings.ghToken && state.settings.ghOwner && state.settings.ghRepo) {
+          const path = `books/${targetBookId}/demographics/${targetChapId}.json`;
+          await commitGitHubFile(path, JSON.stringify(demoJson, null, 2), `Update demographic analysis for ${targetChapId}`);
+        }
+      } catch (err) {
+        console.warn("Failed to generate demographic estimation:", err);
+        if (state.currentBookId === targetBookId && state.currentChapterId === targetChapId) showDemographicError(err.message);
+      }
+    }
+
+    // Saved reviews:
+    //   whole book -> books/<bookId>/reviews/_whole-book/<agentKey>.json
+    //   chapter    -> books/<bookId>/reviews/<chapterId>/<agentKey>.json
+    function reviewPath(target, agentKey) {
+      const folder = target.scope === 'book' ? '_whole-book' : target.chapterId;
+      return `books/${target.bookId}/reviews/${folder}/${agentKey}.json`;
+    }
+
+    // What the review panel is currently showing; used to ignore results that arrive late.
+    function currentReviewTarget() {
+      return { scope: state.reviewScope, bookId: state.currentBookId, chapterId: state.reviewScope === 'chapter' ? state.currentChapterId : null };
+    }
+    function isCurrentTarget(t) {
+      const c = currentReviewTarget();
+      return c.scope === t.scope && c.bookId === t.bookId && c.chapterId === t.chapterId;
+    }
+
+    function setReviewScope(scope) {
+      if (state.reviewScope === scope) return;
+      state.reviewScope = scope;
+      renderScopeUI();
+      loadReviews();
+    }
+
+    function renderScopeUI() {
+      const isBook = state.reviewScope === 'book';
+      const on = "px-2.5 py-0.5 rounded font-medium bg-slate-700 text-white";
+      const off = "px-2.5 py-0.5 rounded font-medium text-slate-400 hover:text-white";
+      document.getElementById('scopeBookBtn').className = isBook ? on : off;
+      document.getElementById('scopeChapterBtn').className = isBook ? off : on;
+      document.getElementById('runOneLabel').innerText = isBook ? '▶ Review Book' : '▶ Review Chapter';
+      document.getElementById('runAllLabel').innerText = isBook ? 'Review Book (All)' : 'Review Chapter (All)';
+      document.getElementById('runAllBtn').title = isBook ? 'Run every agent on the whole book' : 'Run every agent on the current chapter';
+    }
+
+    async function loadReviews() {
+      const target = currentReviewTarget();
+      state.reviews = {};
+      state.reviewErrors = {};
+      state.reviewMeta = {};
+      renderAgentStatus();
+      renderReviewContent();
+      if (!target.bookId || (target.scope === 'chapter' && !target.chapterId)) return;
+      if (!state.settings.ghOwner || !state.settings.ghRepo) return;
+
+      await Promise.all(Object.keys(AGENTS).map(async agentKey => {
+        try {
+          const rawJson = await fetchGitHubRaw(reviewPath(target, agentKey));
+          if (rawJson && isCurrentTarget(target)) {
+            const reviewData = JSON.parse(rawJson);
+            state.reviews[agentKey] = reviewData.feedback_markdown;
+            state.reviewMeta[agentKey] = reviewData;
+          }
+        } catch (e) {
+          // No review saved yet
+        }
+      }));
+
+      if (isCurrentTarget(target)) {
+        renderAgentStatus();
+        renderReviewContent();
+      }
+    }
+
+    function renderAgentTabs() {
+      const container = document.getElementById('agentTabs');
+      container.innerHTML = Object.entries(AGENTS).map(([key, agent]) => `
+        <button onclick="selectAgentTab('${key}')" id="tab-${key}" class="whitespace-nowrap shrink-0 px-3 py-1 rounded-md text-xs font-medium transition-colors border ${state.selectedAgentKey === key ? 'bg-slate-800 border-slate-700 text-white' : 'border-transparent text-slate-400 hover:text-slate-200'}">
+          ${agent.icon} ${agent.name}
+        </button>
+      `).join('');
+    }
+
+    function selectAgentTab(agentKey) {
+      state.selectedAgentKey = agentKey;
+      renderAgentTabs();
+      renderReviewContent();
+    }
+
+    function renderAgentStatus() {
+      const container = document.getElementById('agentList');
+      container.innerHTML = Object.entries(AGENTS).map(([key, agent]) => {
+        const hasReview = !!state.reviews[key];
+        const hasError = !!state.reviewErrors[key];
+        const provider = state.settings.agentProviders[key] || agent.provider;
+
+        let statusBadge = `<span class="text-slate-400">○ Pending</span>`;
+        if (hasError) {
+          statusBadge = `<span class="text-amber-400 font-medium" title="${state.reviewErrors[key]}">⚠️ Warning</span>`;
+        } else if (hasReview) {
+          statusBadge = `<span class="text-emerald-400 font-medium">● Ready</span>`;
+        }
+
+        return `
+          <div class="flex items-start justify-between gap-2 text-slate-300">
+            <div class="min-w-0">
+              <div class="truncate">${agent.icon} ${agent.name}</div>
+              <div class="text-xs text-slate-400 pl-5">${provider}</div>
+            </div>
+            <span class="shrink-0 w-20 text-right">${statusBadge}</span>
+          </div>
+        `;
+      }).join('');
+      if (document.getElementById('reviewToggleCount')) applyReviewPanelState();
+    }
+
+    function renderReviewContent() {
+      const container = document.getElementById('reviewContent');
+      const status = libraryStatus();
+      if (status !== 'ok') {
+        container.innerHTML = `<p class="text-slate-400 italic">${status === 'no-books' ? 'Reviews will appear here once there is a book.' : 'Reviews will appear here once this book has a chapter.'}</p>`;
+        return;
+      }
+      const content = state.reviews[state.selectedAgentKey];
+      const error = state.reviewErrors[state.selectedAgentKey];
+      const agent = AGENTS[state.selectedAgentKey];
+      const provider = state.settings.agentProviders[state.selectedAgentKey] || agent.provider;
+      const meta = state.reviewMeta[state.selectedAgentKey];
+      const isBook = state.reviewScope === 'book';
+      const book = state.booksData && state.booksData.books.find(b => b.id === state.currentBookId);
+      const chap = book && book.chapters.find(c => c.id === state.currentChapterId);
+      const scopeTitle = isBook ? 'Whole-Book Critique' : `Chapter Critique${chap ? ': ' + chap.title : ''}`;
+      let metaLine = '';
+      if (meta && meta.timestamp) {
+        const when = new Date(meta.timestamp).toLocaleString();
+        const size = meta.chapter_count ? ` · ${meta.chapter_count} chapters, ${(meta.word_count || 0).toLocaleString()} words` : '';
+        metaLine = ` · Reviewed ${when}${size}`;
+      }
+
+      if (error) {
+        container.innerHTML = `
+          <div class="border-b border-slate-800 pb-3 mb-4 flex justify-between items-start">
+            <div>
+              <h3 class="font-bold text-slate-100 text-base mb-0.5">${agent.icon} ${agent.name} Critique</h3>
+              <p class="text-xs text-slate-400">${agent.role}</p>
+            </div>
+            <span class="text-xs uppercase tracking-wider px-2 py-0.5 bg-amber-900/30 border border-amber-700/50 rounded text-amber-300">${provider}</span>
+          </div>
+          <div class="bg-amber-950/40 border border-amber-800/60 rounded-lg p-4 text-xs text-amber-200 space-y-2">
+            <div class="font-semibold text-amber-400 flex items-center space-x-1.5">
+              <span>⚠️ API Execution Failed</span>
+            </div>
+            <p class="leading-relaxed">${error}</p>
+            <p class="text-xs text-amber-400/80 italic">Check your API key in Settings (⚙) or verify that the selected model endpoint is currently available.</p>
+          </div>
+        `;
+      } else if (content) {
+        container.innerHTML = `
+          <div class="border-b border-slate-800 pb-3 mb-4 flex justify-between items-start">
+            <div>
+              <h3 class="font-bold text-slate-100 text-base mb-0.5">${agent.icon} ${agent.name} — ${scopeTitle}</h3>
+              <p class="text-xs text-slate-400">${agent.role}${metaLine}</p>
+            </div>
+            <span class="text-xs uppercase tracking-wider px-2 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-400">${provider}</span>
+          </div>
+          ${marked.parse(content)}
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="text-center py-6">
+            <div class="text-2xl mb-1">${agent.icon}</div>
+            <h4 class="font-semibold text-slate-200 mb-0.5">${agent.name}</h4>
+            <p class="text-xs text-slate-400 max-w-xs mx-auto mb-2">${agent.role}</p>
+            <span class="inline-block text-xs uppercase tracking-wider px-2 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-400 mb-2">Assigned Provider: ${provider}</span>
+            <p class="text-xs text-slate-400 italic block">${isBook ? 'No whole-book critique generated for this book yet.' : 'No critique generated for this chapter yet.'}</p>
+          </div>
+        `;
+      }
+    }
+
+    // --- AI EXECUTION ENGINE ---
+    // Load every chapter of a book, in books.json order.
+    // The chapter open in the editor uses the editor's text, so unsaved edits are included.
+    async function loadBookChapters(book, onProgress) {
+      if (!state.settings.ghOwner || !state.settings.ghRepo) {
+        throw new Error("Configure your GitHub Owner and Repository in Settings (⚙) so the whole book can be loaded.");
+      }
+      let done = 0;
+      const texts = await Promise.all(book.chapters.map(async chap => {
+        let text;
+        if (chap.id === state.currentChapterId && state.mode === 'author' && book.id === state.currentBookId) {
+          text = document.getElementById('chapterEditor').value;
+        } else {
+          text = await fetchGitHubRaw(`books/${book.id}/chapters/${chap.file}`);
+        }
+        done++;
+        if (onProgress) onProgress(done, book.chapters.length);
+        return text;
+      }));
+
+      const missing = book.chapters.filter((c, i) => texts[i] === null || texts[i] === undefined).map(c => c.file);
+      if (missing.length) {
+        throw new Error(`Could not load ${missing.length} chapter file(s) from books/${book.id}/chapters/: ${missing.join(', ')}. Check that these files exist in GitHub (note the folder name is lowercase "books").`);
+      }
+      const chapters = book.chapters.map((chap, i) => ({ chap, text: texts[i] })).filter(c => c.text.trim());
+      if (!chapters.length) throw new Error("This book has no chapter text yet.");
+      return chapters;
+    }
+
+    async function buildManuscript(onProgress) {
+      const book = state.booksData.books.find(b => b.id === state.currentBookId);
+      const chapters = await loadBookChapters(book, onProgress);
+      const manuscript = chapters.map(c => `=== ${c.chap.title} ===\n\n${c.text.trim()}`).join('\n\n');
+      const wordCount = chapters.reduce((sum, c) => sum + countWords(c.text), 0);
+      return {
+        book,
+        manuscript,
+        chapterCount: chapters.length,
+        wordCount
+      };
+    }
+
+    function setAllPending(keys, message) {
+      keys.forEach(k => { delete state.reviewErrors[k]; state.reviews[k] = message; });
+      renderAgentStatus();
+      renderReviewContent();
+    }
+
+    // Build the review input for the current scope: the whole book, or the current chapter.
+    function buildChapterInput() {
+      const book = state.booksData.books.find(b => b.id === state.currentBookId);
+      const chap = book && book.chapters.find(c => c.id === state.currentChapterId);
+      if (!chap) throw new Error("Select a chapter to review.");
+      const text = document.getElementById('chapterEditor').value;
+      if (!text.trim() || text.startsWith("Loading chapter content") || text.startsWith("Could not load this chapter")) {
+        throw new Error("The chapter text hasn't loaded yet. Wait for it to finish loading, then try again.");
+      }
+      return { book, chapter: chap, manuscript: text, chapterCount: 1, wordCount: countWords(text) };
+    }
+
+    async function prepareManuscript(keys) {
+      if (libraryStatus() !== 'ok') return null;
+      const target = currentReviewTarget();
+      try {
+        let input;
+        if (target.scope === 'chapter') {
+          input = buildChapterInput();
+        } else {
+          const prevReviews = { ...state.reviews }, prevErrors = { ...state.reviewErrors };
+          setAllPending(keys, "*Loading the full manuscript...*");
+          input = await buildManuscript((n, total) => setAllPending(keys, `*Loading the full manuscript (${n}/${total} chapters)...*`));
+          const agentsText = keys.length === 1 ? `the ${AGENTS[keys[0]].name} agent` : `${keys.length} agents`;
+          const ok = confirm(`Send all ${input.chapterCount} chapters (about ${input.wordCount.toLocaleString()} words) to ${agentsText}?\n\nEach agent receives the whole book, so this uses a noticeable amount of your AI provider credits.`);
+          if (!ok) {
+            state.reviews = prevReviews;
+            state.reviewErrors = prevErrors;
+            renderAgentStatus();
+            renderReviewContent();
+            return null;
+          }
+        }
+        return { ...input, target };
+      } catch (err) {
+        keys.forEach(k => { delete state.reviews[k]; state.reviewErrors[k] = err.message; });
+        renderAgentStatus();
+        renderReviewContent();
+        return null;
+      }
+    }
+
+    async function runCurrentSelectedAgent() {
+      const key = state.selectedAgentKey;
+      const ms = await prepareManuscript([key]);
+      if (ms) await runAgentReview(key, ms);
+    }
+
+    async function runAllAgents() {
+      const keys = Object.keys(AGENTS);
+      const ms = await prepareManuscript(keys);
+      if (!ms) return;
+      setAllPending(keys, "*Queued — waiting for the previous agent to finish...*");
+      for (const agentKey of keys) {
+        await runAgentReview(agentKey, ms);
+      }
+    }
+
+    async function runAgentReview(agentKey, ms) {
+      const agent = AGENTS[agentKey];
+      const provider = state.settings.agentProviders[agentKey] || agent.provider;
+      const { book, chapter, manuscript, chapterCount, wordCount, target } = ms;
+      const isBook = target.scope === 'book';
+      const stillCurrent = () => isCurrentTarget(target);
+
+      const systemPrompt = `${isBook ? agent.bookPrompt : agent.chapterPrompt}\n\nBook Context:\nTitle: ${book.title}\nAuthor: ${book.author || ''}\nGenre: ${book.genre}\nBlurb: ${book.blurb}`;
+      const userPrompt = !isBook
+        ? `Please review the following manuscript chapter ("${chapter.title}"):\n\n${manuscript}`
+        : `Please review the following complete manuscript (${chapterCount} chapters, about ${wordCount.toLocaleString()} words). Chapters are separated by lines like "=== Chapter Title ===".
+
+Structure your critique as:
+1. Overall assessment (a short paragraph)
+2. Key strengths
+3. Most important problems, citing the chapters where they occur
+4. Prioritized recommendations for the next draft
+
+MANUSCRIPT:
+
+${manuscript}`;
+
+      delete state.reviewErrors[agentKey];
+      state.reviews[agentKey] = isBook
+        ? `*Generating whole-book critique (${chapterCount} chapters, ${wordCount.toLocaleString()} words) — this can take a minute or two...*`
+        : "*Generating chapter critique...*";
+      renderAgentStatus();
+      renderReviewContent();
+
+      try {
+        let feedback = "";
+
+        if (provider === 'gemini' && state.settings.geminiKey) {
+          const model = state.settings.geminiModel || 'gemini-3.8-flash';
+          feedback = await callGemini(state.settings.geminiKey, model, systemPrompt, userPrompt);
+        } else if (provider === 'openai' && state.settings.openaiKey) {
+          const model = state.settings.openaiModel || 'gpt-4o';
+          feedback = await callOpenAI(state.settings.openaiKey, model, systemPrompt, userPrompt);
+        } else if (provider === 'anthropic' && state.settings.anthropicKey) {
+          const model = state.settings.anthropicModel || 'claude-sonnet-5-5';
+          feedback = await callAnthropic(state.settings.anthropicKey, model, systemPrompt, userPrompt);
+        } else if (provider === 'groq' && state.settings.groqKey) {
+          const model = state.settings.groqModel || 'openai/gpt-oss-120b';
+          feedback = await callGroq(state.settings.groqKey, model, systemPrompt, userPrompt);
+        } else if (provider === 'openrouter' && state.settings.openrouterKey) {
+          if (!state.settings.openrouterModel) throw new Error("Choose an OpenRouter model in Settings (⚙) before running this agent.");
+          feedback = await callOpenRouter(state.settings.openrouterKey, state.settings.openrouterModel, systemPrompt, userPrompt);
+        } else {
+          feedback = `### ${agent.name} Evaluation (Demo Mode)\n\n*Note: Configure live API keys in Settings to receive real-time evaluations from AI models.*\n\n1. **Strengths:** Strong atmospheric setup and a clear central premise.\n2. **Areas for Improvement:** Consider tightening the middle act.\n3. **Recommendation:** Proceed to next draft polish.`;
+        }
+
+        const meta = isBook
+          ? { agent: agentKey, provider, scope: 'whole-book', timestamp: new Date().toISOString(), chapter_count: chapterCount, word_count: wordCount, feedback_markdown: feedback }
+          : { agent: agentKey, provider, scope: 'chapter', chapter_id: chapter.id, timestamp: new Date().toISOString(), word_count: wordCount, feedback_markdown: feedback };
+        if (stillCurrent()) {
+          state.reviews[agentKey] = feedback;
+          state.reviewMeta[agentKey] = meta;
+        }
+        await saveReviewToGitHub(target, agentKey, meta);
+
+      } catch (err) {
+        if (stillCurrent()) {
+          delete state.reviews[agentKey];
+          state.reviewErrors[agentKey] = err.message;
+        }
+      }
+
+      if (stillCurrent()) {
+        renderAgentStatus();
+        renderReviewContent();
+      }
+    }
+
+    // --- BOOK EXPORT (EPUB / PDF) ---
+    const loadedScripts = {};
+    function loadScript(src) {
+      if (!loadedScripts[src]) {
+        loadedScripts[src] = new Promise((resolve, reject) => {
+          const el = document.createElement('script');
+          el.src = src;
+          el.onload = resolve;
+          el.onerror = () => { delete loadedScripts[src]; reject(new Error(`Could not load ${src}`)); };
+          document.head.appendChild(el);
+        });
+      }
+      return loadedScripts[src];
+    }
+
+    function toggleExportMenu(e) {
+      if (e) e.stopPropagation();
+      document.getElementById('exportMenu').classList.toggle('hidden');
+    }
+    document.addEventListener('click', e => {
+      const wrap = document.getElementById('exportMenuWrap');
+      if (wrap && !wrap.contains(e.target)) document.getElementById('exportMenu').classList.add('hidden');
+    });
+
+    function escapeXml(str) {
+      return String(str ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+    }
+
+    function slugify(str) {
+      return String(str).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'book';
+    }
+
+    // Chapter markdown -> HTML body. The chapter's own leading heading is dropped (the export
+    // adds a consistent chapter title) and spacer-only <br/> lines are removed.
+    function chapterBodyHtml(markdown) {
+      const lines = markdown.replace(/\r\n/g, '\n').split('\n');
+      const first = lines.findIndex(l => l.trim());
+      if (first >= 0 && /^#{1,6}\s/.test(lines[first])) lines.splice(first, 1);
+      const cleaned = lines.filter(l => !/^\s*(<br\s*\/?>\s*)+$/i.test(l)).join('\n').trim();
+      return marked.parse(cleaned);
+    }
+
+    // Word count of a chapter as a reader sees it: the markdown is rendered, the chapter's
+    // leading title heading and <br/> spacer lines are dropped, and only the visible text
+    // is counted (markdown symbols and HTML tags are not words).
+    function countWords(markdown) {
+      if (!markdown || !markdown.trim()) return 0;
+      const html = chapterBodyHtml(markdown).replace(/>/g, '> ');
+      const text = new DOMParser().parseFromString(html, 'text/html').body.textContent || '';
+      return text.split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length;
+    }
+
+    // HTML fragment -> well-formed XHTML fragment (required inside EPUB files).
+    function toXhtml(html) {
+      const doc = new DOMParser().parseFromString(`<!DOCTYPE html><html><body><div id="x">${html}</div></body></html>`, 'text/html');
+      doc.querySelectorAll('script, iframe, object, embed').forEach(n => n.remove());
+      const xml = new XMLSerializer().serializeToString(doc.getElementById('x'));
+      return xml.replace(/^<div[^>]*>/, '').replace(/<\/div>$/, '');
+    }
+
+    function downloadBlob(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 10000);
+    }
+
+    async function exportBook(format) {
+      document.getElementById('exportMenu').classList.add('hidden');
+      if (state.mode !== 'author' || state.patStatus !== 'valid') return;
+      const book = state.booksData && state.booksData.books.find(b => b.id === state.currentBookId);
+      if (!book) return alert("Select a book to export.");
+
+      const btn = document.getElementById('exportBtn');
+      const label = document.getElementById('exportBtnLabel');
+      btn.disabled = true;
+      try {
+        label.innerText = "Loading chapters...";
+        const chapters = await loadBookChapters(book, (n, t) => { label.innerText = `Loading ${n}/${t}...`; });
+        label.innerText = format === 'epub' ? "Building EPUB..." : format === 'md' ? "Building Markdown..." : "Preparing PDF...";
+        if (format === 'epub') {
+          await exportEpub(book, chapters);
+        } else if (format === 'md') {
+          exportMarkdown(book, chapters);
+        } else {
+          await exportPdf(book, chapters);
+        }
+      } catch (err) {
+        console.error(err);
+        alert(`Export failed: ${err.message}`);
+      } finally {
+        btn.disabled = false;
+        label.innerText = "Export Book";
+      }
+    }
+
+    // Single Markdown file: title block, contents list, then every chapter's markdown verbatim
+    // (including its <br/> paragraph spacers), separated by horizontal rules.
+    function exportMarkdown(book, chapters) {
+      const out = [`# ${book.title}`, ''];
+      if (book.author) out.push(`**${book.author}**`, '');
+      out.push('<br/>', '', '## Contents', '');
+      chapters.forEach(c => out.push(`- ${c.chap.title}`));
+      chapters.forEach(c => {
+        let text = c.text.replace(/\r\n/g, '\n').trim();
+        const firstLine = text.split('\n').find(l => l.trim()) || '';
+        if (!/^#{1,6}\s/.test(firstLine)) text = `## ${c.chap.title}\n\n<br/>\n\n${text}`;
+        out.push('', '---', '', text);
+      });
+      const md = out.join('\n') + '\n';
+      downloadBlob(new Blob([md], { type: 'text/markdown;charset=utf-8' }), `${slugify(book.title)}.md`);
+    }
+
+    async function exportEpub(book, chapters) {
+      await loadScript("https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js");
+      const zip = new JSZip();
+      const addFile = zip.file.bind(zip);
+      zip.file = (name, data, opts = {}) => addFile(name, data, { createFolders: false, ...opts });
+      const title = escapeXml(book.title);
+      const author = escapeXml(book.author || '');
+      const uid = `urn:uuid:${crypto.randomUUID ? crypto.randomUUID() : Date.now()}`;
+      const modified = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+
+      const page = (pageTitle, body, extraNs = '') => `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"${extraNs} xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>${pageTitle}</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+${body}
+</body>
+</html>`;
+
+      zip.file("mimetype", "application/epub+zip", { compression: "STORE", createFolders: false });
+      zip.file("META-INF/container.xml", `<?xml version="1.0" encoding="UTF-8"?>
+<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
+  <rootfiles>
+    <rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/>
+  </rootfiles>
+</container>`);
+
+      zip.file("OEBPS/style.css", `body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5; margin: 0 5%; }
+h1.chapter-title { text-align: center; margin: 3em 0 1.5em; font-size: 1.6em; page-break-before: always; }
+p { margin: 0; text-indent: 1.5em; text-align: justify; }
+h1 + p, hr + p, blockquote + p, .first { text-indent: 0; }
+hr { border: none; text-align: center; margin: 1.5em 0; }
+hr::after { content: "* * *"; }
+blockquote { margin: 1em 2em; font-style: italic; }
+.title-page { text-align: center; margin-top: 30%; }
+.title-page h1 { font-size: 2.2em; margin-bottom: 0.5em; }
+.title-page .author { font-size: 1.2em; }
+nav ol { list-style: none; padding: 0; }
+nav li { margin: 0.4em 0; }`);
+
+      zip.file("OEBPS/title.xhtml", page(title, `<section class="title-page" epub:type="titlepage">
+  <h1>${title}</h1>
+  ${author ? `<p class="author">${author}</p>` : ''}
+</section>`));
+
+      const items = chapters.map((c, i) => ({ id: `ch${String(i + 1).padStart(3, '0')}`, file: `ch${String(i + 1).padStart(3, '0')}.xhtml`, title: escapeXml(c.chap.title), text: c.text }));
+      items.forEach(it => {
+        zip.file(`OEBPS/${it.file}`, page(it.title, `<section epub:type="chapter">
+<h1 class="chapter-title">${it.title}</h1>
+${toXhtml(chapterBodyHtml(it.text))}
+</section>`));
+      });
+
+      zip.file("OEBPS/nav.xhtml", page("Contents", `<nav epub:type="toc" id="toc">
+  <h1>Contents</h1>
+  <ol>
+${items.map(it => `    <li><a href="${it.file}">${it.title}</a></li>`).join('\n')}
+  </ol>
+</nav>`));
+
+      zip.file("OEBPS/toc.ncx", `<?xml version="1.0" encoding="UTF-8"?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+  <head><meta name="dtb:uid" content="${uid}"/></head>
+  <docTitle><text>${title}</text></docTitle>
+  <navMap>
+${items.map((it, i) => `    <navPoint id="np${i + 1}" playOrder="${i + 1}"><navLabel><text>${it.title}</text></navLabel><content src="${it.file}"/></navPoint>`).join('\n')}
+  </navMap>
+</ncx>`);
+
+      zip.file("OEBPS/content.opf", `<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="bookid" xml:lang="en">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:identifier id="bookid">${uid}</dc:identifier>
+    <dc:title>${title}</dc:title>
+    ${author ? `<dc:creator>${author}</dc:creator>` : ''}
+    <dc:language>en</dc:language>
+    ${book.blurb ? `<dc:description>${escapeXml(book.blurb)}</dc:description>` : ''}
+    ${book.genre ? `<dc:subject>${escapeXml(book.genre)}</dc:subject>` : ''}
+    <meta property="dcterms:modified">${modified}</meta>
+  </metadata>
+  <manifest>
+    <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+    <item id="css" href="style.css" media-type="text/css"/>
+    <item id="title" href="title.xhtml" media-type="application/xhtml+xml"/>
+${items.map(it => `    <item id="${it.id}" href="${it.file}" media-type="application/xhtml+xml"/>`).join('\n')}
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="title"/>
+    <itemref idref="nav"/>
+${items.map(it => `    <itemref idref="${it.id}"/>`).join('\n')}
+  </spine>
+</package>`);
+
+      const blob = await zip.generateAsync({ type: "blob", mimeType: "application/epub+zip", compression: "DEFLATE" });
+      downloadBlob(blob, `${slugify(book.title)}.epub`);
+    }
+
+    // PDF uses the browser's own print engine (real, selectable text and proper page breaks).
+    // The print dialog opens with the formatted book; choose "Save as PDF" as the destination.
+    async function exportPdf(book, chapters) {
+      const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const toc = chapters.map((c, i) => `<li><a href="#ch${i + 1}">${esc(c.chap.title)}</a></li>`).join('');
+      const body = chapters.map((c, i) => `<section class="chapter" id="ch${i + 1}"><h1 class="chapter-title">${esc(c.chap.title)}</h1>${chapterBodyHtml(c.text)}</section>`).join('');
+      const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>${esc(book.title)}</title>
+<style>
+  @page { size: 6in 9in; margin: 0.8in 0.75in 0.9in; @bottom-center { content: counter(page); font: 10pt Georgia, serif; color: #444; } }
+  @page :first { @bottom-center { content: none; } }
+  html, body { margin: 0; padding: 0; background: #fff; color: #111; }
+  body { font-family: Georgia, "Times New Roman", serif; font-size: 11pt; line-height: 1.45; }
+  .title-page { height: 7in; display: flex; flex-direction: column; justify-content: center; text-align: center; break-after: page; }
+  .title-page h1 { font-size: 26pt; margin: 0 0 0.3in; }
+  .title-page .author { font-size: 14pt; }
+  .toc { break-after: page; }
+  .toc h2 { text-align: center; font-size: 16pt; margin: 0.5in 0 0.3in; }
+  .toc ol { list-style: none; padding: 0; }
+  .toc li { margin: 0.08in 0; }
+  .toc a { color: #111; text-decoration: none; }
+  .chapter { break-before: page; }
+  h1.chapter-title { text-align: center; font-size: 18pt; margin: 1in 0 0.4in; }
+  p { margin: 0; text-indent: 1.5em; text-align: justify; orphans: 2; widows: 2; }
+  h1 + p, hr + p, blockquote + p { text-indent: 0; }
+  hr { border: none; text-align: center; margin: 0.2in 0; }
+  hr::after { content: "* * *"; }
+  blockquote { margin: 0.15in 0.4in; font-style: italic; }
+  h2, h3, h4 { break-after: avoid; }
+</style></head><body>
+<section class="title-page"><h1>${esc(book.title)}</h1>${book.author ? `<div class="author">${esc(book.author)}</div>` : ''}</section>
+<nav class="toc"><h2>Contents</h2><ol>${toc}</ol></nav>
+${body}
+</body></html>`;
+
+      const old = document.getElementById('pdfPrintFrame');
+      if (old) old.remove();
+      const frame = document.createElement('iframe');
+      frame.id = 'pdfPrintFrame';
+      frame.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden;';
+      document.body.appendChild(frame);
+      await new Promise(resolve => { frame.onload = resolve; frame.srcdoc = html; });
+      // Let the browser use the book title as the suggested PDF file name
+      const appTitle = document.title;
+      document.title = book.title;
+      frame.contentWindow.focus();
+      frame.contentWindow.print();
+      setTimeout(() => { document.title = appTitle; }, 1000);
+    }
+
+    // --- AI API CLIENTS ---
+    async function callGemini(apiKey, model, systemPrompt, userPrompt) {
+      let activeModel = model;
+      if (activeModel.includes('1.5') || activeModel.includes('2.0')) {
+        activeModel = 'gemini-3.8-flash';
+      }
+
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${activeModel}:generateContent?key=${apiKey}`;
+      const payload = {
+        system_instruction: { parts: [{ text: systemPrompt }] },
+        contents: [{ role: "user", parts: [{ text: userPrompt }] }]
+      };
+      const res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      const data = await res.json();
+      if (data.error) throw new Error(`[Gemini API ${data.error.code}]: ${data.error.message}`);
+      return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
+    }
+
+    async function callOpenAI(apiKey, model, systemPrompt, userPrompt) {
+      const res = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization": `Bearer ${apiKey}` },
+        body: JSON.stringify({
+          model: model,
+          messages: [{ role: "system", content: systemPrompt }, { role: "user", content: userPrompt }]
+        })
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error.message);
+      return data.choices?.[0]?.message?.content || "No response generated.";
+    }
+
+    async function callAnthropic(apiKey, model, systemPrompt, userPrompt) {
+      // Claude 3.x models are retired; upgrade any old saved setting
+      if (!model || model.startsWith('claude-3')) model = 'claude-sonnet-5-5';
+      const res = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "x-api-key": apiKey,
+          "anthropic-version": "2023-06-01",
+          "content-type": "application/json",
+          "anthropic-dangerous-direct-browser-access": "true"
+        },
+        body: JSON.stringify({
+          model: model,
+          max_tokens: 8000,
+          system: systemPrompt,
+          messages: [{ role: "user", content: userPrompt }]
+        })
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error.message);
+      return data.content?.[0]?.text || "No response generated.";
+    }
+
+    async function callGroq(apiKey, model, systemPrompt, userPrompt) {
+      try {
+        return await callGroqRaw(apiKey, model, systemPrompt, userPrompt);
+      } catch (err) {
+        if (/does not exist|decommissioned|not have access/i.test(err.message)) {
+          throw new Error(`${err.message} Groq retires models regularly; choose a current model on the Groq card in Settings (⚙) — see console.groq.com/docs/models.`);
+        }
+        throw err;
+      }
+    }
+
+    async function callGroqRaw(apiKey, model, systemPrompt, userPrompt) {
+      const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization": `Bearer ${apiKey}` },
+        body: JSON.stringify({
+          model: model,
+          messages: [{ role: "system", content: systemPrompt }, { role: "user", content: userPrompt }]
+        })
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error.message);
+      return data.choices?.[0]?.message?.content || "No response generated.";
+    }
+
+    // OpenRouter uses the OpenAI-compatible chat completions format.
+    async function callOpenRouter(apiKey, model, systemPrompt, userPrompt) {
+      const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization": `Bearer ${apiKey}` },
+        body: JSON.stringify({
+          model: model,
+          messages: [{ role: "system", content: systemPrompt }, { role: "user", content: userPrompt }]
+        })
+      });
+      let data;
+      try { data = await res.json(); } catch (e) { throw new Error(`[OpenRouter ${res.status}]: unexpected response from OpenRouter.`); }
+      if (data.error) throw new Error(`[OpenRouter ${data.error.code || res.status}]: ${data.error.message}`);
+      return data.choices?.[0]?.message?.content || "No response generated.";
+    }
+
+    // --- GITHUB PERSISTENCE ---
+    async function commitGitHubFile(path, contentString, commitMessage) {
+      if (!state.settings.ghToken || !state.settings.ghOwner || !state.settings.ghRepo) return false;
+      const url = `https://api.github.com/repos/${state.settings.ghOwner}/${state.settings.ghRepo}/contents/${path}`;
+
+      try {
+        let sha = null;
+        const headers = getGitHubHeaders(true);
+        const getRes = await fetch(url, { headers, cache: "no-store" });
+        if (getRes.ok) {
+          const existing = await getRes.json();
+          sha = existing.sha;
+        }
+
+        const contentEncoded = btoa(unescape(encodeURIComponent(contentString)));
+        const putRes = await fetch(url, {
+          method: "PUT",
+          headers: {
+            ...headers,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            message: commitMessage,
+            content: contentEncoded,
+            sha: sha || undefined
+          })
+        });
+
+        return putRes.ok;
+      } catch (err) {
+        console.error(`Failed to commit ${path}:`, err);
+        return false;
+      }
+    }
+
+    async function saveReviewToGitHub(target, agentKey, payloadData) {
+      const what = target.scope === 'book' ? `whole book ${target.bookId}` : target.chapterId;
+      await commitGitHubFile(reviewPath(target, agentKey), JSON.stringify(payloadData, null, 2), `Update review: ${agentKey} for ${what}`);
+    }
+
+    async function saveCurrentChapter() {
+      if (libraryStatus() !== 'ok') return;
+      const statusEl = document.getElementById('saveStatus');
+      const content = document.getElementById('chapterEditor').value;
+      
+      document.getElementById('chapterViewer').innerHTML = marked.parse(content);
+      placeReaderMeta();
+      if (state.editorTab === 'preview') {
+        document.getElementById('authorPreviewPanel').innerHTML = marked.parse(content);
+      }
+
+      if (!state.settings.ghToken || !state.settings.ghOwner || !state.settings.ghRepo) {
+        alert("Please configure your GitHub Token, Owner, and Repository in Settings (⚙) to commit changes.");
+        return;
+      }
+
+      const book = state.booksData.books.find(b => b.id === state.currentBookId);
+      const chap = book.chapters.find(c => c.id === state.currentChapterId);
+      const path = `books/${book.id}/chapters/${chap.file}`;
+
+      statusEl.innerText = "Committing to GitHub...";
+      statusEl.className = "text-amber-400 text-xs animate-pulse";
+
+      const committedVersion = state.editVersion;
+      const ok = await commitGitHubFile(path, content, `Update chapter: ${chap.title}`);
+
+      if (ok && state.editVersion !== committedVersion) {
+        // Edits were made while the commit was in progress; those are still unsaved.
+        statusEl.innerText = "Unsaved changes";
+        statusEl.className = "text-amber-400 text-xs";
+        analyzeChapterDemographics(content);
+      } else if (ok) {
+        state.unsavedChanges = false;
+        statusEl.innerText = "✓ Committed to GitHub";
+        statusEl.className = "text-emerald-400 text-xs";
+
+        analyzeChapterDemographics(content);
+
+        setTimeout(() => { 
+          if (statusEl.innerText === "✓ Committed to GitHub") {
+            statusEl.innerText = "Saved"; 
+            statusEl.className = "text-slate-400 text-xs";
+          }
+        }, 3000);
+      } else {
+        statusEl.innerText = "❌ Commit failed";
+        statusEl.className = "text-rose-400 text-xs";
+        alert(`Failed to save chapter to GitHub. Check your permissions or repository settings.`);
+      }
+    }
+
+    async function createNewBookSubmit() {
+      if (state.bookModalMode === 'edit') return saveBookDetails();
+      if (!confirmDiscardChanges()) return;
+      const title = document.getElementById('newBookTitle').value.trim();
+      const author = document.getElementById('newBookAuthor').value.trim();
+      const genre = document.getElementById('newBookGenre').value.trim();
+      const blurb = document.getElementById('newBookBlurb').value.trim();
+
+      if (!title || !author || !genre) {
+        alert("Please fill in the required fields: Title, Author, and Genre.");
+        return;
+      }
+
+      const bookId = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      const firstChapTitle = document.getElementById('newBookFirstChapter').value.trim() || "Chapter 1";
+      const firstChapSlug = firstChapTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'chapter-1';
+      const firstChapId = `ch01-${firstChapSlug}`.replace(/^ch01-chapter-1-?/, 'ch01-').replace(/-$/, '') || 'ch01';
+      const firstChapFile = `${firstChapId}.md`;
+
+      const newBookObj = {
+        id: bookId,
+        title: title,
+        author: author,
+        genre: genre,
+        blurb: blurb,
+        chapters: [
+          { id: firstChapId, title: firstChapTitle, file: firstChapFile }
+        ]
+      };
+
+      state.booksData.books.push(newBookObj);
+
+      toggleNewBookModal();
+      renderBookDropdown();
+      switchBook(bookId);
+
+      if (state.settings.ghToken && state.settings.ghOwner && state.settings.ghRepo) {
+        // Book details (title, author, genre, blurb) live only in books.json — no per-book meta.json.
+        const initialChapMarkdown = `## ${firstChapTitle}\n\n<br/>\n\nStart writing your new manuscript chapter here...\n`;
+        await commitGitHubFile(`books/${bookId}/chapters/${firstChapFile}`, initialChapMarkdown, `Create initial chapter for ${title}`);
+
+        await commitGitHubFile("books.json", JSON.stringify(state.booksData, null, 2), `Add '${title}' to books.json index`);
+      }
+    }
+
+    // --- ABOUT THIS BOOK (title page with blurb) ---
+    function showAboutPage() {
+      const book = state.booksData && state.booksData.books.find(b => b.id === state.currentBookId);
+      if (!book) return;
+      cancelRenameChapter(false);
+      state.viewingAbout = true;
+      document.querySelectorAll('#chapterList button').forEach(b => b.classList.remove('bg-slate-800', 'text-white'));
+      const btn = document.getElementById('chap-btn-__about');
+      if (btn) btn.classList.add('bg-slate-800', 'text-white');
+      document.getElementById('aboutPage').classList.remove('hidden');
+      document.getElementById('currentChapterTitle').innerText = `${book.title} — About this book`;
+      applyAboutChrome();
+      renderAboutPage();
+      document.getElementById('aboutPage').scrollTop = 0;
+
+      // Fill in the word count if it hasn't been calculated yet.
+      if (state.bookWordCounts[book.id] === undefined && state.settings.ghOwner && state.settings.ghRepo) {
+        calculateBookWordCount(book).then(() => {
+          if (state.viewingAbout && state.currentBookId === book.id) renderAboutPage();
+          const badge = document.getElementById('bookWordCountValue');
+          if (state.currentBookId === book.id) badge.innerText = `${state.bookWordCounts[book.id].toLocaleString()} words`;
+        }).catch(() => {});
+      }
+    }
+
+    function hideAboutPage() {
+      if (!state.viewingAbout) return;
+      state.viewingAbout = false;
+      document.getElementById('aboutPage').classList.add('hidden');
+      const btn = document.getElementById('chap-btn-__about');
+      if (btn) btn.classList.remove('bg-slate-800', 'text-white');
+      applyAboutChrome();
+    }
+
+    // While the title page is open, chapter-only controls (commit, edit/preview, rename, analyze) are hidden.
+    function applyAboutChrome() {
+      const onAbout = state.viewingAbout;
+      const author = state.mode === 'author';
+      document.getElementById('editorControls').classList.toggle('hidden', !author || onAbout);
+      document.getElementById('renameChapterBtn').classList.toggle('hidden', !author || onAbout);
+      document.getElementById('demographicBar').classList.toggle('hidden', !author || onAbout);
+    }
+
+    function renderAboutPage() {
+      const book = state.booksData && state.booksData.books.find(b => b.id === state.currentBookId);
+      const el = document.getElementById('aboutPage');
+      if (!book) { el.innerHTML = ''; return; }
+      const esc = t => String(t ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      const author = state.mode === 'author';
+      const words = state.bookWordCounts[book.id];
+      const n = book.chapters.length;
+      const stats = [`${n} chapter${n === 1 ? '' : 's'}`, words !== undefined ? `${words.toLocaleString()} words` : 'counting words…'].join(' · ');
+      const blurb = (book.blurb || '').trim();
+      const blurbHtml = blurb
+        ? `<div class="about-blurb">${marked.parse(blurb)}</div>`
+        : (author ? `<p class="text-slate-400 italic text-base">No blurb yet — add one with ✎ Edit book details.</p>` : '');
+
+      el.innerHTML = `
+        <div class="text-center pt-6 pb-2">
+          ${book.genre ? `<p class="text-xs uppercase tracking-widest text-slate-400 mb-3" style="font-family: ui-sans-serif, system-ui, sans-serif;">${esc(book.genre)}</p>` : ''}
+          <h1 class="text-3xl sm:text-4xl font-bold text-white leading-tight mb-3">${esc(book.title)}</h1>
+          ${book.author ? `<p class="text-lg text-slate-300 mb-2">by ${esc(book.author)}</p>` : ''}
+          <p class="text-sm text-slate-400" style="font-family: ui-sans-serif, system-ui, sans-serif;">${stats}</p>
+        </div>
+        <hr class="my-6 border-slate-800" />
+        ${blurbHtml}
+        <div class="flex flex-wrap items-center justify-center gap-3 mt-8 mb-6" style="font-family: ui-sans-serif, system-ui, sans-serif;">
+          ${n ? `<button onclick="startReading()" class="px-5 py-2.5 rounded-lg bg-brand-700 hover:bg-brand-600 text-white text-sm font-medium transition-colors">Start reading →</button>` : ''}
+          ${author ? `<button onclick="openEditBookModal()" class="px-4 py-2.5 rounded-lg border border-slate-700 text-slate-200 hover:bg-slate-800 text-sm font-medium transition-colors">✎ Edit book details</button>` : ''}
+        </div>
+        <p id="aboutSaveStatus" class="text-center text-sm text-emerald-400 min-h-[1.25rem]" style="font-family: ui-sans-serif, system-ui, sans-serif;"></p>`;
+    }
+
+    function startReading() {
+      const book = state.booksData.books.find(b => b.id === state.currentBookId);
+      if (book && book.chapters.length) loadChapter(book.chapters[0].id);
+    }
+
+    // --- NEW BOOK / EDIT BOOK DETAILS (same window) ---
+    function setBookModalMode(mode) {
+      state.bookModalMode = mode;
+      const edit = mode === 'edit';
+      document.getElementById('newBookModalTitle').innerText = edit ? 'Edit Book Details' : 'Create New Book Project';
+      document.getElementById('newBookSubmitBtn').innerText = edit ? 'Save Changes' : 'Create Book';
+      document.getElementById('newBookFirstChapterField').classList.toggle('hidden', edit);
+    }
+
+    function openNewBookModal() {
+      setBookModalMode('create');
+      ['newBookTitle', 'newBookAuthor', 'newBookGenre', 'newBookFirstChapter', 'newBookBlurb'].forEach(id => { document.getElementById(id).value = ''; });
+      openModal('newBookModal');
+    }
+
+    function openEditBookModal() {
+      const book = state.booksData.books.find(b => b.id === state.currentBookId);
+      if (!book) return;
+      setBookModalMode('edit');
+      document.getElementById('newBookTitle').value = book.title || '';
+      document.getElementById('newBookAuthor').value = book.author || '';
+      document.getElementById('newBookGenre').value = book.genre || '';
+      document.getElementById('newBookBlurb').value = book.blurb || '';
+      openModal('newBookModal');
+    }
+
+    // Saves title/author/genre/blurb to books.json (the single source for book details).
+    // The book's id and folder never change, so chapters and reviews stay attached.
+    async function saveBookDetails() {
+      const book = state.booksData.books.find(b => b.id === state.currentBookId);
+      if (!book) return;
+      const title = document.getElementById('newBookTitle').value.trim();
+      const author = document.getElementById('newBookAuthor').value.trim();
+      const genre = document.getElementById('newBookGenre').value.trim();
+      const blurb = document.getElementById('newBookBlurb').value.trim();
+      if (!title || !author || !genre) {
+        alert("Please fill in the required fields: Title, Author, and Genre.");
+        return;
+      }
+      if (state.booksData.books.some(b => b !== book && b.title.toLowerCase() === title.toLowerCase())) {
+        alert("Another book already has that title.");
+        return;
+      }
+
+      const before = { title: book.title, author: book.author, genre: book.genre, blurb: book.blurb };
+      Object.assign(book, { title, author, genre, blurb });
+      closeModal('newBookModal');
+      setBookModalMode('create');
+      renderBookDropdown();
+      document.getElementById('bookSelect').value = book.id;
+      if (state.viewingAbout) {
+        document.getElementById('currentChapterTitle').innerText = `${book.title} — About this book`;
+        renderAboutPage();
+      } else {
+        const chap = book.chapters.find(c => c.id === state.currentChapterId);
+        if (chap) document.getElementById('currentChapterTitle').innerText = `${book.title} — ${chap.title}`;
+      }
+
+      if (state.settings.ghToken && state.settings.ghOwner && state.settings.ghRepo) {
+        const setStatus = (msg, cls) => { const el = document.getElementById('aboutSaveStatus'); if (el) { el.className = `text-center text-sm min-h-[1.25rem] ${cls}`; el.innerText = msg; } };
+        setStatus('Saving to GitHub…', 'text-amber-400');
+        const ok = await commitGitHubFile("books.json", JSON.stringify(state.booksData, null, 2), `Update details for '${title}'`);
+        if (!ok) {
+          Object.assign(book, before);
+          renderBookDropdown();
+          document.getElementById('bookSelect').value = book.id;
+          if (state.viewingAbout) { document.getElementById('currentChapterTitle').innerText = `${book.title} — About this book`; renderAboutPage(); }
+          alert("Couldn't save the book details to GitHub. Check your token in Settings (⚙) and try again.");
+          return;
+        }
+        setStatus('✓ Book details saved', 'text-emerald-400');
+      }
+    }
+
+    // --- RENAME CHAPTER ---
+    // Changes the chapter's title in books.json. The chapter's id and file name stay the same, so
+    // its text, saved reviews and demographics are kept. If the chapter text starts with a heading
+    // matching the old title, that heading is updated in the editor too (commit the chapter to save it).
+    function currentBookAndChapter() {
+      const book = state.booksData && state.booksData.books.find(b => b.id === state.currentBookId);
+      const chap = book && book.chapters.find(c => c.id === state.currentChapterId);
+      return { book, chap };
+    }
+
+    function startRenameChapter() {
+      const { chap } = currentBookAndChapter();
+      if (!chap) return;
+      document.getElementById('currentChapterTitle').classList.add('hidden');
+      document.getElementById('renameChapterBtn').classList.add('hidden');
+      document.getElementById('renameChapterError').classList.add('hidden');
+      document.getElementById('renameChapterForm').classList.remove('hidden');
+      const input = document.getElementById('renameChapterInput');
+      input.value = chap.title;
+      input.focus();
+      input.select();
+    }
+
+    function cancelRenameChapter(refocus = true) {
+      const form = document.getElementById('renameChapterForm');
+      if (form.classList.contains('hidden')) return;
+      form.classList.add('hidden');
+      document.getElementById('currentChapterTitle').classList.remove('hidden');
+      if (state.mode === 'author') {
+        document.getElementById('renameChapterBtn').classList.remove('hidden');
+        if (refocus) document.getElementById('renameChapterBtn').focus();
+      }
+    }
+
+    async function submitRenameChapter(e) {
+      e.preventDefault();
+      const { book, chap } = currentBookAndChapter();
+      if (!chap) return cancelRenameChapter();
+      const input = document.getElementById('renameChapterInput');
+      const errorEl = document.getElementById('renameChapterError');
+      const showError = msg => { errorEl.innerText = msg; errorEl.classList.remove('hidden'); input.focus(); };
+      const newTitle = input.value.trim();
+      const oldTitle = chap.title;
+
+      if (!newTitle) return showError("Enter a title.");
+      if (newTitle === oldTitle) return cancelRenameChapter();
+      if (book.chapters.some(c => c !== chap && c.title.toLowerCase() === newTitle.toLowerCase())) {
+        return showError("Another chapter already has that title.");
+      }
+
+      chap.title = newTitle;
+      cancelRenameChapter();
+      renderChapterList(book);
+      const activeBtn = document.getElementById(`chap-btn-${chap.id}`);
+      if (activeBtn) activeBtn.classList.add('bg-slate-800', 'text-white');
+      document.getElementById('currentChapterTitle').innerText = `${book.title} — ${newTitle}`;
+      renderReviewContent();
+
+      // Update the chapter's own leading heading if it matches the old title.
+      const editor = document.getElementById('chapterEditor');
+      const lines = editor.value.split('\n');
+      const first = lines.findIndex(l => l.trim());
+      let headingChanged = false;
+      if (first >= 0) {
+        const m = lines[first].match(/^(#{1,6})\s+(.*?)\s*$/);
+        if (m && m[2] === oldTitle) {
+          lines[first] = `${m[1]} ${newTitle}`;
+          editor.value = lines.join('\n');
+          markUnsaved();
+          headingChanged = true;
+        }
+      }
+
+      const statusEl = document.getElementById('saveStatus');
+      if (state.settings.ghToken && state.settings.ghOwner && state.settings.ghRepo) {
+        statusEl.innerText = "Saving new title...";
+        statusEl.className = "text-amber-400 text-xs animate-pulse";
+        const ok = await commitGitHubFile("books.json", JSON.stringify(state.booksData, null, 2), `Rename chapter '${oldTitle}' to '${newTitle}'`);
+        if (!ok) {
+          chap.title = oldTitle;
+          renderChapterList(book);
+          const btn = document.getElementById(`chap-btn-${chap.id}`);
+          if (btn) btn.classList.add('bg-slate-800', 'text-white');
+          document.getElementById('currentChapterTitle').innerText = `${book.title} — ${oldTitle}`;
+          statusEl.innerText = "❌ Rename failed";
+          statusEl.className = "text-rose-400 text-xs";
+          alert("Couldn't save the new chapter title to GitHub. Check your token in Settings (⚙) and try again.");
+          return;
+        }
+      }
+      if (headingChanged) {
+        statusEl.innerText = "Renamed — commit chapter to update its heading";
+        statusEl.className = "text-amber-400 text-xs";
+      } else {
+        statusEl.innerText = state.unsavedChanges ? "Unsaved changes" : "✓ Renamed";
+        statusEl.className = state.unsavedChanges ? "text-amber-400 text-xs" : "text-emerald-400 text-xs";
+      }
+    }
+
+    function promptNewChapter() {
+      if (libraryStatus() === 'no-books') return;
+      const form = document.getElementById('newChapterForm');
+      form.classList.remove('hidden');
+      document.getElementById('newChapterError').classList.add('hidden');
+      const input = document.getElementById('newChapterTitle');
+      input.value = '';
+      input.focus();
+    }
+
+    function cancelNewChapter() {
+      document.getElementById('newChapterForm').classList.add('hidden');
+      document.getElementById('newChapterBtn').focus();
+    }
+
+    async function submitNewChapter(e) {
+      e.preventDefault();
+      const input = document.getElementById('newChapterTitle');
+      const errorEl = document.getElementById('newChapterError');
+      const title = input.value.trim();
+      const showError = msg => { errorEl.innerText = msg; errorEl.classList.remove('hidden'); input.focus(); };
+      if (!title) return showError("Enter a title for the chapter.");
+
+      const book = state.booksData.books.find(b => b.id === state.currentBookId);
+      if (!book) return showError("Create a book first with + New Book.");
+      const chapNumber = String(book.chapters.length + 1).padStart(2, '0');
+      const chapId = `ch${chapNumber}-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+      if (book.chapters.some(c => c.id === chapId)) return showError("A chapter with that title already exists.");
+      if (!confirmDiscardChanges()) return;
+
+      const fileName = `${chapId}.md`;
+      const newChap = { id: chapId, title: title, file: fileName };
+      book.chapters.push(newChap);
+      document.getElementById('newChapterForm').classList.add('hidden');
+
+      renderChapterList(book);
+      loadChapter(chapId);
+
+      if (state.settings.ghToken && state.settings.ghOwner && state.settings.ghRepo) {
+        await commitGitHubFile("books.json", JSON.stringify(state.booksData, null, 2), `Add new chapter '${title}' to books.json index`);
+      }
+    }
+  </script>
+</body>
+</html>

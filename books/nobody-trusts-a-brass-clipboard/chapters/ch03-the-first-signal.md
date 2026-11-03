@@ -1,0 +1,143 @@
+## Chapter 3: The First Signal
+
+<br/>
+
+The trail downriver was less of a beaten path and more of a game trail through thick, fragrant pine brush and overgrown fern beds. Mark moved at a steady, measured pace. As an avid hiker and mountain biker, he knew better than to burn energy on a sprint, but doing so in this body was an eerie, surreal experience.
+
+<br/>
+
+His lungs didn't burn. His calves didn't tighten up. His 62-year-old body had required ten minutes of dynamic stretching just to get out of bed without pulling a hamstring, but this teenage frame absorbed every root, rock, and drop-off with fluid ease. He felt light, almost ridiculously springy.
+
+<br/>
+
+As he closed the distance toward the plume of grey smoke, the sound of roaring rapids began to fade, replaced by a rhythmic, metallic *thunk-thunk-thunk*.
+
+<br/>
+
+Mark slowed his pace, staying low behind a cluster of slate boulders. Years of whitewater kayaking and rock climbing gave him an instinctual eye for terrain reading. He picked a high vantage point overlooking a small clearing near a bend in the river.
+
+<br/>
+
+In the clearing stood a wooden cart with a broken wheel, tilting heavily to one side. Beside it was a man in rough, mud-stained linen tunics, cursing fluently at a splintered wooden axle while swinging an iron mallet with all the technique of an angry toddler hitting a bass drum.
+
+<br/>
+
+Standing a few feet away, holding a tall, carved wooden staff, was a woman in a deep indigo cloak.
+
+<br/>
+
+<p align="center">
+  <img src="books/nobody-trusts-a-brass-clipboard/images/ch-3-the-final-signal.png" >
+</p>
+
+<br/>
+
+Mark crouched behind a pine bush, narrowing his eyes. *"Right,"* he thought. *"Mercenary merchant, travelling sage. Classic fantasy archetypes. If a text box pops up asking me to collect six rat tails, I'm going to jump into the river."*
+
+<br/>
+
+The woman threw her hands up in visible frustration, spat a surprisingly colorful oath on the ground, and stepped toward the broken wheel.
+
+<br/>
+
+What happened next made Mark's breath catch in his throat.
+
+<br/>
+
+She didn't grab a spare plank or an iron wedge. She planted her staff into the dirt, closed her eyes, and spoke a short, sharp phrase in a booming, dramatic theater-voice: *"Verba-lignum, structura reparet!"*
+
+<br/>
+
+At her feet, the ground flickered. A faint, soft glow—like cheap blue LED strip lighting glued to a dorm room baseboard—rippled across the moss. She held her hand out toward the broken wooden axle. The splintered wood groaned, and then, impossibly, small fibrous tendrils grew out of the cracked timber, weaving together like a rapid, budget 3D printer until the axle pulled itself straight and solid.
+
+<br/>
+
+The blue glow faded. The woman wiped sweat from her forehead, looking like she’d just run a half-marathon, and leaned heavily on her staff, wheezing.
+
+<br/>
+
+Mark sat back against the rock, staring at his own hands.
+
+<br/>
+
+*"Okay,"* he whispered, his brain grinding to a screeching halt. *"Okay. That wasn't a trick. That wasn't a shadow, a bad angle, or a gas-induced hallucination."*
+
+<br/>
+
+His mind immediately scrambled for a logical baseline. He understood geology—rock formations, mineral compositions. He understood basic physics—conservation of mass, thermal dynamics, structural mechanics. Wood didn't just re-weave itself without an immense input of organized energy and organic material.
+
+<br/>
+
+*Unless.*
+
+<br/>
+
+Mark leaned forward again, watching the woman closely as she panted.
+
+<br/>
+
+*"It wasn't creation,"* Mark analyzed silently, his software-architect brain completely hijacking the scenario. *"She didn't summon wood out of thin air. The surrounding moss withered slightly when the light flashed! Energy transfer. She drew ambient thermal or biological energy, used a specific vocal frequency or mental intent as an execution trigger, and directed the structural repair of the cellulose."*
+
+<br/>
+
+He blinked.
+
+<br/>
+
+*"It's an energy manipulation protocol. A system with inputs, energy conversion, and physical output. It’s not magic—it's a poorly optimized runtime environment!"*
+
+<br/>
+
+The realization hit him not with fear, but with the familiar, electric spark of a brand-new hobby. It was the exact feeling he’d gotten when he picked up his first Jiu-Jitsu gi, or bought his first whitewater kayak, or spent three weeks learning Rust just to see how memory safety worked under the hood.
+
+<br/>
+
+This wasn't a stroke. His dying brain couldn't invent a self-consistent, rule-based physics engine on the fly—especially one that required a 40% energy tax from local lawn care.
+
+<br/>
+
+This world had a fundamental mechanics layer he didn't understand yet. And Mark Vance was a man who spent his entire life taking things apart to see how they worked—and then filing six tickets explaining why the original design was terrible.
+
+<br/>
+
+He took a deep breath, adjusted his posture, and stepped out from behind the boulders, making sure to step loudly on a dry branch so he wouldn't get impaled by an blue-glowing broomstick.
+
+<br/>
+
+*SNAP.*
+
+<br/>
+
+The merchant whirled around, clutching his iron mallet like a club and nearly tripping over his own boots. The cloaked woman raised her staff defensively, her sharp brown eyes locking onto the skinny, 14-year-old boy walking out of the woods.
+
+<br/>
+
+Mark held up both hands, palms outward, keeping his stance relaxed and non-threatening—a universal gesture of peace, or at least a gesture that said *Please don't shoot acid-snoot pig-bears at me.*
+
+<br/>
+
+*"Hey there,"* Mark said, his youthful, crackly teenager voice echoing through the clearing. *"Looks like you fixed the wood, but the whole frame is still listing about fifteen degrees to the port side. Do you need a hand lifting it while you get the wheel back on?"*
+
+<br/>
+
+The merchant blinked, lowering his hammer slightly, his expression shifting from defensive to utter, cross-eyed confusion.
+
+<br/>
+
+*"Lifting it?"* the man asked, speaking in plain, perfectly understandable English—or whatever local language Mark's brain was automatically processing without a hitch. *"Boy, where'd you come from? You look like you fell out of a pine tree. You weigh a hundred pounds soaking wet with rocks in your pockets."*
+
+<br/>
+
+Mark smiled faintly, relieved that at least the local communication stack worked out of the box. He shifted his stance, setting his feet wide in a solid BJJ base to demonstrate leverage.
+
+<br/>
+
+*"Weight doesn't matter as much as mechanical advantage,"* Mark said, stepping toward the cart with the relaxed confidence of a guy who had spent forty years troubleshooting problems while junior devs panicked. *"If we use a sturdy branch as a class-one lever and put a rock under it for a fulcrum, the two of us can lift that side effortlessly without anyone blowing out a hamstring."*
+
+<br/>
+
+The merchant looked at the kid, then at his woman companion, then back at the cart. "What the hell is a class-one lever?"
+
+<br/>
+
+Mark sighed internally. *"Great. I'm in a world that has magic 3D-printing, but hasn't covered middle school physical science yet."*

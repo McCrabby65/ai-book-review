@@ -1,0 +1,411 @@
+{
+  "books": [
+    {
+      "id": "nobody-trusts-a-brass-clipboard",
+      "title": "Nobody trusts a brass clipboard",
+      "author": "McSloth",
+      "genre": "Fantasy / Isekai",
+      "blurb": "Mark spent forty years keeping legacy servers alive. Then his heart gave out during an overnight deployment. Now he's reincarnated in a fantasy realm where magic is governed by ancient, spaghetti-coded laws—and the local gods don't know what a hotfix is.",
+      "chapters": [
+        {
+          "id": "prologue",
+          "title": "Prologue: The Crunch Before the Dark",
+          "file": "prologue.md"
+        },
+        {
+          "id": "ch01-the-rollback",
+          "title": "Chapter 1: The Rollback",
+          "file": "ch01-the-rollback.md"
+        },
+        {
+          "id": "ch02-the-ground-truth-problem",
+          "title": "Chapter 2: The Ground Truth Problem",
+          "file": "ch02-the-ground-truth-problem.md"
+        },
+        {
+          "id": "ch03-the-first-signal",
+          "title": "Chapter 3: The First Signal",
+          "file": "ch03-the-first-signal.md"
+        },
+        {
+          "id": "ch04-the-lever-and-the-code",
+          "title": "Chapter 4: The Lever and the Code",
+          "file": "ch04-the-lever-and-the-code.md"
+        },
+        {
+          "id": "ch06-chapter-5-hello-world",
+          "title": "Chapter 5: Hello World",
+          "file": "ch06-chapter-5-hello-world.md"
+        },
+        {
+          "id": "ch07-chapter-6-deconstructing-the-hardware-and-the-syntax",
+          "title": "Chapter 6: Deconstructing the Hardware and the Syntax",
+          "file": "ch07-chapter-6-deconstructing-the-hardware-and-the-syntax.md"
+        },
+        {
+          "id": "ch08-chapter-7-the-bottleneck-and-the-guild",
+          "title": "Chapter 7: The Bottleneck and the Guild",
+          "file": "ch08-chapter-7-the-bottleneck-and-the-guild.md"
+        },
+        {
+          "id": "ch09-chapter-8-the-translation-layer-and-street-level-leverage",
+          "title": "Chapter 8: The Translation Layer and Street-Level Leverage",
+          "file": "ch09-chapter-8-the-translation-layer-and-street-level-leverage.md"
+        },
+        {
+          "id": "ch10-chapter-9-security-patches-and-retaliation",
+          "title": "Chapter 9: Security Patches and Retaliation",
+          "file": "ch10-chapter-9-security-patches-and-retaliation.md"
+        },
+        {
+          "id": "ch11-chapter-10-resource-allocation-hardware-hacking",
+          "title": "Chapter 10: Resource Allocation & Hardware Hacking",
+          "file": "ch11-chapter-10-resource-allocation-hardware-hacking.md"
+        },
+        {
+          "id": "ch12-chapter-11-rapid-prototyping-the-mages-monopoly",
+          "title": "Chapter 11: Rapid Prototyping & The Mages' Monopoly",
+          "file": "ch12-chapter-11-rapid-prototyping-the-mages-monopoly.md"
+        },
+        {
+          "id": "ch13-chapter-12-the-wearable-interface",
+          "title": "Chapter 12: The Wearable Interface",
+          "file": "ch13-chapter-12-the-wearable-interface.md"
+        },
+        {
+          "id": "ch14-chapter-13-capacitor-calibration-the-commercial-pipeline",
+          "title": "Chapter 13: Capacitor Calibration & The Commercial Pipeline",
+          "file": "ch14-chapter-13-capacitor-calibration-the-commercial-pipeline.md"
+        },
+        {
+          "id": "ch15-chapter-14-peer-review-the-supply-chain",
+          "title": "Chapter 14: Peer Review & The Supply Chain",
+          "file": "ch15-chapter-14-peer-review-the-supply-chain.md"
+        },
+        {
+          "id": "ch16-chapter-15-dual-crystal-logic-the-first-glitch",
+          "title": "Chapter 15: Dual-Crystal Logic & The First Glitch",
+          "file": "ch16-chapter-15-dual-crystal-logic-the-first-glitch.md"
+        },
+        {
+          "id": "ch17-chapter-16-the-chapterhouse-audit",
+          "title": "Chapter 16: The Chapterhouse Audit",
+          "file": "ch17-chapter-16-the-chapterhouse-audit.md"
+        },
+        {
+          "id": "ch18-chapter-17-legacy-code-in-the-classroom",
+          "title": "Chapter 17: Legacy Code in the Classroom",
+          "file": "ch18-chapter-17-legacy-code-in-the-classroom.md"
+        },
+        {
+          "id": "ch19-chapter-18-the-skunkworks-the-hidden-directive",
+          "title": "Chapter 18: The Skunkworks & The Hidden Directive",
+          "file": "ch19-chapter-18-the-skunkworks-the-hidden-directive.md"
+        },
+        {
+          "id": "ch20-chapter-19-the-security-sweep",
+          "title": "Chapter 19: The Security Sweep",
+          "file": "ch20-chapter-19-the-security-sweep.md"
+        },
+        {
+          "id": "ch21-chapter-20-root-access",
+          "title": "Chapter 20: Root Access",
+          "file": "ch21-chapter-20-root-access.md"
+        },
+        {
+          "id": "ch22-chapter-21-onboarding",
+          "title": "Chapter 21: Onboarding",
+          "file": "ch22-chapter-21-onboarding.md"
+        },
+        {
+          "id": "ch23-chapter-22-the-message-bus",
+          "title": "Chapter 22: The Message Bus",
+          "file": "ch23-chapter-22-the-message-bus.md"
+        },
+        {
+          "id": "ch24-chapter-23-reading-the-source",
+          "title": "Chapter 23: Reading the Source",
+          "file": "ch24-chapter-23-reading-the-source.md"
+        },
+        {
+          "id": "ch25-chapter-24-the-practical-exam",
+          "title": "Chapter 24: The Practical Exam",
+          "file": "ch25-chapter-24-the-practical-exam.md"
+        },
+        {
+          "id": "ch26-chapter-25-undocumented-dependencies",
+          "title": "Chapter 25: Undocumented Dependencies",
+          "file": "ch26-chapter-25-undocumented-dependencies.md"
+        },
+        {
+          "id": "ch27-chapter-26-executive-offsite",
+          "title": "Chapter 26: Executive Offsite",
+          "file": "ch27-chapter-26-executive-offsite.md"
+        },
+        {
+          "id": "ch28-chapter-27-the-audit",
+          "title": "Chapter 27: The Audit",
+          "file": "ch28-chapter-27-the-audit.md"
+        },
+        {
+          "id": "ch29-chapter-28-forty-miles",
+          "title": "Chapter 28: Forty Miles",
+          "file": "ch29-chapter-28-forty-miles.md"
+        },
+        {
+          "id": "ch30-chapter-29-nothing-to-report",
+          "title": "Chapter 29: Nothing to Report",
+          "file": "ch30-chapter-29-nothing-to-report.md"
+        },
+        {
+          "id": "ch31-chapter-30-the-stroke-fallacy",
+          "title": "Chapter 30: The Stroke Fallacy",
+          "file": "ch31-chapter-30-the-stroke-fallacy.md"
+        },
+        {
+          "id": "ch32-chapter-31-margaret",
+          "title": "Chapter 31: Margaret",
+          "file": "ch32-chapter-31-margaret.md"
+        },
+        {
+          "id": "ch33-chapter-32-the-patch",
+          "title": "Chapter 32: The Patch",
+          "file": "ch33-chapter-32-the-patch.md"
+        },
+        {
+          "id": "ch34-chapter-33-post-mortem",
+          "title": "Chapter 33: Post-Mortem",
+          "file": "ch34-chapter-33-post-mortem.md"
+        }
+      ]
+    },
+    {
+      "id": "reincarnated-as-expendable-the-misadventures-of-fred-mai-captain",
+      "title": "Reincarnated as Expendable: The Misadventures of Fred Mai-Captain",
+      "author": "McSloth",
+      "genre": "Fantasy",
+      "blurb": "Reincarnated as Expendable: The Misadventures of Fred Mai-Captain. A standalone fantasy satire of about 20 chapters.\nFred Mai-Captain is a night-shift convenience-store clerk whose only ambition is to make Shift Supervisor. Then a truck marked \"Fekfosio Recruitment Services\" runs him down.\nHe wakes in the processing hall of Goddess Facilmora, a reincarnation manager far behind on quota, who stamps him through in seconds. His cheat skill is Always Finds Socks. His Status Screen misfiles him as \"Latrine Paladin, Lv. 1,\" and his surname crashes the rank field. Beside him in the queue, a handsome young man named Kaito Reklamo receives a holy sword, infinite mana and a harem.\nThe Holy Kingdom of Fekfosio runs on one industry: summoning Heroes from Earth to fight an endless war against the Demon Lord. A few Chosen Ones are the face of the war. Everyone else, tens of thousands of them, does the cleaning, the fighting and the dying.\nAt boot camp, Sergeant Gangrene Gruk renames Fred \"Recruit Hyphen\" and promises he'll make captain \"when demons fly.\" Quartermaster Bilge Reprobate sells Fred his own boots. Fred befriends Mook Moreover, a former accountant who opens every sentence with \"Moreover.\" At graduation Kaito is showered in petals, and Fred is issued a rusty sword and a mop.\nFred is assigned to Kaito's party as Sanitation Support. A general mistakes his name for his rank and puts him in charge of a doomed charge. Fred's mop accidentally wins the battle, and Mook is killed. Sister Verna Walleye, a healer who has failed her eye exam eleven times, gives Fred an orc's arm by mistake. The victory is credited to Kaito, and Fred is fined for the mop.\nOn leave in the capital, Fred spends weeks lost in a city that is one vast building of forms, and he comes out knowing them better than anyone. He's arrested for impersonating an officer. When he appeals his misfiled class, he discovers the truth. The Bureau of Destiny picks its Chosen Ones by marketing focus group, Kaito's legendary feats are staged, and Kaito himself is miserable and contractually bound to smile. Being Chosen is a product, and the war is its advertising. Fred is court-martialed for leaking the truth and sentenced to the Demon Front.\nThe demons capture him (demons, it turns out, fly). Their realm is the same machine with horns, and Mook is there, re-summoned as a demon. Demon General Malingering Mortuus, forever trying to get signed off sick, admits that both sides need the war, because without it there's nothing to sell. Fred meets the Demon Lord, who turns out to be a committee, and is traded back in a prisoner exchange.\nPresumed dead, Fred gets home in time to hear himself eulogized as \"Captain Mai-Captain,\" complete with lines from \"O Captain! My Captain!\" He walks in alive, and the posthumous promotion stands.\nPosted to the Summoning Bureau, Captain Mai-Captain looks every inch the loyal officer. A terrified new arrival stammers, \"Captain... Mai-Captain?\" Fred returns the salute, then quietly stamps the boy's file \"Returned to Sender\" and sends him home. One down, ten thousand to go.",
+      "chapters": [
+        {
+          "id": "ch01-truck-kun",
+          "title": "Chapter 1: Truck-Kun",
+          "file": "ch01-truck-kun.md"
+        },
+        {
+          "id": "ch02-chapter-2-processing",
+          "title": "Chapter 2: Processing",
+          "file": "ch02-chapter-2-processing.md"
+        },
+        {
+          "id": "ch03-chapter-3-the-status-screen",
+          "title": "Chapter 3: The Status Screen",
+          "file": "ch03-chapter-3-the-status-screen.md"
+        },
+        {
+          "id": "ch04-chapter-4-boot-camp",
+          "title": "Chapter 4: Boot Camp",
+          "file": "ch04-chapter-4-boot-camp.md"
+        },
+        {
+          "id": "ch05-chapter-5-graduation",
+          "title": "Chapter 5: Graduation",
+          "file": "ch05-chapter-5-graduation.md"
+        },
+        {
+          "id": "ch06-chapter-6-assigned",
+          "title": "Chapter 6: Assigned",
+          "file": "ch06-chapter-6-assigned.md"
+        },
+        {
+          "id": "ch07-chapter-7-mistaken-salute",
+          "title": "Chapter 7: Mistaken Salute",
+          "file": "ch07-chapter-7-mistaken-salute.md"
+        },
+        {
+          "id": "ch08-chapter-8-the-battle",
+          "title": "Chapter 8: The Battle",
+          "file": "ch08-chapter-8-the-battle.md"
+        },
+        {
+          "id": "ch09-chapter-9-the-wrong-arm",
+          "title": "Chapter 9: The Wrong Arm",
+          "file": "ch09-chapter-9-the-wrong-arm.md"
+        },
+        {
+          "id": "ch10-chapter-10-the-medal",
+          "title": "Chapter 10: The Medal",
+          "file": "ch10-chapter-10-the-medal.md"
+        },
+        {
+          "id": "ch11-chapter-11-leave-in-fekfosio",
+          "title": "Chapter 11: Leave in Fekfosio",
+          "file": "ch11-chapter-11-leave-in-fekfosio.md"
+        },
+        {
+          "id": "ch12-chapter-12-impersonating-an-officer",
+          "title": "Chapter 12: Impersonating an Officer",
+          "file": "ch12-chapter-12-impersonating-an-officer.md"
+        },
+        {
+          "id": "ch13-chapter-13-the-appeals-office",
+          "title": "Chapter 13: The Appeals Office",
+          "file": "ch13-chapter-13-the-appeals-office.md"
+        }
+      ]
+    },
+    {
+      "id": "scope-creep",
+      "title": "Scope Creep",
+      "author": "P.D. McSwain",
+      "genre": "Fantasy",
+      "blurb": "Mike Dobbins was a software developer from Raleigh who died at his desk at 2 a.m., fixing a feature a salesman promised by Friday. When a frazzled afterlife support agent offers him one divine blessing, he skips the sword skills and asks for something that would actually have helped: the power to know, exactly, how long things take.\n\nReborn in a world of swords and sorcery, Mike walks into the Adventurers' Guild of Brindlemoor at twelve years old with a perfect estimate for everything. Then he meets the Guildmaster.\n\nBrannoc signs blood contracts without reading them. Priscilla promises wyvern removals by Friday, every Friday. The Duke rings a priority bell at midnight. The guild's records golem has a hundred undocumented rules, and its replacement has none of them. And the new Chief Ink Officer, a former tavern waiter who speaks only in buzzwords, has never once been responsible for anything going wrong.\n\nMike is always right. It never helps. Every warning is labeled negative, every estimate becomes a deadline, and every failure lands on the clerk who saw it coming.\n\nThen three disasters converge on the same day: a debt devil's audit, a festival nobody can staff, and a two-hundred-year-old demon who's furious that someone moved the front door. Mike's skill gives the guild seven days to live.\n\nSaving it will take something no adventurers' guild has ever tried: a list, a ranking, one name per job, and the courage to say *no*.\n\n*The IT Crowd* meets *Konosuba* in a comedy for anyone who has ever been told to \"just make it work by Friday.\"",
+      "chapters": [
+        {
+          "id": "ch01-prologue-ticket-4471",
+          "title": "Prologue: Ticket #4471",
+          "file": "ch01-prologue-ticket-4471.md"
+        },
+        {
+          "id": "ch02-chapter-1-odd-jobs",
+          "title": "Chapter 1: Odd Jobs",
+          "file": "ch02-chapter-1-odd-jobs.md"
+        },
+        {
+          "id": "ch03-chapter-2-onboarding",
+          "title": "Chapter 2: Onboarding",
+          "file": "ch03-chapter-2-onboarding.md"
+        },
+        {
+          "id": "ch04-chapter-3-the-basement",
+          "title": "Chapter 3: The Basement",
+          "file": "ch04-chapter-3-the-basement.md"
+        },
+        {
+          "id": "ch05-chapter-4-nineteen-days",
+          "title": "Chapter 4: Nineteen Days",
+          "file": "ch05-chapter-4-nineteen-days.md"
+        },
+        {
+          "id": "ch06-chapter-5-the-party",
+          "title": "Chapter 5: The Party",
+          "file": "ch06-chapter-5-the-party.md"
+        },
+        {
+          "id": "ch07-chapter-6-the-night-bell",
+          "title": "Chapter 6: The Night Bell",
+          "file": "ch07-chapter-6-the-night-bell.md"
+        },
+        {
+          "id": "ch08-chapter-7-day-fifteen",
+          "title": "Chapter 7: Day Fifteen",
+          "file": "ch08-chapter-7-day-fifteen.md"
+        },
+        {
+          "id": "ch09-chapter-8-day-nineteen",
+          "title": "Chapter 8: Day Nineteen",
+          "file": "ch09-chapter-8-day-nineteen.md"
+        },
+        {
+          "id": "ch10-chapter-9-stand-up",
+          "title": "Chapter 9: Stand-Up",
+          "file": "ch10-chapter-9-stand-up.md"
+        },
+        {
+          "id": "ch11-chapter-10-dragon-proof",
+          "title": "Chapter 10: Dragon-Proof",
+          "file": "ch11-chapter-10-dragon-proof.md"
+        },
+        {
+          "id": "ch12-chapter-11-just-move-the-door",
+          "title": "Chapter 11: Just Move the Door",
+          "file": "ch12-chapter-11-just-move-the-door.md"
+        },
+        {
+          "id": "ch13-chapter-12-edge-case",
+          "title": "Chapter 12: Edge Case",
+          "file": "ch13-chapter-12-edge-case.md"
+        },
+        {
+          "id": "ch14-chapter-13-malphus-of-accounts",
+          "title": "Chapter 13: Malphus of Accounts",
+          "file": "ch14-chapter-13-malphus-of-accounts.md"
+        },
+        {
+          "id": "ch15-chapter-14-goblin-ears",
+          "title": "Chapter 14: Goblin Ears",
+          "file": "ch15-chapter-14-goblin-ears.md"
+        },
+        {
+          "id": "ch16-chapter-15-the-chief-ink-officer",
+          "title": "Chapter 15: The Chief Ink Officer",
+          "file": "ch16-chapter-15-the-chief-ink-officer.md"
+        },
+        {
+          "id": "ch17-chapter-16-the-big-rewrite",
+          "title": "Chapter 16: The Big Rewrite",
+          "file": "ch17-chapter-16-the-big-rewrite.md"
+        },
+        {
+          "id": "ch18-chapter-17-works-in-my-tower",
+          "title": "Chapter 17: Works in My Tower",
+          "file": "ch18-chapter-17-works-in-my-tower.md"
+        },
+        {
+          "id": "ch19-chapter-18-the-last-archmage",
+          "title": "Chapter 18: The Last Archmage",
+          "file": "ch19-chapter-18-the-last-archmage.md"
+        },
+        {
+          "id": "ch20-chapter-19-scope-creep",
+          "title": "Chapter 19: Scope Creep",
+          "file": "ch20-chapter-19-scope-creep.md"
+        },
+        {
+          "id": "ch21-chapter-20-seven-days",
+          "title": "Chapter 20: Seven Days",
+          "file": "ch21-chapter-20-seven-days.md"
+        },
+        {
+          "id": "ch22-chapter-21-two-weeks-notice",
+          "title": "Chapter 21: Two Weeks' Notice",
+          "file": "ch22-chapter-21-two-weeks-notice.md"
+        },
+        {
+          "id": "ch23-chapter-22-the-war-room",
+          "title": "Chapter 22: The War Room",
+          "file": "ch23-chapter-22-the-war-room.md"
+        },
+        {
+          "id": "ch24-chapter-23-no-your-grace",
+          "title": "Chapter 23: No, Your Grace",
+          "file": "ch24-chapter-23-no-your-grace.md"
+        },
+        {
+          "id": "ch25-chapter-24-the-audit",
+          "title": "Chapter 24: The Audit",
+          "file": "ch25-chapter-24-the-audit.md"
+        },
+        {
+          "id": "ch26-chapter-25-legacy",
+          "title": "Chapter 25: Legacy",
+          "file": "ch26-chapter-25-legacy.md"
+        },
+        {
+          "id": "ch27-chapter-26-the-retrospective",
+          "title": "Chapter 26: The Retrospective",
+          "file": "ch27-chapter-26-the-retrospective.md"
+        },
+        {
+          "id": "ch28-chapter-27-credit-where-due",
+          "title": "Chapter 27: Credit Where Due",
+          "file": "ch28-chapter-27-credit-where-due.md"
+        },
+        {
+          "id": "ch29-chapter-28-ticket-closed",
+          "title": "Chapter 28: Ticket Closed",
+          "file": "ch29-chapter-28-ticket-closed.md"
+        }
+      ]
+    }
+  ]
+}
