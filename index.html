@@ -210,6 +210,15 @@
     </div>
 
     <div class="flex items-center gap-2 md:gap-3">
+      <!-- Link to the project's GitHub repository (opens in a new tab) -->
+      <a id="repoLink" href="https://github.com/buswain65/ai-book-review" target="_blank" rel="noopener noreferrer"
+         title="View this project on GitHub (opens in a new tab)" aria-label="View this project on GitHub (opens in a new tab)"
+         class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white text-xs px-2.5 py-1.5 rounded-lg font-medium transition-colors">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        <span class="hidden lg:inline">GitHub</span>
+        <span aria-hidden="true" class="hidden lg:inline text-slate-400">↗</span>
+      </a>
+
       <!-- Export Book (EPUB / PDF) -->
       <!-- Shown only in Author Mode with a GitHub token that has write access to the repo -->
       <div class="relative hidden" id="exportMenuWrap">
@@ -696,6 +705,14 @@
       return { owner: m[1], repo: firstPath && !firstPath.includes('.') ? firstPath : `${m[1]}.github.io` };
     }
 
+    // Point the header's GitHub link at the repository the books are loaded from.
+    function updateRepoLink() {
+      const link = document.getElementById('repoLink');
+      if (link && state.settings.ghOwner && state.settings.ghRepo) {
+        link.href = `https://github.com/${encodeURIComponent(state.settings.ghOwner)}/${encodeURIComponent(state.settings.ghRepo)}`;
+      }
+    }
+
     function loadSettings() {
       let saved = null;
       try { saved = localStorage.getItem('storyforge_settings'); } catch (e) {}
@@ -743,6 +760,7 @@
       updateAnalysisModelOptions();
 
       renderAgentSettingsUI();
+      updateRepoLink();
     }
 
     function renderAgentSettingsUI() {
@@ -795,6 +813,7 @@
       });
 
       localStorage.setItem('storyforge_settings', JSON.stringify(state.settings));
+      updateRepoLink();
       toggleSettingsModal();
       initApp();
       refreshPatStatus();
