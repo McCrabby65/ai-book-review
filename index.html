@@ -553,7 +553,8 @@
         <hr class="border-slate-800" />
 
         <!-- Per-Agent Provider Assignment -->
-        <h3 class="font-semibold text-slate-200">Assign Provider to Each Agent</h3>
+        <h3 class="font-semibold text-slate-200">Agents: Critique Tone &amp; Provider</h3>
+        <p class="text-xs text-slate-400 -mt-4">Tone sets how harsh each agent's critique is, from Encouraging to Brutal. It applies to the next review you run; saved reviews show the tone they were written with.</p>
         <div id="agentAssignmentsConfig" class="space-y-3">
           <!-- Dynamic Agent Assignment UI controls injected via JS -->
         </div>
@@ -637,6 +638,34 @@
       }
     };
 
+    // --- CRITIQUE TONE (harshness), chosen per agent in Settings ---
+    const CRITIQUE_TONES = {
+      encouraging: {
+        label: 'Encouraging',
+        hint: 'Leads with strengths; only the 2–3 most important issues',
+        instruction: 'Be warm and encouraging. Lead with what genuinely works, frame problems as opportunities, and limit criticism to the two or three issues that matter most.'
+      },
+      balanced: {
+        label: 'Balanced',
+        hint: 'Honest strengths and weaknesses (default)',
+        instruction: 'Be honest and balanced: give real strengths and real weaknesses in proportion to how significant they are.'
+      },
+      tough: {
+        label: 'Tough',
+        hint: 'Little praise; focuses on what isn\'t working',
+        instruction: 'Be tough. Keep praise brief and spend most of the critique on what is not working, citing specific chapters and passages. Do not soften problems.'
+      },
+      brutal: {
+        label: 'Brutal',
+        hint: 'No softening; says plainly if it would sell',
+        instruction: 'Be brutally honest, like a harsh professional reviewer or an editor writing a rejection. Do not soften anything, call out every significant weakness directly, and state plainly whether this would be published or sell as it stands. Stay specific and professional: criticize the writing, never the author.'
+      }
+    };
+    function agentTone(agentKey) {
+      const t = state.settings.agentTones && state.settings.agentTones[agentKey];
+      return CRITIQUE_TONES[t] ? t : 'balanced';
+    }
+
     // --- STATE MANAGEMENT ---
     let state = {
       mode: 'view', // 'view' or 'author'
@@ -675,6 +704,7 @@
         openrouterModel: '',
         analysisProvider: 'gemini', // provider for ⚡ Analyze (reading level / age group)
         analysisModel: '',          // blank = use that provider's model from its card
+        agentTones: {}, // per-agent critique tone: encouraging | balanced | tough | brutal (default balanced)
         agentProviders: {
           publisher: 'gemini',
           editor: 'anthropic',
@@ -719,6 +749,7 @@
       if (saved) {
         state.settings = { ...state.settings, ...JSON.parse(saved) };
       }
+      if (!state.settings.agentTones || typeof state.settings.agentTones !== 'object') state.settings.agentTones = {};
       const detected = detectRepoFromUrl();
       if (!state.settings.ghOwner) state.settings.ghOwner = detected ? detected.owner : DEFAULT_GH_OWNER;
       if (!state.settings.ghRepo) state.settings.ghRepo = detected ? detected.repo : DEFAULT_GH_REPO;
@@ -767,9 +798,14 @@
       const container = document.getElementById('agentAssignmentsConfig');
       container.innerHTML = Object.entries(AGENTS).map(([key, agent]) => {
         const currentProvider = state.settings.agentProviders[key] || agent.provider;
+        const currentTone = agentTone(key);
         return `
-          <div class="flex items-center justify-between bg-slate-800/40 p-2.5 rounded-lg border border-slate-800 text-xs">
+          <div class="flex flex-wrap items-center justify-between gap-2 bg-slate-800/40 p-2.5 rounded-lg border border-slate-800 text-xs">
             <span class="font-medium text-slate-200">${agent.icon} ${agent.name}</span>
+            <div class="flex flex-wrap items-center gap-2">
+            <select id="agent-tone-select-${key}" aria-label="Critique tone for ${agent.name}" title="How harsh this agent's critique should be" class="bg-slate-800 border border-slate-700 text-slate-200 rounded px-2 py-1 text-xs">
+              ${Object.entries(CRITIQUE_TONES).map(([t, info]) => `<option value="${t}" ${currentTone === t ? 'selected' : ''}>${info.label} — ${info.hint}</option>`).join('')}
+            </select>
             <select id="agent-provider-select-${key}" aria-label="Provider for ${agent.name}" class="bg-slate-800 border border-slate-700 text-slate-200 rounded px-2 py-1 text-xs">
               <option value="gemini" ${currentProvider === 'gemini' ? 'selected' : ''}>Google Gemini</option>
               <option value="openai" ${currentProvider === 'openai' ? 'selected' : ''}>OpenAI</option>
@@ -777,6 +813,7 @@
               <option value="groq" ${currentProvider === 'groq' ? 'selected' : ''}>Groq</option>
               <option value="openrouter" ${currentProvider === 'openrouter' ? 'selected' : ''}>OpenRouter</option>
             </select>
+            </div>
           </div>
         `;
       }).join('');
@@ -810,6 +847,8 @@
         if (select) {
           state.settings.agentProviders[key] = select.value;
         }
+        const toneSelect = document.getElementById(`agent-tone-select-${key}`);
+        if (toneSelect) state.settings.agentTones[key] = toneSelect.value;
       });
 
       localStorage.setItem('storyforge_settings', JSON.stringify(state.settings));
@@ -1707,7 +1746,7 @@ ${chapterText.slice(0, 4000)}`;
           <div class="flex items-start justify-between gap-2 text-slate-300">
             <div class="min-w-0">
               <div class="truncate">${agent.icon} ${agent.name}</div>
-              <div class="text-xs text-slate-400 pl-5">${provider}</div>
+              <div class="text-xs text-slate-400 pl-5">${provider} · ${CRITIQUE_TONES[agentTone(key)].label}</div>
             </div>
             <span class="shrink-0 w-20 text-right">${statusBadge}</span>
           </div>
@@ -1736,7 +1775,8 @@ ${chapterText.slice(0, 4000)}`;
       if (meta && meta.timestamp) {
         const when = new Date(meta.timestamp).toLocaleString();
         const size = meta.chapter_count ? ` · ${meta.chapter_count} chapters, ${(meta.word_count || 0).toLocaleString()} words` : '';
-        metaLine = ` · Reviewed ${when}${size}`;
+        const toneText = meta.tone && CRITIQUE_TONES[meta.tone] ? ` · Tone: ${CRITIQUE_TONES[meta.tone].label}` : '';
+        metaLine = ` · Reviewed ${when}${size}${toneText}`;
       }
 
       if (error) {
@@ -1893,7 +1933,8 @@ ${chapterText.slice(0, 4000)}`;
       const isBook = target.scope === 'book';
       const stillCurrent = () => isCurrentTarget(target);
 
-      const systemPrompt = `${isBook ? agent.bookPrompt : agent.chapterPrompt}\n\nBook Context:\nTitle: ${book.title}\nAuthor: ${book.author || ''}\nGenre: ${book.genre}\nBlurb: ${book.blurb}`;
+      const tone = agentTone(agentKey);
+      const systemPrompt = `${isBook ? agent.bookPrompt : agent.chapterPrompt}\n\nCritique tone (${CRITIQUE_TONES[tone].label}): ${CRITIQUE_TONES[tone].instruction}\n\nBook Context:\nTitle: ${book.title}\nAuthor: ${book.author || ''}\nGenre: ${book.genre}\nBlurb: ${book.blurb}`;
       const userPrompt = !isBook
         ? `Please review the following manuscript chapter ("${chapter.title}"):\n\n${manuscript}`
         : `Please review the following complete manuscript (${chapterCount} chapters, about ${wordCount.toLocaleString()} words). Chapters are separated by lines like "=== Chapter Title ===".
@@ -1938,8 +1979,8 @@ ${manuscript}`;
         }
 
         const meta = isBook
-          ? { agent: agentKey, provider, scope: 'whole-book', timestamp: new Date().toISOString(), chapter_count: chapterCount, word_count: wordCount, feedback_markdown: feedback }
-          : { agent: agentKey, provider, scope: 'chapter', chapter_id: chapter.id, timestamp: new Date().toISOString(), word_count: wordCount, feedback_markdown: feedback };
+          ? { agent: agentKey, provider, tone, scope: 'whole-book', timestamp: new Date().toISOString(), chapter_count: chapterCount, word_count: wordCount, feedback_markdown: feedback }
+          : { agent: agentKey, provider, tone, scope: 'chapter', chapter_id: chapter.id, timestamp: new Date().toISOString(), word_count: wordCount, feedback_markdown: feedback };
         if (stillCurrent()) {
           state.reviews[agentKey] = feedback;
           state.reviewMeta[agentKey] = meta;
