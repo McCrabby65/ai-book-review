@@ -321,6 +321,8 @@
           </div>
 
           <div id="editorControls" class="hidden flex flex-wrap items-center gap-2 sm:gap-3">
+            <!-- Illustrate this chapter with an AI image -->
+            <button id="illustrateBtn" onclick="illustrateCurrentChapter()" title="Pick the most dramatic paragraph, generate an image for it and insert it after that paragraph" class="px-2.5 py-1 rounded border border-slate-700 text-slate-200 hover:text-white hover:bg-slate-800 font-medium transition-colors">🎨 Illustrate</button>
             <!-- Edit / Preview Mode Toggle -->
             <div class="flex items-center bg-slate-800 border border-slate-700 rounded p-0.5 text-xs">
               <button id="editSubTabBtn" onclick="setEditorTab('edit')" class="px-2.5 py-0.5 rounded font-medium bg-slate-700 text-white">
@@ -585,12 +587,65 @@
         </div>
         <p id="analysisModelHint" class="text-xs text-slate-400 -mt-4">Leave the model blank to use the model chosen on that provider's card above. The provider's API key above is used.</p>
 
+        <hr class="border-slate-800" />
+
+        <!-- Chapter illustrations (🎨) -->
+        <h3 class="font-semibold text-slate-200">Chapter Illustrations (🎨)</h3>
+        <p class="text-xs text-slate-400 -mt-4">When you add a chapter, an agent picks the most dramatic paragraph of the previous chapter, has Gemini draw it, saves the image to the book's <code class="bg-slate-800 px-1 rounded">images</code> folder and inserts it after that paragraph. The paragraph is picked with the Reading-Level Analysis provider above. Use 🎨 Illustrate above the editor to run it on any chapter.</p>
+        <label class="flex items-center gap-2 text-slate-200">
+          <input type="checkbox" id="autoIllustrateInput" class="h-4 w-4 accent-green-600" />
+          Illustrate the previous chapter automatically when I add a chapter
+        </label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="imageKeyInput" class="block font-medium text-slate-200 mb-1">Gemini image API key</label>
+            <input type="password" id="imageKeyInput" placeholder="Paid Gemini key (billing enabled)" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500" />
+          </div>
+          <div>
+            <label for="imageModelInput" class="block font-medium text-slate-200 mb-1">Image model</label>
+            <input type="text" id="imageModelInput" list="imageModelList" autocomplete="off" spellcheck="false" placeholder="gemini-nano-banana-2.1" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500" />
+            <datalist id="imageModelList">
+              <option value="gemini-nano-banana-2.1">Nano Banana 2.1 (recommended, ~$0.03/image)</option>
+              <option value="gemini-3.1-flash-lite-image">Nano Banana 2 Lite (~$0.03/image)</option>
+              <option value="gemini-3.1-flash-image">Nano Banana 2 (deprecated)</option>
+              <option value="gemini-3-pro-image">Nano Banana Pro (~$0.13/image)</option>
+            </datalist>
+          </div>
+        </div>
+        <p class="text-xs text-slate-400 -mt-4">Gemini's free tier can't generate images, so this needs a key from a Google AI Studio project with billing. Your free Gemini key above keeps working for text.</p>
+        <div>
+          <label for="imageAspectInput" class="block font-medium text-slate-200 mb-1">Image shape</label>
+          <select id="imageAspectInput" class="w-full sm:w-64 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500">
+            <option value="16:9">Wide 16:9 (matches your existing illustrations)</option>
+            <option value="3:2">Landscape 3:2</option>
+            <option value="4:3">Landscape 4:3</option>
+            <option value="1:1">Square 1:1</option>
+            <option value="2:3">Portrait 2:3</option>
+          </select>
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label for="imagePromptInput" class="block font-medium text-slate-200">Image prompt template</label>
+            <button type="button" onclick="document.getElementById('imagePromptInput').value = DEFAULT_IMAGE_PROMPT" class="text-xs text-slate-300 hover:text-white underline">Reset to default</button>
+          </div>
+          <textarea id="imagePromptInput" rows="9" spellcheck="false" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 text-xs font-mono focus:outline-none focus:border-brand-500 resize-y"></textarea>
+          <p class="text-xs text-slate-400 mt-1">Placeholders: <code>{book_title}</code> <code>{genre}</code> <code>{chapter_title}</code> <code>{scene}</code> (the agent's description of the moment) <code>{paragraph}</code> (the chosen paragraph's text).</p>
+        </div>
+
       </div>
 
       <div class="p-4 border-t border-slate-800 bg-slate-900/50 flex justify-end space-x-2">
         <button onclick="toggleSettingsModal()" class="px-4 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">Cancel</button>
         <button onclick="saveSettings()" class="px-4 py-2 rounded-lg bg-brand-700 text-white font-medium hover:bg-brand-600 transition-colors">Save Settings</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Illustration agent progress / result -->
+  <div id="illustrationToast" role="status" aria-live="polite" class="hidden fixed bottom-4 right-4 z-40 max-w-sm bg-slate-900 border border-slate-700 rounded-lg shadow-2xl p-3 text-sm text-slate-200">
+    <div class="flex items-start gap-3">
+      <div id="illustrationToastText" class="flex-1"></div>
+      <button onclick="document.getElementById('illustrationToast').classList.add('hidden')" aria-label="Dismiss" class="text-slate-400 hover:text-white">✕</button>
     </div>
   </div>
 
@@ -639,6 +694,16 @@
         chapterPrompt: `You are a general fiction reader trying this genre for the first time. Evaluate the chapter for clarity, lore accessibility, cognitive load, relatable human conflict, and whether it hooks someone who isn't already sold on the genre.`
       }
     };
+
+    // --- CHAPTER ILLUSTRATION: default image prompt (matches the book's existing ink illustrations) ---
+    const DEFAULT_IMAGE_PROMPT = `Create a single illustration for a scene in the novel "{book_title}" ({genre}), from {chapter_title}.
+
+Scene to show: {scene}
+
+The passage it illustrates:
+"{paragraph}"
+
+Style: black-and-white ink illustration in a detailed graphic-novel style, with crisp linework, cross-hatching and halftone shading, cinematic wide composition, dramatic lighting. No text, captions, speech bubbles, signatures or watermarks in the image.`;
 
     // --- CRITIQUE TONE (harshness), chosen per agent in Settings ---
     const CRITIQUE_TONES = {
@@ -706,6 +771,11 @@
         openrouterModel: '',
         analysisProvider: 'gemini', // provider for ⚡ Analyze (reading level / age group)
         analysisModel: '',          // blank = use that provider's model from its card
+        autoIllustrate: true,       // illustrate the previous chapter when a chapter is added
+        imageKey: '',               // paid Gemini key used only for image generation
+        imageModel: 'gemini-nano-banana-2.1',
+        imageAspect: '16:9',
+        imagePromptTemplate: '',    // blank = DEFAULT_IMAGE_PROMPT
         agentTones: {}, // per-agent critique tone: encouraging | balanced | tough | brutal (default balanced)
         agentProviders: {
           publisher: 'gemini',
@@ -790,6 +860,12 @@
 
       document.getElementById('analysisProviderInput').value = state.settings.analysisProvider || 'gemini';
       document.getElementById('analysisModelInput').value = state.settings.analysisModel || '';
+
+      document.getElementById('autoIllustrateInput').checked = state.settings.autoIllustrate !== false;
+      document.getElementById('imageKeyInput').value = state.settings.imageKey || '';
+      document.getElementById('imageModelInput').value = state.settings.imageModel || 'gemini-nano-banana-2.1';
+      document.getElementById('imageAspectInput').value = state.settings.imageAspect || '16:9';
+      document.getElementById('imagePromptInput').value = state.settings.imagePromptTemplate || DEFAULT_IMAGE_PROMPT;
       updateAnalysisModelOptions();
 
       renderAgentSettingsUI();
@@ -843,6 +919,13 @@
 
       state.settings.analysisProvider = document.getElementById('analysisProviderInput').value;
       state.settings.analysisModel = document.getElementById('analysisModelInput').value.trim();
+
+      state.settings.autoIllustrate = document.getElementById('autoIllustrateInput').checked;
+      state.settings.imageKey = document.getElementById('imageKeyInput').value.trim();
+      state.settings.imageModel = document.getElementById('imageModelInput').value.trim() || 'gemini-nano-banana-2.1';
+      state.settings.imageAspect = document.getElementById('imageAspectInput').value;
+      const tpl = document.getElementById('imagePromptInput').value.trim();
+      state.settings.imagePromptTemplate = (tpl && tpl !== DEFAULT_IMAGE_PROMPT.trim()) ? tpl : '';
 
       Object.keys(AGENTS).forEach(key => {
         const select = document.getElementById(`agent-provider-select-${key}`);
@@ -1044,6 +1127,25 @@
     // Reader view: demographic badges sit under the chapter title instead of in a full-width bar.
     const readerMetaEl = document.createElement('div');
     readerMetaEl.className = 'reader-meta';
+    // Chapter images use repo paths like "books/<book>/images/x.png". Point them at the repo's raw
+    // files so they display whether or not GitHub Pages publishes the books folder.
+    function fixChapterImages(container) {
+      if (!container || !state.settings.ghOwner || !state.settings.ghRepo) return;
+      container.querySelectorAll('img').forEach(img => {
+        const src = img.getAttribute('src') || '';
+        if (/^(\.\/)?books\//.test(src)) {
+          img.setAttribute('src', `https://raw.githubusercontent.com/${state.settings.ghOwner}/${state.settings.ghRepo}/main/${src.replace(/^\.\//, '')}`);
+          img.setAttribute('loading', 'lazy');
+          img.style.maxWidth = '100%';
+          img.style.height = 'auto';
+        }
+      });
+    }
+    ['chapterViewer', 'authorPreviewPanel'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) new MutationObserver(() => fixChapterImages(el)).observe(el, { childList: true });
+    });
+
     function placeReaderMeta() {
       const body = document.getElementById('chapterViewer');
       const first = body.firstElementChild;
@@ -1109,7 +1211,7 @@
       // Buttons that need a book / a chapter
       const noBook = status === 'no-books';
       const noChapter = status !== 'ok';
-      ['commitChapterBtn', 'runAllBtn', 'runCurrentAgentBtn', 'runDemographicsBtn', 'renameChapterBtn', 'exportBtn', 'editSubTabBtn', 'previewSubTabBtn']
+      ['commitChapterBtn', 'runAllBtn', 'runCurrentAgentBtn', 'runDemographicsBtn', 'renameChapterBtn', 'exportBtn', 'editSubTabBtn', 'previewSubTabBtn', 'illustrateBtn']
         .forEach(id => setDisabled(id, noChapter));
       setDisabled('newChapterBtn', noBook);
       setDisabled('calcWordCountBtn', noBook);
@@ -2055,9 +2157,64 @@ ${manuscript}`;
     }
 
     // HTML fragment -> well-formed XHTML fragment (required inside EPUB files).
-    function toXhtml(html) {
+    // --- EXPORT IMAGES ---
+    // Repo image paths ("books/<book>/images/x.png") -> public raw URL.
+    function repoImageUrl(src) {
+      return `https://raw.githubusercontent.com/${state.settings.ghOwner}/${state.settings.ghRepo}/main/${String(src).replace(/^\.\//, '')}`;
+    }
+    function isRepoImage(src) {
+      return /^(\.\/)?books\//.test(String(src || ''));
+    }
+    // Rewrite repo image paths in markdown/HTML text to full URLs (for Markdown and PDF exports).
+    function absolutizeRepoImages(text) {
+      return String(text)
+        .replace(/(<img\b[^>]*\bsrc=["'])((?:\.\/)?books\/[^"']+)(["'])/gi, (m, a, src, b) => a + repoImageUrl(src) + b)
+        .replace(/(!\[[^\]]*\]\()((?:\.\/)?books\/[^)\s]+)/g, (m, a, src) => a + repoImageUrl(src));
+    }
+    // Download an image from the repo as a Blob (uses the API with your token in Author mode).
+    async function fetchRepoImage(path) {
+      const clean = String(path).replace(/^\.\//, '');
+      let res;
+      if (state.mode === 'author' && state.settings.ghToken) {
+        res = await fetch(`https://api.github.com/repos/${state.settings.ghOwner}/${state.settings.ghRepo}/contents/${clean}?ref=main`, {
+          headers: { "Accept": "application/vnd.github.raw", "Authorization": `token ${state.settings.ghToken}` }, cache: "no-store"
+        });
+      } else {
+        res = await fetch(repoImageUrl(clean), { cache: "no-store" });
+      }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.blob();
+    }
+    // E-readers prefer smaller files: large PNG/WebP illustrations are converted to JPEG (max 1600 px wide).
+    async function shrinkForEbook(blob, path) {
+      const ext = (String(path).split('.').pop() || '').toLowerCase();
+      const typeByExt = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', gif: 'image/gif', webp: 'image/webp', svg: 'image/svg+xml' };
+      const type = typeByExt[ext] || blob.type || 'image/png';
+      if (!['image/png', 'image/webp'].includes(type) || blob.size < 400 * 1024) return { blob, type, ext: ext === 'jpeg' ? 'jpg' : ext };
+      try {
+        const bitmap = await createImageBitmap(blob);
+        const scale = Math.min(1, 1600 / bitmap.width);
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.round(bitmap.width * scale);
+        canvas.height = Math.round(bitmap.height * scale);
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+        const jpeg = await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.85));
+        if (jpeg && jpeg.size < blob.size) return { blob: jpeg, type: 'image/jpeg', ext: 'jpg' };
+      } catch (e) { /* keep the original */ }
+      return { blob, type, ext };
+    }
+
+    // transform(doc) can adjust the parsed HTML (e.g. image sources) before it is serialized.
+    function toXhtml(html, transform) {
       const doc = new DOMParser().parseFromString(`<!DOCTYPE html><html><body><div id="x">${html}</div></body></html>`, 'text/html');
       doc.querySelectorAll('script, iframe, object, embed').forEach(n => n.remove());
+      // EPUB (XHTML5) doesn't allow align="center"; use a class instead.
+      doc.querySelectorAll('[align]').forEach(n => { if (n.getAttribute('align') === 'center') n.classList.add('center'); n.removeAttribute('align'); });
+      doc.querySelectorAll('img').forEach(img => { if (!img.hasAttribute('alt')) img.setAttribute('alt', ''); });
+      if (transform) transform(doc);
       const xml = new XMLSerializer().serializeToString(doc.getElementById('x'));
       return xml.replace(/^<div[^>]*>/, '').replace(/<\/div>$/, '');
     }
@@ -2113,7 +2270,7 @@ ${manuscript}`;
         let text = c.text.replace(/\r\n/g, '\n').trim();
         const firstLine = text.split('\n').find(l => l.trim()) || '';
         if (!/^#{1,6}\s/.test(firstLine)) text = `## ${c.chap.title}\n\n<br/>\n\n${text}`;
-        out.push('', '---', '', text);
+        out.push('', '---', '', absolutizeRepoImages(text)); // images point at the repo so they show anywhere
       });
       const md = out.join('\n') + '\n';
       downloadBlob(new Blob([md], { type: 'text/markdown;charset=utf-8' }), `${slugify(book.title)}.md`);
@@ -2161,7 +2318,9 @@ blockquote { margin: 1em 2em; font-style: italic; }
 .title-page h1 { font-size: 2.2em; margin-bottom: 0.5em; }
 .title-page .author { font-size: 1.2em; }
 nav ol { list-style: none; padding: 0; }
-nav li { margin: 0.4em 0; }`);
+nav li { margin: 0.4em 0; }
+.center { text-align: center; text-indent: 0; margin: 1em 0; }
+img { max-width: 100%; height: auto; }`);
 
       zip.file("OEBPS/title.xhtml", page(title, `<section class="title-page" epub:type="titlepage">
   <h1>${title}</h1>
@@ -2169,12 +2328,50 @@ nav li { margin: 0.4em 0; }`);
 </section>`));
 
       const items = chapters.map((c, i) => ({ id: `ch${String(i + 1).padStart(3, '0')}`, file: `ch${String(i + 1).padStart(3, '0')}.xhtml`, title: escapeXml(c.chap.title), text: c.text }));
+
+      // Collect every repo image the chapters use, download it once and pack it into the EPUB.
+      const imageRefs = new Set();
+      items.forEach(it => {
+        const doc = new DOMParser().parseFromString(chapterBodyHtml(it.text), 'text/html');
+        doc.querySelectorAll('img').forEach(img => { const src = img.getAttribute('src'); if (isRepoImage(src)) imageRefs.add(src.replace(/^\.\//, '')); });
+      });
+      const packed = new Map();   // repo path -> { href, type }
+      const missing = [];
+      const label = document.getElementById('exportBtnLabel');
+      let n = 0;
+      for (const path of imageRefs) {
+        n++;
+        if (label) label.innerText = `Adding images ${n}/${imageRefs.size}...`;
+        try {
+          const original = await fetchRepoImage(path);
+          const { blob, type, ext } = await shrinkForEbook(original, path);
+          const base = path.split('/').pop().replace(/\.[^.]+$/, '').replace(/[^A-Za-z0-9_-]+/g, '-') || 'image';
+          let href = `images/${base}.${ext}`;
+          let k = 2;
+          while ([...packed.values()].some(v => v.href === href)) href = `images/${base}-${k++}.${ext}`;
+          zip.file(`OEBPS/${href}`, blob, { compression: "STORE" });
+          packed.set(path, { href, type });
+        } catch (e) {
+          missing.push(path);
+        }
+      }
+      if (label) label.innerText = "Building EPUB...";
+
       items.forEach(it => {
         zip.file(`OEBPS/${it.file}`, page(it.title, `<section epub:type="chapter">
 <h1 class="chapter-title">${it.title}</h1>
-${toXhtml(chapterBodyHtml(it.text))}
+${toXhtml(chapterBodyHtml(it.text), doc => {
+  doc.querySelectorAll('img').forEach(img => {
+    const src = (img.getAttribute('src') || '').replace(/^\.\//, '');
+    if (packed.has(src)) { img.setAttribute('src', packed.get(src).href); return; }
+    // Images that couldn't be packed (or live elsewhere on the web) are left out so the EPUB stays valid.
+    const holder = img.closest('p') && img.closest('p').textContent.trim() === '' ? img.closest('p') : img;
+    holder.remove();
+  });
+})}
 </section>`));
       });
+      const imageManifest = [...packed.values()].map((v, i) => `    <item id="img${String(i + 1).padStart(3, '0')}" href="${v.href}" media-type="${v.type}"/>`).join('\n');
 
       zip.file("OEBPS/nav.xhtml", page("Contents", `<nav epub:type="toc" id="toc">
   <h1>Contents</h1>
@@ -2209,6 +2406,7 @@ ${items.map((it, i) => `    <navPoint id="np${i + 1}" playOrder="${i + 1}"><navL
     <item id="css" href="style.css" media-type="text/css"/>
     <item id="title" href="title.xhtml" media-type="application/xhtml+xml"/>
 ${items.map(it => `    <item id="${it.id}" href="${it.file}" media-type="application/xhtml+xml"/>`).join('\n')}
+${imageManifest}
   </manifest>
   <spine toc="ncx">
     <itemref idref="title"/>
@@ -2219,6 +2417,9 @@ ${items.map(it => `    <itemref idref="${it.id}"/>`).join('\n')}
 
       const blob = await zip.generateAsync({ type: "blob", mimeType: "application/epub+zip", compression: "DEFLATE" });
       downloadBlob(blob, `${slugify(book.title)}.epub`);
+      if (missing.length) {
+        alert(`The EPUB was created, but ${missing.length} image(s) couldn't be downloaded and were left out:\n\n${missing.join('\n')}`);
+      }
     }
 
     // PDF uses the browser's own print engine (real, selectable text and proper page breaks).
@@ -2226,7 +2427,7 @@ ${items.map(it => `    <itemref idref="${it.id}"/>`).join('\n')}
     async function exportPdf(book, chapters) {
       const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
       const toc = chapters.map((c, i) => `<li><a href="#ch${i + 1}">${esc(c.chap.title)}</a></li>`).join('');
-      const body = chapters.map((c, i) => `<section class="chapter" id="ch${i + 1}"><h1 class="chapter-title">${esc(c.chap.title)}</h1>${chapterBodyHtml(c.text)}</section>`).join('');
+      const body = chapters.map((c, i) => `<section class="chapter" id="ch${i + 1}"><h1 class="chapter-title">${esc(c.chap.title)}</h1>${absolutizeRepoImages(chapterBodyHtml(c.text))}</section>`).join('');
       const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>${esc(book.title)}</title>
 <style>
   @page { size: 6in 9in; margin: 0.8in 0.75in 0.9in; @bottom-center { content: counter(page); font: 10pt Georgia, serif; color: #444; } }
@@ -2249,6 +2450,8 @@ ${items.map(it => `    <itemref idref="${it.id}"/>`).join('\n')}
   hr::after { content: "* * *"; }
   blockquote { margin: 0.15in 0.4in; font-style: italic; }
   h2, h3, h4 { break-after: avoid; }
+  img { display: block; max-width: 100%; max-height: 5.5in; height: auto; margin: 0.15in auto; }
+  p:has(> img) { text-indent: 0; text-align: center; break-inside: avoid; }
 </style></head><body>
 <section class="title-page"><h1>${esc(book.title)}</h1>${book.author ? `<div class="author">${esc(book.author)}</div>` : ''}</section>
 <nav class="toc"><h2>Contents</h2><ol>${toc}</ol></nav>
@@ -2261,6 +2464,9 @@ ${body}
       frame.id = 'pdfPrintFrame';
       frame.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden;';
       document.body.appendChild(frame);
+      // The frame's load event fires after its images have loaded, so the illustrations are in place before printing.
+      const label = document.getElementById('exportBtnLabel');
+      if (label && /<img/i.test(html)) label.innerText = "Loading images...";
       await new Promise(resolve => { frame.onload = resolve; frame.srcdoc = html; });
       // Let the browser use the book title as the suggested PDF file name
       const appTitle = document.title;
@@ -2367,7 +2573,7 @@ ${body}
     }
 
     // --- GITHUB PERSISTENCE ---
-    async function commitGitHubFile(path, contentString, commitMessage) {
+    async function commitGitHubFile(path, contentString, commitMessage, isBase64 = false) {
       if (!state.settings.ghToken || !state.settings.ghOwner || !state.settings.ghRepo) return false;
       const url = `https://api.github.com/repos/${state.settings.ghOwner}/${state.settings.ghRepo}/contents/${path}`;
 
@@ -2380,7 +2586,7 @@ ${body}
           sha = existing.sha;
         }
 
-        const contentEncoded = btoa(unescape(encodeURIComponent(contentString)));
+        const contentEncoded = isBase64 ? contentString : btoa(unescape(encodeURIComponent(contentString)));
         const putRes = await fetch(url, {
           method: "PUT",
           headers: {
@@ -2654,6 +2860,229 @@ ${body}
       }
     }
 
+    // --- CHAPTER ILLUSTRATION AGENT ---
+    // 1) pick the most dramatic paragraph of a chapter, 2) generate an image for it with Gemini,
+    // 3) save it to books/<book>/images/, 4) insert it after that paragraph and commit the chapter.
+    const ILLUSTRATION_START = '<!-- illustration:auto -->';
+    const ILLUSTRATION_END = '<!-- /illustration:auto -->';
+    let illustrationRunning = false;
+
+    function illustrationToast(html, kind = 'info') {
+      const toast = document.getElementById('illustrationToast');
+      const colors = { info: 'border-slate-700', ok: 'border-emerald-700', error: 'border-rose-700' };
+      toast.className = `fixed bottom-4 right-4 z-40 max-w-sm bg-slate-900 border ${colors[kind] || colors.info} rounded-lg shadow-2xl p-3 text-sm text-slate-200`;
+      document.getElementById('illustrationToastText').innerHTML = html;
+    }
+
+    // Split markdown into lines and find the prose paragraphs (not headings, <br/> spacers, HTML or images).
+    function findStoryParagraphs(markdown) {
+      const lines = markdown.replace(/\r\n/g, '\n').split('\n');
+      const paras = [];
+      let i = 0;
+      let inIllustration = false;
+      while (i < lines.length) {
+        const line = lines[i];
+        if (line.includes(ILLUSTRATION_START)) inIllustration = true;
+        if (inIllustration) { if (line.includes(ILLUSTRATION_END)) inIllustration = false; i++; continue; }
+        if (!line.trim() || /^\s*(<br\s*\/?>\s*)+$/i.test(line) || /^\s*#{1,6}\s/.test(line) || /^\s*</.test(line) || /^\s*!\[/.test(line) || /^\s*(\*\s*){3,}$|^\s*-{3,}\s*$/.test(line)) { i++; continue; }
+        const start = i;
+        while (i + 1 < lines.length && lines[i + 1].trim() && !/^\s*(<br\s*\/?>\s*)+$/i.test(lines[i + 1]) && !/^\s*</.test(lines[i + 1])) i++;
+        const text = lines.slice(start, i + 1).join(' ').trim();
+        if (text.length >= 40) paras.push({ start, end: i, text });
+        i++;
+      }
+      return { lines, paras };
+    }
+
+    // Ask the Reading-Level Analysis provider (or Gemini text with the image key) which paragraph is most dramatic.
+    async function pickDramaticParagraph(book, chap, paras) {
+      const listing = paras.map((p, n) => `[${n}] ${p.text.length > 700 ? p.text.slice(0, 700) + '…' : p.text}`).join('\n\n');
+      const system = "You are a picture editor choosing which moment of a novel chapter to illustrate. Reply with JSON only.";
+      const prompt = `Book: "${book.title}" (${book.genre || 'fiction'})
+Chapter: ${chap.title}
+
+Below are the chapter's paragraphs, numbered. Choose the single most dramatic, visually striking moment that would make a strong illustration (action, tension, a vivid reveal or emotional peak; avoid dialogue-only paragraphs with nothing to see).
+
+Return strictly this JSON (no code fences, no extra text):
+{"index": <paragraph number>, "scene": "<2-3 sentences describing what the image should show: characters' appearance and poses, setting, action, lighting and mood. Visual details only; no dialogue.>"}
+
+Paragraphs:
+
+${listing}`;
+
+      let { provider, model } = analysisProviderAndModel();
+      if (!providerKey(provider)) {
+        if (!state.settings.imageKey) throw new Error("Set up a provider in Settings → Reading-Level Analysis (it picks the paragraph), or add a Gemini image API key.");
+        provider = 'gemini-image-key';
+      }
+      const raw = provider === 'gemini-image-key'
+        ? await callGemini(state.settings.imageKey, state.settings.geminiModel || 'gemini-3.8-flash', system, prompt)
+        : await callAIProvider(provider, model, system, prompt);
+      const match = String(raw).replace(/```json/gi, '').replace(/```/g, '').match(/\{[\s\S]*\}/);
+      let picked;
+      try { picked = JSON.parse(match ? match[0] : raw); } catch (e) { throw new Error("The paragraph picker didn't return valid JSON. Try a different Reading-Level Analysis model."); }
+      const index = Number(picked.index);
+      if (!Number.isInteger(index) || index < 0 || index >= paras.length) throw new Error("The paragraph picker chose a paragraph that doesn't exist. Please try again.");
+      return { index, scene: String(picked.scene || '').trim() };
+    }
+
+    // Generate the image with Gemini. Returns { base64, mimeType }.
+    async function generateIllustration(promptText) {
+      const key = state.settings.imageKey;
+      const model = state.settings.imageModel || 'gemini-nano-banana-2.1';
+      if (!key) throw new Error("Add a Gemini image API key (with billing enabled) in Settings → Chapter Illustrations.");
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": key },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: promptText }] }],
+          generationConfig: {
+            responseModalities: ["TEXT", "IMAGE"],
+            imageConfig: { aspectRatio: state.settings.imageAspect || '16:9' }
+          }
+        })
+      });
+      let data;
+      try { data = await res.json(); } catch (e) { throw new Error(`[Gemini image ${res.status}]: unexpected response.`); }
+      if (data.error) {
+        const hint = /billing|quota|free tier|402|429|RESOURCE_EXHAUSTED/i.test(`${data.error.status} ${data.error.message}`) ? ' Image generation needs a Gemini key from a project with billing enabled.' : '';
+        throw new Error(`[Gemini image ${data.error.code || res.status}]: ${data.error.message}${hint}`);
+      }
+      const parts = data.candidates?.[0]?.content?.parts || [];
+      const imgPart = parts.find(pt => pt.inlineData && pt.inlineData.data);
+      if (!imgPart) {
+        const reason = data.promptFeedback?.blockReason || data.candidates?.[0]?.finishReason || 'no image returned';
+        throw new Error(`Gemini didn't return an image (${reason}). Try again, or adjust the image prompt template.`);
+      }
+      return { base64: imgPart.inlineData.data, mimeType: imgPart.inlineData.mimeType || 'image/png' };
+    }
+
+    function fillImagePrompt(book, chap, paragraph, scene) {
+      const tpl = state.settings.imagePromptTemplate || DEFAULT_IMAGE_PROMPT;
+      const values = { book_title: book.title, genre: book.genre || 'fiction', chapter_title: chap.title, scene: scene || paragraph, paragraph };
+      return tpl.replace(/\{(book_title|genre|chapter_title|scene|paragraph)\}/g, (m, k) => values[k]);
+    }
+
+    // Insert the image block after the paragraph, following the book's style:
+    // paragraph, <br/>, centered image, <br/>, next paragraph. Replaces a previous auto illustration if asked.
+    function insertIllustration(lines, para, imgPath, alt) {
+      const block = [ILLUSTRATION_START, '<p align="center">', `  <img src="${imgPath}" alt="${alt.replace(/"/g, '&quot;')}">`, '</p>', ILLUSTRATION_END];
+      const out = lines.slice();
+      let j = para.end + 1;
+      while (j < out.length && !out[j].trim()) j++;
+      if (j < out.length && /^\s*(<br\s*\/?>\s*)+$/i.test(out[j])) {
+        out.splice(j + 1, 0, '', ...block, '', '<br/>');
+      } else {
+        out.splice(para.end + 1, 0, '', '<br/>', '', ...block, '', '<br/>');
+      }
+      return out.join('\n');
+    }
+
+    function removeAutoIllustrations(markdown) {
+      // Removes earlier auto illustrations, plus the <br/> spacer line that was added after each one.
+      let out = markdown;
+      let start;
+      while ((start = out.indexOf(ILLUSTRATION_START)) !== -1) {
+        const endTag = out.indexOf(ILLUSTRATION_END, start);
+        if (endTag === -1) break;
+        let end = endTag + ILLUSTRATION_END.length;
+        const after = out.slice(end).match(/^\s*<br\s*\/?>[ \t]*/i);
+        if (after) end += after[0].length;
+        out = out.slice(0, start).replace(/\s*$/, '') + '\n\n' + out.slice(end).replace(/^\s*/, '');
+      }
+      return out;
+    }
+
+    async function illustrateChapter(bookId, chapterId, { replaceExisting = false } = {}) {
+      if (illustrationRunning) { illustrationToast('🎨 An illustration is already being made. Please wait for it to finish.', 'info'); return; }
+      const book = state.booksData.books.find(b => b.id === bookId);
+      const chap = book && book.chapters.find(c => c.id === chapterId);
+      if (!book || !chap) return;
+      if (!state.settings.ghToken || !state.settings.ghOwner || !state.settings.ghRepo) {
+        illustrationToast('🎨 Add your GitHub token in Settings (⚙) so illustrations can be saved.', 'error');
+        return;
+      }
+      const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+      illustrationRunning = true;
+      const btn = document.getElementById('illustrateBtn');
+      if (btn) { btn.disabled = true; btn.innerText = '🎨 Illustrating…'; }
+      try {
+        illustrationToast(`🎨 Illustrating <b>${esc(chap.title)}</b>: reading the chapter…`);
+        let markdown = await fetchGitHubRaw(`books/${book.id}/chapters/${chap.file}`);
+        if (markdown === null) throw new Error(`Couldn't load ${chap.file} from GitHub.`);
+        markdown = markdown.replace(/\r\n/g, '\n');
+        if (replaceExisting) markdown = removeAutoIllustrations(markdown);
+
+        const { lines, paras } = findStoryParagraphs(markdown);
+        if (paras.length < 2) throw new Error("This chapter doesn't have enough text to illustrate yet.");
+
+        illustrationToast(`🎨 Illustrating <b>${esc(chap.title)}</b>: finding the most dramatic paragraph…`);
+        const { index, scene } = await pickDramaticParagraph(book, chap, paras);
+        const para = paras[index];
+
+        illustrationToast(`🎨 Illustrating <b>${esc(chap.title)}</b>: generating the image (this can take 10–30 seconds)…`);
+        const image = await generateIllustration(fillImagePrompt(book, chap, para.text, scene));
+
+        illustrationToast(`🎨 Illustrating <b>${esc(chap.title)}</b>: saving the image and updating the chapter…`);
+        const ext = /jpe?g/.test(image.mimeType) ? 'jpg' : /webp/.test(image.mimeType) ? 'webp' : 'png';
+        const imgPath = `books/${book.id}/images/${chap.id}-${Date.now().toString(36)}.${ext}`;
+        const savedImage = await commitGitHubFile(imgPath, image.base64, `Add illustration for '${chap.title}'`, true);
+        if (!savedImage) throw new Error("Couldn't save the image to GitHub. Check your token in Settings (⚙).");
+
+        const alt = (scene || para.text).split(/(?<=[.!?])\s/)[0].slice(0, 180);
+        const updated = insertIllustration(lines, para, imgPath, alt);
+        const savedChapter = await commitGitHubFile(`books/${book.id}/chapters/${chap.file}`, updated, `Insert illustration into '${chap.title}'`);
+        if (!savedChapter) throw new Error(`The image was saved to ${imgPath}, but the chapter couldn't be updated. Check your token in Settings (⚙).`);
+
+        // If that chapter is open and unchanged, show the new version right away.
+        if (state.currentBookId === book.id && state.currentChapterId === chap.id && !state.unsavedChanges) {
+          document.getElementById('chapterEditor').value = updated;
+          document.getElementById('chapterViewer').innerHTML = marked.parse(updated);
+          placeReaderMeta();
+          if (state.editorTab === 'preview') document.getElementById('authorPreviewPanel').innerHTML = marked.parse(updated);
+          const statusEl = document.getElementById('saveStatus');
+          statusEl.innerText = "Saved";
+          statusEl.className = "text-slate-400 text-xs";
+        }
+        const preview = `data:${image.mimeType};base64,${image.base64}`;
+        illustrationToast(`✓ Added an illustration to <b>${esc(chap.title)}</b> after paragraph ${index + 1}:<br><span class="text-slate-400 italic">“${esc(para.text.slice(0, 120))}${para.text.length > 120 ? '…' : ''}”</span><img src="${preview}" alt="" class="mt-2 rounded border border-slate-700 w-full"><button onclick="document.getElementById('illustrationToast').classList.add('hidden'); loadChapter('${chap.id}')" class="mt-2 text-xs underline text-brand-300 hover:text-white">Open the chapter</button>`, 'ok');
+      } catch (err) {
+        console.error('Illustration failed:', err);
+        illustrationToast(`⚠️ Couldn't illustrate <b>${esc(chap.title)}</b>: ${esc(err.message)}`, 'error');
+      } finally {
+        illustrationRunning = false;
+        if (btn) { btn.disabled = false; btn.innerText = '🎨 Illustrate'; }
+      }
+    }
+
+    // 🎨 Illustrate button: the open chapter.
+    async function illustrateCurrentChapter() {
+      const { book, chap } = currentBookAndChapter();
+      if (!book || !chap) return;
+      if (state.unsavedChanges) {
+        alert("Commit your changes to this chapter first, then click 🎨 Illustrate.");
+        return;
+      }
+      let replaceExisting = false;
+      const current = document.getElementById('chapterEditor').value;
+      if (current.includes(ILLUSTRATION_START)) {
+        replaceExisting = confirm("This chapter already has an AI illustration.\n\nOK = replace it with a new one\nCancel = keep it and add another");
+      }
+      await illustrateChapter(book.id, chap.id, { replaceExisting });
+    }
+
+    // After a chapter is added: illustrate the chapter before it (nothing to do for a book's first chapter).
+    function autoIllustratePreviousChapter(book, newChapterId) {
+      if (state.settings.autoIllustrate === false) return;
+      const idx = book.chapters.findIndex(c => c.id === newChapterId);
+      if (idx <= 0) return; // first chapter: no previous chapter to illustrate
+      if (!state.settings.imageKey) {
+        illustrationToast('🎨 To illustrate the previous chapter automatically, add a Gemini image API key in Settings → Chapter Illustrations (or turn the option off).', 'info');
+        return;
+      }
+      illustrateChapter(book.id, book.chapters[idx - 1].id);
+    }
+
     // --- RENAME CHAPTER ---
     // Changes the chapter's title in books.json. The chapter's id and file name stay the same, so
     // its text, saved reviews and demographics are kept. If the chapter text starts with a heading
@@ -2794,6 +3223,7 @@ ${body}
       if (state.settings.ghToken && state.settings.ghOwner && state.settings.ghRepo) {
         await commitGitHubFile("books.json", JSON.stringify(state.booksData, null, 2), `Add new chapter '${title}' to books.json index`);
       }
+      autoIllustratePreviousChapter(book, chapId);
     }
   </script>
 </body>
