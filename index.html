@@ -3021,6 +3021,7 @@ ${listing}`;
       }
       const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;');
       illustrationRunning = true;
+      let imagePrompt = null; // kept so it can be shown if the Gemini image call fails
       const btn = document.getElementById('illustrateBtn');
       if (btn) { btn.disabled = true; btn.innerText = '🎨 Illustrating…'; }
       try {
@@ -3038,7 +3039,8 @@ ${listing}`;
         const para = paras[index];
 
         illustrationToast(`🎨 Illustrating <b>${esc(chap.title)}</b>: generating the image (this can take 10–30 seconds)…`);
-        const image = await generateIllustration(fillImagePrompt(book, chap, para.text, scene));
+        imagePrompt = fillImagePrompt(book, chap, para.text, scene);
+        const image = await generateIllustration(imagePrompt);
 
         illustrationToast(`🎨 Illustrating <b>${esc(chap.title)}</b>: saving the image and updating the chapter…`);
         const ext = /jpe?g/.test(image.mimeType) ? 'jpg' : /webp/.test(image.mimeType) ? 'webp' : 'png';
@@ -3065,7 +3067,18 @@ ${listing}`;
         illustrationToast(`✓ Added an illustration to <b>${esc(chap.title)}</b> after paragraph ${index + 1}:<br><span class="text-slate-400 italic">“${esc(para.text.slice(0, 120))}${para.text.length > 120 ? '…' : ''}”</span><img src="${preview}" alt="" class="mt-2 rounded border border-slate-700 w-full"><button onclick="document.getElementById('illustrationToast').classList.add('hidden'); loadChapter('${chap.id}')" class="mt-2 text-xs underline text-brand-300 hover:text-white">Open the chapter</button>`, 'ok');
       } catch (err) {
         console.error('Illustration failed:', err);
-        illustrationToast(`⚠️ Couldn't illustrate <b>${esc(chap.title)}</b>: ${esc(err.message)}`, 'error');
+        let promptHtml = '';
+        if (imagePrompt) {
+          window.lastIllustrationPrompt = imagePrompt;
+          const model = esc(state.settings.imageModel || 'gemini-nano-banana-2.1');
+          promptHtml = `
+            <details class="mt-2" open>
+              <summary class="cursor-pointer text-xs text-slate-300">Prompt sent to Gemini (${model}, ${esc(state.settings.imageAspect || '16:9')})</summary>
+              <pre class="mt-1 max-h-60 overflow-auto whitespace-pre-wrap break-words bg-slate-950 border border-slate-700 rounded p-2 text-xs text-slate-300">${esc(imagePrompt)}</pre>
+              <button onclick="navigator.clipboard.writeText(window.lastIllustrationPrompt).then(() => { this.innerText = '✓ Copied'; })" class="mt-1 text-xs underline text-slate-300 hover:text-white">Copy prompt</button>
+            </details>`;
+        }
+        illustrationToast(`⚠️ Couldn't illustrate <b>${esc(chap.title)}</b>: ${esc(err.message)}${promptHtml}`, 'error');
       } finally {
         illustrationRunning = false;
         if (btn) { btn.disabled = false; btn.innerText = '🎨 Illustrate'; }
