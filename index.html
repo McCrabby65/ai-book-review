@@ -646,6 +646,69 @@
     </div>
   </div>
 
+  <!-- ILLUSTRATE MODAL: generate an image with AI or upload your own -->
+  <div id="illustrateModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div role="dialog" aria-modal="true" aria-labelledby="illustrateModalTitle" class="bg-slate-900 border border-slate-800 rounded-xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+      <div class="p-4 border-b border-slate-800 flex justify-between items-center">
+        <h2 id="illustrateModalTitle" class="font-semibold text-white">Illustrate chapter</h2>
+        <button onclick="closeModal('illustrateModal')" aria-label="Close" class="text-slate-400 hover:text-white">✕</button>
+      </div>
+
+      <div class="p-6 space-y-5 text-sm overflow-y-auto">
+        <fieldset class="space-y-2">
+          <legend class="font-medium text-slate-200 mb-1">Image</legend>
+          <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-700 hover:bg-slate-800/60 cursor-pointer">
+            <input type="radio" name="illustrateSource" value="generate" checked onchange="updateIllustrateModal()" class="mt-1 accent-green-600" />
+            <span><span class="block text-slate-100 font-medium">✨ Generate with AI</span>
+              <span class="block text-xs text-slate-400">Gemini paints the scene from your image prompt template (about $0.03 per image).</span>
+              <span id="illustrateNoKeyNote" class="hidden block text-xs text-amber-300 mt-1">Add a Gemini image API key in Settings → Chapter Illustrations to use this.</span></span>
+          </label>
+          <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-700 hover:bg-slate-800/60 cursor-pointer">
+            <input type="radio" name="illustrateSource" value="upload" onchange="updateIllustrateModal()" class="mt-1 accent-green-600" />
+            <span><span class="block text-slate-100 font-medium">📁 Upload an image</span>
+              <span class="block text-xs text-slate-400">Use your own PNG, JPG, WebP or GIF (up to 10 MB).</span></span>
+          </label>
+          <div id="illustrateUploadFields" class="hidden space-y-3 pl-1 pt-1">
+            <div>
+              <label for="illustrateFileInput" class="block text-xs font-medium text-slate-300 mb-1">Image file</label>
+              <input type="file" id="illustrateFileInput" accept="image/png,image/jpeg,image/webp,image/gif" onchange="previewIllustrationFile()" class="block w-full text-xs text-slate-300 file:mr-3 file:px-3 file:py-1.5 file:rounded file:border-0 file:bg-slate-700 file:text-slate-100 hover:file:bg-slate-600" />
+              <p id="illustrateFileError" class="hidden text-xs text-rose-400 mt-1"></p>
+              <img id="illustrateFilePreview" alt="" class="hidden mt-2 max-h-40 rounded border border-slate-700" />
+            </div>
+            <div>
+              <label for="illustrateAltInput" class="block text-xs font-medium text-slate-300 mb-1">Description <span class="font-normal text-slate-400">(optional, for screen readers)</span></label>
+              <input type="text" id="illustrateAltInput" maxlength="200" placeholder="e.g. Mark faces the horned beast across the river" class="w-full bg-slate-800 border border-slate-700 rounded px-2 py-1.5 text-sm text-slate-100 focus:outline-none focus:border-brand-500" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="space-y-2">
+          <legend class="font-medium text-slate-200 mb-1">Where it goes</legend>
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input type="radio" name="illustratePlacement" value="agent" checked class="mt-1 accent-green-600" />
+            <span><span class="block text-slate-100">After the most dramatic paragraph</span>
+              <span class="block text-xs text-slate-400">The AI picks it, using the Reading-Level Analysis provider.</span></span>
+          </label>
+          <label id="illustrateCursorOption" class="flex items-start gap-3 cursor-pointer">
+            <input type="radio" name="illustratePlacement" value="cursor" class="mt-1 accent-green-600" />
+            <span><span class="block text-slate-100">After the paragraph at my cursor</span>
+              <span id="illustrateCursorSnippet" class="block text-xs text-slate-400 italic"></span></span>
+          </label>
+        </fieldset>
+
+        <label id="illustrateReplaceRow" class="hidden flex items-center gap-2 text-slate-200">
+          <input type="checkbox" id="illustrateReplaceInput" checked class="h-4 w-4 accent-green-600" />
+          Replace the illustration added earlier to this chapter
+        </label>
+      </div>
+
+      <div class="p-4 border-t border-slate-800 bg-slate-900/50 flex justify-end space-x-2">
+        <button onclick="closeModal('illustrateModal')" class="px-4 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">Cancel</button>
+        <button id="illustrateSubmitBtn" onclick="submitIllustrateModal()" class="px-4 py-2 rounded-lg bg-brand-700 text-white font-medium hover:bg-brand-600 transition-colors disabled:opacity-40 disabled:cursor-not-allowed">Generate &amp; insert</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Illustration agent progress / result -->
   <div id="illustrationToast" role="status" aria-live="polite" style="width: min(24rem, calc(100vw - 2rem));" class="hidden fixed bottom-4 right-4 z-40 bg-slate-900 border rounded-lg shadow-2xl p-3 text-sm text-slate-200 border-slate-700">
     <div class="flex items-start gap-3">
@@ -1007,7 +1070,7 @@ No text, captions, speech bubbles, signatures or watermarks in the image.`;
       modalReturnFocus = null;
     }
     function openModalId() {
-      return ['newBookModal', 'settingsModal'].find(id => !document.getElementById(id).classList.contains('hidden'));
+      return ['newBookModal', 'settingsModal', 'illustrateModal'].find(id => !document.getElementById(id).classList.contains('hidden'));
     }
     document.addEventListener('keydown', e => {
       const id = openModalId();
@@ -2881,6 +2944,11 @@ ${body}
       }
     }
 
+    // Remember where the cursor was in the chapter editor (used by "After the paragraph at my cursor").
+    ['click', 'keyup', 'select', 'blur'].forEach(evt => document.getElementById('chapterEditor').addEventListener(evt, e => {
+      state.editorCursor = e.target.selectionStart;
+    }));
+
     // --- CHAPTER ILLUSTRATION AGENT ---
     // 1) pick the most dramatic paragraph of a chapter, 2) generate an image for it with Gemini,
     // 3) save it to books/<book>/images/, 4) insert it after that paragraph and commit the chapter.
@@ -3033,7 +3101,9 @@ ${listing}`;
       return out;
     }
 
-    async function illustrateChapter(bookId, chapterId, { replaceExisting = false } = {}) {
+    // options: replaceExisting; upload = { base64, mimeType, alt } to use your own image instead of generating;
+    // cursorText = text of the paragraph to place it after (otherwise the AI picks the most dramatic one).
+    async function illustrateChapter(bookId, chapterId, { replaceExisting = false, upload = null, cursorText = null } = {}) {
       if (illustrationRunning) { illustrationToast('🎨 An illustration is already being made. Please wait for it to finish.', 'info'); return; }
       const book = state.booksData.books.find(b => b.id === bookId);
       const chap = book && book.chapters.find(c => c.id === chapterId);
@@ -3057,21 +3127,32 @@ ${listing}`;
         const { lines, paras } = findStoryParagraphs(markdown);
         if (paras.length < 2) throw new Error("This chapter doesn't have enough text to illustrate yet.");
 
-        illustrationToast(`🎨 Illustrating <b>${esc(chap.title)}</b>: finding the most dramatic paragraph…`);
-        const { index, scene } = await pickDramaticParagraph(book, chap, paras);
+        let index, scene = '';
+        if (cursorText) {
+          index = paras.findIndex(pp => pp.text === cursorText);
+          if (index === -1) throw new Error("Couldn't find the paragraph at your cursor. Click inside a paragraph in the editor and try again.");
+        } else {
+          illustrationToast(`🎨 Illustrating <b>${esc(chap.title)}</b>: finding the most dramatic paragraph…`);
+          ({ index, scene } = await pickDramaticParagraph(book, chap, paras));
+        }
         const para = paras[index];
 
-        illustrationToast(`🎨 Illustrating <b>${esc(chap.title)}</b>: generating the image (this can take 10–30 seconds)…`);
-        imagePrompt = fillImagePrompt(book, chap, para.text, scene);
-        const image = await generateIllustration(imagePrompt);
+        let image;
+        if (upload) {
+          image = upload;
+        } else {
+          illustrationToast(`🎨 Illustrating <b>${esc(chap.title)}</b>: generating the image (this can take 10–30 seconds)…`);
+          imagePrompt = fillImagePrompt(book, chap, para.text, scene);
+          image = await generateIllustration(imagePrompt);
+        }
 
         illustrationToast(`🎨 Illustrating <b>${esc(chap.title)}</b>: saving the image and updating the chapter…`);
-        const ext = /jpe?g/.test(image.mimeType) ? 'jpg' : /webp/.test(image.mimeType) ? 'webp' : 'png';
+        const ext = /jpe?g/.test(image.mimeType) ? 'jpg' : /webp/.test(image.mimeType) ? 'webp' : /gif/.test(image.mimeType) ? 'gif' : 'png';
         const imgPath = `books/${book.id}/images/${chap.id}-${Date.now().toString(36)}.${ext}`;
         const savedImage = await commitGitHubFile(imgPath, image.base64, `Add illustration for '${chap.title}'`, true);
         if (!savedImage) throw new Error("Couldn't save the image to GitHub. Check your token in Settings (⚙).");
 
-        const alt = (scene || para.text).split(/(?<=[.!?])\s/)[0].slice(0, 180);
+        const alt = (upload && upload.alt) ? upload.alt.slice(0, 200) : (scene || para.text).split(/(?<=[.!?])\s/)[0].slice(0, 180);
         const updated = insertIllustration(lines, para, imgPath, alt);
         const savedChapter = await commitGitHubFile(`books/${book.id}/chapters/${chap.file}`, updated, `Insert illustration into '${chap.title}'`);
         if (!savedChapter) throw new Error(`The image was saved to ${imgPath}, but the chapter couldn't be updated. Check your token in Settings (⚙).`);
@@ -3087,7 +3168,7 @@ ${listing}`;
           statusEl.className = "text-slate-400 text-xs";
         }
         const preview = `data:${image.mimeType};base64,${image.base64}`;
-        illustrationToast(`✓ Added an illustration to <b>${esc(chap.title)}</b> after paragraph ${index + 1}:<br><span class="text-slate-400 italic">“${esc(para.text.slice(0, 120))}${para.text.length > 120 ? '…' : ''}”</span><img src="${preview}" alt="" class="mt-2 rounded border border-slate-700 w-full"><button onclick="closeIllustrationToast(); loadChapter('${chap.id}')" class="mt-2 text-xs underline text-brand-300 hover:text-white">Open the chapter</button>`, 'ok');
+        illustrationToast(`✓ Added ${upload ? 'your image' : 'an illustration'} to <b>${esc(chap.title)}</b> after paragraph ${index + 1}:<br><span class="text-slate-400 italic">“${esc(para.text.slice(0, 120))}${para.text.length > 120 ? '…' : ''}”</span><img src="${preview}" alt="" class="mt-2 rounded border border-slate-700 w-full"><button onclick="closeIllustrationToast(); loadChapter('${chap.id}')" class="mt-2 text-xs underline text-brand-300 hover:text-white">Open the chapter</button>`, 'ok');
       } catch (err) {
         console.error('Illustration failed:', err);
         // Short, plain reason up front; the full error text is tucked under "Details".
@@ -3119,20 +3200,112 @@ ${listing}`;
       }
     }
 
-    // 🎨 Illustrate button: the open chapter.
-    async function illustrateCurrentChapter() {
+    // 🎨 Illustrate button: choose to generate an image or upload your own, and where it goes.
+    let pendingUpload = null;
+
+    function paragraphAtCursor() {
+      const text = document.getElementById('chapterEditor').value.replace(/\r\n/g, '\n');
+      if (typeof state.editorCursor !== 'number') return null;
+      const line = text.slice(0, state.editorCursor).split('\n').length - 1;
+      const { paras } = findStoryParagraphs(text);
+      // The paragraph containing the cursor, or the nearest one above it.
+      let hit = null;
+      for (const pp of paras) { if (pp.start <= line) hit = pp; else break; }
+      return hit;
+    }
+
+    function illustrateSource() {
+      return document.querySelector('input[name="illustrateSource"]:checked').value;
+    }
+
+    function updateIllustrateModal() {
+      const upload = illustrateSource() === 'upload';
+      document.getElementById('illustrateUploadFields').classList.toggle('hidden', !upload);
+      document.getElementById('illustrateNoKeyNote').classList.toggle('hidden', !!state.settings.imageKey);
+      const submit = document.getElementById('illustrateSubmitBtn');
+      submit.innerText = upload ? 'Upload & insert' : 'Generate & insert';
+      submit.disabled = upload ? !pendingUpload : !state.settings.imageKey;
+    }
+
+    function previewIllustrationFile() {
+      const input = document.getElementById('illustrateFileInput');
+      const errorEl = document.getElementById('illustrateFileError');
+      const preview = document.getElementById('illustrateFilePreview');
+      pendingUpload = null;
+      errorEl.classList.add('hidden');
+      preview.classList.add('hidden');
+      const file = input.files && input.files[0];
+      if (file) {
+        if (!/^image\/(png|jpeg|webp|gif)$/.test(file.type)) {
+          errorEl.innerText = 'Please choose a PNG, JPG, WebP or GIF image.';
+          errorEl.classList.remove('hidden');
+        } else if (file.size > 10 * 1024 * 1024) {
+          errorEl.innerText = `That file is ${(file.size / 1048576).toFixed(1)} MB. Please use an image under 10 MB.`;
+          errorEl.classList.remove('hidden');
+        } else {
+          const reader = new FileReader();
+          reader.onload = () => {
+            const dataUrl = String(reader.result);
+            pendingUpload = { base64: dataUrl.split(',')[1], mimeType: file.type, alt: '' };
+            preview.src = dataUrl;
+            preview.classList.remove('hidden');
+            updateIllustrateModal();
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+      updateIllustrateModal();
+    }
+
+    function illustrateCurrentChapter() {
       const { book, chap } = currentBookAndChapter();
       if (!book || !chap) return;
       if (state.unsavedChanges) {
         alert("Commit your changes to this chapter first, then click 🎨 Illustrate.");
         return;
       }
-      let replaceExisting = false;
-      const current = document.getElementById('chapterEditor').value;
-      if (current.includes(ILLUSTRATION_START)) {
-        replaceExisting = confirm("This chapter already has an AI illustration.\n\nOK = replace it with a new one\nCancel = keep it and add another");
-      }
-      await illustrateChapter(book.id, chap.id, { replaceExisting });
+      if (illustrationRunning) { illustrationToast('🎨 An illustration is already being made. Please wait for it to finish.', 'info'); return; }
+
+      document.getElementById('illustrateModalTitle').innerText = `Illustrate: ${chap.title}`;
+      // Reset to defaults each time.
+      document.querySelector('input[name="illustrateSource"][value="generate"]').checked = true;
+      document.querySelector('input[name="illustratePlacement"][value="agent"]').checked = true;
+      document.getElementById('illustrateFileInput').value = '';
+      document.getElementById('illustrateAltInput').value = '';
+      document.getElementById('illustrateFilePreview').classList.add('hidden');
+      document.getElementById('illustrateFileError').classList.add('hidden');
+      pendingUpload = null;
+
+      // "At my cursor" is only offered when the cursor is in (or below) a paragraph.
+      const para = paragraphAtCursor();
+      const cursorOption = document.getElementById('illustrateCursorOption');
+      const cursorRadio = cursorOption.querySelector('input');
+      cursorRadio.disabled = !para;
+      cursorOption.classList.toggle('opacity-50', !para);
+      document.getElementById('illustrateCursorSnippet').innerText = para
+        ? `“${para.text.slice(0, 90)}${para.text.length > 90 ? '…' : ''}”`
+        : 'Click inside a paragraph in the editor first to use this.';
+
+      const hasExisting = document.getElementById('chapterEditor').value.includes(ILLUSTRATION_START);
+      document.getElementById('illustrateReplaceRow').classList.toggle('hidden', !hasExisting);
+      document.getElementById('illustrateReplaceInput').checked = true;
+
+      updateIllustrateModal();
+      openModal('illustrateModal');
+    }
+
+    async function submitIllustrateModal() {
+      const { book, chap } = currentBookAndChapter();
+      if (!book || !chap) return;
+      const upload = illustrateSource() === 'upload';
+      if (upload && !pendingUpload) return;
+      if (!upload && !state.settings.imageKey) return;
+      const placement = document.querySelector('input[name="illustratePlacement"]:checked').value;
+      const para = placement === 'cursor' ? paragraphAtCursor() : null;
+      const replaceExisting = !document.getElementById('illustrateReplaceRow').classList.contains('hidden') && document.getElementById('illustrateReplaceInput').checked;
+      const uploadImage = upload ? { ...pendingUpload, alt: document.getElementById('illustrateAltInput').value.trim() } : null;
+      closeModal('illustrateModal');
+      await illustrateChapter(book.id, chap.id, { replaceExisting, upload: uploadImage, cursorText: para ? para.text : null });
     }
 
     // After a chapter is added: illustrate the chapter before it (nothing to do for a book's first chapter).
