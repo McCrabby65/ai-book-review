@@ -424,6 +424,11 @@
           "id": "ch02-chapter-2",
           "title": "Chapter 2",
           "file": "ch02-chapter-2.md"
+        },
+        {
+          "id": "ch03-chapter-3",
+          "title": "Chapter 3",
+          "file": "ch03-chapter-3.md"
         }
       ]
     }
