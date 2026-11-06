@@ -2888,6 +2888,18 @@ ${body}
     const ILLUSTRATION_END = '<!-- /illustration:auto -->';
     let illustrationRunning = false;
 
+    // Turn a provider error into one short line for the illustration message.
+    function shortIllustrationError(message) {
+      const m = String(message || '');
+      if (/billing|quota|RESOURCE_EXHAUSTED|free tier|\b(402|429)\b/i.test(m)) return 'Gemini quota or billing limit reached.';
+      if (/API[ _]?key|API_KEY_INVALID|PERMISSION_DENIED|unauthori[sz]ed|\b(401|403)\b/i.test(m)) return 'Gemini rejected the image API key.';
+      if (/didn't return an image|blocked|SAFETY|PROHIBITED/i.test(m)) return 'Gemini declined to make this image.';
+      if (/not found|does not exist|NOT_FOUND|\b404\b/i.test(m) && /model|gemini/i.test(m)) return 'The image model wasn\'t found. Check the model in Settings.';
+      if (/Failed to fetch|NetworkError|network/i.test(m)) return "Couldn't reach the service. Check your connection.";
+      const first = m.replace(/^\[[^\]]*\]:\s*/, '').split(/(?<=[.!?])\s/)[0];
+      return first.length > 110 ? first.slice(0, 107) + '…' : first;
+    }
+
     function closeIllustrationToast() {
       document.getElementById('illustrationToast').classList.add('hidden');
     }
@@ -3078,18 +3090,29 @@ ${listing}`;
         illustrationToast(`✓ Added an illustration to <b>${esc(chap.title)}</b> after paragraph ${index + 1}:<br><span class="text-slate-400 italic">“${esc(para.text.slice(0, 120))}${para.text.length > 120 ? '…' : ''}”</span><img src="${preview}" alt="" class="mt-2 rounded border border-slate-700 w-full"><button onclick="closeIllustrationToast(); loadChapter('${chap.id}')" class="mt-2 text-xs underline text-brand-300 hover:text-white">Open the chapter</button>`, 'ok');
       } catch (err) {
         console.error('Illustration failed:', err);
-        let promptHtml = '';
+        // Short, plain reason up front; the full error text is tucked under "Details".
+        const reason = shortIllustrationError(err.message);
+        const btnCls = 'text-xs px-2 py-1 rounded border border-slate-600 text-slate-200 hover:bg-slate-800';
+        let actions = '';
+        let promptBox = '';
         if (imagePrompt) {
           window.lastIllustrationPrompt = imagePrompt;
-          const model = esc(state.settings.imageModel || 'gemini-nano-banana-2.1');
-          promptHtml = `
-            <details class="mt-2" open>
-              <summary class="cursor-pointer text-xs text-slate-300">Prompt sent to Gemini (${model}, ${esc(state.settings.imageAspect || '16:9')})</summary>
-              <pre style="overflow-wrap: anywhere;" class="mt-1 w-full max-h-60 overflow-auto whitespace-pre-wrap break-words bg-slate-950 border border-slate-700 rounded p-2 text-xs text-slate-300">${esc(imagePrompt)}</pre>
-              <button onclick="navigator.clipboard.writeText(window.lastIllustrationPrompt).then(() => { this.innerText = '✓ Copied'; })" class="mt-1 text-xs underline text-slate-300 hover:text-white">Copy prompt</button>
+          actions += `<button onclick="navigator.clipboard.writeText(window.lastIllustrationPrompt).then(() => { this.innerText = '✓ Copied'; })" class="${btnCls}">📋 Copy prompt</button>`;
+          promptBox = `
+            <details class="mt-2">
+              <summary class="cursor-pointer text-xs text-slate-300">Show prompt</summary>
+              <pre style="overflow-wrap: anywhere;" class="mt-1 w-full max-h-48 overflow-auto whitespace-pre-wrap break-words bg-slate-950 border border-slate-700 rounded p-2 text-xs text-slate-300">${esc(imagePrompt)}</pre>
             </details>`;
         }
-        illustrationToast(`⚠️ Couldn't illustrate <b>${esc(chap.title)}</b>: ${esc(err.message)}${promptHtml}`, 'error');
+        illustrationToast(`
+          <div>⚠️ Couldn't illustrate <b>${esc(chap.title)}</b>.</div>
+          <div class="text-xs text-slate-300 mt-0.5">${esc(reason)}</div>
+          ${actions ? `<div class="mt-2 flex gap-2">${actions}</div>` : ''}
+          ${promptBox}
+          <details class="mt-1">
+            <summary class="cursor-pointer text-xs text-slate-400">Details</summary>
+            <p class="mt-1 text-xs text-slate-400">${esc(err.message)}</p>
+          </details>`, 'error');
       } finally {
         illustrationRunning = false;
         if (btn) { btn.disabled = false; btn.innerText = '🎨 Illustrate'; }
