@@ -647,10 +647,12 @@
   </div>
 
   <!-- Illustration agent progress / result -->
-  <div id="illustrationToast" role="status" aria-live="polite" class="hidden fixed bottom-4 right-4 z-40 max-w-sm bg-slate-900 border border-slate-700 rounded-lg shadow-2xl p-3 text-sm text-slate-200">
+  <div id="illustrationToast" role="status" aria-live="polite" style="width: min(24rem, calc(100vw - 2rem));" class="hidden fixed bottom-4 right-4 z-40 bg-slate-900 border rounded-lg shadow-2xl p-3 text-sm text-slate-200 border-slate-700">
     <div class="flex items-start gap-3">
-      <div id="illustrationToastText" class="flex-1"></div>
-      <button onclick="document.getElementById('illustrationToast').classList.add('hidden')" aria-label="Dismiss" class="text-slate-400 hover:text-white">✕</button>
+      <!-- min-w-0 + wrapping keep long error text and URLs from pushing the close button out of view;
+           the text scrolls if it's taller than the window -->
+      <div id="illustrationToastText" class="flex-1 min-w-0 break-words overflow-y-auto" style="overflow-wrap: anywhere; max-height: calc(100vh - 5rem);"></div>
+      <button onclick="closeIllustrationToast()" aria-label="Dismiss" title="Dismiss (Esc)" class="shrink-0 -mt-1 -mr-1 w-7 h-7 flex items-center justify-center rounded text-slate-300 hover:text-white hover:bg-slate-800">✕</button>
     </div>
   </div>
 
@@ -2886,10 +2888,17 @@ ${body}
     const ILLUSTRATION_END = '<!-- /illustration:auto -->';
     let illustrationRunning = false;
 
+    function closeIllustrationToast() {
+      document.getElementById('illustrationToast').classList.add('hidden');
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && !openModalId() && !document.getElementById('illustrationToast').classList.contains('hidden')) closeIllustrationToast();
+    });
+
     function illustrationToast(html, kind = 'info') {
       const toast = document.getElementById('illustrationToast');
       const colors = { info: 'border-slate-700', ok: 'border-emerald-700', error: 'border-rose-700' };
-      toast.className = `fixed bottom-4 right-4 z-40 max-w-sm bg-slate-900 border ${colors[kind] || colors.info} rounded-lg shadow-2xl p-3 text-sm text-slate-200`;
+      toast.className = `fixed bottom-4 right-4 z-40 bg-slate-900 border rounded-lg shadow-2xl p-3 text-sm text-slate-200 ${colors[kind] || colors.info}`;
       document.getElementById('illustrationToastText').innerHTML = html;
     }
 
@@ -3066,7 +3075,7 @@ ${listing}`;
           statusEl.className = "text-slate-400 text-xs";
         }
         const preview = `data:${image.mimeType};base64,${image.base64}`;
-        illustrationToast(`✓ Added an illustration to <b>${esc(chap.title)}</b> after paragraph ${index + 1}:<br><span class="text-slate-400 italic">“${esc(para.text.slice(0, 120))}${para.text.length > 120 ? '…' : ''}”</span><img src="${preview}" alt="" class="mt-2 rounded border border-slate-700 w-full"><button onclick="document.getElementById('illustrationToast').classList.add('hidden'); loadChapter('${chap.id}')" class="mt-2 text-xs underline text-brand-300 hover:text-white">Open the chapter</button>`, 'ok');
+        illustrationToast(`✓ Added an illustration to <b>${esc(chap.title)}</b> after paragraph ${index + 1}:<br><span class="text-slate-400 italic">“${esc(para.text.slice(0, 120))}${para.text.length > 120 ? '…' : ''}”</span><img src="${preview}" alt="" class="mt-2 rounded border border-slate-700 w-full"><button onclick="closeIllustrationToast(); loadChapter('${chap.id}')" class="mt-2 text-xs underline text-brand-300 hover:text-white">Open the chapter</button>`, 'ok');
       } catch (err) {
         console.error('Illustration failed:', err);
         let promptHtml = '';
@@ -3076,7 +3085,7 @@ ${listing}`;
           promptHtml = `
             <details class="mt-2" open>
               <summary class="cursor-pointer text-xs text-slate-300">Prompt sent to Gemini (${model}, ${esc(state.settings.imageAspect || '16:9')})</summary>
-              <pre class="mt-1 max-h-60 overflow-auto whitespace-pre-wrap break-words bg-slate-950 border border-slate-700 rounded p-2 text-xs text-slate-300">${esc(imagePrompt)}</pre>
+              <pre style="overflow-wrap: anywhere;" class="mt-1 w-full max-h-60 overflow-auto whitespace-pre-wrap break-words bg-slate-950 border border-slate-700 rounded p-2 text-xs text-slate-300">${esc(imagePrompt)}</pre>
               <button onclick="navigator.clipboard.writeText(window.lastIllustrationPrompt).then(() => { this.innerText = '✓ Copied'; })" class="mt-1 text-xs underline text-slate-300 hover:text-white">Copy prompt</button>
             </details>`;
         }
