@@ -700,7 +700,7 @@
       }
     };
 
-    // --- CHAPTER ILLUSTRATION: default image prompt (matches the book's existing ink illustrations) ---
+    // --- CHAPTER ILLUSTRATION: default image prompt (realistic, cinematic fantasy-cover painting style) ---
     const DEFAULT_IMAGE_PROMPT = `Create a single illustration for a scene in the novel "{book_title}" ({genre}), from {chapter_title}.
 
 Scene to show: {scene}
@@ -708,7 +708,9 @@ Scene to show: {scene}
 The passage it illustrates:
 "{paragraph}"
 
-Style: black-and-white ink illustration in a detailed graphic-novel style, with crisp linework, cross-hatching and halftone shading, cinematic wide composition, dramatic lighting. No text, captions, speech bubbles, signatures or watermarks in the image.`;
+Style: realistic, cinematic digital painting, like a modern adult fantasy novel cover. Grounded and detailed, with natural lighting and realistic proportions. Not cartoonish, not anime, not exaggerated.
+
+No text, captions, speech bubbles, signatures or watermarks in the image.`;
 
     // --- CRITIQUE TONE (harshness), chosen per agent in Settings ---
     const CRITIQUE_TONES = {
