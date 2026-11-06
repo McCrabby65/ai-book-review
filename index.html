@@ -429,6 +429,11 @@
           <input type="text" id="newBookTitle" placeholder="e.g. Dragon Rising" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500" />
         </div>
         <div>
+          <label for="newBookTagline" class="block font-medium text-slate-200 mb-1">Tag Line <span class="font-normal text-slate-400">(optional)</span></label>
+          <input type="text" id="newBookTagline" maxlength="160" placeholder="e.g. Some dragons should stay asleep." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500" />
+          <p class="text-xs text-slate-400 mt-1">A one-line subtitle shown under the title on the About page and in exports.</p>
+        </div>
+        <div>
           <label for="newBookAuthor" class="block font-medium text-slate-200 mb-1">Author Name *</label>
           <input type="text" id="newBookAuthor" placeholder="e.g. J. R. Author" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-brand-500" />
         </div>
@@ -2038,7 +2043,7 @@ ${chapterText.slice(0, 4000)}`;
       const stillCurrent = () => isCurrentTarget(target);
 
       const tone = agentTone(agentKey);
-      const systemPrompt = `${isBook ? agent.bookPrompt : agent.chapterPrompt}\n\nCritique tone (${CRITIQUE_TONES[tone].label}): ${CRITIQUE_TONES[tone].instruction}\n\nBook Context:\nTitle: ${book.title}\nAuthor: ${book.author || ''}\nGenre: ${book.genre}\nBlurb: ${book.blurb}`;
+      const systemPrompt = `${isBook ? agent.bookPrompt : agent.chapterPrompt}\n\nCritique tone (${CRITIQUE_TONES[tone].label}): ${CRITIQUE_TONES[tone].instruction}\n\nBook Context:\nTitle: ${book.title}${book.tagline ? `\nTag line: ${book.tagline}` : ''}\nAuthor: ${book.author || ''}\nGenre: ${book.genre}\nBlurb: ${book.blurb}`;
       const userPrompt = !isBook
         ? `Please review the following manuscript chapter ("${chapter.title}"):\n\n${manuscript}`
         : `Please review the following complete manuscript (${chapterCount} chapters, about ${wordCount.toLocaleString()} words). Chapters are separated by lines like "=== Chapter Title ===".
@@ -2263,6 +2268,7 @@ ${manuscript}`;
     // (including its <br/> paragraph spacers), separated by horizontal rules.
     function exportMarkdown(book, chapters) {
       const out = [`# ${book.title}`, ''];
+      if (book.tagline) out.push(`*${book.tagline}*`, '');
       if (book.author) out.push(`**${book.author}**`, '');
       out.push('<br/>', '', '## Contents', '');
       chapters.forEach(c => out.push(`- ${c.chap.title}`));
@@ -2317,6 +2323,7 @@ blockquote { margin: 1em 2em; font-style: italic; }
 .title-page { text-align: center; margin-top: 30%; }
 .title-page h1 { font-size: 2.2em; margin-bottom: 0.5em; }
 .title-page .author { font-size: 1.2em; }
+.title-page .tagline { font-size: 1.15em; font-style: italic; margin: 0 0 1.5em; text-indent: 0; }
 nav ol { list-style: none; padding: 0; }
 nav li { margin: 0.4em 0; }
 .center { text-align: center; text-indent: 0; margin: 1em 0; }
@@ -2324,6 +2331,7 @@ img { max-width: 100%; height: auto; }`);
 
       zip.file("OEBPS/title.xhtml", page(title, `<section class="title-page" epub:type="titlepage">
   <h1>${title}</h1>
+  ${book.tagline ? `<p class="tagline">${escapeXml(book.tagline)}</p>` : ''}
   ${author ? `<p class="author">${author}</p>` : ''}
 </section>`));
 
@@ -2393,7 +2401,10 @@ ${items.map((it, i) => `    <navPoint id="np${i + 1}" playOrder="${i + 1}"><navL
 <package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="bookid" xml:lang="en">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
     <dc:identifier id="bookid">${uid}</dc:identifier>
-    <dc:title>${title}</dc:title>
+    <dc:title id="maintitle">${title}</dc:title>
+    <meta refines="#maintitle" property="title-type">main</meta>
+    ${book.tagline ? `<dc:title id="subtitle">${escapeXml(book.tagline)}</dc:title>
+    <meta refines="#subtitle" property="title-type">subtitle</meta>` : ''}
     ${author ? `<dc:creator>${author}</dc:creator>` : ''}
     <dc:language>en</dc:language>
     ${book.blurb ? `<dc:description>${escapeXml(book.blurb)}</dc:description>` : ''}
@@ -2437,6 +2448,7 @@ ${items.map(it => `    <itemref idref="${it.id}"/>`).join('\n')}
   .title-page { height: 7in; display: flex; flex-direction: column; justify-content: center; text-align: center; break-after: page; }
   .title-page h1 { font-size: 26pt; margin: 0 0 0.3in; }
   .title-page .author { font-size: 14pt; }
+  .title-page .tagline { font-size: 14pt; font-style: italic; margin: 0 0 0.35in; }
   .toc { break-after: page; }
   .toc h2 { text-align: center; font-size: 16pt; margin: 0.5in 0 0.3in; }
   .toc ol { list-style: none; padding: 0; }
@@ -2453,7 +2465,7 @@ ${items.map(it => `    <itemref idref="${it.id}"/>`).join('\n')}
   img { display: block; max-width: 100%; max-height: 5.5in; height: auto; margin: 0.15in auto; }
   p:has(> img) { text-indent: 0; text-align: center; break-inside: avoid; }
 </style></head><body>
-<section class="title-page"><h1>${esc(book.title)}</h1>${book.author ? `<div class="author">${esc(book.author)}</div>` : ''}</section>
+<section class="title-page"><h1>${esc(book.title)}</h1>${book.tagline ? `<div class="tagline">${esc(book.tagline)}</div>` : ''}${book.author ? `<div class="author">${esc(book.author)}</div>` : ''}</section>
 <nav class="toc"><h2>Contents</h2><ol>${toc}</ol></nav>
 ${body}
 </body></html>`;
@@ -2667,6 +2679,7 @@ ${body}
       if (state.bookModalMode === 'edit') return saveBookDetails();
       if (!confirmDiscardChanges()) return;
       const title = document.getElementById('newBookTitle').value.trim();
+      const tagline = document.getElementById('newBookTagline').value.trim();
       const author = document.getElementById('newBookAuthor').value.trim();
       const genre = document.getElementById('newBookGenre').value.trim();
       const blurb = document.getElementById('newBookBlurb').value.trim();
@@ -2685,6 +2698,7 @@ ${body}
       const newBookObj = {
         id: bookId,
         title: title,
+        tagline: tagline,
         author: author,
         genre: genre,
         blurb: blurb,
@@ -2769,6 +2783,7 @@ ${body}
         <div class="text-center pt-6 pb-2">
           ${book.genre ? `<p class="text-xs uppercase tracking-widest text-slate-400 mb-3" style="font-family: ui-sans-serif, system-ui, sans-serif;">${esc(book.genre)}</p>` : ''}
           <h1 class="text-3xl sm:text-4xl font-bold text-white leading-tight mb-3">${esc(book.title)}</h1>
+          ${book.tagline ? `<p class="text-xl italic text-slate-300 mb-4">${esc(book.tagline)}</p>` : ''}
           ${book.author ? `<p class="text-lg text-slate-300 mb-2">by ${esc(book.author)}</p>` : ''}
           <p class="text-sm text-slate-400" style="font-family: ui-sans-serif, system-ui, sans-serif;">${stats}</p>
         </div>
@@ -2797,7 +2812,7 @@ ${body}
 
     function openNewBookModal() {
       setBookModalMode('create');
-      ['newBookTitle', 'newBookAuthor', 'newBookGenre', 'newBookFirstChapter', 'newBookBlurb'].forEach(id => { document.getElementById(id).value = ''; });
+      ['newBookTitle', 'newBookTagline', 'newBookAuthor', 'newBookGenre', 'newBookFirstChapter', 'newBookBlurb'].forEach(id => { document.getElementById(id).value = ''; });
       openModal('newBookModal');
     }
 
@@ -2806,6 +2821,7 @@ ${body}
       if (!book) return;
       setBookModalMode('edit');
       document.getElementById('newBookTitle').value = book.title || '';
+      document.getElementById('newBookTagline').value = book.tagline || '';
       document.getElementById('newBookAuthor').value = book.author || '';
       document.getElementById('newBookGenre').value = book.genre || '';
       document.getElementById('newBookBlurb').value = book.blurb || '';
@@ -2818,6 +2834,7 @@ ${body}
       const book = state.booksData.books.find(b => b.id === state.currentBookId);
       if (!book) return;
       const title = document.getElementById('newBookTitle').value.trim();
+      const tagline = document.getElementById('newBookTagline').value.trim();
       const author = document.getElementById('newBookAuthor').value.trim();
       const genre = document.getElementById('newBookGenre').value.trim();
       const blurb = document.getElementById('newBookBlurb').value.trim();
@@ -2830,8 +2847,8 @@ ${body}
         return;
       }
 
-      const before = { title: book.title, author: book.author, genre: book.genre, blurb: book.blurb };
-      Object.assign(book, { title, author, genre, blurb });
+      const before = { title: book.title, tagline: book.tagline, author: book.author, genre: book.genre, blurb: book.blurb };
+      Object.assign(book, { title, tagline, author, genre, blurb });
       closeModal('newBookModal');
       setBookModalMode('create');
       renderBookDropdown();
