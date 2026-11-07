@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, dialogue-driven prose and accessible vocabulary in a first-person portal-fantasy voice, with only mild peril (a bleeding cut, a ghost murdered by assassins) and moderately complex themes of political conspiracy, trust, and time displacement, making it best suited to upper middle grade through young adult readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
