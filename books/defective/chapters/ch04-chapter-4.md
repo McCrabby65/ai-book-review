@@ -1,4 +1,7 @@
 # Chapter 4
+## Naked
+
+---
 
 I was disoriented, though I couldn't tell whether it was from talking with Tired Guy, the clubbing, or any of the many other pains I had. I managed to keep my feet downstream and slowly worked my way into an eddy with a sandy beach.
 
