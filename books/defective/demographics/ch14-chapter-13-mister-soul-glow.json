@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, conversational vocabulary and short, dialogue-driven sentences, with light humor, a first-person teen-friendly adventure-party dynamic, and only mild foreboding (a cursed chapel and missing adventurers) with no graphic violence or mature content, while its themes of gods, faith, and guild-based quests are straightforward and accessible to upper middle grade and young adult readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
