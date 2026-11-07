@@ -1,4 +1,5 @@
 # Chapter 2
+## Mister Pliers
 
 I wasn't alone. Figures in long robes stood around the table, hoods pulled low, faces lost in shadow.
 
