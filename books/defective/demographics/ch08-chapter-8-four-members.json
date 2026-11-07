@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The prose uses plain vocabulary, short paragraphs, and a first-person voice with italicized inner thoughts and light humor, while the emotional scene of confessing a secret and fears of rejection, with torture only referenced briefly and not depicted, makes it suitable for teen readers with moderate thematic complexity around trust, identity, and isekai-style portal-fantasy tropes.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
