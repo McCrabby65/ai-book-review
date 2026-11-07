@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, accessible vocabulary and short, dialogue-driven sentences with light humor and a first-person teen-friendly voice, while its monster-hunting action (a slime killed by an arrow, acid, and bandaged injuries) is non-graphic and the themes of teamwork and problem-solving are straightforward.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
