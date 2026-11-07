@@ -1,8 +1,8 @@
 {
   "target_age_group": "New Adult (18-25)",
-  "reading_level": "Grade 7-8 Level",
+  "reading_level": "Grade 6-8 Level",
   "content_rating": "Mild",
-  "rationale": "The vocabulary is plain and the sentences are conversational, with a first-person adult narrator (a full-time software developer reflecting on an ex and a trip to Europe) interacting with college-age peers, which fits a New Adult or crossover audience, while the only intense moment is a brief, non-graphic anecdote about a child's foot entrapment in a river and the themes of feeling out of place and portal-fantasy escapism are accessible and light.",
+  "rationale": "The accessible vocabulary, short punchy sentences, and light banter keep the prose easy to read, and the only tension is a brief, non-graphic anecdote about a near-drowning; the protagonist is a young working professional (a software developer mentioning an ex) who is socializing with college-aged peers, so the themes of feeling out of place, early-career adulthood, and past relationships point to a New Adult audience.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
