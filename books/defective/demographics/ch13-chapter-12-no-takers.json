@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses simple vocabulary, short sentences, and a first-person LitRPG/fantasy voice typical of YA, while the themes of enslaved sacrifice, a tortured soul trapped in a monstrous body, trauma-driven nightmares, and the moral weight of killing are conveyed through implication rather than graphic depiction, making the intensity moderate.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
