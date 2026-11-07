@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses accessible vocabulary, short punchy sentences, and a snarky first-person voice full of pop-culture gags (Austin Powers, DMV, isekai tropes) in a lighthearted, low-stakes guild-bureaucracy scene with no graphic violence, sexual content, or heavy themes, though the genre-savvy humor and isekai meta-commentary skew toward teen and young adult fantasy readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
