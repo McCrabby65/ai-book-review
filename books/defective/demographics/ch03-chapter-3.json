@@ -1,8 +1,8 @@
 {
   "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 6-7 Level",
+  "reading_level": "Grade 7-8 Level",
   "content_rating": "Moderate",
-  "rationale": "The vocabulary is simple and conversational, with snarky internal monologue and light humor in an isekai portal-fantasy style, while the scene intensity (a torture aftermath, a body dumped in a river, ritual human sacrifice discussed in non-graphic terms) and the moral questions about sacrificed lives and agency suit teen readers more than middle graders.",
+  "rationale": "The text uses plain, conversational vocabulary and a snarky isekai-style first-person voice with italicized thoughts, while the scenes involve torture aftermath, a body dumped in a river, and ritual human sacrifice, which are handled without graphic detail and with fairly accessible moral themes (sacrifice, worth, redirected souls).",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
