@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, dialogue-heavy prose with accessible vocabulary and a light, cozy tone, and its only darker notes are brief references to death, reincarnation, and a deadline, which suggest a YA-to-broad-audience portal fantasy with very low scene intensity.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
