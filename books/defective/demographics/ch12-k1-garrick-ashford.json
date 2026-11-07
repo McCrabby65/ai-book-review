@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses plain vocabulary and short, direct sentences, but the story deals with mature themes: state-sanctioned ritual human sacrifice, slave trading that includes children, and political corruption. These are conveyed through dialogue and implication rather than graphic depiction, which supports a moderate rating.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
