@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The prose uses simple vocabulary, short sentences, and dialogue-driven scenes in a lighthearted portal-fantasy adventure, while references to past deaths, a traumatized nurse's memories, and a deadly trap add some thematic weight without any graphic violence or mature content.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
