@@ -70,9 +70,9 @@ A third. "You aren't good at combat. You aren't even good at being bad at combat
 
 "Your writing looks like squiggles."
 
-"And a week ago soldiers started asking the Guild for recently registered adventurers." She put her hand down. "I can add, Evan."
+"And yesterday soldiers asked the Guild for recently registered adventurers." She put her hand down. "I can add, Evan."
 
-After a small pause, she said, "So I've had a week to think about what I'm going to do."
+After a small pause, she said, "So I've had some time to think about what I'm going to do."
 
 I waited. "And?"
 
@@ -82,7 +82,7 @@ I waited. "And?"
 
 "How do you know that the summonings are the problem?" asked Prue.
 
-"Um...a god told me," I said. *In for a penny, in for a pound.*
+"Um... a god told me," I said. *In for a penny, in for a pound.*
 
 "A god? Why you?" asked Prue.
 
@@ -128,9 +128,9 @@ Prue put her head in her hand and sighed again.
 
 *It was on the shelves around the door. Walking right past it.*
 
-*Isn't that what happened in the archive? *asked Tired Guy.
+*Isn't that what happened in the archive?* asked Tired Guy.
 
-*You're right*, I replied.
+*You're right,* I replied.
 
 "I think I know where to look next," I said.
 
