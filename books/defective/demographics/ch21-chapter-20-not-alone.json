@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses simple vocabulary, short sentences, and dialogue-heavy, lightly humorous banter typical of YA portal fantasy, while the thematic weight (ritual mass sacrifice, forced use of a healer to spread plague, bureaucratic dehumanization of victims as 'units') is handled without graphic depiction, making it moderately intense.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
