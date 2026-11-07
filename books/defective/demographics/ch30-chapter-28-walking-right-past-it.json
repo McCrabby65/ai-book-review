@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, dialogue-driven prose with plain vocabulary and light humor, while its isekai premise (an adult protagonist who is an Otherborn, a new god, and guild politics) involves only mild, non-graphic tension and no strong violence, sex, or language, so it suits teen and crossover adult readers of portal fantasy.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
