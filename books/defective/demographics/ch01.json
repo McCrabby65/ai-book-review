@@ -1,8 +1,8 @@
 {
   "target_age_group": "New Adult (18-25)",
-  "reading_level": "Grade 7-8 Level",
+  "reading_level": "Grade 6-7 Level",
   "content_rating": "Mild",
-  "rationale": "The prose uses plain, conversational vocabulary and short, accessible sentences, and the only intensity is a brief, non-graphic anecdote about a near-drowning, but the protagonist is a full-time software developer with an ex who feels out of place among college-age peers, which points to a New Adult audience dealing with early-adulthood themes.",
+  "rationale": "The vocabulary is plain and conversational with short sentences and light humor, and the scenes involve only a tense but non-graphic river-safety anecdote, while the protagonist's status as a young full-time software developer with an ex who is socializing among college-age students, along with themes of feeling out of place and adult transitions, points to a New Adult audience.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
