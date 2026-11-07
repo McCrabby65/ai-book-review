@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Moderate",
+  "rationale": "The vocabulary and sentence structure are plain and accessible, but the chapter's thematic weight, including a first-person account of prolonged torture, coerced killing, and the mercy-killing of a tortured child, is dark and emotionally heavy, though the violence is described in summary rather than graphic detail.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
