@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, conversational vocabulary and light, jokey banter in an isekai-style fantasy setting, with only mild thematic notes (a guard uniform triggering brief tension, loyalty inspections, nudity jokes) and no graphic violence or mature content, making it accessible to teens and crossover adult readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
