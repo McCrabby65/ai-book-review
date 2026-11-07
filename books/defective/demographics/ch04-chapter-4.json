@@ -2,7 +2,7 @@
   "target_age_group": "Young Adult (12-18)",
   "reading_level": "Grade 7-8 Level",
   "content_rating": "Mild",
-  "rationale": "The prose uses plain, accessible vocabulary and short banter-driven scenes with light humor, while the mild profanity ('ass'), implied injuries, and non-graphic nudity are handled without explicit detail, and the themes (mystery, found-family adventuring party, amnesiac or displaced protagonist) are straightforward fantasy fare suited to teen readers and up.",
+  "rationale": "The prose uses simple, accessible vocabulary and quick banter-driven dialogue in a light fantasy adventure, with mild crude language ('ass', 'buck naked') and non-graphic injury and nudity played for humor, while the themes (a mysterious amnesiac-like stranger, guild jobs, unexplained deaths) are straightforward and not thematically complex.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
