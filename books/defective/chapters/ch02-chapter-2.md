@@ -48,6 +48,16 @@ Ball Guy showed the crystal ball to Bored Dude.
 
 Then most of the robed figures turned and left. As I watched them go, I realized the room was more like a huge domed chamber, and there were a lot more people in it than I'd thought. Some wore armor and carried swords and pikes.
 
+<br/>
+
+<!-- illustration:auto -->
+<p align="center">
+  <img src="books/defective/images/ch02-chapter-2-mw6g8oz6.jpg" alt="A vast domed stone chamber lit by torchlight, with a bound man lying on a table in the foreground, dazed and wide-eyed.">
+</p>
+<!-- /illustration:auto -->
+
+<br/>
+
 On their way out, they crossed a floor with some strange patterns on it. Or rather *in* it, since they looked like black arcs in the stone. *I wonder what caused those? Almost like inlaid metal, except metal would shine.*
 
 One of the guards stood out from the rest: better armor, a cloak, and the kind of posture that comes from giving orders. *Fancy Guard. He must be important.* When the robed figures left, he stayed behind with the guards.
