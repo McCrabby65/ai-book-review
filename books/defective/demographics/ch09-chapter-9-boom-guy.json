@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, conversational vocabulary and short, dialogue-driven scenes with light humor and italicized internal thoughts, while its fantasy-quest premise (goblin extermination, guild jobs, isekai-style fish-out-of-water protagonist) carries only mild, non-graphic peril and a modestly layered satirical theme about education and work that suits teens and crossover adult readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
