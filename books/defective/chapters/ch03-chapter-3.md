@@ -1,7 +1,4 @@
-# Chapter 3
-## Cryptic Much?
-
----
+# Chapter 3: Cryptic Much?
 
 *Could have fooled me.*
 
