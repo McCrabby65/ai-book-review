@@ -1,6 +1,8 @@
 # Chapter 2
 ## Mister Pliers
 
+---
+
 I wasn't alone. Figures in long robes stood around the table, hoods pulled low, faces lost in shadow.
 
 *I really hope they're hot girls*, I thought. *Otherwise this dream is taking a kinky turn.*
