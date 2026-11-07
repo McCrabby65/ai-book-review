@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses plain, conversational vocabulary and short dialogue-driven scenes, with only light, humorous romantic awkwardness and low-stakes infiltration planning in an isekai fantasy setting, so there is no graphic violence, sexual content, or heavy thematic material, and its genre conventions (game-like spells, dungeon scouting, a villainous Chancellor) appeal most to teen and crossover readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
