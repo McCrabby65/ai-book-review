@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses short, direct sentences and accessible vocabulary, with a light touch of dry humor (the stolen ham), while the political intrigue, a tyrannical Chancellor's threats of torture, a mention of a stolen body, and a hint of past violence give it moderate intensity suited to young adult fantasy readers, though the restrained, non-graphic treatment also makes it accessible to older middle-grade readers and general adult fans of the genre.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
