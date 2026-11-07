@@ -1,6 +1,8 @@
 # Chapter 3
 ## Cryptic Much?
 
+---
+
 *Could have fooled me.*
 
 "A man who does not know his own worth is surely a fool," said the tired voice in my head.
