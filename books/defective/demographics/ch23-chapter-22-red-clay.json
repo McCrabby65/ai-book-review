@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Middle Grade (8-12)",
+  "reading_level": "Grade 5-6 Level",
+  "content_rating": "Mild",
+  "rationale": "The prose uses simple, concrete vocabulary, short declarative sentences, and straightforward dialogue, while the low-stakes scene (a quiet pre-quest evening with a threatened family and a child in peril only in backstory) has no graphic violence or mature content, and its themes of generosity, compassion, and fair pay are accessible to younger readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
