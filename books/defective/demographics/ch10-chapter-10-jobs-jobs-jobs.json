@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, accessible vocabulary and a light, humorous first-person voice with italicized inner thoughts, and its scene intensity is low (a mine death is mentioned only briefly and the focus is on a science-based mystery), while the thematic complexity is modest, centering on money, teamwork, and problem-solving in a lighthearted isekai-style fantasy.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
