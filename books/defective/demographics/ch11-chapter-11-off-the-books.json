@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, conversational vocabulary and short sentences, with light humor (the receptionist loop joke, the first-person narrator's self-deprecating asides) and a low-intensity investigative plot involving off-screen bodies, while its themes of loyalty, teamwork, and doing right without pay are accessible; the portal-fantasy guild-adventure premise and teen-to-young-adult protagonist fit YA, though the content is gentle enough for upper middle grade readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
