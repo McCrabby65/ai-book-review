@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses simple, direct vocabulary and light humor (the stolen cheese and ham), but the clinical lab notes describing failed monster-core experiments on captive subjects who die, mutate, or kill handlers bring in dark themes of cruelty, cost-cutting ethics, and guilt, all handled without graphic gore.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
