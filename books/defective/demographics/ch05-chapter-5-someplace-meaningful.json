@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses accessible vocabulary and short, conversational sentences, but the adult protagonist's wry internal voice, references to nudity and crude humor (\"dong\"), implied ritual violence and trauma, and genre-savvy isekai tropes aimed at readers familiar with portal-fantasy conventions place it with adult readers, while the light, comedic tone keeps the intensity moderate.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
