@@ -2,7 +2,7 @@
   "target_age_group": "Adult (18+)",
   "reading_level": "Grade 7-8 Level",
   "content_rating": "Moderate",
-  "rationale": "The prose uses simple, conversational vocabulary and a snappy comedic voice with isekai genre in-jokes, but the scene depicts graphic torture (fingers broken with pliers), mild profanity, and sexual innuendo that push it beyond younger audiences, while the thematic complexity remains light and genre-driven.",
+  "rationale": "The vocabulary and sentence structure are simple and conversational, with a snarky isekai-parody voice, but the sustained torture scene (finger-breaking with pliers), crude humor about 'hot girls' and a 'sausage fest,' and profanity point to an older teen-to-adult audience rather than younger readers.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
