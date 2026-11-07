@@ -36,7 +36,7 @@ The thudding had stopped. In its place, I heard the guards huffing like they'd j
 
 I watched them drag my body across the chamber floor. From up here, I could finally see the black swirls properly. They weren't random. They made one enormous design that covered the entire floor.
 
-They pulled me out through the cave entrance, and for the first time I could see where I was. The chamber was inside a mountain, and the mountain was surrounded by forest. Somewhere close by, I could hear white water. The guards dragged me toward the sound.
+They dragged me out through the cave entrance feet first, and for the first time I could see where I was. The chamber was inside a mountain, and the mountain was surrounded by forest. Somewhere close by, I could hear white water. The guards dragged me toward the sound.
 
 They stopped at a short drop-off above a rapid. Class III, by the look of it. Then, without any fanfare, they flung my body in.
 
