@@ -1474,7 +1474,15 @@ No text, captions, speech bubbles, signatures or watermarks in the image.`;
 
       renderBookDropdown();
       if (state.booksData.books.length > 0) {
-        switchBook(state.booksData.books[0].id);
+        // Reopen the book (and chapter) this browser was last reading, if it still exists.
+        const last = recallPlace();
+        const lastBook = last && state.booksData.books.find(b => b.id === last.bookId);
+        if (lastBook) {
+          document.getElementById('bookSelect').value = lastBook.id;
+          switchBook(lastBook.id, last.chapterId);
+        } else {
+          switchBook(state.booksData.books[0].id);
+        }
       }
       updateEmptyState();
     }
@@ -1527,7 +1535,35 @@ No text, captions, speech bubbles, signatures or watermarks in the image.`;
       document.getElementById('bookSelect').value = state.currentBookId;
     }
 
-    function switchBook(bookId) {
+    // --- REMEMBER WHERE YOU LEFT OFF ---
+    // The page address carries the place (?book=<id>&chapter=<id>), so links and bookmarks reopen it;
+    // this browser also remembers it for visits to the plain address.
+    const LAST_READ_KEY = 'storyforge_last_read';
+    function rememberPlace() {
+      if (!state.currentBookId) return;
+      try {
+        const url = new URL(location.href);
+        url.searchParams.set('book', state.currentBookId);
+        const chapterId = state.viewingAbout ? null : state.currentChapterId;
+        if (chapterId) url.searchParams.set('chapter', chapterId); else url.searchParams.delete('chapter');
+        if (url.href !== location.href) history.replaceState(null, '', url);
+      } catch (e) { /* address can't be changed here: ignore */ }
+      try {
+        localStorage.setItem(LAST_READ_KEY, JSON.stringify({
+          bookId: state.currentBookId,
+          chapterId: state.viewingAbout ? null : state.currentChapterId
+        }));
+      } catch (e) { /* storage unavailable: nothing to remember */ }
+    }
+    // A place in the address wins; otherwise the one this browser remembers.
+    function recallPlace() {
+      const params = new URLSearchParams(location.search);
+      if (params.get('book')) return { bookId: params.get('book'), chapterId: params.get('chapter'), fromUrl: true };
+      try { return JSON.parse(localStorage.getItem(LAST_READ_KEY)) || null; } catch (e) { return null; }
+    }
+
+    // startChapterId (optional): open this chapter instead of the book's usual starting page.
+    function switchBook(bookId, startChapterId = null) {
       if (!confirmDiscardChanges()) {
         document.getElementById('bookSelect').value = state.currentBookId; // undo the dropdown change
         return;
@@ -1540,7 +1576,9 @@ No text, captions, speech bubbles, signatures or watermarks in the image.`;
 
       renderChapterList(book);
       if (state.reviewScope === 'book') loadReviews();
-      if (book && book.chapters.length > 0 && state.mode !== 'author') {
+      if (book && startChapterId && book.chapters.some(c => c.id === startChapterId)) {
+        loadChapter(startChapterId);
+      } else if (book && book.chapters.length > 0 && state.mode !== 'author') {
         // Readers land on the title page; the first chapter loads when they start reading.
         state.currentChapterId = null;
         state.demographicData = null;
@@ -1558,6 +1596,7 @@ No text, captions, speech bubbles, signatures or watermarks in the image.`;
         if (state.reviewScope === 'chapter') loadReviews();
       }
       updateEmptyState();
+      rememberPlace();
     }
 
     function renderChapterList(book) {
@@ -1596,6 +1635,7 @@ No text, captions, speech bubbles, signatures or watermarks in the image.`;
       cancelRenameChapter(false);
       state.unsavedChanges = false;
       state.currentChapterId = chapterId;
+      setTimeout(rememberPlace, 0);
       state.loadingChapterId = chapterId; // Set active loading request lock
       hideAboutPage();
       updateEmptyState();
@@ -2795,6 +2835,7 @@ ${body}
       if (!book) return;
       cancelRenameChapter(false);
       state.viewingAbout = true;
+      setTimeout(rememberPlace, 0);
       document.querySelectorAll('#chapterList button').forEach(b => b.classList.remove('bg-slate-800', 'text-white'));
       const btn = document.getElementById('chap-btn-__about');
       if (btn) btn.classList.add('bg-slate-800', 'text-white');
@@ -2817,6 +2858,7 @@ ${body}
     function hideAboutPage() {
       if (!state.viewingAbout) return;
       state.viewingAbout = false;
+      setTimeout(rememberPlace, 0);
       document.getElementById('aboutPage').classList.add('hidden');
       const btn = document.getElementById('chap-btn-__about');
       if (btn) btn.classList.remove('bg-slate-800', 'text-white');
