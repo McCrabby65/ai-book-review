@@ -1,4 +1,4 @@
-# Chapter 13: Malphus of Accounts
+## Chapter 13: Malphus of Accounts
 
 "The Guildmaster," said Malphus, "is asleep, I take it."
 
@@ -255,6 +255,12 @@ Brannoc's section was the longest in the book. It went on for pages. Mike recogn
 > *Scissors, golden.*
 
 And after each line, in that same neat red hand, a number. And after each number, a smaller number. And after that, a smaller one still: the interest, and the interest on the interest, and the interest on that, going back and back and down and down, into figures so small and so many that they ran together into a thin red smear at the edge of every page.
+
+Only one line in Brannoc's section had no numbers after it at all. It was near the middle, beside the entry for the Sunken Crypt, and it was written smaller than the rest, as if added later, by someone who had wanted to get it exactly right.
+
+*Estimator of record: M. Dobbins. Answered.*
+
+There was no interest on it. Mike looked at it for a long time before he understood. In two hundred years of borrowing, it was the only thing in the whole book that had been paid in full.
 
 ---
 
