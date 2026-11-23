@@ -10,7 +10,7 @@ Only five hours added overnight, Mike noted. Priscilla must have gone home early
 
 He began at the top, sorting notices into three stacks: things that were actually urgent, things that had stopped being urgent sometime during the previous reign, and things that had never been urgent but had been stamped anyway by someone who liked the stamp. The third stack grew fastest.
 
-At 9:13 he reached the bottom layer, a compressed mass of paper so old it had fused into something like slate. He braced his feet and heaved.
+At 9:13, wanting to know how deep the problem went, he tunneled in at the base of the pile and reached the bottom layer, a compressed mass of paper so old it had fused into something like slate. He braced his feet and heaved.
 
 At 9:14 exactly, the slab came up, and underneath it was a trapdoor.
 
