@@ -1,8 +1,8 @@
 {
   "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 9-10 Level",
+  "reading_level": "Grade 8-9 Level",
   "content_rating": "Mild",
-  "rationale": "The prose mixes moderate‑complex sentences, specialized fantasy terminology, and gentle, non‑graphic scenes of invention, placing it at a high‑school reading level with mild intensity.",
-  "provider": "groq",
-  "model": "openai/gpt-oss-120b"
+  "rationale": "The whimsical fantasy setting, playful vocabulary, and a cat-and-spell-testing scene with no violence or mature content suit teens, while the adult-leaning thematic layer of software-industry humor (versioned spells, stand-ups, beta releases, a résumé, a protagonist reincarnated from a tech career) and the wry irony of an overconfident demo point to older teen and adult crossover readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
 }
