@@ -1,8 +1,8 @@
 {
-  "target_age_group": "Young Adult (12-18)",
+  "target_age_group": "Adult (18+)",
   "reading_level": "Grade 9-10 Level",
-  "content_rating": "Moderate",
-  "rationale": "The prose uses moderately advanced vocabulary and layered metaphor while the tension of an imminent building collapse creates a steady, non-graphic intensity, and the themes of duty, resignation, and bureaucratic absurdity add thematic depth suited to older teens.",
-  "provider": "groq",
-  "model": "openai/gpt-oss-120b"
+  "content_rating": "Mild",
+  "rationale": "The chapter relies on dry workplace satire (HR laminated cards, resignation letters, corporate jargon like 'runway' and 'framing') that requires adult professional experience to appreciate, while its accessible vocabulary, deadpan fantasy-bureaucracy humor, and gentle existential themes of death and burnout involve no graphic violence, sexual content, or strong language.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
 }
