@@ -208,7 +208,7 @@ Mike put the card in his pocket. He asked the skill one question on the way in, 
 
 The Duke sat at the far end of the long hall, in his great carved chair, holding the dragon tooth.
 
-He looked older than Mike remembered. That was the first thing Mike noticed. Up close, without a crowd around him, without the guild hall's noise, he was just an old man in a very big chair, with a great white beard and tired eyes, and the dragon tooth across his knees like a walking stick.
+He looked older than Mike remembered. That was the first thing Mike noticed. Up close, without a crowd around him, without the guild hall's noise, he was just an old man in a very big chair, with a great white mustache and tired eyes, and the dragon tooth across his knees like a walking stick.
 
 "MIKE," said the Duke.
 
@@ -256,7 +256,7 @@ Mike blinked. "Your Grace?"
 
 Something happened to the Duke's face.
 
-It started around the eyes. It spread down through the great white beard. It was, Mike realized, after a moment, a smile, but not the hopeful one from before. It was a different smile entirely. It was the smile of a man who has been handed something he did not know he had been waiting for.
+It started around the eyes. It spread down into the great white mustache. It was, Mike realized, after a moment, a smile, but not the hopeful one from before. It was a different smile entirely. It was the smile of a man who has been handed something he did not know he had been waiting for.
 
 "NOBODY," said the Duke of Varrenhold, "HAS SAID THAT TO ME IN FORTY YEARS."
 
