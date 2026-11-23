@@ -118,7 +118,7 @@ Behind him, at the end of the table, very quietly, Hesper Vane stopped filing he
 
 They kept going.
 
-The trouble with the guild's records, Mike discovered, was not that they were bad. His own records were very good. The trouble was that there were long stretches where nobody had written anything down at all. Whole weeks when things had happened, important things, that had left no mark on paper anywhere. Nights when the bell had rung and nobody logged it. Changes that somebody had just *done*, on a whim, without telling anybody.
+The trouble with the guild's records, Mike discovered, was not that they were bad. His own records were very good. The trouble was that there were long stretches where nobody had written anything down at all. Whole weeks when things had happened, important things, that had left no mark on paper anywhere. Nights when something had broken and nobody logged it. Changes that somebody had just *done*, on a whim, without telling anybody.
 
 Every time they hit one of those gaps, Pip went very still. Then he opened his slate, and consulted something, and wrote the card anyway, with a date, and pinned it up.
 
@@ -300,7 +300,7 @@ Underneath, in a different hand, in large confident letters: *Noted. — B.*
 
 Tam pinned them up on the wall, at the far left, right after Osric's card about Edwin.
 
-And then, beside them, without saying anything, he pinned up the program from the day the Champions had been celebrated, the week Rupert had first arrived. The day they had presented, to the whole guild, to cheering and applause and a single medal, the Ink Office's groundbreaking new *Ink Strategy*.
+And then, beside them, without saying anything, he pinned up the program from the stand-up the week Rupert had first arrived. The day the roommates had presented, to the whole guild, to cheering and applause and a single medal, the Ink Office's groundbreaking new *Ink Strategy*.
 
 There were two items on it.
 
