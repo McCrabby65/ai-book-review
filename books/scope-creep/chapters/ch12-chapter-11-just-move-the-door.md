@@ -176,7 +176,7 @@ It was the most anyone in the guild hall, outside the Basement, had ever said on
 
 The wizard arrived the next morning.
 
-It was the same one: the thin, fast-talking man in the silver coat, from the capital, who had wired three bells and a wagon into the fire ward and never once asked what it was for. He came in through the old front door with a bag of chisels, a pot of rune-ink, a stack of new oak boards, and four workmen, and he whistled as he looked at the doorframe.
+It was the same one: the thin, fast-talking man in the silver coat, from the capital, who had wired three bells into the fire ward and never once asked what it was for. He came in through the old front door with a bag of chisels, a pot of rune-ink, a stack of new oak boards, and four workmen, and he whistled as he looked at the doorframe.
 
 "Oh, *lovely*," he said. "Lovely old work. Very old-fashioned." He tapped the runes with a chisel. "Load-bearing, you say?"
 
