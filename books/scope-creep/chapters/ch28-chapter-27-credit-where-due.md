@@ -38,7 +38,7 @@ Pip went pink to the tips of his ears and rolled it back up.
 
 At a quarter past eight, the Basement hatch opened again, and something happened that nobody at the guild had ever seen.
 
-Durgan came up.
+Durgan came up. Not for a job. Not to fix anything. Just up.
 
 He came up the ladder slowly, as if he were climbing out of a well into the light, and stood in the main hall blinking. He had washed. His beard had been combed, which nobody had known was possible. He was wearing a clean shirt that still had the creases in it from wherever it had been folded for a very long time. And on his chest, polished bright, was the medal from the crypt that Gareth had given him the day before.
 
@@ -80,7 +80,7 @@ Nobody stopped him. Nobody told Brannoc.
 
 The parade began at ten.
 
-The Duke of Varrenhold's carriage came down the hill from his hall and through the east gate and into the city, slowly, pulled by four white horses with gold ribbons in their manes. Behind it came the Duke's honor guard, all twenty of them, who had spent the last week carrying stones and holding ladders and guarding a barrier and were looking much happier and more muscular than before. Behind them came the festival bands, and the dancers, and the cart with the giant harvest pumpkin on it, and a long, cheerful, disorganized tail of everyone in Brindlemoor who had felt like walking.
+The Duke of Varrenhold's carriage came down the hill from his hall and through the east gate and into the city, slowly, pulled by four white horses with gold ribbons in their manes. Behind it came the Duke's honor guard, all twenty of them, who had spent the last few days carrying stones and holding ladders and guarding a barrier and were looking much happier and more muscular than before. Behind them came the festival bands, and the dancers, and the cart with the giant harvest pumpkin on it, and a long, cheerful, disorganized tail of everyone in Brindlemoor who had felt like walking.
 
 And beside the carriage, the whole way, marched Gareth the Bold in his purple cape, with his sword held upright in front of him, beaming like a lighthouse.
 
@@ -148,7 +148,7 @@ Mike asked the skill.
 
 **Estimated time to clear a twelve-acre field: 9 days.**
 
-"Nine days," said Mike. "Not Monday. The Thursday after next."
+"Nine days," said Mike. "Not Monday. The Monday after next."
 
 Priscilla nodded firmly. She went back across the square, through the crowd, and said it to the farmer. Mike watched the farmer's face. It went through surprise, and confusion, and something like suspicion, and he looked Priscilla up and down as though she had suddenly grown a second head and he wasn't sure which one was in charge.
 
