@@ -1,8 +1,8 @@
 {
   "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 10-11 Level",
+  "reading_level": "Grade 7-8 Level",
   "content_rating": "Mild",
-  "rationale": "The chapter uses moderately advanced vocabulary and layered dialogue about authority and personal agency, creating tense but non‑graphic scenes that suit a teen audience.",
-  "provider": "groq",
-  "model": "openai/gpt-oss-120b"
+  "rationale": "The chapter uses accessible vocabulary and a light, comedic LitRPG-style tone with a role-play scene, while its themes of workplace burnout, people-pleasing, and a brief nod to the protagonist's death at the office add some adult-skewing satire that keeps it near the YA/adult boundary, though the content itself stays free of graphic violence, sexuality, or profanity.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
 }
