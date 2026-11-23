@@ -1,4 +1,4 @@
-# Chapter 16: The Big Rewrite
+## Chapter 16: The Big Rewrite
 
 The salesman arrived on a Tuesday, in a carriage painted bronze.
 
@@ -154,6 +154,8 @@ That night, after everyone had gone, Mike went back into the round room with a l
 
 The Registrar watched him do it, its blue eyes dim and steady. Every time the brass stamp came down, it came down very gently, as if it knew what was happening.
 
+Some time after midnight, Mike realized he was not working alone. A neat pile of finished copies had appeared at his elbow, in a thin, shaky, old-fashioned hand he had never seen before. He never saw who brought them. He never heard anyone come in. But in the morning, the stack behind his desk was perhaps an inch shorter than it had been, and there was a cookie on his chair with an inky thumbprint on it.
+
 ---
 
 They switched it off the next morning.
@@ -224,7 +226,7 @@ Then, at noon exactly, every bounty in the guild's books doubled.
 
 Not just the rat quest. Every one. The wolves, the goblins, the Thornwood, a lost cat, a haunted well, the Westmarch griffin. All of them, across every page of the OMNIFILE's records, at once. Mike found out when an adventurer named Corran came to the counter to collect his bounty for a minor errand and was handed twice what he'd been promised, and then went straight to the Rusty Flagon and told everyone.
 
-Mike opened the guide to the page he knew it would be on. Page 47. *Rule 9. Never file anything involving the number seven before noon.* Underneath, in his own hand, the note he had made years ago: *Reason unknown. Osric says it's about money. Edwin, apparently, never said.*
+Mike opened the guide to the page he knew it would be on. Page 33. *Rule 9. Never file anything involving the number seven before noon.* Underneath, in his own hand, the note he had made years ago: *Reason unknown. Osric says it's about money. Edwin, apparently, never said.*
 
 It was about money.
 
@@ -234,7 +236,7 @@ The Duke's steward came in with a fresh letter for His Grace's file, a routine t
 
 It stamped the Duke's paperwork.
 
-Mike, at the far end of the hall, heard the *tok* of the stamp. He went cold all over. He knew the rule. It had been one of the very first things he'd learned, on his very first day, from Priscilla: the Duke's paperwork could never be stamped. Not ever. *For reasons involving an old feud,* she had said, *and a seal that may or may not have been cursed.*
+Mike, at the far end of the hall, heard the *tok* of the stamp. He went cold all over. He knew the rule. It had been one of the very first things he'd learned, on his very first day, from Priscilla: the Duke's paperwork could never be stamped. Not ever. *For reasons,* she had said, *involving a seal that may or may not have been cursed.*
 
 It had been cursed.
 
@@ -380,7 +382,7 @@ The bronze golem stood beside it, gleaming, six arms neatly folded. Its white ey
 
 The Registrar studied it for a long time.
 
-In eight years, Mike had heard the Registrar say exactly two words aloud. The first was *FILED*, which it said every day, every time, with every stamp. The second was *NOTED*, which it had said once, on the day the inquiry refused to read Mike's evidence.
+In eight years, apart from the three it had said to him on his very first day, Mike had heard the Registrar say exactly two words aloud. The first was *FILED*, which it said every day, every time, with every stamp. The second was *NOTED*, which it had said once, on the day the inquiry refused to read Mike's evidence.
 
 Now, looking down at the OMNIFILE from its great stone height, in a voice like a millstone settling, the Registrar said a third.
 
