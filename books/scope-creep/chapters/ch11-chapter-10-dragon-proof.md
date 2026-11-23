@@ -238,7 +238,7 @@ She swept her arm toward the far end of the field.
 
 Velka stepped forward, rolled up her sleeves, and cast.
 
-She had tested it six times in the antechamber of the Basement the night before. Mike had watched her do it. She had muttered the whole time about how this was beneath her and how illusions were *last year's* magic. She had also gotten every single detail exactly right.
+She had tested it six times the night before, after dark, in this same field, with nobody else watching but a sheep. Mike had watched her do it. She had muttered the whole time about how this was beneath her and how illusions were *last year's* magic. She had also gotten every single detail exactly right.
 
 The air above the field shimmered, twisted, and tore open, and the dragon came through.
 
