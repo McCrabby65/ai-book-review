@@ -54,7 +54,7 @@ The stand-up went ahead at eight o'clock, by the window, as usual. The dog and t
 
 There was one new addition that morning. Gareth had hired a bard.
 
-He had decided that his Hero Moment needed music. So by the window, on a stool, sat a thin, nervous man with a large brown beard and a brand-new lute, plucking something soft and stirring while Gareth retold, for the eleventh day running, how he had held off two dragons at the mouth of the Sunken Crypt with nothing but his sword and his voice.
+He had decided that his Hero Moment needed music. So by the window, on a stool, sat a thin, nervous man with a large brown beard and a brand-new lute, plucking something soft and stirring while Gareth retold, for something like the twentieth day running, how he had held off two dragons at the mouth of the Sunken Crypt with nothing but his sword and his voice.
 
 Mike glanced at the bard and frowned. There was something familiar about him. The beard. The nervous way he kept glancing up at the ceiling.
 
@@ -110,7 +110,7 @@ The inquiry convened that afternoon in the council room. It was called *The Inqu
 
 The panel sat behind a long table at the front: Guildmaster Brannoc in the middle, Priscilla on his left, Gareth the Bold on his right with his medal on. Durgan sat alone on a chair facing them, his hands on his knees. Pip sat at the side, clutching his slate. Mike sat at the back with a satchel full of paper on his lap.
 
-Hesper Vane had not been invited. Mike had checked the list. Neither had the wizard from the capital, who had installed three bells and a wagon on the fire ward and copied the seal onto the new door. Mike had checked that too. He had sent a note, in fact, to the wizard's lodgings, and received a reply saying that the wizard had already gone back to the capital, with his payment, on the morning after the Grand Reopening, and was unavailable for questions.
+Hesper Vane had not been invited. Mike had checked the list. Neither had the wizard from the capital, who had installed three bells on the fire ward and copied the seal onto the new door. Mike had checked that too. He had sent a note, in fact, to the wizard's lodgings, and received a reply saying that the wizard had already gone back to the capital, with his payment, on the morning after the Grand Reopening, and was unavailable for questions.
 
 Before the first witness was called, a junior clerk went around the room handing out copies of a single sheet of paper. *Findings of the Inquiry*, it said at the top. Mike took his copy and began to read, and then stopped, and then went back to the top and read the date.
 
@@ -306,9 +306,9 @@ Mike went with him. So did Pip. They sat on the floor of the dark guild hall in 
 
 He did it rune by rune. He didn't try to rebuild the whole seal; there was no time, and it couldn't be done here anyway, on the wrong stone. He went over the wizard's copy line by line, curve by curve, finding every place where the copy had gone slightly wrong. A stroke too shallow. A turn too sharp. A rune that looked right but meant something very slightly different, the way a word can be spelled correctly and still be the wrong word. And he fixed each one, gently, with the tip of a chisel and a low word, the way you might soothe a horse.
 
-Around one in the morning, the trapdoor creaked behind them. Mike turned.
+Around one in the morning, the side door creaked behind them. Mike turned.
 
-It was Velka. She was carrying a teapot and three cups, and she looked a little embarrassed to have been caught doing it.
+It was Velka. She was carrying a teapot and four cups, and she looked a little embarrassed to have been caught doing it.
 
 "It's real tea," she said, a little defensively. "Not the fire-ward kind."
 
