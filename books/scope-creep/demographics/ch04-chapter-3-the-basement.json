@@ -2,7 +2,7 @@
   "target_age_group": "Middle Grade (8-12)",
   "reading_level": "Grade 6-8 Level",
   "content_rating": "Mild",
-  "rationale": "The chapter pairs a twelve-year-old protagonist and gentle, whimsical fantasy-workplace humor (cranky dwarf, footnote-obsessed gnome, absurd bureaucracy) with no violence or mature content, though its dry satire, wordplay, and long, wry sentences reach toward older middle-grade and early young adult readers.",
+  "rationale": "The chapter pairs accessible, humor-driven prose and a 12-year-old protagonist with a whimsical fantasy setting and no violence, romance, or disturbing content, though its bureaucratic satire, dry irony, and some more advanced vocabulary (e.g., 'reign,' 'vaulted,' 'unmistakably') give it extra appeal for older middle-grade and early YA readers.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
