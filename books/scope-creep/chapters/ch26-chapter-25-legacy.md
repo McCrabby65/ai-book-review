@@ -1,4 +1,4 @@
-# Chapter 25: Legacy
+## Chapter 25: Legacy
 
 Nobody had to be told what to do.
 
@@ -50,7 +50,7 @@ Sir Roderick closed his gauntlet around it.
 
 And he went down the stairs into the dark.
 
-Mike followed with a lantern. Behind Mike came Sister Agatha, holding up her gray robes with one hand and her little cloth bag with the other. Behind her came Durgan and the Duke's men, and then, at a distance, very carefully, Brannoc, holding his empty mug as though it might be needed for something.
+Mike followed with a lantern. Behind Mike came Sister Agatha, holding up her white robes with one hand and her little cloth bag with the other. Behind her came Durgan and the Duke's men, and then, at a distance, very carefully, Brannoc, holding his empty mug as though it might be needed for something.
 
 At the bottom of the first flight, Sir Roderick stopped, raised the chalk, and wrote on the wall in large, careful letters:
 
