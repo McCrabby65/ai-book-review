@@ -1,8 +1,8 @@
 {
-  "target_age_group": "Adult (18+)",
-  "reading_level": "Grade 8-9 Level",
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
   "content_rating": "Mild",
-  "rationale": "The vocabulary is accessible and the prose is clean, but the chapter relies on dry workplace satire, bureaucratic absurdism, and ironic understatement (e.g., the 'Edwin knew' running gag and the hint of a burned-out predecessor) that fit an adult or older-teen audience, while the scene intensity stays low, with no violence, profanity, or sexual content.",
+  "rationale": "The chapter uses accessible vocabulary and short, punchy sentences in a lighthearted workplace-satire fantasy with no violence, sexual content, or profanity, while its dry humor about bureaucracy and institutional dysfunction (and a hint of isekai 'two worlds' framing) appeals to older teens and adults who recognize office-life irony.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
