@@ -1,8 +1,8 @@
-# Chapter 23: No, Your Grace
+## Chapter 23: No, Your Grace
 
 Mike had never said no to a client.
 
-Not in this life, and not in the last one. He had come close. He had, once, at Synergex, in a meeting with Hartwell Logistics, opened his mouth to say *no, that can't be done by Friday*, and Chad Pemberton had put a hand on his shoulder and said *what Mike means is, we're excited to explore it*, and Mike had closed his mouth again, and that had been that. Eleven months later, he had died at his desk at two in the morning, exploring it.
+Not in this life, and not in the last one. He had come close. He had, once, at Synergex, in a meeting with Hartwell Logistics, opened his mouth to say *no, that can't be done by Friday*, and Chad Pemberton had put a hand on his shoulder and said *what Mike means is, we're excited to explore it*, and Mike had closed his mouth again, and that had been that. Not long after that, he had died at the office at a quarter to four in the morning, reaching for a coffee, still exploring it.
 
 He sat in the war room at seven o'clock on the morning of the sixth day, with the board behind him and two days of sand left in the hourglass downstairs, and he looked at the words in the right-hand column with his own name next to them.
 
@@ -354,7 +354,7 @@ Mike stared at him.
 
 "Your Grace. The night bell. Every night, since the guild put it up. Midnight, sometimes later. *The Duke of Varrenhold requires an escort.* We've sent someone every single night."
 
-"I HAVE NEVER REQUIRED AN ESCORT AT MIDNIGHT IN MY LIFE," said the Duke, puzzled. He frowned, searching his memory. "I ONCE MENTIONED," he said slowly, "AT DINNER, THAT I COULDN'T SLEEP. ONCE." He shook his head. "I ONLY MENTIONED IT ONCE."
+"I RING IT BECAUSE I CAN'T SLEEP," said the Duke, puzzled. "I RING IT TO ASK IF IT'S DONE YET. SOMEBODY COMES TO THE WINDOW AND TELLS ME. THAT'S ALL." He frowned, searching his memory. "I NEVER ASKED FOR AN ESCORT. I ONCE MENTIONED," he said slowly, "AT DINNER, THAT A MAN COULD DO WITH A LITTLE COMPANY AT NIGHT. ONCE." He shook his head. "I ONLY MENTIONED IT ONCE."
 
 Mike reached into his jacket.
 
@@ -372,11 +372,11 @@ Mike checked the notes. He had made notes. Of course he had made notes.
 
 The Duke absorbed this.
 
-"I WAS ASLEEP," he said.
+"I WAS ONLY ASKING THEM A QUESTION," he said.
 
 "Yes, Your Grace."
 
-"FOUR HUNDRED AND TWELVE NIGHTS, THE GUILD SENT ARMED ADVENTURERS TO STAND OUTSIDE MY WINDOW. IN THE DARK. WHILE I WAS ASLEEP."
+"FOUR HUNDRED AND TWELVE NIGHTS, THE GUILD SENT ARMED ADVENTURERS TO STAND OUTSIDE MY WINDOW. IN THE DARK. TO TELL ME A CRYPT WAS UNDERWATER."
 
 "Yes, Your Grace."
 
