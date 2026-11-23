@@ -1,4 +1,4 @@
-# Chapter 21: Two Weeks' Notice
+## Chapter 21: Two Weeks' Notice
 
 The letter took him until dawn.
 
@@ -174,7 +174,7 @@ Then he went back to his desk and sat down and got on with his work, and did not
 
 Mike stood in the doorway.
 
-*Mike knows*, people had been saying, for years. And then, after the archmage, he had sat down next to a thirteen-year-old and started teaching, so that one day it wouldn't have to be Mike who knew. And it had worked. It had actually worked. Tam knew. Pip knew. Velka had borrowed the barrier guide and corrected it in red ink. If Mike walked out the front door tomorrow, the guild would not fall down because Mike was gone.
+*Mike knows*, people had been saying, for years. And then, after the archmage, he had sat down next to a thirteen-year-old and started teaching, so that one day it wouldn't have to be Mike who knew. And it had worked. It had actually worked. Tam knew. Pip knew. Velka had borrowed the guide and corrected it in red ink. If Mike walked out the front door tomorrow, the guild would not fall down because Mike was gone.
 
 It would fall down anyway, on the same day. For different reasons. Because of everything else.
 
@@ -384,13 +384,13 @@ He asked the skill.
 
 The skill paused.
 
-It had never paused before. In twenty years, across two lives, it had never once paused. It had answered every question he had ever put to it, instantly, flatly, correctly, the way a sum answers. Now there was a gap, like a breath being held. Mike felt it, the way you feel a step that isn't there in the dark.
+It had hesitated before, once or twice, over the years. But never like this. Every other time, it had answered the way a sum answers: flatly, correctly, and in the end, always. Now there was a gap, like a breath being held. Mike felt it, the way you feel a step that isn't there in the dark.
 
 **Unknown.**
 
 Mike stared at it.
 
-It had said *unknown* only once before, ever, and that had been about whether Thessaly would ever explain anything, and he had assumed it was the skill's idea of a joke. This was not a joke. He could feel that it wasn't. It wasn't *unknown* because the answer was hidden. It was *unknown* because the answer hadn't happened yet. Because it depended on what they did.
+It had said *unknown* before, plenty of times, but always about somebody else's nonsense: dragon-proofing, the OMNIFILE, six small features, whether Thessaly would ever explain anything. He had assumed it was the skill's way of rolling its eyes. This was not that. He could feel that it wasn't. It wasn't *unknown* because the answer was hidden. It was *unknown* because the answer hadn't happened yet. Because it depended on what they did.
 
 "What did it say?" said Velka.
 
