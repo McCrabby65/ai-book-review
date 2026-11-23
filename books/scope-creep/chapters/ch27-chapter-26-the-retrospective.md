@@ -1,4 +1,4 @@
-# Chapter 26: The Retrospective
+## Chapter 26: The Retrospective
 
 It was Friday.
 
@@ -48,7 +48,7 @@ They came in one by one. Durgan and Pip, from the Basement. Velka, with her hat.
 
 Hesper Vane came, with her stamp and her wax and her nail file, to witness and notarize, and sat down at the end of the table and began to file her nails at once.
 
-And Malphus came. Mike had sent him a card, inviting him as a neutral witness, because he had seen everything and blamed nobody, and because, if Mike was honest, it felt right that he should be there. He came up the stairs with his red ledger under one arm and, in his other hand, a large brown teapot, which he set on the table without comment, and poured himself a cup.
+And Malphus came. Mike had sent him a card, inviting him as a neutral witness, because he had seen everything and blamed nobody, and because, if Mike was honest, it felt right that he should be there. He came up the stairs with his dark ledger under one arm and, in his other hand, a large brown teapot, which he set on the table without comment, and poured himself a cup.
 
 Brannoc came last.
 
@@ -162,7 +162,7 @@ He pinned it up, at the very beginning, before everything else.
 
 The room went quiet.
 
-Everyone looked at the card. Then everyone looked at Osric, standing beside it, very small, with his blue-black ink-stained hands folded in front of him.
+Everyone looked at the card. Then everyone looked at Osric, standing beside it, very small, with his small gray hands folded in front of him.
 
 Mike had heard Edwin's name a thousand times. *Edwin knew.* Edwin had been the clerk before him. Edwin had left a single scrawled page and quit, and Mike had walked in on his first day to find nobody who knew anything, and nothing written down. In eight years, he had never once wondered why. Nobody had. That was, he supposed, the whole point of the card.
 
@@ -214,7 +214,7 @@ Rupert opened his mouth. Then he looked at the wall. Then he closed his mouth ag
 
 At the end of the table, Malphus set down his teacup.
 
-"If it would help," he said pleasantly, "for completeness," and he opened his red ledger, and took out a thin folder, and laid it on the table. It was the folder from the audit, the one with one word written on the front of it in red ink. *FICTION.*
+"If it would help," he said pleasantly, "for completeness," and he opened his ledger, and took out a thin folder, and laid it on the table. It was the folder from the audit, the one with one word written on the front of it in red ink. *FICTION.*
 
 Pip, without being asked, took the bulletins out of the folder one by one, and pinned each of them up on the wall, right beside the event it described.
 
@@ -256,7 +256,7 @@ Gareth the Bold thought about it. He thought about it very hard. Mike could see 
 
 Nobody laughed. It was too true.
 
-Gareth looked at the wall for a while longer, at the part about the crypt. At the dates. At the card that said *Known: an estimate of nineteen days*, and the one beside it that said *Crypt cleared, day nineteen.* At the one that said *Delays: two, caused by an adventurer going off alone to fight something.* And at the small card at the end, in Mike's handwriting: *Medal awarded for heroics.*
+Gareth looked at the wall for a while longer, at the part about the crypt. At the dates. At the card that said *Known: an estimate of nineteen days*, and the one beside it that said *Crypt cleared, day nineteen.* At the one that said *Delays: one, caused by an adventurer pulling a lever marked SAFE.* And at the small card at the end, in Mike's handwriting: *Medal awarded for heroics.*
 
 He looked at it for a very long time.
 
@@ -300,7 +300,7 @@ Underneath, in a different hand, in large confident letters: *Noted. — B.*
 
 Tam pinned them up on the wall, at the far left, right after Osric's card about Edwin.
 
-And then, beside them, without saying anything, he pinned up the program from the day the Champions had been celebrated, the day Rupert had first arrived. The day they had presented, to the whole guild, to cheering and applause and a single medal, the Ink Office's groundbreaking new *Ink Strategy*.
+And then, beside them, without saying anything, he pinned up the program from the day the Champions had been celebrated, the week Rupert had first arrived. The day they had presented, to the whole guild, to cheering and applause and a single medal, the Ink Office's groundbreaking new *Ink Strategy*.
 
 There were two items on it.
 
@@ -516,7 +516,7 @@ Rupert had already turned to the wall. He had a sheet of paper in his hand, and 
 
 It did not mention the door. It did not mention the demon, or the seal, or the audit, or the bells, or the belts, or the Duke, or a single thing that had happened. It sat at the end of the long wall of cards like a cheerful little flag on top of a landslide.
 
-Malphus stood up. He walked over to the wall. He read it, front and back, the way he read everything. Then, without a word, and without anyone asking him to, he unpinned it, opened his red ledger, took out the folder marked *FICTION*, slid the bulletin neatly inside, at the back, and closed the folder again.
+Malphus stood up. He walked over to the wall. He read it, front and back, the way he read everything. Then, without a word, and without anyone asking him to, he unpinned it, opened his ledger, took out the folder marked *FICTION*, slid the bulletin neatly inside, at the back, and closed the folder again.
 
 He sat back down and poured himself more tea.
 
@@ -544,7 +544,7 @@ She set down her nail file, dripped her wax, and pressed her stamp into it, and 
 
 Everyone signed it.
 
-Durgan signed it, in square careful letters, with the medal on his chest. Pip signed it, and footnoted his own signature. Velka signed it. Sister Agatha signed it. Sir Roderick signed it, and drew a small map beside his name, out of habit. Tam signed it. Osric signed it, very slowly, with his blue-black hand. Priscilla signed it, and did not add *(yet!)*. Gareth signed it, and asked if he could keep the pen. Tolliver and Dex and Bramble signed it, in a row, and Bramble hummed the Registrar song under his breath while he did.
+Durgan signed it, in square careful letters, with the medal on his chest. Pip signed it, and footnoted his own signature. Velka signed it. Sister Agatha signed it. Sir Roderick signed it, and drew a small map beside his name, out of habit. Tam signed it. Osric signed it, very slowly, with his small, careful hand. Priscilla signed it, and did not add *(yet!)*. Gareth signed it, and asked if he could keep the pen. Tolliver and Dex and Bramble signed it, in a row, and Bramble hummed the Registrar song under his breath while he did.
 
 Brannoc signed it last.
 
