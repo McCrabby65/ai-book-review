@@ -150,7 +150,7 @@ And under it, swelling, a harp.
 
 They all looked at the harp on the tomb lid.
 
-"He bought a new one," said Bertram, which was the second-longest sentence Mike had heard him say.
+"He bought a new one," said Bertram, which was now, by some distance, the longest sentence Mike had heard him say.
 
 The music swelled. It was something stirring and martial, in a heroic key. The digging got faster. The harp built toward a crescendo, and the shovels rose to match it, and Mike looked up at the crack in the rubble and felt every hair on his arms rise.
 
@@ -196,7 +196,7 @@ Then Roderick, at the front, said, "Light."
 
 They came out one at a time through a rusted grate in the bank of the dry riverbed, half a mile downstream from the crypt, into the gray, cold, beautiful dawn.
 
-Mike climbed out last. He stood on the riverbank, filthy, exhausted, with a two-hundred-year-old signet ring in his satchel and silt in places he did not want to think about, and looked up at a sky he had not seen in four days.
+Mike climbed out last. He stood on the riverbank, filthy, exhausted, with a two-hundred-year-old signet ring in his satchel and silt in places he did not want to think about, and looked up at a sky he had not seen in three days.
 
 The skill flickered into view.
 
@@ -232,7 +232,7 @@ The crowd went wild.
 
 They roared. They cheered. They threw their hats in the air. Children screamed with joy. The pie vendor wept openly. And the painter, without missing a stroke, began quickly sketching five small figures emerging from somewhere behind Gareth's magnificent cloak.
 
-Not everyone was cheering. At the very back of the crowd, Mike saw his father, holding up the lamp from the cobbler's doorway, unlit, in broad daylight, as if he had simply forgotten to put it down for four days. Beside him, his mother was not looking at Gareth at all. She was counting. Mike watched her lips move, one, two, three, four, five, and when she got to five, she sat down on the grass, very suddenly, and put her face in her apron.
+Not everyone was cheering. At the very back of the crowd, Mike saw his father, holding up the lamp from the cobbler's doorway, unlit, in broad daylight, as if he had simply forgotten to put it down for three days. Beside him, his mother was not looking at Gareth at all. She was counting. Mike watched her lips move, one, two, three, four, five, and when she got to five, she sat down on the grass, very suddenly, and put her face in her apron.
 
 Mike stood on the riverbank and looked at the rubble pile, and at the grate half a mile downstream, and at Gareth, and at the cheering crowd.
 
@@ -276,13 +276,13 @@ Brannoc sputtered. He sputtered for some time. Then Hesper went on, in exactly t
 
 The Guildmaster stopped sputtering. He looked as if he'd been hit by the ceiling.
 
-Before he could recover, Hesper took out a smaller ledger: the one Mike had seen eight years ago, in her satchel, with a line for every contract she had ever witnessed. She opened it to a fresh page and began to write the crypt contract's entry. *Date. Term promised: 14 days.* And in the next column, where every other contract in forty years had a later date written in a different ink: *Actual: 19 days.*
+Before he could recover, Hesper took out a smaller ledger: the one Mike had seen eight years ago, in her satchel, with a line for every contract she had ever witnessed. She opened it to a fresh page and began to write the crypt contract's entry. *Date. Term promised: 14 days.* And in the next column, where every other contract in forty-eight years had a later date written in a different ink: *Actual: 19 days.*
 
 Then she paused. Mike watched her quill hover over a third column, one he hadn't noticed before. It was narrow and mostly empty, headed *Estimate*.
 
 She wrote: *19.*
 
-Then she looked at the two numbers side by side, *Estimate: 19. Actual: 19*, for a long, long time. Mike could see the rest of the page over her shoulder, and the pages before it. Column after column. Forty years. And in the narrow third column, where it was filled in at all, the numbers never, ever matched.
+Then she looked at the two numbers side by side, *Estimate: 19. Actual: 19*, for a long, long time. Mike could see the rest of the page over her shoulder, and the pages before it. Column after column. Forty-eight years. And in the narrow third column, where it was filled in at all, the numbers never, ever matched.
 
 Until now.
 
@@ -328,7 +328,7 @@ Then Brannoc unrolled a scroll and read the citation for the Medal of Valor.
 
 Mike, at the back of the hall, stood very still.
 
-He knew those words. *Hidden culvert. Signet secured. On schedule.* He had written them himself, on the slate at the crypt mouth, every afternoon for fifteen days, for the pigeons. Someone, somewhere between the slate and the scroll, had carefully copied out every one of his status reports, and changed the name at the top.
+He knew those words. *Hidden culvert. Signet secured. On schedule.* He had written them himself, on the slate at the crypt mouth and on scraps of paper tied to pigeons' legs, every day for eighteen days. Someone, somewhere between the slate and the scroll, had carefully copied out every one of his status reports, and changed the name at the top.
 
 The hero's record, he thought, was just the worker's notes with the name changed. It had been that way at Synergex too. He'd just never seen it in a gilt frame before.
 
