@@ -1,8 +1,8 @@
 {
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 7-8 Level",
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 8-9 Level",
   "content_rating": "Mild",
-  "rationale": "The prose uses moderately sophisticated vocabulary and world‑building details, but the scenes are low‑intensity and the themes revolve around workplace humor and mystery, keeping it appropriate for early teens.",
-  "provider": "groq",
-  "model": "openai/gpt-oss-120b"
+  "rationale": "The vocabulary is accessible and the prose is clean, but the chapter relies on dry workplace satire, bureaucratic absurdism, and ironic understatement (e.g., the 'Edwin knew' running gag and the hint of a burned-out predecessor) that fit an adult or older-teen audience, while the scene intensity stays low, with no violence, profanity, or sexual content.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
 }
