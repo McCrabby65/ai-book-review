@@ -1,6 +1,6 @@
-# Chapter 28: Ticket Closed
+## Chapter 28: Ticket Closed
 
-Three weeks and two days after the harvest festival, a girl walked into the Adventurers' Guild of Brindlemoor for her first day of work.
+Three weeks after the harvest festival, a girl walked into the Adventurers' Guild of Brindlemoor for her first day of work.
 
 She was twelve years old. She had scrubbed her face until it shone, and put on the one clean dress she owned, and walked across the city to the center of Brindlemoor with a reference from a weaver folded in her pocket. She stood in the doorway, under the carved stone frame that said *LOAD-BEARING*, and looked into the main hall with the expression of someone who has just stepped off a cliff and is waiting to find out how far down it goes.
 
@@ -15,6 +15,16 @@ Tam was still only thirteen, but he stood up very straight, and he had been prac
 Then he gave her the Registrar guide.
 
 All three hundred and twelve pages of it, and the fourteen-page index, and a single sheet on top that Tam had written himself, titled *The First Day: What Actually Matters.* Bess looked at the stack in her arms with an expression of slowly dawning horror.
+
+The single sheet on top was much shorter. It had four lines on it, in Tam's best handwriting:
+
+> *1. Nobody here will shout at you for not knowing things.*
+>
+> *2. Black ink. Knock three times. Never the left side.*
+>
+> *3. If you don't know, ask. If nobody knows, ask the Basement.*
+>
+> *4. Nothing is due on a Friday.*
 
 "You don't have to read it all today," said Tam. "Nobody reads it all today. You just have to know where it is." He pointed. "And if you forget anything, there's a song."
 
@@ -246,6 +256,8 @@ Wren smiled. It was a slow, approving smile, the smile of someone who has just w
 
 "Monday," said Mike.
 
+She picked up her mug. When she had gone, out past Gareth and his cape, Mike found that she had left something on the corner of his desk, next to Velka's hat: a small brown paper bag, folded over twice at the top. It smelled of coffee. On the side, in neat, unhurried handwriting, it said: *A deposit. — W.*
+
 ---
 
 On Sunday, Mike had dinner with his parents.
@@ -317,6 +329,16 @@ Mike laughed. He laughed so hard and so suddenly that the water cooler glugged i
 "Tell him not this weekend," said Mike.
 
 The Goddess made a note.
+
+Mike hesitated. "There was a birthday card," he said. "On my kitchen counter. For my niece."
+
+The Goddess turned a page, and then another, and ran her finger down a column. "Your sister found it," she said. "When she was sorting out the apartment. She signed it from both of you, and mailed it." She checked the date. "It was late."
+
+"How late?"
+
+"About what you'd expect."
+
+Mike nodded. He found that he didn't mind that either. It had gotten there.
 
 Then she put the file down, and folded her hands on top of it, and looked at him properly, for the first time.
 
@@ -509,5 +531,3 @@ He picked up the chalk. And at the top of the board, in clear, plain, ordinary l
 Then he went back downstairs to tell the merchant it wasn't going to be Friday.
 
 *THE END*
-
-**Estimated time to sequel: UNKNOWN**
