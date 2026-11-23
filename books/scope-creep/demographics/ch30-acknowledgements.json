@@ -2,7 +2,7 @@
   "target_age_group": "Adult (18+)",
   "reading_level": "Grade 10-12 Level",
   "content_rating": "Mild",
-  "rationale": "The acknowledgements rely on workplace and software-industry jargon (stand-ups, estimates, retrospectives, 'five whys', Chief Visionary Officer) and dry satirical humor that assume professional experience, while containing no violence, sexual content, or strong language, so the vocabulary and thematic context suit working adults and the intensity stays mild.",
+  "rationale": "The acknowledgements rely on workplace and software-industry jargon (stand-ups, estimates, retrospectives, 'five whys', 'synergize', C-suite satire) and dry, ironic humor that only readers with professional experience will fully appreciate, while containing no violence, sexual content, or intense scenes.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
