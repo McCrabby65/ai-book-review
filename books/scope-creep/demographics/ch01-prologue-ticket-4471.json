@@ -2,7 +2,7 @@
   "target_age_group": "Adult (18+)",
   "reading_level": "Grade 9-11 Level",
   "content_rating": "Mild",
-  "rationale": "The chapter relies on workplace satire (corporate dysfunction, burnout, technical debt, and sales-versus-engineering conflict) that requires adult professional experience to appreciate, while its accessible vocabulary, short punchy sentences, and absence of violence, sexual content, or strong profanity keep the intensity low.",
+  "rationale": "The chapter uses accessible but workplace-specific vocabulary (technical debt, code review, enterprise accounts) and a satirical tone that depends on adult experience of corporate dysfunction, burnout, and midlife stagnation, while the scene intensity is low, with no graphic violence, sex, or strong profanity.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
