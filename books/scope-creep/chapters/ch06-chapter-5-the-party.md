@@ -1,4 +1,4 @@
-# Chapter 5: The Party
+## Chapter 5: The Party
 
 On the inside cover of his Registrar guide, in small, neat letters that nobody but Pip had ever read, Mike kept a record of the last eight years. He had started it out of habit. In his old life, every system he had ever worked on had kept a changelog, and he saw no reason his own life should be any different.
 
@@ -19,6 +19,10 @@ On the inside cover of his Registrar guide, in small, neat letters that nobody b
 > *v2.0:* Writing desk delivered. Six years, three months after "this weekend." On schedule, per estimate. Da very proud.
 >
 > *v2.4:* Grew. Finally.
+>
+> *v2.5:* Ma hires two girls for the laundry. Weather forecasting: mine. Sheets lost: zero.
+>
+> *v2.6:* Tea in the Basement, daily. Durgan re-carves the stool: *VISITOR (ACTUAL).*
 >
 > *v2.7:* Guide reaches 312 pages. Known readers: Pip, one rat.
 >
@@ -244,7 +248,7 @@ Pip took off his spectacles and pressed his hands to his face. "Footnote: this i
 
 "Footnote: that is also what Edwin said."
 
-Durgan, in his chair, lowered his pamphlet. He had more gray in his braid now than eight years ago, and the singed end from the blood contract had long since grown out. But his small, sharp eyes were the same.
+Durgan, in his chair, lowered his pamphlet. He had more gray in his braid now than eight years ago, and the singed end from the blood contract had long since grown out. But his small, sharp eyes were the same. The frame above his desk was still empty, and still dusted.
 
 "So write it all down," he said. "Every bit of it. Not just the Registrar. The drawers. The contracts. Who to ask for what. All of it." He went back to his pamphlet. "Before somebody else has to."
 
