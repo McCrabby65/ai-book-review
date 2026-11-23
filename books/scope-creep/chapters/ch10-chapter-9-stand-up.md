@@ -1,4 +1,4 @@
-# Chapter 9: Stand-Up
+## Chapter 9: Stand-Up
 
 At eight o'clock the next morning, exactly as predicted, the guild had a daily stand-up.
 
@@ -238,6 +238,8 @@ Then he cleared his throat.
 
 Durgan nodded once, gravely, as if this was exactly what he had expected. He handed the dragon tooth back. Then he stood at his chalk mark beside the coat rack for the remaining fifty-one minutes of the stand-up, completely silent, while everyone around him tried very hard not to look at him.
 
+Once, about halfway through, Mike saw him touch his breast pocket, where a folded incident record had lived for a week now, and leave his hand there.
+
 Pip, beside him, tried once. Just once. When Priscilla paused for breath in the middle of the goat, Pip raised his slate and said, in a small, urgent voice: "Excuse me, the fire ward is under serious strain from the bells, and footnote one—"
 
 "No footnotes," said Brannoc, without looking at him. "Not in the stand-up. Rule."
@@ -311,6 +313,12 @@ Roderick frowned. "What's a stand-up?"
 Nobody answered.
 
 The pause went on. Mike watched it spread around the circle, from face to face, as one person after another opened their mouth to explain, thought about it, and closed it again. Sixty people had stood in this room for ninety minutes every morning for five days. Not one of them could say what it was for.
+
+From somewhere near the coat rack, Osric's stack said, flatly, "Mike knows."
+
+Sixty heads turned toward the pillar.
+
+Mike did know what a stand-up was. That was the problem. He had seen one, on Tanner's Row, through a window. He just wasn't sure how to tell sixty people that this wasn't it.
 
 Gareth tried. "It's where we... stand," he said.
 
