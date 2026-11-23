@@ -1,8 +1,8 @@
 {
-  "target_age_group": "Middle Grade (8-12)",
-  "reading_level": "Grade 7-8 Level",
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 8-9 Level",
   "content_rating": "Mild",
-  "rationale": "The prose uses mostly concrete language with occasional higher‑level terms, the scenes are low‑intensity with no graphic content, and the thematic complexity about work scope is presented in a straightforward way.",
-  "provider": "groq",
-  "model": "openai/gpt-oss-120b"
+  "rationale": "The vocabulary is accessible and the scenes are non-violent, but the humor depends on adult workplace satire (scope creep, stand-ups, strikes, client management) layered over a comic fantasy setting, with only a hint of quiet intimacy and no graphic content.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
 }
