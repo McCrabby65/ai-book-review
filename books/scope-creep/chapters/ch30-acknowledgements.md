@@ -6,7 +6,7 @@ So, a few thank-yous, ranked top to bottom, no ties. (I'm kidding. There are tie
 
 **To Kris, Ethan, Trevor, Seth and Lily**, who heard "I just need to finish this one chapter" more times than any stakeholder should ever have to, and who never once asked for a status update at four o'clock on a Friday. You are the stand-up that takes fifteen minutes. Thank you.
 
-**To my beta readers, Daniel and ****Jamie**, who found the bugs before production did, and who filed their reports in black ink, on the right side, after knocking three times. Every typo that survived is mine. Please log it.
+**To my beta readers, who found the bugs before production did, and who filed their reports in black ink, on the right side, after knocking three times. Every typo that survived is mine. Please log it.
 
 ---
 
