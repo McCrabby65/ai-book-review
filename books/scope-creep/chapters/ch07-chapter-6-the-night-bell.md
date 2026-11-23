@@ -1,4 +1,4 @@
-# Chapter 6: The Night Bell
+## Chapter 6: The Night Bell
 
 Mike spent the first of his six hours trying to find an escort.
 
@@ -14,7 +14,7 @@ By the end of the second hour, Mike had a list of available escorts that contain
 
 Then the Duke's instructions arrived.
 
-They came by footman, on heavy cream paper, folded three times and sealed with a blob of red wax the size of a biscuit, stamped with the Varrenhold crest: a boar standing on what appeared to be a smaller, less important boar. Mike broke the seal and unfolded the letter.
+They came by footman, on heavy cream paper, folded three times and sealed with a blob of red wax the size of a cookie, stamped with the Varrenhold crest: a boar standing on what appeared to be a smaller, less important boar. Mike broke the seal and unfolded the letter.
 
 It was written entirely in capital letters.
 
@@ -73,6 +73,14 @@ Mistress Pell's bakery.
 Mistress Pell herself appeared in the doorway, older and floury and entirely unsurprised, holding out a paper bag. "Evening, Your Grace. One cinnamon bun, extra glaze."
 
 The Duke accepted the bag. He inspected the bun. He took a bite.
+
+Over the Duke's shoulder, Mistress Pell's eyes found Mike, and narrowed.
+
+"I know you," she said. "Oswin's boy. The one who said four days."
+
+"That was me."
+
+"It *was* four days," said Mistress Pell, to nobody in particular, and went back inside.
 
 Mike stood very still in the cool night air, in front of the bakery, at midnight, with three armed adventurers and a skill that was now displaying, with what felt like deliberate restraint, **Estimated danger: 0.**
 
@@ -209,6 +217,8 @@ The window closed.
 And so, every night after that, at a quarter to three, they ran up the hill to tell the Duke that the crypt was still under the river. Every night, the Duke received the news with the air of a man who suspected someone was being lazy, said "STATUS TOMORROW," and shut the window. Mike started writing the status on a slate in advance, to save time: *Crypt: still underwater. Estimate: unchanged.* Then he started holding the slate up without speaking. The Duke never noticed the difference.
 
 The bell rang while Mike was in the bath. It rang while he was at his parents' for dinner, which was technically impossible, since the bell was at the guild. But he heard it anyway, in his head, and ran halfway down the street before he realized. By the fourth night, he had stopped taking his boots off. By the sixth, he slept in his coat.
+
+His mother started leaving a covered bowl of stew on the guild's back step every evening. His father started leaving the lamp lit in the cobbler's doorway all night, just in case. Neither of them said anything about it. Neither of them asked how long it would last, which Mike understood was its own kind of kindness, because he would have had to tell them.
 
 Then, on the seventh night, at three in the morning, in a cold, driving rain, the bell rang again.
 
