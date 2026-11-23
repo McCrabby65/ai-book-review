@@ -152,7 +152,7 @@ The guards set the chair down at the edge of the chamber. Thessaly looked around
 
 There was a groan from every person in the chamber, including, Mike was fairly sure, the demon.
 
-"Bettany was my goat," said Thessaly fondly. "This was, oh, a hundred and eighty years ago now. Wonderful goat. Followed me everywhere. She ate *everything*, you know. Ate my spell notes once. Ate a whole hat."
+"Bettany was my goat," said Thessaly fondly. "This was, oh, two hundred years ago now. Wonderful goat. Followed me everywhere. She ate *everything*, you know. Ate my spell notes once. Ate a whole hat."
 
 **Estimated time until the demon wakes: 6 minutes.**
 
@@ -288,7 +288,7 @@ Velka looked back at him. Then she looked at the door frame again. Then she sigh
 
 "No," she said. "Float 1.0."
 
-It was her oldest spell. Her plainest. Her most boring. It was the spell that had floated a little toy wagon in a washbasin, and then a real wagon on a muddy horse pond, thirty-one times in a row, every night after the guild closed, with Mike writing down what happened. It was the spell that had held the Contraption level on the river when everything else on it had gone wrong. It had never done anything impressive in its life. It had only ever done exactly what it said.
+It was built on her oldest spell. Her plainest. Her most boring. It was the spell that had floated a real wagon on a muddy horse pond, ten times in a row, after thirty tests that hadn't, every night after the guild closed, with Mike writing down what happened. It was the spell that had held the Contraption level on the river when everything else on it had gone wrong. It had never done anything impressive in its life. It had only ever done exactly what it said.
 
 Velka raised her hands and cast it.
 
