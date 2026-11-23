@@ -1,8 +1,8 @@
 {
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 10-11 Level",
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 9-10 Level",
   "content_rating": "Mild",
-  "rationale": "The prose uses advanced vocabulary, corporate jargon, and layered satire, requiring higher comprehension, but scenes are non-violent and non-sexual, fitting a YA audience.",
-  "provider": "groq",
-  "model": "openai/gpt-oss-120b"
+  "rationale": "The chapter uses accessible but witty vocabulary, with no violence, sexual content, or strong language, yet its humor depends on adult workplace experience such as corporate jargon, incompetent management, and a veteran employee's weary perspective, which makes the satire most meaningful to grown readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
 }
