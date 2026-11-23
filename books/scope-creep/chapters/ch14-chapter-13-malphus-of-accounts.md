@@ -148,7 +148,7 @@ Brannoc took it, broke the seal, glanced at it, and his grin faltered for the fi
 
 Malphus looked at him with something very like fondness.
 
-"You've rolled it over forty-one times," he said gently.
+"You've rolled it over thirty-nine times," he said gently.
 
 Brannoc opened his mouth. He closed it. He looked at the notice again, and then, slowly, his face changed. It filled with the bright, crafty light of a man who has just remembered he is rich.
 
