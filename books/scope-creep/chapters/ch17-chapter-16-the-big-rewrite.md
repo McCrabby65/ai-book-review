@@ -4,7 +4,7 @@ The salesman arrived on a Tuesday, in a carriage painted bronze.
 
 His name was Master Quint, of Quint & Daughters Automata, Purveyors of Fine Golems to the Capital and Surrounding Provinces, and he was a short, round, shiny man who seemed to have been polished along with his merchandise. He had a waxed mustache, a bronze-buttoned waistcoat, and a smile so bright and fixed it might have been cast in a mold. Two of his daughters came with him. They did not speak at all. They wheeled in a large shape under a velvet cloth, set it down in the middle of the guild hall, and stood on either side of it like bookends.
 
-Rupert had arranged the whole thing. He had arranged, in fact, for the whole guild to watch. They were gathered in a half-circle around the velvet shape: clerks, adventurers, Brannoc, Priscilla, Gareth in his yellow headband, the roommates in their green belts. The Duke had come too, holding the dragon tooth, though it was not a stand-up day. Mike suspected he had simply forgotten what day it was and come anyway.
+Rupert had arranged the whole thing. He had arranged, in fact, for the whole guild to watch. They were gathered in a half-circle around the velvet shape: clerks, adventurers, Brannoc, Priscilla, Gareth in his yellow headband, the roommates in their green belts. The Duke had come too, holding the dragon tooth, though the stand-up had ended hours ago. Mike suspected he had simply forgotten what time it was and come anyway.
 
 "Friends," said Rupert, his towel draped over his arm. "Today, we take the guild into the *future*."
 
@@ -226,7 +226,7 @@ Then, at noon exactly, every bounty in the guild's books doubled.
 
 Not just the rat quest. Every one. The wolves, the goblins, the Thornwood, a lost cat, a haunted well, the Westmarch griffin. All of them, across every page of the OMNIFILE's records, at once. Mike found out when an adventurer named Corran came to the counter to collect his bounty for a minor errand and was handed twice what he'd been promised, and then went straight to the Rusty Flagon and told everyone.
 
-Mike opened the guide to the page he knew it would be on. Page 33. *Rule 9. Never file anything involving the number seven before noon.* Underneath, in his own hand, the note he had made years ago: *Reason unknown. Osric says it's about money. Edwin, apparently, never said.*
+Mike opened the guide to the page he knew it would be on. Page 33. *Rule 9. Never file anything involving the number seven before noon.* Underneath, in his own hand, the note he had made years ago: *Tested four times. Each time, something went strange in the accounts, and I could never find what. Osric says it's about money. Edwin, apparently, never said.*
 
 It was about money.
 
@@ -244,7 +244,7 @@ The first thing anybody noticed was a sound from the Guildmaster's office: a lon
 
 Mike got there first. The Guildmaster was standing in the middle of the office, staring at his wall.
 
-The wall of ADEQUATEs. Two hundred and thirteen gilt frames, floor to ceiling. Overnight they had turned red. Now, as Mike watched, the red letters in every single frame were moving. They squirmed on the paper like worms, rearranging themselves, one by one, all across the wall, until each frame held a different word.
+The wall of ADEQUATEs. Two hundred and thirteen gilt frames, floor to ceiling, red since the morning after the Grand Reopening. Now, as Mike watched, the red letters in every single frame were moving. They squirmed on the paper like worms, rearranging themselves, one by one, all across the wall, until each frame held a different word.
 
 *MEDIOCRE.*
 
@@ -396,7 +396,7 @@ Pip clapped both hands over his mouth. Durgan made a sound that Mike had never h
 
 They could not send the OMNIFILE back.
 
-Mike checked. He read clause fourteen four more times. He wrote to Quint & Daughters Automata, very politely, explaining that the guild would like to return the golem. He received a reply, very politely, explaining that under the terms of the ten-year service agreement, the OMNIFILE could only be removed by Quint & Daughters, at Quint & Daughters' rates, which were attached. He looked at the attached rates, and then he went down to the Registrar and looked at Malphus's ledger, where the OMNIFILE already had its own line, and its interest was already compounding, and he came to the conclusion that the guild could not afford to keep the golem, and could not afford to get rid of it.
+Mike checked. He read clause fourteen four more times. He wrote to Quint & Daughters Automata, very politely, explaining that the guild would like to return the golem. He received a reply, very politely, explaining that under the terms of the ten-year service agreement, the OMNIFILE could only be removed by Quint & Daughters, at Quint & Daughters' rates, which were attached. He looked at the attached rates, and then he went down to the Registrar and looked at the guild's own ledger, where the OMNIFILE had already acquired its own line, in neat red ink, in a hand that was not the Registrar's, and its interest was already compounding, and he came to the conclusion that the guild could not afford to keep the golem, and could not afford to get rid of it.
 
 So they kept both.
 
