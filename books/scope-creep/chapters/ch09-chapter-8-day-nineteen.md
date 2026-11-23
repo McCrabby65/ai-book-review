@@ -1,8 +1,8 @@
-# Chapter 8: Day Nineteen
+## Chapter 8: Day Nineteen
 
 Bertram took inventory by lantern light on the evening of day sixteen, and it did not take long.
 
-The twelve reinforcements had been inside the crypt for less than a day. In that time, they had eaten eleven days of rations for five people, drunk most of the water, and used the last of the lamp oil to warm a pot of stew they had then knocked over. What remained, laid out on a flat tomb lid in the Great Vault, was: one wheel of cheese, half a sack of hard biscuits, two skins of water, a jar of pickled onions that nobody had touched because nobody liked pickled onions, and a harp.
+The twelve reinforcements had been inside the crypt for less than a day. In that time, they had eaten eleven days of rations for five people, drunk most of the water, and used the last of the lamp oil to warm a pot of stew they had then knocked over. What remained, laid out on a flat tomb lid in the Great Vault, was: one wheel of cheese, half a sack of hardtack, two skins of water, a jar of pickled onions that nobody had touched because nobody liked pickled onions, and a harp.
 
 The harp had been left behind in the confusion. Nobody knew how.
 
@@ -232,6 +232,8 @@ The crowd went wild.
 
 They roared. They cheered. They threw their hats in the air. Children screamed with joy. The pie vendor wept openly. And the painter, without missing a stroke, began quickly sketching five small figures emerging from somewhere behind Gareth's magnificent cloak.
 
+Not everyone was cheering. At the very back of the crowd, Mike saw his father, holding up the lamp from the cobbler's doorway, unlit, in broad daylight, as if he had simply forgotten to put it down for four days. Beside him, his mother was not looking at Gareth at all. She was counting. Mike watched her lips move, one, two, three, four, five, and when she got to five, she sat down on the grass, very suddenly, and put her face in her apron.
+
 Mike stood on the riverbank and looked at the rubble pile, and at the grate half a mile downstream, and at Gareth, and at the cheering crowd.
 
 The skill offered no estimate. Some things, he supposed, it simply didn't measure.
@@ -329,6 +331,8 @@ Mike, at the back of the hall, stood very still.
 He knew those words. *Hidden culvert. Signet secured. On schedule.* He had written them himself, on the slate at the crypt mouth, every afternoon for fifteen days, for the pigeons. Someone, somewhere between the slate and the scroll, had carefully copied out every one of his status reports, and changed the name at the top.
 
 The hero's record, he thought, was just the worker's notes with the name changed. It had been that way at Synergex too. He'd just never seen it in a gilt frame before.
+
+Velka had drifted to the back of the hall at some point during the citation. She didn't say anything. She just stood beside him, close enough that their shoulders touched, and when the hall applauded Gareth, she kept her hands at her sides.
 
 Brannoc pinned the medal on Gareth's chest. The hall roared. Then the Guildmaster raised his hands for quiet and made a short speech.
 
