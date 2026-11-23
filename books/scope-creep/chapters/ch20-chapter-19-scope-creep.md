@@ -1,4 +1,4 @@
-# Chapter 19: Scope Creep
+## Chapter 19: Scope Creep
 
 Priscilla brought the list to the stand-up the next morning, on a long strip of pink paper that she unrolled with a flourish, the way a herald unrolls a proclamation.
 
@@ -354,7 +354,7 @@ Rupert looked at him with gentle, patient sympathy, as if Mike were a child who 
 
 There was a pause.
 
-Mike had been the senior clerk for eight years. He had handled, filed, sorted, or invented every form in the building. He knew them all by number. There was a lumber guild form and a bounty form and a form for requesting a form.
+Mike had been a clerk at this guild for eight years. He had handled, filed, sorted, or invented every form in the building. He knew them all by number. There was a lumber guild form and a bounty form and a form for requesting a form.
 
 There was no Form E-1.
 
@@ -409,3 +409,9 @@ He asked the skill. He knew what it would say.
 **Estimated time until the demon wakes: 8 days.**
 
 Mike turned the lamp up, pulled the first box of records off the shelf, and began to put them in order.
+
+Some time after midnight, the stack beside him rustled. A small gray hand emerged and set a cookie on the corner of the desk. Then, after a long pause, the hand came back, and pushed out a battered wooden box, very slowly, an inch at a time, until it sat beside Mike's chair.
+
+It was full of paper. The label on the lid was written in a thin, shaky, old-fashioned hand.
+
+*Fifty-one years. In case. — O.*
