@@ -1,8 +1,8 @@
 {
-  "target_age_group": "Young Adult (12-18)",
+  "target_age_group": "Adult (18+)",
   "reading_level": "Grade 9-10 Level",
-  "content_rating": "Mild",
-  "rationale": "Vocabulary includes corporate jargon and fantasy terms, scene intensity is low-key (no graphic violence), and themes explore bureaucracy and metric-driven motivation, fitting a slightly advanced teen reader.",
-  "provider": "groq",
-  "model": "openai/gpt-oss-120b"
+  "content_rating": "Moderate",
+  "rationale": "The chapter uses accessible but wry vocabulary and corporate-satire references (stand-ups, dashboards, KPIs, Goodhart's Law) that depend on adult workplace experience, while its mildly grotesque but comedic goblin-ear bounty scenes and themes of perverse incentives and managerial dysfunction involve no graphic violence or explicit content.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
 }
