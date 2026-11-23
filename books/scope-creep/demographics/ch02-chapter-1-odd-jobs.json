@@ -2,7 +2,7 @@
   "target_age_group": "Young Adult (12-18)",
   "reading_level": "Grade 8-9 Level",
   "content_rating": "Mild",
-  "rationale": "The vocabulary is accessible and the humor is light, but it leans on adult-skewing references (corporate jargon, conference rooms, reincarnation after an implied death, coding jokes like copy-pasting and variable names) that suit older teens and adults, while the scenes themselves involve no graphic violence, romance, or heavy themes.",
+  "rationale": "The accessible vocabulary, light humor, and low-stakes scenes (a reincarnated office worker running errands in a fantasy town) suit teen readers, while the corporate in-jokes about project management, conference rooms, and a past life's death lean toward an older audience that grasps the workplace satire, though the thematic complexity and the content stay gentle.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
