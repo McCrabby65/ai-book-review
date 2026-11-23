@@ -1,4 +1,4 @@
-# Chapter 24: The Audit
+## Chapter 24: The Audit
 
 They set up before dawn.
 
@@ -18,7 +18,7 @@ It did not fall over. It *shifted*, the way a hedge shifts when something is com
 
 The whole hall stopped.
 
-He was very small. Smaller than Pip, nearly. He was very, very old, older than Thessaly, possibly, in the way that some people are old not because of the number of years but because of the amount of paper they have been near. He had wisps of white hair, and round spectacles, and his sleeves were rolled up to the elbow, and his arms were blue-black with ink from the fingertips to the elbows, as if he had been dipped. Under one arm he carried a ledger, thick and battered and bound in faded green.
+He was very small. Smaller than Pip, nearly. He was very, very old, older than Thessaly, possibly, in the way that some people are old not because of the number of years but because of the amount of paper they have been near. He had wisps of white hair, and round spectacles, and his sleeves were rolled up to the elbow, and his forearms were blue-black with ink from the wrists to the elbows, as if he had been dipped. Only his small, gray, wrinkled hands were clean, the way a careful man's hands are. Under one arm he carried a ledger, thick and battered and bound in faded green.
 
 He looked around the hall, blinking, the way a man looks around when he hasn't seen a room in a long time and isn't sure it's the same room.
 
@@ -58,11 +58,11 @@ On the front counter, the last grain of sand fell.
 
 ---
 
-Malphus came through the front door exactly as the bell finished ringing, ducking his horns politely under the lintel.
+Malphus came through the front door exactly as the bell finished ringing, ducking his head politely under the lintel.
 
 "Good morning," he said pleasantly. "Exactly on time."
 
-He was wearing the same dark coat, and carrying the same red ledger. He looked around the hall, at the forty-one boxes along the wall, at the long table, at Tam with his ruler, at Mike standing beside him, and at Osric. When his eyes reached Osric, they stopped for a moment, and something passed across his face, a flicker of something that might, in a less pleasant creature, have been surprise.
+He was wearing the same dark coat, and carrying the same dark ledger. He looked around the hall, at the forty-one boxes along the wall, at the long table, at Tam with his ruler, at Mike standing beside him, and at Osric. When his eyes reached Osric, they stopped for a moment, and something passed across his face, a flicker of something that might, in a less pleasant creature, have been surprise.
 
 Then Rupert stepped forward with the easel.
 
@@ -78,7 +78,7 @@ And he walked past it, to the long table, and sat down opposite Tam, and opened 
 
 He read everything.
 
-Mike had known he would. It was still something to watch. Malphus took each box in turn, and opened it, and took out every single sheet, and read it, front and back, and put it in a neat pile, and made a small note in his red ledger, and moved on to the next. He did not skim. He did not skip. He read the way Mike had always wished people would read his work: as if every word had been put there on purpose, by someone who meant it.
+Mike had known he would. It was still something to watch. Malphus took each box in turn, and opened it, and took out every single sheet, and read it, front and back, and put it in a neat pile, and made a small note in his ledger, and moved on to the next. He did not skim. He did not skip. He read the way Mike had always wished people would read his work: as if every word had been put there on purpose, by someone who meant it.
 
 And as he read, he talked. Not to anyone in particular. He read the line items out loud, pleasantly, in his calm, warm voice, the way a doctor reads out an X-ray, naming each thing he finds as he finds it, so that everyone in the room can hear exactly how bad it is.
 
@@ -266,7 +266,7 @@ It was, Mike thought, possibly the worst habit of the worst manager he had ever 
 
 And for once, just this once, it was true, and it helped.
 
-Malphus looked at the cover sheet for a long time. Then he took his silver pen, and in his own red ledger, beside the line for the amendment, he wrote something short. Mike leaned over and read it upside down.
+Malphus looked at the cover sheet for a long time. Then he took his silver pen, and in his own dark ledger, beside the line for the amendment, he wrote something short. Mike leaned over and read it upside down.
 
 *Not executed.*
 
@@ -276,7 +276,7 @@ Behind them, at the corner of the hall, Pip had stopped writing his footnote. He
 
 There was one more thing.
 
-The amendment was gone. But the loan itself was still there: the original loan, the very first one, the one Brannoc had taken out years ago, when he was new and the guild was struggling, back when the clerk at the front desk had been a man named Edwin. And that loan, Malphus explained apologetically, had its own terms. Its own interest. Its own default. And its terms said that the debt could not be restructured. Not reduced, not extended, not renegotiated. Only paid, or defaulted on.
+The amendment was gone. But the loan itself was still there: the original loan, the very first one, the one the founders had taken out two hundred years ago, renewed by every Guildmaster since, and last copied out in full in Brannoc's early years, back when the clerk at the front desk had been a man named Edwin. And that loan, Malphus explained apologetically, had its own terms. Its own interest. Its own default. And its terms said that the debt could not be restructured. Not reduced, not extended, not renegotiated. Only paid, or defaulted on.
 
 He turned his copy around to show them. It was very old. The clause was very clear.
 
@@ -298,7 +298,7 @@ He read it a second time. Then he picked up his own copy and held them both side
 
 He looked at Osric.
 
-Osric had not moved all morning. He had sat at the end of the long table beside Tam, with his green ledger open in front of him and his pen in his blue-black hand, and he had not said a single word. Now he looked up at Malphus. And for the first time in eight years, for the first time since Mike had first walked into the hall at twelve years old and heard a voice from behind a stack of paper say *Edwin knew*, Osric spoke in a full sentence.
+Osric had not moved all morning. He had sat at the end of the long table beside Tam, with his green ledger open in front of him and his pen in his blue-black hand, and he had not said a single word. Now he looked up at Malphus. And for the first time in eight years, for the first time since Mike had first walked into the hall at twelve years old and heard a voice from behind a stack of paper say *Edwin knew*, Osric spoke out loud to a whole room.
 
 "Edwin knew," said Osric.
 
@@ -342,7 +342,7 @@ Priscilla had opened her pink notebook. She was looking at it. She had gone whit
 
 "Then," said Malphus kindly, "you will have to un-promise them."
 
-Priscilla looked at him. She looked at Mike. She looked, Mike thought, exactly the way he must have looked yesterday morning, standing in front of Velka in a big chair with a wooden spoon.
+Priscilla looked at him. She looked at Mike. She looked, Mike thought, exactly the way he must have looked the other morning, standing in front of Velka in a big chair with a wooden spoon.
 
 He went over to her.
 
@@ -382,7 +382,7 @@ She did the other two by herself.
 
 Back at the long table, Hesper Vane had arrived.
 
-She was the guild's contract notary, a tall, thin witch in a gray shawl who had been at the guild even longer than Durgan, and who looked, at all times, as though she had seen every possible way a contract could go wrong, and been bored by all of them. She kept a ledger of late contracts that went back two hundred years. Mike was in it. He had been in it since he was twelve years old, on his third day, for a blood contract he had never signed.
+She was the guild's contract notary, a tall, thin witch in a gray shawl who had been at the guild even longer than Durgan, and who looked, at all times, as though she had seen every possible way a contract could go wrong, and been bored by all of them. She kept a ledger of late contracts that went back forty years. Mike was in it. He had been in it since he was twelve years old, on his third day, for a blood contract he had signed with his thumb and never once agreed to.
 
 She sat down at the end of the table, took out a small stamp and a pot of wax, and began to file her nails while she waited.
 
@@ -470,7 +470,7 @@ Malphus looked at it with an expression of great contentment.
 
 "No deadline," he said. "That's what a restructured debt looks like."
 
-He stood up, and buttoned his coat, and collected his red ledger and his folders, and turned toward the door.
+He stood up, and buttoned his coat, and collected his dark ledger and his folders, and turned toward the door.
 
 And the floor shuddered.
 
