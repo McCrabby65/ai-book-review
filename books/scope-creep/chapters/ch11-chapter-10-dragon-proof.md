@@ -1,4 +1,4 @@
-# Chapter 10: Dragon-Proof
+## Chapter 10: Dragon-Proof
 
 The contract was four pages long, and Mike read every word, which made him the first person in the guild to do so.
 
@@ -312,6 +312,12 @@ On the second day, he asked the skill, out of pure curiosity: *What was the chan
 
 Mike read that last line twice. Then he looked back up at the empty sky for a long time.
 
+That night, by the campfire, he opened his guide to the back and added a second entry under *Things Brannoc Knows*.
+
+*This road has been safe for forty years. Because of him.*
+
+He looked at it for a while. It was strange, he thought, how hard it was to write something kind about Brannoc, and how true it was anyway.
+
 The caravan reached Westmarch on the third day, safe and sound and entirely un-dragoned, and Master Thrum met it at the gates personally, weeping with joy.
 
 "Not a single dragon got through!" he cried, embracing the Contraption, and then Duchess, and then, rather awkwardly, Roderick. "Not *one*! Dragon-proof! Absolutely, completely, *verifiably* dragon-proof!"
@@ -335,6 +341,8 @@ The sound went through Mike like a sword.
 For a moment, he wasn't in the guild hall at all. He was walking past the sales pit at Synergex, on the morning after Brittany sold the routing feature, and the little brass gong was ringing, and everyone in sales was cheering, and Mike was walking to his desk to find a ticket in his queue that said **ROUTING (SOLD)**.
 
 He stood very still in the doorway while the gong's long, shimmering note died away. The hall erupted in applause. Brannoc came out of his office, beaming, and clapped Priscilla on the back. Gareth whooped. The dog barked. Duchess, who had come in through the back, bleated.
+
+In his desk drawer, under a stack of requisition forms he had approved himself, Wren Halloway's offer was still folded in thirds. He had thought about it, he realized, for exactly as long as the gong had taken to stop ringing.
 
 And from the edge of the crowd, where he had been called upstairs for yet another meeting about the stand-up, Durgan Flintmantle stood with his arms folded, watching the gong.
 
