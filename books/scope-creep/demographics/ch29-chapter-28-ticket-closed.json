@@ -2,7 +2,7 @@
   "target_age_group": "Young Adult (12-18)",
   "reading_level": "Grade 7-8 Level",
   "content_rating": "Mild",
-  "rationale": "The prose uses simple, accessible vocabulary and short rhythmic sentences, with gentle whimsical fantasy-workplace humor (a sentient paper stack, a mnemonic song, a child welcomed into a guild) and no violence or mature content, though its wry satire of corporate and agile workplace culture and its reflective themes of mentorship and institutional change appeal to older teens and adults more than to younger children.",
+  "rationale": "The vocabulary is accessible and the prose is simple and warm, with no violence or sexual content, and a twelve-year-old protagonist; however, the workplace-satire framing of agile and project-management jargon (stand-ups, tickets, ranked backlogs, onboarding) and the quiet, reflective themes of mentorship and breaking cycles of neglect appeal to older teens and adults, so the target skews toward Young Adult with crossover appeal.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
