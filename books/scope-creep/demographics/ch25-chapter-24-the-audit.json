@@ -1,8 +1,8 @@
 {
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 8-9 Level",
+  "target_age_group": "Middle Grade (8-12)",
+  "reading_level": "Grade 6-7 Level",
   "content_rating": "Mild",
-  "rationale": "The prose uses moderately complex sentences and some abstract metaphors, but the scenes are low‑intensity and the themes remain whimsical and non‑graphic, fitting a YA readership.",
-  "provider": "groq",
-  "model": "openai/gpt-oss-120b"
+  "rationale": "The prose uses accessible vocabulary, whimsical names, gentle humor, and playful similes (a 'very boring castle', a belt held 'like a live animal'), and the scene's stakes are low-violence bureaucratic suspense about an audit, so the story suits middle-grade readers, though its dry wit and its themes of institutional paperwork and unseen labor may also appeal to older readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
 }
