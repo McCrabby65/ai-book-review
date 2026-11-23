@@ -266,7 +266,7 @@ And as far as he could tell, the reinforcements were working through all of them
 
 They went in on the morning of day sixteen.
 
-It was chaos within the hour. The twelve crowded the narrow corridors so tightly that nobody could swing a sword without hitting a colleague. They ate the supplies Bertram had carefully rationed for nineteen days in four. They argued about formation at every junction, then argued about the argument. One of them borrowed Mike's map to look at the traps and used it as a fan, and then put it down in a puddle. The man with the harp played it.
+It was chaos within the hour. The twelve crowded the narrow corridors so tightly that nobody could swing a sword without hitting a colleague. They ate most of the supplies Bertram had carefully rationed for five people. They argued about formation at every junction, then argued about the argument. One of them borrowed Mike's map to look at the traps and used it as a fan, and then put it down in a puddle. The man with the harp played it.
 
 Sir Roderick followed Mike's route exactly, step by documented step, and watched twelve people walk all over the parts of the floor the map said not to.
 
