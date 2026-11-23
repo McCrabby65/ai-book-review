@@ -2,7 +2,7 @@
   "target_age_group": "Adult (18+)",
   "reading_level": "Grade 9-10 Level",
   "content_rating": "Moderate",
-  "rationale": "The chapter uses accessible but wry vocabulary and corporate-satire references (stand-ups, dashboards, KPIs, Goodhart's Law) that depend on adult workplace experience, while its mildly grotesque but comedic goblin-ear bounty scenes and themes of perverse incentives and managerial dysfunction involve no graphic violence or explicit content.",
+  "rationale": "The prose uses accessible but sophisticated vocabulary, dry workplace satire (Goodhart's Law, gamed metrics, managerial jargon) that depends on adult corporate experience, and mild fantasy violence implied by the goblin-ear bounties, with no explicit gore, sexual content, or profanity.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
