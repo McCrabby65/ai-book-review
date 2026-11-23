@@ -1,12 +1,12 @@
-# Chapter 3: The Basement
+## Chapter 3: The Basement
 
 Mike arrived at the guild at eight the next morning, sat down at his desk, and faced the URGENT pile.
 
 Overnight, it had grown. He was fairly sure of this, though he had no proof, because nobody had ever counted it. It now filled the alcove behind his desk from floor to shoulder height, a leaning, rustling heap of notices, complaints, and reminders about earlier complaints, all stamped in red. Somewhere near the middle, a mouse had built a nest. The nest was also stamped URGENT.
 
-**Estimated time to sort the URGENT pile: 3 weeks, 3 days, 23 hours.**
+**Estimated time to sort the URGENT pile: 3 weeks, 4 days, 5 hours.**
 
-One hour of progress overnight, Mike noted. Priscilla must have gone home early.
+Only five hours added overnight, Mike noted. Priscilla must have gone home early.
 
 He began at the top, sorting notices into three stacks: things that were actually urgent, things that had stopped being urgent sometime during the previous reign, and things that had never been urgent but had been stamped anyway by someone who liked the stamp. The third stack grew fastest.
 
@@ -38,6 +38,8 @@ Nailed to a post at the foot of the ladder was a wooden sign:
 
 There were two desks. At the nearer one sat a dwarf, broad as a barrel, with a beard braided into a long rope and his boots up on the desk, crossed at the ankle. He was reading a pamphlet titled *Ale Through the Ages, Vol. 4*. He did not look up.
 
+Above his desk hung a small wooden picture frame with nothing in it. It had been dusted recently. Mike didn't ask.
+
 At the far end of the room, on a ladder much taller than he was, stood a gnome in spectacles so thick they made his eyes look like two blue plates. He was holding a lantern in one hand and a slate in the other, and he was squinting at a single flickering rune with the expression of a man reading a very personal insult.
 
 "Hello?" said Mike.
@@ -50,7 +52,7 @@ The dwarf turned a page. "Have you tried dispelling it and casting it again?"
 
 The gnome scrambled down the ladder with startling speed, crossed the room, and stopped in front of Mike, peering up at him through the enormous spectacles. He was about the same height as Mike, which at twelve years old was a novelty Mike hadn't experienced since he'd been eight.
 
-"A visitor!" said the gnome. "We don't get visitors. Footnote: we have never had a visitor. Footnote: Edwin came down once, but he was lost, and he left immediately. Footnote: he did not close the trapdoor."
+"A visitor!" said the gnome. "We don't get visitors. Footnote: we have never had a visitor. Footnote: Edwin came down once, years ago, but he was lost, and he left immediately. Footnote: he did not close the trapdoor."
 
 "Pip," said the dwarf, without looking up. "Rule."
 
@@ -78,7 +80,7 @@ Durgan and Pip exchanged a long look.
 
 "At the very bottom."
 
-"Well," said Durgan, swinging his boots off the desk. "That explains a great deal. Tea?"
+"Well," said Durgan, swinging his boots off the desk. "That explains a great deal. We've been using the coal chute. Tea?"
 
 He produced a dented iron kettle from a hook beside the rune wall and held it up against a fat cluster of amber runes labeled *FIRE (MAIN)*. The kettle began to steam almost at once.
 
@@ -136,7 +138,7 @@ Pip made a high, thin noise. "*Midnight?* We're available until *midnight?* Sinc
 
 ---
 
-"So," Mike said, when he had moved his stool upwind. "What do you actually do down here?"
+"So," Mike said, when he had moved upwind. "What do you actually do down here?"
 
 Pip lit up like one of his runes. "Everything," he said. He took Mike by the sleeve and led him to the glowing wall. "*This* is the ward board. Every protective enchantment in the guild hall runs through here. Fire wards, so the building doesn't burn. Flood wards, so the cellar doesn't drown. Load wards, so the roof stays up. Footnote: the south roof is held up almost entirely by enchantment and spite."
 
@@ -211,6 +213,10 @@ Mike looked at the scrolls, then at the steady, glowing wall that had kept a bui
 "I'm sorry," he said, and meant it.
 
 Durgan grunted. It was, Mike would later learn, the dwarven grunt reserved for things that mattered.
+
+Pip, not to be outdone, showed him a shelf of his own: forty-two bound reports, each with *SUBMITTED UPSTAIRS* written neatly on the cover, and each returned with its seal unbroken.
+
+"Footnote," said Pip. "Someone did write back once. They wanted to know if we could make the lights a nicer color."
 
 The bell rang a third time, slower now, and the crier's voice dropped into something solemn.
 
@@ -308,7 +314,7 @@ From above, louder: "CLERK! I want an estimate on the Sunken Crypt! Tomorrow mor
 
 Footsteps thudded away overhead, followed by the slam of an office door.
 
-And in front of Mike's eyes, for the first time in two days, a familiar line of glowing text drifted into view. It had been counting down quietly since a beige waiting room a lifetime ago.
+And in front of Mike's eyes, for the first time since yesterday morning, a familiar line of glowing text drifted into view. It had been counting down quietly since a beige waiting room a lifetime ago.
 
 **Estimated time until you regret this: 0 years, 0 months, 1 day.**
 
