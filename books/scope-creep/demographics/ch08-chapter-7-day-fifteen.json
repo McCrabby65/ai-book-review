@@ -1,8 +1,8 @@
 {
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 8-9 Level",
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 9-10 Level",
   "content_rating": "Mild",
-  "rationale": "The chapter uses moderately advanced fantasy terminology and layered dialogue, but presents only low‑intensity conflict and no graphic material, fitting a YA readership.",
-  "provider": "groq",
-  "model": "openai/gpt-oss-120b"
+  "rationale": "The prose uses accessible but witty vocabulary, with no graphic violence or sexual content, but its dry, workplace-satire humor (documentation of a 'legacy system', project estimates, bureaucratic clerks) and its ironic, deadpan tone draw on adult professional experience, giving it an adult readership despite the mild fantasy-adventure content.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
 }
