@@ -1,4 +1,4 @@
-# Chapter 12: Edge Case
+## Chapter 12: Edge Case
 
 The morning after the Grand Reopening, the guild hall was warm.
 
@@ -216,7 +216,7 @@ The panel looked at it.
 
 Gareth yawned.
 
-"This is a list," said Mike, laying down three pages, "of every known problem with the Contraption, including the fact that it also draws on the fire ward." He laid down a fourth page. "And this is a formal objection to moving the front door, filed four days ago. It says that Ward Maintenance warned that moving the door would break the seal on the demon. It's signed by the Guildmaster, overruling it." He tapped the great, sweeping, curling signature at the bottom. "And witnessed by the guild's notary."
+"This is a list," said Mike, laying down three pages, "of every known problem with the Contraption, including the fact that it also draws on the fire ward." He laid down a fourth page. "And this is a formal objection to moving the front door, filed three days ago. It says that Ward Maintenance warned that moving the door would break the seal on the demon. It's signed by the Guildmaster, overruling it." He tapped the great, sweeping, curling signature at the bottom. "And witnessed by the guild's notary."
 
 He stepped back.
 
@@ -332,7 +332,15 @@ Mike asked the skill. He wasn't sure what he expected.
 
 **Estimated time until the demon wakes: 49 days.**
 
-Three days. Durgan had bought three days back, on his knees, overnight, unpaid, blamed, with a chisel. Mike started to say something, and found he couldn't, and looked at Durgan instead. The dwarf was putting his chisels away in their bag, one by one, very neatly.
+Four days. Durgan had bought four days back, on his knees, overnight, unpaid, blamed, with a chisel. Mike started to say something, and found he couldn't, and looked at Durgan instead. The dwarf was putting his chisels away in their bag, one by one, very neatly.
+
+Pip took out his slate. At the top, in careful letters, he wrote: *Incidents prevented this week.* Under it, in his smallest, neatest hand, he listed them.
+
+*Chandelier (1). Bard (1). Demon (partial; four days).*
+
+He looked at it for a long while. Then, underneath, he added a single footnote. It was one word long.
+
+*Durgan.*
 
 ---
 
