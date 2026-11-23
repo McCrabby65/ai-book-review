@@ -1,4 +1,4 @@
-# Chapter 4: Nineteen Days
+## Chapter 4: Nineteen Days
 
 "First thing" in Mike's old life had meant nine o'clock, or whenever Chad finished his smoothie. In Brindlemoor, it meant dawn. So Mike was at the guild two hours before it, banging on the side door until the night watchman let him in, grumbling, with a candle and a look of deep personal betrayal.
 
@@ -234,6 +234,10 @@ As his skin touched the vellum, a line of glowing text that had been counting do
 
 "The notary," said Mike.
 
+Pip turned the copy over. On the back, in small gray pencil, so faint that no fair copy would ever carry it, someone had written: *Estimator's figure: 19 days. Noted.*
+
+Mike looked at it for a long moment. It was the first time, in either life, that anyone had written down what he'd actually said.
+
 "Footnote: I'd like to meet her." Pip ran his finger down the copy Hesper had made for the guild's records. It was long, and almost entirely in the kind of language that hurts to look at. "*Fees, forfeitures, the jurisdiction of Varrenhold...* Ah." His finger stopped. His voice went quiet. "*Penalties.*"
 
 "Read it," said Durgan.
@@ -285,6 +289,14 @@ Mike stood very still on the doorstep. In two lifetimes, he thought, he had neve
 Inside, the lamp was warm and the stew smelled like something, roughly. Mike sat down at the table, took out a clean sheet of paper and his black ink, and began, at the top, a new list. *Things to learn before the river drops.*
 
 It got long very quickly. The guild's ledgers. The Registrar's rules, all of them. Every quest and how long it had really taken. How the wards worked. How contracts worked. Which officers could be persuaded of things, and how. He had time, he thought. For once in either life, he had time.
+
+Across the table, his mother looked up from her mending. "How long have you got, love?"
+
+It was, Mike thought, exactly the right question. Nobody at the guild had thought to ask it.
+
+"About eight years," he said.
+
+Greta nodded and bit off a thread. "Plenty," she said.
 
 The skill flickered in front of his eyes, with one last readout for the day.
 
