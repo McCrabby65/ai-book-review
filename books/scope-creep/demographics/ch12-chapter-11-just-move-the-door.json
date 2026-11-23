@@ -1,8 +1,8 @@
 {
   "target_age_group": "Middle Grade (8-12)",
-  "reading_level": "Grade 6-7 Level",
+  "reading_level": "Grade 6-8 Level",
   "content_rating": "Mild",
-  "rationale": "The chapter relies on accessible vocabulary, whimsical fantasy humor (a sheep, a dragon tooth, a deed advertising a sealed demon), and low-stakes, non-graphic tension, while the workplace-satire theme of 'fast versus safe' engineering and the dry, wry tone add enough thematic sophistication that it could also appeal to older readers.",
+  "rationale": "The chapter relies on accessible vocabulary, light workplace-fantasy humor (a sheep, a dog, a bombastic guildmaster, a deed that advertises a sealed demon), and low-intensity stakes with no violence or mature content, though the allegory about software estimation and hidden risk has an adult-leaning satirical wit that broadens appeal beyond younger readers.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
