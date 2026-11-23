@@ -1,4 +1,4 @@
-# Chapter 11: Just Move the Door
+## Chapter 11: Just Move the Door
 
 Brannoc announced it at the stand-up the next morning, between the three questions and Gareth's dragons, with the energy of a man unveiling a statue.
 
@@ -94,7 +94,7 @@ Durgan put out one broad, square hand and laid it flat on the doorframe, beside 
 
 They went to Brannoc's office that afternoon, all three of them.
 
-It was the first time Durgan Flintmantle had ever set foot in the Guildmaster's office. He stood just inside the door, in his old leather apron, with his singed braid and his hands at his sides, and looked around at the weapons on the walls and the one-eyed dragon head and the two hundred and thirteen framed ADEQUATEs with an expression of total, mineral calm. Pip stood beside him, holding the ledger. Mike stood beside Pip, holding his guide.
+It was the first time Durgan Flintmantle had ever set foot in the Guildmaster's office. He stood just inside the door, in his old leather apron, with his gray-shot braid and his hands at his sides, and looked around at the weapons on the walls and the one-eyed dragon head and the two hundred and thirteen framed ADEQUATEs with an expression of total, mineral calm. Pip stood beside him, holding the ledger. Mike stood beside Pip, holding his guide.
 
 Brannoc looked up from his lunch, a roast pheasant, with mild surprise.
 
@@ -305,6 +305,18 @@ The crowd roared. Priscilla seized the padded mallet, which she had brought out 
 *BWONNNNNNNNNG.*
 
 Mike stood at the edge of the square, very still, and waited.
+
+Velka found him there. She had a pie in one hand and a small purple scorch on her sleeve that Mike decided not to ask about.
+
+"You've got the face," she said.
+
+"What face?"
+
+"The one you make right before something catches fire." She took a bite of pie. "I'd know. I'm usually the reason."
+
+"Forty-seven days," said Mike.
+
+Velka looked at the new door for a while, chewing. She didn't ask what he meant. She just didn't leave.
 
 Nothing happened.
 
