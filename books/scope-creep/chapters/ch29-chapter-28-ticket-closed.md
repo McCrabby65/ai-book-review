@@ -1,6 +1,6 @@
 ## Chapter 28: Ticket Closed
 
-Three weeks after the harvest festival, a girl walked into the Adventurers' Guild of Brindlemoor for her first day of work.
+Three weeks and three days after the harvest festival, a girl walked into the Adventurers' Guild of Brindlemoor for her first day of work.
 
 She was twelve years old. She had scrubbed her face until it shone, and put on the one clean dress she owned, and walked across the city to the center of Brindlemoor with a reference from a weaver folded in her pocket. She stood in the doorway, under the carved stone frame that said *LOAD-BEARING*, and looked into the main hall with the expression of someone who has just stepped off a cliff and is waiting to find out how far down it goes.
 
@@ -136,9 +136,9 @@ The hall was very quiet.
 
 Mike asked the skill.
 
-**Estimated time until someone suggests moving the door again: 4 years, 1 month, 3 weeks.**
+**Estimated time until someone suggests moving the door again: 4 years, 1 month.**
 
-He looked at it for a moment, and then he smiled. Three weeks ago, it had been four years and two months. The clock was still running. It hadn't been reset. Dex hadn't finished the sentence.
+He looked at it for a moment, and then he smiled. Nearly four weeks ago, it had been four years and two months. The clock was still running. It hadn't been reset. Dex hadn't finished the sentence.
 
 It didn't count.
 
@@ -156,7 +156,7 @@ The first one was dated three weeks ago. It was on heavy bronze-colored paper, w
 >
 > *— R. Spindlewick, C.I.O.*
 
-The second one was dated that morning. It was on plain white paper. It was very short.
+The second one was dated Monday. It was on plain white paper. It was very short.
 
 > *Dear Valued Client,*
 >
@@ -500,7 +500,7 @@ She stopped with her mouth still open. And then, very slowly, she lifted one han
 
 Behind Osric's stack, at his desk, Mike looked up.
 
-Priscilla stood very still behind the counter with her hand over her mouth. The merchant looked at her, puzzled. Mike watched her close her eyes. He watched her take a breath, a long one, the way she had at the counter three weeks ago, the day Malphus made Fridays, with Mike's hand on her shoulder.
+Priscilla stood very still behind the counter with her hand over her mouth. The merchant looked at her, puzzled. Mike watched her close her eyes. He watched her take a breath, a long one, the way she had at the counter nearly a month ago, the day Malphus made Fridays, with Mike's hand on her shoulder.
 
 She lowered her hand.
 
