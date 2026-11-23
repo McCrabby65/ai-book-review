@@ -1,4 +1,4 @@
-# Chapter 7: Day Fifteen
+## Chapter 7: Day Fifteen
 
 The Sunken Crypt of Varrenhold, when the river finally let go of it, looked less like a tomb and more like a drain that had given up.
 
@@ -154,7 +154,7 @@ The Guildmaster's face clouded over. "The *schedule*," he said, "says fourteen."
 
 Mike opened his mouth. He closed it again. There was, he reflected, no answer to that question that would fit on a banner.
 
-Behind Brannoc, slowly and very quietly, Priscilla rolled up *CONGRATULATIONS* and tucked it under her arm.
+Behind Brannoc, slowly and very quietly, Priscilla rolled up *CONGRATULATIONS* and tucked it under her arm. She left the chicken, though, on a rock by the crypt mouth, with a napkin over it. Mike decided it was the nicest thing she had ever done.
 
 ---
 
@@ -345,6 +345,16 @@ Mike stared at it.
 The same day. The exact same day as always. The only way, in the end, to get the job back on schedule had been to lose the reinforcements.
 
 He started to laugh. He couldn't help it. He sat down on a rock in a sealed tomb under a river and laughed until there were tears cutting clean lines through the dust on his face, while Agatha patted his back, and Roderick looked worried, and Velka watched him with her small, steady, unspectacular light.
+
+When he could breathe again, he opened his book to the page with the entrance tunnel, and found that Roderick was already holding the lantern for him. Mike drew the alcove, and the lever, and the brass plate. Beside it, in small, careful letters, he wrote: *Lever marked SAFE. It is not.*
+
+Roderick watched him write it.
+
+"Alric," he said quietly. "The squire. His name was Alric."
+
+Mike added a line underneath: *See also: Alric, Barrows of Elm.*
+
+The paladin didn't say anything else. He didn't need to.
 
 There was a fluttering in the rubble overhead.
 
