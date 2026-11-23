@@ -2,7 +2,7 @@
   "target_age_group": "Adult (18+)",
   "reading_level": "Grade 9-10 Level",
   "content_rating": "Mild",
-  "rationale": "The chapter relies on workplace-satire vocabulary (retrospectives, psychological safety, root cause analysis, Synergex-style corporate meetings) and a wry, ironic humor that depends on adult professional experience, while the scenes are gentle and non-violent and the themes of blame, institutional dysfunction, and debt are handled with comedic restraint.",
+  "rationale": "The chapter uses accessible but wry vocabulary and gentle, non-graphic scenes, while its satire of corporate culture (Synergex, retrospectives, psychological safety, 'root cause: communication') relies on workplace experience and ironic thematic awareness that best suits adult readers.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
