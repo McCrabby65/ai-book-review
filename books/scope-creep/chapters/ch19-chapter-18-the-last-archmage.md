@@ -176,7 +176,7 @@ Thessaly came. He was carried down the stair from his tower in a sedan chair by 
 
 And for the next hour, Thessaly told them about a goat.
 
-It was, Mike would later admit, a remarkable story. The goat's name had been Bettany, and she had belonged to Thessaly a hundred and eighty years ago, when he was a young man and the barrier was new. Bettany had followed him everywhere. She had followed him around the walls every morning. She had eaten things she shouldn't have. She had bleated at things that weren't there. She had fallen in love with a weathervane. She had once, memorably, got her head stuck in the third wall. The story wandered and doubled back and stopped in the middle for long, fond pauses, and it did not, at any point, appear to be about the barrier at all.
+It was, Mike would later admit, a remarkable story. The goat's name had been Bettany, and she had belonged to Thessaly two hundred and five years ago, when he was a young man and the barrier was new. Bettany had followed him everywhere. She had followed him around the walls every morning. She had eaten things she shouldn't have. She had bleated at things that weren't there. She had fallen in love with a weathervane. She had once, memorably, got her head stuck in the third wall. The story wandered and doubled back and stopped in the middle for long, fond pauses, and it did not, at any point, appear to be about the barrier at all.
 
 Rupert listened to all of it with an expression of fixed, nodding, professional attentiveness. Velka fell asleep about halfway through, upright, with her new hat tipped over her eyes. Durgan stared at the ceiling.
 
@@ -254,7 +254,7 @@ There was a long silence in the Basement.
 
 "The whole story. It was all in the goat. The salt, the low note on the third wall. It was all *there*. He told us. He told us everything, for a full hour, and we just didn't recognize it as instructions." Mike sat down hard on a stool. "And Rupert ticked the box."
 
-"He did transfer the knowledge," said Pip faintly. "Footnote: he really did." He looked down at his slate, at a hundred and eighty years of an archmage's craft, hidden in the rambling story of a goat who loved salt and was afraid of rivers. "Only nobody wrote it down. Except me."
+"He did transfer the knowledge," said Pip faintly. "Footnote: he really did." He looked down at his slate, at two hundred years of an archmage's craft, hidden in the rambling story of a goat who loved salt and was afraid of rivers. "Only nobody wrote it down. Except me."
 
 From his chair, without lowering his pamphlet, Durgan said: "That's where it always is."
 
