@@ -1,4 +1,4 @@
-# Chapter 14: Goblin Ears
+## Chapter 14: Goblin Ears
 
 Brannoc had not slept. Mike could tell. The Guildmaster arrived at the stand-up the next morning with red eyes, a creased tunic, and the bright, fevered energy of a man who had spent all night staring at a number and had finally decided what to do about it.
 
@@ -285,6 +285,16 @@ Nettle studied Mike over his spectacles for a long moment. Then he nodded, once,
 He turned to go. Then he paused, and turned back.
 
 "And we'll be wanting the ears back," he said. "Item five."
+
+Sister Agatha was waiting by the front door when the delegation filed out. She had not been at the negotiation. Mike did not know how long she had been standing there.
+
+"Mr. Nettle," she said. Her voice was not quite steady. "Item four. The teeth." She folded her hands. "I'd like to see to them. Tuesdays and Fridays. No charge."
+
+Nettle looked up at her for a long moment, over his small round spectacles. Mike could not read his face at all.
+
+"Will you put that in writing?" he said.
+
+Agatha took a pencil from her sleeve and wrote it, there and then, on the back of the list of demands. Nettle read it, nodded once, and filed it carefully in his folder. Then he did something Mike had not seen him do all day. He bowed.
 
 ---
 
