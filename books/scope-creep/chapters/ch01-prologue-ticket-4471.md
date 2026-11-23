@@ -1,4 +1,6 @@
-# Prologue: Ticket #4471
+# Scope Creep: Technical Debt & Dragons
+
+## Prologue: Ticket #4471
 
 At 11:52 p.m. on a Tuesday, Mike Dobbins of Raleigh, North Carolina, was forty-four years old, eleven years into his job at Synergex Solutions, and wearing the same NC State Wolfpack hoodie he'd been wearing since Sunday.
 
@@ -11,6 +13,8 @@ His phone buzzed. Then it buzzed again. Then it started ringing, which at Synerg
 "This is different. He used capital letters."
 
 Mike closed his eyes. Somewhere behind them, a vein he'd been meaning to have looked at since 2019 began to throb.
+
+On his kitchen counter, a birthday card for his niece sat in its envelope, unsigned, for the third week running. He'd been meaning to mail it this weekend. He had been meaning to mail it for three weekends.
 
 Hartwell was Synergex's biggest client, which meant Hartwell's head of operations, a man named Doug who typed exclusively in caps lock, had effectively been running the company's roadmap for six years. Every feature Doug wanted was urgent. Every bug Doug found was a crisis. Every midnight was, potentially, Doug's.
 
@@ -40,6 +44,8 @@ And now it was down.
 
 The office was dark except for the server closet and the break room, which facilities had relocated over the weekend because Chad wanted the old break room for a "podcast studio." When the electrician had raised concerns about the wiring, he'd been told it was "just moving a coffee maker."
 
+By the elevators, Chad's whiteboard photo had been printed, framed, and hung beneath a banner that read **SYNERGEX DELIVERS!** Mike walked past it without looking. He'd had practice.
+
 Mike found the bug at 2:10 a.m. It was a hardcoded assumption that no truck would ever visit more than one depot, made eighteen days earlier by a sleep-deprived man named Mike Dobbins under direct orders to "just get it working for the demo." He fixed it, tested it, couldn't get anyone to review it, deployed it anyway, and watched the error dashboard slowly turn from red to green.
 
 At 3:47 a.m., the Hartwell system was back up. Mike leaned back in his chair and allowed himself one small, private feeling of triumph.
@@ -59,6 +65,8 @@ They did. The incident report cited "an unstable deployment immediately precedin
 He woke up in a waiting room.
 
 It had beige carpet and a take-a-number dispenser, and a sign reading **NOW SERVING: 88,412,907**. Mike looked at the paper slip in his hand. It said 88,413,544.
+
+He sat down in a plastic chair. Nobody called him. Nobody emailed him. For the first time in eleven years, nobody needed anything from him in the next five minutes, and he discovered, to his mild alarm, that he was enjoying it.
 
 Four hours later, a harried woman with luminous wings, three pens stuck in her hair, and a lanyard reading **GODDESS OF TRANSITIONS — TIER 2 SUPPORT** finally called his number.
 
