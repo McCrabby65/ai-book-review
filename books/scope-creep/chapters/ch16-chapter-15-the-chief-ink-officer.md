@@ -1,4 +1,4 @@
-# Chapter 15: The Chief Ink Officer
+## Chapter 15: The Chief Ink Officer
 
 Brannoc introduced him at the stand-up the next morning, between the motto and the three questions, with his arm around the young man's shoulders like a proud uncle at a wedding.
 
@@ -96,9 +96,9 @@ Mike looked at the stack.
 
 "Thank you," he said.
 
-The stack did not say anything else. But after a moment, a single, slightly crumpled biscuit emerged from between two folders, on a small, gray, wrinkled hand, and was set down on the corner of Mike's desk.
+The stack did not say anything else. But after a moment, a single, slightly crumbled cookie emerged from between two folders, on a small, gray, wrinkled hand, and was set down on the corner of Mike's desk.
 
-Mike ate it. It was a very old biscuit. It was, under the circumstances, extremely kind.
+Mike ate it. It was a very old cookie. It was, under the circumstances, extremely kind.
 
 ---
 
@@ -162,7 +162,7 @@ Gareth, beside him, nodded gravely. "Initiative," he said.
 
 Mike did not say anything else. He went back behind the stack, and sat down at his desk in the dim corner, and looked at the wall for a while.
 
-After a minute, a second old biscuit appeared on the corner of his desk.
+After a minute, a second old cookie appeared on the corner of his desk.
 
 ---
 
@@ -312,7 +312,7 @@ Velka, who was only allowed to cast, cast. She cast quickly and well, with teste
 
 So Velka could only watch as the scruffy brown wolf trotted past her, stood up on its hind legs, took her hat neatly off her head in its jaws, and ate it.
 
-It was a new hat. She had bought it after the crypt, to replace the one that had melted in the antechamber. It had a little silver pin on the brim.
+It was a new hat. She had bought it after the crypt, to replace the one that had burned in the antechamber. It had a little silver pin on the brim.
 
 The wolf swallowed the pin too.
 
@@ -321,6 +321,12 @@ Velka stared at the wolf. The wolf stared back, chewing, and then burped.
 And Sister Agatha, eliminated from the process, sat on a tree stump at the edge of the clearing with her hands folded in her lap and watched all of it, and was not allowed to help anyone.
 
 They came home at dusk. The wolves were still in the den, very shiny. The party was scratched, bruised, and missing a hat. They had done nothing out of order.
+
+That night, at his desk in the dim corner behind the stack, Mike opened his guide to a fresh page at the very back, past *Things Brannoc Knows*, and wrote a new heading: *Things To Make*. Under it, he wrote one line.
+
+*Hat. Must be wolf-proof, fire-proof, and Velka-proof. Test everything first.*
+
+He looked at it for a while. Then he underlined *test*.
 
 ---
 
