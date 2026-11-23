@@ -1,8 +1,8 @@
 {
-  "target_age_group": "Young Adult (12-18)",
+  "target_age_group": "Adult (18+)",
   "reading_level": "Grade 9-10 Level",
-  "content_rating": "Moderate",
-  "rationale": "The prose uses layered bureaucratic satire and some dark, implied imagery (e.g., blood contract, crypt party) with a vocabulary beyond early readers, indicating a YA audience and moderate intensity.",
-  "provider": "groq",
-  "model": "openai/gpt-oss-120b"
+  "content_rating": "Mild",
+  "rationale": "The chapter relies on workplace satire (changelog jokes, corporate reorganization, job titles like 'Head of Client Delight') and dry irony that suit adult readers who know office life, but its vocabulary is accessible, there is no graphic violence, sexual content, or strong language, and the fantasy setting keeps the tone light.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
 }
