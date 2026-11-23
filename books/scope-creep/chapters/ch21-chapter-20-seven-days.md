@@ -1,12 +1,12 @@
-# Chapter 20: Seven Days
+## Chapter 20: Seven Days
 
 Malphus arrived at dawn, exactly on time.
 
-Mike knew it was exactly on time because Malphus said so. He came through the front door of the guild hall as the first bell of the morning finished ringing, ducking his horns politely under the lintel, and he set a small brass hourglass down on the front counter. The last grain of sand fell through it as he let go.
+Mike knew it was exactly on time because Malphus said so. He came through the front door of the guild hall as the first bell of the morning finished ringing, ducking his head politely under the lintel, and he set a small brass hourglass down on the front counter. The last grain of sand fell through it as he let go.
 
 "Good morning," he said pleasantly. "Exactly on time."
 
-He was wearing the same dark coat as before, and carrying the same ledger, bound in something red that Mike had decided, the first time he saw it, not to think about. He looked around the hall with the warm, interested expression of a man visiting an old friend's house and noticing they'd moved the furniture.
+He was wearing the same dark coat as before, and carrying the same ledger, bound in something dark that was not quite leather, and that Mike had decided, the first time he saw it, not to think about. He looked around the hall with the warm, interested expression of a man visiting an old friend's house and noticing they'd moved the furniture.
 
 The guild was all there. Brannoc had called everyone in early. He stood in the middle of the hall in his best tunic, holding an empty mug, because Wren Halloway held a mug, and the Guildmistress of Tanner's Row was very successful. Priscilla stood beside him, smiling brightly at nobody. Gareth the Bold stood beside her, in his yellow headband, with his hand on his sword, in case the payment turned out to be the kind you fought.
 
@@ -36,11 +36,11 @@ Malphus looked at the chart for a long moment. He leaned in and examined one of 
 
 "I hear that," said Rupert. "Can I ask what's driving the no?"
 
-"I don't take charts," said Malphus. "I take payment. Or I take records." He turned his head slightly, and his dark, pleasant eyes moved past Rupert, past the easel, past the roommates, past Brannoc and his empty mug, until they found the pillar at the back of the hall. "I believe I sent someone a note."
+"I don't take charts," said Malphus. "I take payment. Or I take records." He turned his head slightly, and his pale, pleasant eyes moved past Rupert, past the easel, past the roommates, past Brannoc and his empty mug, until they found the pillar at the back of the hall. "I believe I sent someone a note."
 
 Mike stepped out from behind the pillar. He was carrying a box. Behind him, Pip was carrying another box, and behind Pip, Durgan was carrying four boxes stacked on top of each other, without any visible effort, as if they were empty.
 
-They set them down on the front counter, one after another, with eight loud thumps.
+They set them down on the front counter, one after another, with six loud thumps.
 
 "Records," said Mike. "Everything since the crypt. Ledgers, work orders, incident records, test logs. The inquiry findings. The objection with two signatures. The Known Issues list, eleven pages." He paused. "And Form E-1."
 
@@ -80,7 +80,7 @@ Nobody said anything. Behind the front counter, as if it had been listening, one
 
 Malphus picked up his hourglass. He turned it over, with no comment at all, and set it back down on the counter. The sand began to fall. It was, Mike noticed, falling very slowly. It was the slowest sand he had ever seen.
 
-Then Malphus went out the front door, ducking his horns, and the door swung shut behind him.
+Then Malphus went out the front door, ducking his head, and the door swung shut behind him.
 
 Rupert turned to the guild with a confident smile.
 
@@ -122,7 +122,7 @@ They went down.
 
 The barrier was connected to the guild's seal. Thessaly had mentioned it, cheerfully, in the middle of a story about something else: he had built the seal in an afternoon, for the founders' grand opening, and *wired it into the barrier for a bit of extra strength.* In a hundred and eighty years, nobody had written that down anywhere. Nobody had drawn a diagram. Nobody had told the city. One seal held the demon, and the same seal held up the sky over Brindlemoor, and the only record of it was a line in Pip's footnotes, between a goat and a weathervane.
 
-The crypt was cold, and damp, and smelled the way it always had, of old stone and older trouble. The seal was set into the floor in the middle of the room: a great circle of carved runes, with Durgan's overnight patches here and there in brighter stone, like fillings in a tooth. One of the runes near the edge was glowing faintly red. It hadn't been, last month.
+The crypt was cold, and damp, and smelled the way it always had, of old stone and older trouble. The seal was set into the floor in the middle of the room: a great circle of carved runes, with old patches here and there in brighter stone, most of them Durgan's, from nineteen years of quiet maintenance, like fillings in a tooth. One of the runes near the edge was glowing faintly red. It hadn't been, last month.
 
 Mike knelt beside it. He didn't need to. He asked the skill anyway.
 
@@ -192,7 +192,7 @@ The meeting was in the war room.
 
 The war room was what Brannoc called the long room on the second floor with the big table in it. In two hundred years, the guild had never once fought a war, but Brannoc felt it was important to be ready. There was a map of the city on one wall and a large chalkboard on another, and at the start of the meeting, the chalkboard was completely clean.
 
-Everyone was there. Brannoc stood at the head of the table. Priscilla sat beside him with her pink notebook. Rupert sat beside her, with the roommates behind him in a row. Gareth sat at the far end, because he had heard the word *war*. Pip, Durgan, Velka, and Osric sat along one side, and Mike sat at the very end of the table, where the light from the window didn't quite reach, which was where he had been sitting since Rupert moved his desk.
+Everyone was there. Brannoc stood at the head of the table. Priscilla sat beside him with her pink notebook. Rupert sat beside her, with the roommates behind him in a row. Gareth sat at the far end, because he had heard the word *war*. Pip, Durgan, and Velka sat along one side, and Mike sat at the very end of the table, where the light from the window didn't quite reach, which was where he had been sitting since Rupert moved his desk.
 
 Brannoc wrote three things on the board.
 
@@ -250,7 +250,7 @@ Brannoc looked at the board again. He frowned. Then his face cleared. He picked 
 
 "What if," said Brannoc, warming to the idea, "we just add more people?" He gestured at the city map. "Hire every adventurer in Brindlemoor. Put them all on the seal."
 
-"Brannoc," said Mike. "Last time we sent more people into that crypt, the ceiling came down, and half of them spent the whole job sealed outside it."
+"Brannoc," said Mike. "Last time we sent more people into a crypt, the ceiling came down, and half of them spent the whole job sealed outside it."
 
 Brannoc nodded slowly. He looked at the map. He looked at the board. He tapped the word *DEMON* with his chalk, thoughtfully, the way a man taps a piece on a chessboard.
 
