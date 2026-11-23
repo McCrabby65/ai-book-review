@@ -430,7 +430,7 @@ He took a fresh sheet of paper. He ruled a margin down the left side, one thumb'
 
 He filled it in. Name, date, reason. Under *reason*, he wrote: *Asked the wrong question.* He signed it and blotted it and filed it with the letter, in the right drawer, under the right code, which he made up.
 
-E-1. E-2. R-2. That was three forms he'd invented in one week. He was starting to think that might be the whole job.
+E-2. R-2. That was two forms he'd invented in one week, three if you counted the one Tolliver had invented to blame him with. He was starting to think that might be the whole job.
 
 Then he opened his desk drawer and took out Wren Halloway's offer.
 
