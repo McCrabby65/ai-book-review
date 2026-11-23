@@ -264,7 +264,7 @@ Mike had been waiting for this. He had known it was coming since he wrote the qu
 
 "But—"
 
-"No ties. Every item gets its own number. One, two, three. If two things are both number one, then nothing is number one." He looked at the corner of the board. Under the wiped chalk, if you looked closely, you could still see the faint gray ghost of what Brannoc had written there two days ago, before Mike wiped it. *PRIORITY ZERO.* "There is no Priority Zero."
+"No ties. Every item gets its own number. One, two, three. If two things are both number one, then nothing is number one." He looked at the corner of the board. Under the wiped chalk, if you looked closely, you could still see the faint gray ghost of what Brannoc had written there three days ago, before Mike wiped it. *PRIORITY ZERO.* "There is no Priority Zero."
 
 He took the rag and wiped the corner again, harder, until the ghost was gone.
 
@@ -308,7 +308,7 @@ Durgan didn't move. He sat with his big arms folded on the table and looked at t
 
 The room went very quiet.
 
-Durgan had been at the guild for nineteen years. For nineteen years, he had kept the wards running, all of them, on his own, with a chisel and a pamphlet and a gnome. For nineteen years, every time anything had gone wrong with anything, a scroll had come down the Basement ladder. He had been on a Performance Improvement Scroll since the day they moved the door. He had a drawer with Mike's name on it, full of other people's blame. Nobody had ever, in nineteen years, asked him to *own* anything. They had only ever told him it was his fault.
+Durgan had been at the guild for nineteen years. For nineteen years, he had kept the wards running, all of them, on his own, with a chisel and a pamphlet and a gnome. For nineteen years, every time anything had gone wrong with anything, a scroll had come down the Basement ladder. He had been on a Performance Improvement Scroll since the week they moved the door. He had a drawer with Mike's name on it, full of other people's blame. Nobody had ever, in nineteen years, asked him to *own* anything. They had only ever told him it was his fault.
 
 "Owns," said Mike. "You decide how it's done. You say what you need. If anyone tells you to do it differently, you tell them no, and you point at the board. And if it goes wrong, it goes wrong in this room, and we figure out why together." He held out the chalk. "Nobody throws a scroll."
 
@@ -516,7 +516,7 @@ Nobody said anything.
 
 Slowly, one by one, every head around the table turned. Durgan's. Pip's. Tam's. Agatha's. Sir Roderick's, with a creak. Priscilla's, still pale. They all turned, and looked, at the one person in the room who had a title that made him officially, formally responsible for every estimate in the guild. A title he hadn't asked for. A title that had been given to him so that there would be somebody to blame.
 
-"Senior Estimate Owner," said Velka.
+"Estimate Owner," said Velka.
 
 Mike sighed.
 
