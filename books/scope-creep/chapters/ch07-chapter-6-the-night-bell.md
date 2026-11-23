@@ -136,7 +136,7 @@ Mike felt something cold settle in his stomach. "Which ward?"
 
 The wizard waved a hand vaguely at the floor. "Whichever's got the most spare capacity."
 
-Two floors below, the most spare capacity belonged to the fire ward. The one built for a dragon attack. The one Durgan used to boil his tea.
+Down in the Basement, the most spare capacity belonged to the fire ward. The one built for a dragon attack. The one Durgan used to boil his tea.
 
 Mike found out exactly when the wizard tapped into it, because the whole hall heard the groan from below. It was a deep, grinding moan that came up through the floorboards like the building had stubbed its toe. The chandelier swayed. Somewhere downstairs, a teacup shattered.
 
@@ -250,7 +250,7 @@ He woke up two hours and fifty minutes later, rested, alert, and with his boots 
 
 From then on, Mike slept in exact, measured portions, timed to the minute, between rings. Twenty-five minutes here. An hour and twelve there. He began to feel almost human. He also began, he suspected, to look extremely strange, because he would be fast asleep on a bench one moment and sitting bolt upright the next, reaching for his coat, a full half-minute before anything happened.
 
-Velka noticed on the ninth night.
+Velka noticed that same night.
 
 They were sitting on a stone bench in the courtyard of Varrenhold House at three in the morning, waiting for the Duke to finish being told that the crypt was still underwater. The others had drifted off. Mike had his eyes closed. Velka was watching him.
 
@@ -326,7 +326,7 @@ And at almost the same moment, the door of the Guildmaster's office flew open, a
 
 Mike, at his desk, went very still.
 
-In front of his eyes, a line of text that had been counting down patiently for eight years, through a whole childhood and a changelog and a writing desk, finally ran out of time.
+In front of his eyes, a line of text that had been counting down patiently for eight years, through the rest of his growing up and a changelog and a writing desk, finally ran out of time.
 
 **Estimated time until Brannoc remembers this contract: now.**
 
