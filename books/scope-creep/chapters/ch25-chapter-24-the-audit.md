@@ -298,7 +298,7 @@ He read it a second time. Then he picked up his own copy and held them both side
 
 He looked at Osric.
 
-Osric had not moved all morning. He had sat at the end of the long table beside Tam, with his green ledger open in front of him and his pen in his blue-black hand, and he had not said a single word. Now he looked up at Malphus. And for the first time in eight years, for the first time since Mike had first walked into the hall at twelve years old and heard a voice from behind a stack of paper say *Edwin knew*, Osric spoke out loud to a whole room.
+Osric had not moved all morning. He had sat at the end of the long table beside Tam, with his green ledger open in front of him and his pen in his small, clean hand, and he had not said a single word. Now he looked up at Malphus. And for the first time in eight years, for the first time since Mike had first walked into the hall at twelve years old and heard a voice from behind a stack of paper say *Edwin knew*, Osric spoke out loud to a whole room.
 
 "Edwin knew," said Osric.
 
@@ -382,7 +382,7 @@ She did the other two by herself.
 
 Back at the long table, Hesper Vane had arrived.
 
-She was the guild's contract notary, a tall, thin witch in a gray shawl who had been at the guild even longer than Durgan, and who looked, at all times, as though she had seen every possible way a contract could go wrong, and been bored by all of them. She kept a ledger of late contracts that went back forty years. Mike was in it. He had been in it since he was twelve years old, on his third day, for a blood contract he had signed with his thumb and never once agreed to.
+She was the guild's contract notary, a tall, thin witch in a gray shawl who had been at the guild even longer than Durgan, and who looked, at all times, as though she had seen every possible way a contract could go wrong, and been bored by all of them. She kept a ledger of late contracts that went back nearly fifty years. Mike was in it. He had been in it since he was twelve years old, on his third day, for a blood contract he had signed with his thumb and never once agreed to.
 
 She sat down at the end of the table, took out a small stamp and a pot of wax, and began to file her nails while she waited.
 
@@ -486,7 +486,7 @@ Mike asked the skill.
 
 **Estimated time until the demon wakes: 47 minutes.**
 
-Forty-seven minutes. Not tonight. Not tomorrow. Forty-seven minutes. Earlier than the skill had said four days ago, and earlier than the plan had allowed, by almost exactly the hour of slack they'd had. The hour was gone. He'd known it would get used. He hadn't known it would get used all at once.
+Forty-seven minutes. Not tonight. Not tomorrow. Forty-seven minutes. Earlier than the skill had said three days ago, and earlier than the plan had allowed, by almost exactly the hour of slack they'd had. The hour was gone. He'd known it would get used. He hadn't known it would get used all at once.
 
 "What color is it?" said Mike.
 
