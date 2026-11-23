@@ -1,8 +1,8 @@
 {
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 7-8 Level",
+  "target_age_group": "Middle Grade (8-12)",
+  "reading_level": "Grade 6-8 Level",
   "content_rating": "Mild",
-  "rationale": "The chapter uses moderately advanced vocabulary and layered sentences while presenting a low‑intensity, purpose‑search theme suitable for early teens.",
-  "provider": "groq",
-  "model": "openai/gpt-oss-120b"
+  "rationale": "The chapter uses accessible vocabulary, short punchy sentences, and gentle workplace-fantasy humor (footnoted banners, a reclusive dwarf's first festival) with no violence, romance, or disturbing content, though its wry satire of bureaucracy and themes of purpose and belonging give it some crossover appeal for older teen and adult readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
 }
