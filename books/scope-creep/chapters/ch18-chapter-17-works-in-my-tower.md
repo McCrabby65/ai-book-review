@@ -454,7 +454,7 @@ He got back to the guild late. The hall was dark and empty. The three bells hung
 
 Then he noticed the letter.
 
-It was lying on his desk, squared to the edge, as if someone had placed it there very carefully. It was heavy cream paper, folded twice and sealed with a large disc of silver wax, stamped with the sign of a tower surrounded by a ring of stars. Mike had seen that sign before, though only once or twice, on very old documents in the very back of the Registrar's ledger.
+It was lying on his desk, squared to the edge, as if someone had placed it there very carefully. It was heavy cream paper, folded twice and sealed with a large disc of silver wax, stamped with the sign of a tower surrounded by a ring of stars. Mike had seen that sign before, though only once or twice, on very old documents in the brittle brown pages at the front of the Registrar's ledger.
 
 It was the seal of the Archmage of Brindlemoor.
 
