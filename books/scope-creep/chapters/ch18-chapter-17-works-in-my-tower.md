@@ -1,4 +1,4 @@
-# Chapter 17: Works in My Tower
+## Chapter 17: Works in My Tower
 
 Velka's tower stood at the end of Wickstaff Lane, on the scrappy north edge of Brindlemoor, where the houses gave up being respectable and started leaning on each other for support. It was a tall, narrow spire of gray stone, slightly crooked, with a single round window at the very top and a door so small that Mike had to duck. It was, she told him on the doorstep, the cheapest tower in town.
 
@@ -300,7 +300,7 @@ She was quiet for a long time.
 
 Mike waited.
 
-"It's old," she said. "It's really old. My grandmother taught it to me when I was six. Levitation one point oh." She made a face. "It's the first spell anyone learns. It's in every primer in the province. It's slow, and it's plain, and it's boring, and I've *never* put it on my résumé, because it isn't *mine*, and it isn't *new*, and nobody would be impressed by it in a hundred years."
+"It's old," she said. "It's really old. My grandmother taught it to me when I was six, the same summer as Illumination. Levitation one point oh." She made a face. "It's the first spell anyone learns. It's in every primer in the province. It's slow, and it's plain, and it's boring, and I've *never* put it on my résumé, because it isn't *mine*, and it isn't *new*, and nobody would be impressed by it in a hundred years."
 
 She looked at her hands.
 
@@ -424,7 +424,7 @@ She did. Inside was a hat.
 
 It was not a remarkable hat. It was plain, brown, and felt, with a sturdy brim and a simple band, the kind of hat a sensible person might wear for twenty years. It was not anything like the hats she usually wore. It had no silver pin. It had no feather. It was, in its way, extremely boring.
 
-"You've lost two since the crypt," said Mike. "One melted, one eaten. So I got you one that won't be."
+"You've lost two since the crypt," said Mike. "One burned, one eaten. So I got you one that won't be."
 
 Velka turned it over in her hands. "How do you know?"
 
