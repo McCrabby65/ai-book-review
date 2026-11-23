@@ -150,7 +150,7 @@ The Baron of Westmarch's swords arrived on the second morning, in a long wooden 
 
 *Swords + float: too heavy. Float 1.0 not tested for this weight.*
 
-And Local 47's porridge pot, which was large and iron and had been installed under the folded parasol to keep the rain out, came to the boil on its first trial, rose up in a great creamy wave, and flooded the parasol mechanism with hot porridge. The parasol sprang open by itself and would not close. It smelled faintly of oats for the rest of the book.
+And Local 47's porridge pot, which was large and iron and had been installed under the folded parasol to keep the rain out, came to the boil on its first trial, rose up in a great creamy wave, and flooded the parasol mechanism with hot porridge. The parasol sprang open by itself and would not close. It smelled faintly of oats for the rest of its life.
 
 *Porridge + parasol: parasol now porridge.*
 
