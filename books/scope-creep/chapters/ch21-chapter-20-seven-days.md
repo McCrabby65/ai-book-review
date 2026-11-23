@@ -106,11 +106,11 @@ Mike read it from the front step. Down in the square, the market was still picki
 
 "Ninety-nine point nine seven," said Pip, beside him, doing the arithmetic on his slate. "That's... technically right. If you count since it was built."
 
-"It was built a hundred and eighty years ago," said Mike.
+"It was built two hundred years ago," said Mike.
 
-"So it's been down for three seconds out of a hundred and eighty years," said Pip. He looked at his slate. "That's actually very good."
+"So it's been down for three seconds out of two hundred years," said Pip. He looked at his slate. "That's actually very good."
 
-"It wasn't down for three seconds out of a hundred and eighty years," said Mike. "It was down for three seconds *today*."
+"It wasn't down for three seconds out of two hundred years," said Mike. "It was down for three seconds *today*."
 
 Pip looked at the cabbages. He thought about it. Then, slowly, he rubbed out his number.
 
@@ -120,7 +120,7 @@ Durgan came up the Basement ladder. He had his tool bag on his shoulder and a lo
 
 They went down.
 
-The barrier was connected to the guild's seal. Thessaly had mentioned it, cheerfully, in the middle of a story about something else: he had built the seal in an afternoon, for the founders' grand opening, and *wired it into the barrier for a bit of extra strength.* In a hundred and eighty years, nobody had written that down anywhere. Nobody had drawn a diagram. Nobody had told the city. One seal held the demon, and the same seal held up the sky over Brindlemoor, and the only record of it was a line in Pip's footnotes, between a goat and a weathervane.
+The barrier was connected to the guild's seal. Thessaly had mentioned it, cheerfully, in the middle of a story about something else: he had built the seal in an afternoon, for the founders' grand opening, and *wired it into the barrier for a bit of extra strength.* In two hundred years, nobody had written that down anywhere. Nobody had drawn a diagram. Nobody had told the city. One seal held the demon, and the same seal held up the sky over Brindlemoor, and the only record of it was a line in Pip's footnotes, between a goat and a weathervane.
 
 The crypt was cold, and damp, and smelled the way it always had, of old stone and older trouble. The seal was set into the floor in the middle of the room: a great circle of carved runes, with old patches here and there in brighter stone, most of them Durgan's, from nineteen years of quiet maintenance, like fillings in a tooth. One of the runes near the edge was glowing faintly red. It hadn't been, last month.
 
@@ -380,7 +380,7 @@ Downstairs, in the Basement, in the drawer Durgan had marked *MIKE*, there were 
 
 Mike opened his own desk drawer.
 
-Inside, on top of his spare pens, was a letter. The paper was plain and good. The handwriting was plain and good. It was from Tanner's Row, and it was signed *Wren Halloway, Guildmistress*, and it had been in this drawer for a long time.
+Inside, on top of his spare pens, was a letter. The paper was plain and good. The handwriting was plain and good. It was from Tanner's Row, and it was signed W.H., and it had been in this drawer for a long time.
 
 He took it out.
 
