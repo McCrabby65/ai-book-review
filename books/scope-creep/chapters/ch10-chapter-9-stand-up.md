@@ -198,7 +198,7 @@ He had been wrong. It could always go further. It just needed more time.
 
 On day three, by order of the Guildmaster, the Basement was required to attend.
 
-Mike didn't know who told Brannoc the Basement existed. He suspected the town crier. But at five minutes to eight, the trapdoor behind his desk creaked open, and Durgan Flintmantle climbed out of it, blinking in the daylight like a mole being forcibly introduced to the sun, followed by Pip, who had brought a slate.
+Mike didn't know who had reminded Brannoc that the Basement existed. He suspected the town crier. But at five minutes to eight, the trapdoor behind his desk creaked open, and Durgan Flintmantle climbed out of it, blinking in the daylight like a mole being forcibly introduced to the sun, followed by Pip, who had brought a slate.
 
 It was the first time either of them had been upstairs, during the day, in years.
 
@@ -238,7 +238,7 @@ Then he cleared his throat.
 
 Durgan nodded once, gravely, as if this was exactly what he had expected. He handed the dragon tooth back. Then he stood at his chalk mark beside the coat rack for the remaining fifty-one minutes of the stand-up, completely silent, while everyone around him tried very hard not to look at him.
 
-Once, about halfway through, Mike saw him touch his breast pocket, where a folded incident record had lived for a week now, and leave his hand there.
+Once, about halfway through, Mike saw him touch his breast pocket, where a folded incident record had lived for over a month now, and leave his hand there.
 
 Pip, beside him, tried once. Just once. When Priscilla paused for breath in the middle of the goat, Pip raised his slate and said, in a small, urgent voice: "Excuse me, the fire ward is under serious strain from the bells, and footnote one—"
 
