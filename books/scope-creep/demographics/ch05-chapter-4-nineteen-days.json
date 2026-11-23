@@ -1,8 +1,8 @@
 {
-  "target_age_group": "Young Adult (12-18)",
+  "target_age_group": "Adult (18+)",
   "reading_level": "Grade 9-10 Level",
   "content_rating": "Mild",
-  "rationale": "The prose mixes moderate vocabulary and technical jargon with low‑stakes humor (wet jokes, bureaucracy), keeping scenes non‑graphic and themes accessible to teens.",
-  "provider": "groq",
-  "model": "openai/gpt-oss-120b"
+  "rationale": "The vocabulary is moderately sophisticated and the humor depends on adult workplace satire (bug trackers, dependencies, estimates, bureaucratic backlog) layered over a light fantasy setting, while the scene intensity is very low, with no graphic violence, sexual content, or strong language.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
 }
