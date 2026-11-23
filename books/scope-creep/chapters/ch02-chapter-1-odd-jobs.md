@@ -1,4 +1,4 @@
-# Chapter 1: Odd Jobs
+## Chapter 1: Odd Jobs
 
 The first thing Mike learned in his new life was that babies cannot file complaints.
 
@@ -17,6 +17,8 @@ The second thing he learned was that \[Accurate Estimation\] did not switch off.
 **Estimated time until Father fixes the leaking roof he promised to fix "this weekend": 4 years, 2 months.**
 
 That last one was correct to the day. Mike had to watch the bucket in the corner fill and empty for four years, two months, knowing exactly when it would end and powerless to speed it up. In a way, it was the most familiar thing that had happened to him since he died.
+
+There was also, he discovered, no coffee in Brindlemoor. Considering how his last cup had gone, Mike decided this was probably for the best.
 
 ---
 
@@ -86,6 +88,8 @@ That evening, Oswin told his wife the boy had gone pale and quiet and "looked ab
 
 Mike lasted at the mill until Oswin "restructured," which meant hiring his nephew. His mother found him a place with Master Quillon, a stooped, ink-stained scribe who copied contracts and letters for the merchants along the river.
 
+Greta had noticed, long before anyone else, that the boy was always right about how long things took. By then she had stopped hanging out the washing until Mike said the rain would hold off, and she had not lost a sheet in three years. She was, as far as Mike could tell, the first person in either of his lives to ask for an estimate and then actually use it.
+
 This was, Mike quickly realized, the most valuable job he could possibly have. He learned to read and write the local script, and to keep a neat hand, and to understand the long, tangled language of trade agreements. A guild clerk would need all of it.
 
 It also introduced him to Tobias Venn.
@@ -148,7 +152,9 @@ For the first time, a cold thought crept up the back of his neck: *What if the g
 
 He pushed it away. The adventurers worked in the dungeons. He would be at a desk. It would be different.
 
-The skill, still sulking, declined to comment.
+The skill, wisely, declined to comment.
+
+When the Goose closed for good the next spring, Marta pressed a whole onion pie into his hands on his last night and said, "You were right about the soup." Mike understood that it was the warmest thing she had ever said to anyone.
 
 ---
 
@@ -206,7 +212,7 @@ The skill flickered, as if it wanted to say something about the odds. Mike, for 
 
 ### The Guild (age 12)
 
-His mother had packed him bread and cheese. His father saw him to the door, beaming, and clapped him on the shoulder. "A guild clerk! We'll build you a proper writing desk at home to celebrate. This weekend."
+His mother had packed him bread and cheese. His father saw him to the door, beaming, and clapped him on the shoulder. "Off to be a guild clerk! When they take you on, we'll build you a proper writing desk at home to celebrate. This weekend."
 
 **Estimated time: 6 years, 3 months.**
 
@@ -230,6 +236,6 @@ Mike stood in the doorway in his one clean shirt and felt every hour of his firs
 
 The skill chimed softly. A line of text he had nearly forgotten, from a beige waiting room a lifetime ago, glowed into view, its countdown almost run out.
 
-**Estimated time until you regret this: 0 years, 0 months, 3 days.**
+**Estimated time until you regret this: 0 years, 0 months, 2 days.**
 
 Mike took a deep breath, stepped up to the counter, and asked about the clerk position.
