@@ -92,7 +92,7 @@ Brannoc's office looked exactly as it had two days before: weapons on the walls,
 
 Mike knew him at once.
 
-It was the steward. *Lord Ashcombe's* steward, from the Drowned Goose. The one who had come at midnight for pheasant and pie and lamb with mint, twice a night, until Hilde gave up and sold him the tavern.
+It was the steward. *Lord Ashcombe's* steward, from the Drowned Goose. The one who had come down at midnight for a pie, and then a second pie, and then a third, until Hilde gave up and sold the whole tavern to his master.
 
 The steward looked at Mike. A flicker crossed his face, the faint discomfort of a man who has seen a child somewhere before, scrubbing pots, but cannot imagine where.
 
@@ -173,6 +173,8 @@ The skill considered the question. Then it answered, and for the first time Mike
 ---
 
 They went with fourteen.
+
+Brannoc wrote it up himself, on the little slate that hung on his office wall, in huge, slanting chalk: **14 DAYS.** Priscilla, delighted, borrowed a stick of violet chalk and added her name underneath as witness, with a little heart over the *i*.
 
 The guild's contract notary arrived a quarter of an hour later. Her name was Hesper Vane, and she was a tall, thin witch in a gray dress, with gray hair piled on her head and held in place by two quills. She carried a leather satchel, a silver pin, and an air of boredom so complete it seemed to lower the temperature of the room.
 
@@ -265,6 +267,12 @@ There was a sharp crackle and a smell of burning hair, and Durgan stepped back, 
 There was a pause.
 
 "Better," he added, "than the ones on the building."
+
+On his way out, Mike climbed back up the ladder, went to the round back room, knocked three times on the lectern, and filed his own copy of the estimate with the Esteemed Registrar. *Nineteen days.* The assumptions, the risks, all six of Pip's footnotes.
+
+The great brass stamp came down. **BOOM.**
+
+It was the only thing he could think of to do. At the time, it did not feel like very much.
 
 ---
 
