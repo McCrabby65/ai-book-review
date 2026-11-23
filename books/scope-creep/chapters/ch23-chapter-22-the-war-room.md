@@ -1,4 +1,4 @@
-# Chapter 22: The War Room
+## Chapter 22: The War Room
 
 Mike did not ask Brannoc's permission.
 
@@ -70,7 +70,7 @@ He put out chairs.
 
 There had always been chairs in the war room, technically. They were stacked against the back wall, under a dust sheet, because Brannoc believed that meetings went faster when everyone stood, and that people who sat down got *comfortable*, and that comfortable people were not *hungry*. Mike pulled off the dust sheet and set them out around the long table, one by one. There were exactly enough.
 
-They came at two. Durgan first, with his tool bag, smelling of stone dust, and Pip behind him with three slates and an armful of notes. Then Tam, very pale, clutching a pen. Then Sister Agatha in her gray robes, carrying a small cloth bag, which she set on the table with the air of someone who always brought a small cloth bag, just in case. Then Velka, in the brown hat, with ink on her fingers.
+They came at two. Durgan first, with his tool bag, smelling of stone dust, and Pip behind him with three slates and an armful of notes. Then Tam, very pale, clutching a pen. Then Sister Agatha in her white robes, carrying a small cloth bag, which she set on the table with the air of someone who always brought a small cloth bag, just in case. Then Velka, in the brown hat, with ink on her fingers.
 
 Then Priscilla, who stopped in the doorway, read the sign on the door twice, and came in looking as though she were entering a church of a religion she had only read about.
 
@@ -82,7 +82,7 @@ He stopped just inside the door. He looked at the long table. He looked at the c
 
 "Yes," said Mike.
 
-Sir Roderick had once, in the second month of Brannoc's daily stand-up, stood in full plate armor for ninety minutes in a hot hall, listening to Gareth describe his plans for the day in great detail, and had fainted, and been carried out on a door. He had not, since then, been to any meeting that lasted longer than a quest briefing. He approached the nearest chair the way a man approaches a horse he has heard good things about. He lowered himself into it with a long, grinding creak of steel.
+Sir Roderick had once, in the first week of Brannoc's daily stand-up, stood in full plate armor for an hour in a hot hall, listening to Gareth describe two dragons in great detail, and had fallen over like a dropped armory. Afterward, he had been given a leaning post. Nobody had ever offered him a chair. He approached the nearest chair the way a man approaches a horse he has heard good things about. He lowered himself into it with a long, grinding creak of steel.
 
 He sat there for a moment, very still.
 
@@ -196,7 +196,7 @@ Then Tam, at the end of the table, put up his hand.
 
 The entire room turned, slowly, to look at him.
 
-Tam went red to the tips of his ears. He was thirteen years old. He had worked at the guild for exactly one year. And in that year, he had heard *can we do it faster* so many times, at so many stand-ups, from so many people standing on so many tables, that it had gotten into him, the way soot gets into a chimney. He hadn't even meant to say it. It had just come out.
+Tam went red to the tips of his ears. He was thirteen years old. He had worked at the guild for barely a season. And in that season, he had heard *can we do it faster* so many times, at so many stand-ups, from so many people standing on so many tables, that it had gotten into him, the way soot gets into a chimney. He hadn't even meant to say it. It had just come out.
 
 Pip, beside him, reached over and very gently wrote a footnote on Tam's notes.
 
