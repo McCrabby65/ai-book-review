@@ -1,4 +1,4 @@
-# Chapter 18: The Last Archmage
+## Chapter 18: The Last Archmage
 
 The Archmage of Brindlemoor lived above the city gate.
 
@@ -92,7 +92,7 @@ Pip looked at them for a long time.
 
 Mike found another letter while he was helping Pip put the pile back. It was near the middle, in thick, cream guild paper, sealed with a great blob of wax and a boar-tooth stamp. It was addressed in a huge, slanting hand that Mike would have known anywhere.
 
-He turned it over. *From Guildmaster Brannoc. Seven years ago.*
+He turned it over. *From Guildmaster Brannoc. Eight years ago.*
 
 "May I?" he asked.
 
@@ -102,9 +102,9 @@ Mike broke the seal. Inside was a single line.
 
 *Archmage. Quick favor: can you extend the barrier to cover the new guild stables? Won't take a minute. — B.*
 
-Mike looked out of the window, past the hill of letters, at the city. The barrier shimmered faintly at the edge of the walls. And just beyond it, outside the pale curve of light, sat the long, low roof of the guild's new stables, the ones that had been built seven years ago and warded by Durgan and Pip in nine days and two hours.
+Mike looked out of the window, past the hill of letters, at the city. The barrier shimmered faintly at the edge of the walls. And just beyond it, outside the pale curve of light, sat the long, low roof of the guild's new stables, the ones that had been built eight years ago and warded by Durgan and Pip in nine days and two hours.
 
-They had been outside the city barrier the whole time. Seven years. And nobody had noticed.
+They had been outside the city barrier the whole time. Eight years. And nobody had noticed.
 
 Mike folded the letter and put it in his pocket.
 
@@ -417,6 +417,18 @@ As they were leaving, at the top of the stair, Thessaly called Mike back.
 "I'll remember," said Mike.
 
 "I know," said Thessaly. "You write things down."
+
+Then, almost as an afterthought, he held out one thin hand toward Pip.
+
+"The letters," he said. "Your six. I'd like them, please."
+
+Pip fetched them from the hill in the corner with shaking fingers. Thessaly read all six, in order, by the window, while Mike and Pip stood in the doorway and did not breathe. When he had finished the last one, he took the pen from his beard again, turned the letter over, and wrote something on the back. Then he folded it and handed it to Pip.
+
+Pip did not open it until they were halfway down the stair. Then he stopped on the step and read it, and sat down where he was, quite suddenly, and stayed there for some time.
+
+Mike read it over his shoulder. It was one line, in thin, spidery, very old letters.
+
+*Footnote: you were right about the north wall. — T.*
 
 ---
 
