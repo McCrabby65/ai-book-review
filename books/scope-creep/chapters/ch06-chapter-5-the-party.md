@@ -32,7 +32,7 @@ On the inside cover of his Registrar guide, in small, neat letters that nobody b
 
 Osric was still behind his stack. Mike had never seen his face. He had begun to suspect there was no face, only the stack and a voice saying "Edwin knew," and lately, more and more often, something worse.
 
-He heard it on a gray morning in late summer, eight years almost to the day since he had walked into the guild in his one clean shirt.
+He heard it on a gray morning in late summer, nearly eight years since he had walked into the guild in his one clean shirt.
 
 A new clerk, a nervous boy of twelve named Tam, was standing at the counter holding a contract and looking lost. "Excuse me," Tam said to the room. "Does anybody know which drawer the lumber guild's paperwork goes in? There are two blue drawers."
 
