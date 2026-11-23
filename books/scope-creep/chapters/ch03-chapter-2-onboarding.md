@@ -1,5 +1,4 @@
-# Chapter 2: Onboarding
-
+## Chapter 2: Onboarding
 
 The young woman at the counter wrapped up with the farmer by shaking his hand with both of hers and telling him the guild was "so excited about this partnership." The farmer left looking dazed and hopeful, the way people looked when they had been promised something enormous by someone very pleasant.
 
@@ -59,7 +58,7 @@ Mike turned it over. The back was blank.
 
 Priscilla laughed, a bright, musical laugh. "Oh, Edwin never wrote anything down. He just *knew*."
 
-Over the next three hours, Mike learned that Edwin had known a great many things. He had known which contracts went in the blue drawer and which went in the other blue drawer. He had known that the lumber guild's paperwork had to be stamped twice, and that the Duke's could never be stamped at all, for reasons involving an old feud and a seal that may or may not have been cursed. He had known how to get the Registrar to accept a form on a damp day.
+Over the next three hours, Mike learned that Edwin had known a great many things. He had known which contracts went in the blue drawer and which went in the other blue drawer. He had known that the lumber guild's paperwork had to be stamped twice, and that the Duke's could never be stamped at all, for reasons involving a seal that may or may not have been cursed. He had known how to get the Registrar to accept a form on a damp day.
 
 Mike learned all of this because every time he asked anyone a question, they gave him the same answer.
 
@@ -70,6 +69,8 @@ Mike learned all of this because every time he asked anyone a question, they gav
 "Edwin had a system."
 
 The worst offender was the other clerk, a stooped, gray man named Osric who sat behind a stack of paper taller than he was. Mike never once saw his face. Every question he put to the stack produced the same two words, in the same flat voice: "Edwin knew."
+
+Somewhere in there, noon came and went. Nobody could tell him where the Duke's escort paperwork was, how to file it, or whether it existed at all. Edwin, presumably, had known.
 
 "Where is Edwin now?" Mike finally asked a passing adventurer, a tired-looking woman with an arm in a sling.
 
@@ -117,7 +118,7 @@ Priscilla winced. "Did you knock?"
 
 She shrugged. "It never has."
 
-It took Mike most of the afternoon, but by trial and error and a great deal of asking around, he assembled a partial list of the Registrar's rules. Black ink only. Knock three times, on the lectern. Address it as "Esteemed Registrar." Never stand on its left side. Never file anything involving the number seven before noon. If it starts humming, step back and wait, and under no circumstances try to help.
+It took Mike a good part of the afternoon, but by trial and error and a great deal of asking around, he assembled a partial list of the Registrar's rules. Black ink only. Knock three times, on the lectern. Address it as "Esteemed Registrar." Never stand on its left side. Never file anything involving the number seven before noon. If it starts humming, step back and wait, and under no circumstances try to help.
 
 Nobody could tell him why any of these were true. They had simply always been true. Some of them, Mike suspected, were real requirements. Some had probably been workarounds for a problem that no longer existed. And at least one was almost certainly superstition that someone had once started as a joke. There was no way to know which was which, and no one dared find out.
 
@@ -138,6 +139,8 @@ He knew this thing. Not this exact thing, but its cousin. Every company he had e
 It was the guild's mainframe. And Mike, to his own surprise, found that he liked it.
 
 He patted the edge of the lectern, carefully, on the right side.
+
+On that side, low down, where only someone sitting on the floor in despair would ever see it, a column of names had been scratched into the wood, each in a different hand: *OSWALD. MARGERY. BARNABY (TWO WEEKS). EDWIN.* There was room at the bottom for one more.
 
 "Good job," he told it.
 
@@ -189,7 +192,7 @@ The hall erupted in cheers.
 
 "Gareth the Bold!"
 
-Gareth raised a gauntleted fist in salute, marched straight to the quest board outside, tore down the top three notices without looking at them, and marched back in.
+Gareth raised a gauntleted fist in salute, marched straight to the quest board outside, tore down three notices from the middle of the pile without looking at them, and marched back in.
 
 "I'll take these!" he declared, to more cheering. Then he swept out again, cloak billowing, and was gone.
 
@@ -254,6 +257,10 @@ Under it, he copied Edwin's note, word for word. It seemed only fair to give him
 ---
 
 It was nearly dark when he finished. The other clerks had gone. Priscilla had gone, after cheerfully promising the night watchman's cousin a full escort to the coast, which was eleven days away and had pirates. The guild hall was quiet and smelled of candle wax and old paper.
+
+It reminded him of the Synergex office at two in the morning, except that nothing here was trying to electrocute him. He decided that counted as progress.
+
+On his way to the doors, he passed the counter. His references were still on Priscilla's stack, unopened and already sinking. Brunhild's had slipped half out of its fold, so that the only words showing were *He listens.* Somebody had pinned an URGENT notice on top of it.
 
 Mike was locking up the front doors when he noticed the doorframe.
 
