@@ -1,4 +1,4 @@
-# Chapter 27: Credit Where Due
+## Chapter 27: Credit Where Due
 
 On the morning of the harvest festival, the Adventurers' Guild of Brindlemoor had promised nobody anything.
 
@@ -132,6 +132,8 @@ Durgan stood at the back, a little apart, still blinking in the sunlight. Someon
 
 "Nineteen years," he said, to nobody in particular. He took a bite of the toffee apple, and chewed, and thought about it. "Should've come up sooner."
 
+The next morning, when Mike went down to the Basement with a requisition, he noticed that the empty frame on Durgan's wall, the one Durgan dusted every day and never explained, was not empty anymore. Inside it, behind the glass, was a toffee-apple stick, licked perfectly clean, and a scrap of parade program with one word on it: *FESTIVAL.*
+
 At the far edge of the square, a farmer in a muddy coat had cornered Priscilla. Mike could see it happening from the steps. He could see the farmer gesturing toward the north, and the word *field*, and the word *Monday*. He could see Priscilla's face light up, the way it always did, and her mouth start to open, the way it always did.
 
 He held his breath.
@@ -202,7 +204,7 @@ It was the laugh from his hall: the great, booming, rolling laugh that shook the
 
 "YOU DON'T NEED TO," said the Duke cheerfully. "*I* CAN." He turned to his guests. "MY SEAL, YOU SEE, IS CURSED. HAS BEEN FOR GENERATIONS. OLD FAMILY BUSINESS. WHATEVER IT IS STAMPED UPON, IT TELLS THE TRUTH ABOUT. THAT'S WHY IT MUST NEVER, EVER BE STAMPED." He pointed the dragon tooth at the wall. "SOMEBODY STAMPED IT. AND IT TOLD THE TRUTH ABOUT THIS GUILD. THAT NIGHT. TWO HUNDRED AND THIRTEEN TIMES." He beamed. "THAT," said the Duke of Varrenhold, "IS THE MOST HONEST THING ON THIS WALL."
 
-Mike, in the doorway, thought about the old rule. *The Duke's paperwork must never be stamped. For reasons involving an old feud, and a seal that may or may not have been cursed.* He had always assumed it was superstition. It turned out it was a curse. It turned out the curse was *honesty*. He thought, not for the first time that week, that he was going to need a much larger filing cabinet.
+Mike, in the doorway, thought about the old rule. *The Duke's paperwork must never be stamped. For reasons involving a seal that may or may not have been cursed.* He had always assumed it was superstition. It turned out it was a curse. It turned out the curse was *honesty*. He thought, not for the first time that week, that he was going to need a much larger filing cabinet.
 
 Then the Duke turned around, and looked past Brannoc, past the Countess and the Margrave, to the doorway, to Mike.
 
@@ -318,7 +320,7 @@ Beside them, the Duke leaned down toward Mike. He lowered his voice, which meant
 
 Up on the fountain, Brannoc had moved on to the door, and was explaining how he had personally carried it across the guild hall, which was, to be fair, true.
 
-Mike felt someone watching him. He looked across the ring of the crowd, and there, on the other side of the fountain, stood a woman in a plain dark coat with her sleeves rolled up, holding a large mug. It was full. Steam was rising from it. It smelled, even from across the square, of strong coffee.
+Mike felt someone watching him. He looked across the ring of the crowd, and there, on the other side of the fountain, stood a woman in a plain dark coat with her sleeves rolled up, holding a large mug. It was full. Steam was rising from it. It smelled, even from across the square, of strong coffee. Tanner's Row, apparently, had coffee. Mike had not smelled it since the last time he reached for a cup, which had not ended well, and his feet took a full step toward her before the rest of him could object.
 
 It was Wren Halloway, Guildmistress of Tanner's Row.
 
@@ -428,7 +430,7 @@ It had four tables, one cook, and a waiter who was also the cook's son, and it s
 
 They sat down. There was no board on the wall. There was no list. Nobody had a quest. Nobody needed an estimate for anything. Mike had brought nothing with him at all: no pen, no paper, no chalk. He kept reaching for his pocket and finding nothing in it.
 
-They talked about nothing in particular. It was harder than Mike expected. In all the time they'd known each other, they had talked a great deal, about spells, about tests, about horse ponds and wagons and crypts and demons and hats. They had never once talked about nothing. It took a while to remember how. Velka asked him what Raleigh was like, and he tried to explain about highways, and pine trees, and barbecue, and she laughed at him. He asked her why she'd become a mage, and she told him about a candle she'd set on fire when she was six, on purpose, to see if she could, and how her mother had been so proud and so angry at the same time that it had seemed like the best possible thing to be.
+They talked about nothing in particular. It was harder than Mike expected. In all the time they'd known each other, they had talked a great deal, about spells, about tests, about horse ponds and wagons and crypts and demons and hats. They had never once talked about nothing. It took a while to remember how. Velka asked him what Raleigh was like, and he tried to explain about highways, and pine trees, and barbecue, and she laughed at him. He told her about his niece, and a birthday card that was probably still sitting on a kitchen counter in Raleigh, unsigned, and she didn't laugh at that one. He asked her why she'd become a mage, and she told him about a candle she'd set on fire when she was six, on purpose, to see if she could, and how her mother had been so proud and so angry at the same time that it had seemed like the best possible thing to be.
 
 The waiter came. He was a cheerful, gangly young man with flour on his apron.
 
@@ -458,7 +460,7 @@ Velka was watching him across the table.
 
 Velka looked at him. "Is that... unusual?"
 
-Mike opened his mouth to explain, and found that he couldn't. Not properly. He wanted to tell her about a lifetime of estimates, two lifetimes. About every *quick win* and *won't take a minute* and *by Friday* he had ever heard, from every manager and client and salesman and Guildmaster in two worlds. About how he had grown up, twice, inside a world where everyone told you a number, and the number was always, always wrong. About how he had died at his desk at two in the morning because of a number that was wrong.
+Mike opened his mouth to explain, and found that he couldn't. Not properly. He wanted to tell her about a lifetime of estimates, two lifetimes. About every *quick win* and *won't take a minute* and *by Friday* he had ever heard, from every manager and client and salesman and Guildmaster in two worlds. About how he had grown up, twice, inside a world where everyone told you a number, and the number was always, always wrong. About how he had died at the office at a quarter to four in the morning, reaching for a coffee, because of a number that was wrong.
 
 And now a boy with flour on his apron had told him a number, and it was right. Just like that. Without a skill. Without a goddess. Without anything but a cook in a kitchen who knew how long it took to cook a fish, and a waiter who had bothered to ask her.
 
