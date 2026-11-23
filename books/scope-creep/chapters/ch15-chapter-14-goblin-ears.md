@@ -248,7 +248,7 @@ The room went quiet.
 
 Brannoc blinked. "What do you mean, *for*?"
 
-"The ear," said Nettle patiently. "The bounty. Two thousand four hundred ears. What were they *for*? What were you trying to find out by counting them?"
+"The ear," said Nettle patiently. "The bounty. Four thousand ears. What were they *for*? What were you trying to find out by counting them?"
 
 "*Productivity*," said Brannoc, as if it were obvious. "To measure productivity."
 
@@ -308,7 +308,7 @@ Brannoc came and stood beside him in the doorway. The Guildmaster looked at the 
 
 "Well," said Brannoc at last. He nodded slowly at the barrels, as if they were some sort of comfort. "At least we've still *got* the ears."
 
-That evening, Mike went to the Registrar and opened Malphus's ledger to the newest page, where a fresh entry had appeared in neat red ink that afternoon, all by itself.
+That evening, Mike went to the Registrar and opened the guild's own ledger to the newest page. Malphus had taken his book with him. It didn't seem to matter. A fresh entry had appeared there anyway, that afternoon, all by itself, in neat red ink and a long, looping hand that was not the Registrar's.
 
 *Bounties, goblin (ears): 4,000 silver.*
 
