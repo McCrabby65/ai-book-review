@@ -125,6 +125,16 @@
     .reading > br { display: none; } /* spacer <br/> lines between paragraphs; paragraph margins handle spacing */
     .reading h1, .reading h2 { line-height: 1.25; }
     .about-blurb p { margin: 0 0 1em; }
+    /* Reader comments at the end of a chapter (inside the serif reading column) */
+    .reader-comments { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #1e293b; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.95rem; line-height: 1.6; }
+    .reader-comments h2 { font-size: 1.15rem; font-weight: 600; color: #f1f5f9; margin: 0 0 1rem; }
+    .reader-comments .comment { padding: 0.75rem 0; border-bottom: 1px solid #1e293b; }
+    .reader-comments .comment p { margin: 0.25rem 0 0; white-space: pre-wrap; overflow-wrap: anywhere; color: #e2e8f0; }
+    .reader-comments .comment-meta { font-size: 0.8rem; color: #94a3b8; }
+    .reader-comments .comment-meta a { color: #86efac; }
+    .reader-comments textarea, .reader-comments input[type="text"] { width: 100%; background: #1e293b; border: 1px solid #334155; border-radius: 0.5rem; padding: 0.5rem 0.75rem; color: #f1f5f9; }
+    .reader-comments textarea:focus, .reader-comments input[type="text"]:focus { outline: none; border-color: #22c55e; }
+    .reader-comments .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
     .reader-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: -0.25rem 0 1.75rem; font-family: ui-sans-serif, system-ui, sans-serif; }
     .reader-meta:empty { display: none; }
 
@@ -322,6 +332,7 @@
 
           <div id="editorControls" class="hidden flex flex-wrap items-center gap-2 sm:gap-3">
             <!-- Illustrate this chapter with an AI image -->
+            <button id="moderateCommentsBtn" onclick="openCommentsModal()" title="Review readers' comments on this book" class="px-2.5 py-1 rounded border border-slate-700 text-slate-200 hover:text-white hover:bg-slate-800 font-medium transition-colors">💬 Comments<span id="pendingCommentsBadge" class="hidden ml-1 px-1.5 rounded-full bg-amber-500 text-slate-950 text-xs font-bold"></span></button>
             <button id="illustrateBtn" onclick="illustrateCurrentChapter()" title="Pick the most dramatic paragraph, generate an image for it and insert it after that paragraph" class="px-2.5 py-1 rounded border border-slate-700 text-slate-200 hover:text-white hover:bg-slate-800 font-medium transition-colors">🎨 Illustrate</button>
             <!-- Edit / Preview Mode Toggle -->
             <div class="flex items-center bg-slate-800 border border-slate-700 rounded p-0.5 text-xs">
@@ -709,6 +720,23 @@
     </div>
   </div>
 
+  <!-- READER COMMENTS: author moderation -->
+  <div id="commentsModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div role="dialog" aria-modal="true" aria-labelledby="commentsModalTitle" class="bg-slate-900 border border-slate-800 rounded-xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+      <div class="p-4 border-b border-slate-800 flex justify-between items-center">
+        <h2 id="commentsModalTitle" class="font-semibold text-white">Reader comments</h2>
+        <button onclick="closeModal('commentsModal')" aria-label="Close" class="text-slate-400 hover:text-white">✕</button>
+      </div>
+      <div class="px-4 pt-3 flex flex-wrap gap-2 text-xs" role="group" aria-label="Show">
+        <button data-filter="pending" onclick="setCommentsFilter('pending')" class="comments-filter px-2.5 py-1 rounded border border-slate-700">Pending</button>
+        <button data-filter="chapter" onclick="setCommentsFilter('chapter')" class="comments-filter px-2.5 py-1 rounded border border-slate-700">This chapter</button>
+        <button data-filter="all" onclick="setCommentsFilter('all')" class="comments-filter px-2.5 py-1 rounded border border-slate-700">Whole book</button>
+      </div>
+      <div id="commentsModalList" class="p-4 space-y-3 overflow-y-auto text-sm"></div>
+      <div class="p-3 border-t border-slate-800 bg-slate-900/50 text-xs text-slate-400" id="commentsModalStatus">Approve to show a comment to readers. Changes are saved to the book's reader-comments.json.</div>
+    </div>
+  </div>
+
   <!-- Illustration agent progress / result -->
   <div id="illustrationToast" role="status" aria-live="polite" style="width: min(24rem, calc(100vw - 2rem));" class="hidden fixed bottom-4 right-4 z-40 bg-slate-900 border rounded-lg shadow-2xl p-3 text-sm text-slate-200 border-slate-700">
     <div class="flex items-start gap-3">
@@ -819,6 +847,9 @@ No text, captions, speech bubbles, signatures or watermarks in the image.`;
       reviewMeta: {}, // per-agent saved review metadata
       reviewScope: 'book',
       viewingAbout: false, // showing the book's "About this book" title page
+      commentSettings: {},   // from comment-settings.json in the repo (relayUrl, requireApproval, maxLength)
+      bookComments: { bookId: null, comments: [] }, // the current book's reader-comments.json
+      commentsFilter: 'pending',
       bookModalMode: 'create', // New Book window: 'create' or 'edit'
       reviewsOpen: { view: false, author: true }, // review panel expanded? remembered per mode
       unsavedChanges: false, // editor text differs from the last loaded/committed version
@@ -1070,7 +1101,7 @@ No text, captions, speech bubbles, signatures or watermarks in the image.`;
       modalReturnFocus = null;
     }
     function openModalId() {
-      return ['newBookModal', 'settingsModal', 'illustrateModal'].find(id => !document.getElementById(id).classList.contains('hidden'));
+      return ['newBookModal', 'settingsModal', 'illustrateModal', 'commentsModal'].find(id => !document.getElementById(id).classList.contains('hidden'));
     }
     document.addEventListener('keydown', e => {
       const id = openModalId();
@@ -1223,6 +1254,208 @@ No text, captions, speech bubbles, signatures or watermarks in the image.`;
       const first = body.firstElementChild;
       if (first && /^H[1-3]$/.test(first.tagName)) first.after(readerMetaEl);
       else body.prepend(readerMetaEl);
+      body.appendChild(commentsEl); // reader comments always sit at the end of the chapter
+    }
+
+    // --- READER COMMENTS ---
+    // Comments are stored per book in books/<book>/reader-comments.json. Readers post through the
+    // comment relay (its address is in comment-settings.json); the relay holds the GitHub token.
+    // In Author mode you approve or delete comments with your own token from Settings.
+    const commentsEl = document.createElement('section');
+    commentsEl.className = 'reader-comments not-prose';
+    commentsEl.setAttribute('aria-labelledby', 'readerCommentsHeading');
+
+    function escText(t) {
+      return String(t ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+    function commentAuthorHtml(c) {
+      if (c.author && c.author.type === 'github' && c.author.login) {
+        const login = escText(c.author.login);
+        return `<a href="https://github.com/${encodeURIComponent(c.author.login)}" target="_blank" rel="noopener noreferrer nofollow">@${login}</a> <span title="The reader typed this GitHub username; it isn't verified.">(unverified)</span>`;
+      }
+      return 'Anonymous';
+    }
+    function commentDate(iso) {
+      const d = new Date(iso);
+      return isNaN(d) ? '' : d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+
+    async function loadBookComments(bookId) {
+      if (!bookId || !state.settings.ghOwner || !state.settings.ghRepo) return;
+      let comments = [];
+      try {
+        const raw = await fetchGitHubRaw(`books/${bookId}/reader-comments.json`);
+        const data = raw ? JSON.parse(raw) : null;
+        comments = data && Array.isArray(data.comments) ? data.comments : [];
+      } catch (e) { comments = []; }
+      if (state.currentBookId !== bookId) return;
+      state.bookComments = { bookId, comments };
+      renderReaderComments();
+      updatePendingBadge();
+    }
+
+    function renderReaderComments() {
+      const chapterId = state.currentChapterId;
+      const relay = state.commentSettings.relayUrl;
+      const maxLength = Number(state.commentSettings.maxLength) > 0 ? Number(state.commentSettings.maxLength) : 2000;
+      const list = (state.bookComments.bookId === state.currentBookId ? state.bookComments.comments : [])
+        .filter(c => c.chapterId === chapterId && c.status === 'approved')
+        .sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
+
+      if (!relay && !list.length) { commentsEl.innerHTML = ''; return; }
+
+      const items = list.length
+        ? list.map(c => `<div class="comment"><div class="comment-meta">${commentAuthorHtml(c)} · ${escText(commentDate(c.createdAt))}</div><p>${escText(c.text)}</p></div>`).join('')
+        : `<p class="comment-meta">No comments yet. Be the first to share your thoughts.</p>`;
+
+      const form = relay ? `
+        <form id="readerCommentForm" onsubmit="submitReaderComment(event)" class="mt-5 space-y-3">
+          <label for="readerCommentText" class="block font-medium text-slate-200">Leave a comment</label>
+          <textarea id="readerCommentText" rows="4" maxlength="${maxLength}" placeholder="What did you think of this chapter?" required></textarea>
+          <div class="hp" aria-hidden="true"><label>Website <input type="text" id="readerCommentWebsite" tabindex="-1" autocomplete="off"></label></div>
+          <label class="flex items-center gap-2 text-slate-300">
+            <input type="checkbox" id="readerCommentSign" class="h-4 w-4 accent-green-600" onchange="document.getElementById('readerCommentLoginRow').classList.toggle('hidden', !this.checked); if (this.checked) document.getElementById('readerCommentLogin').focus();">
+            Sign with my GitHub username <span class="text-slate-400">(otherwise it's anonymous)</span>
+          </label>
+          <div id="readerCommentLoginRow" class="hidden">
+            <label for="readerCommentLogin" class="sr-only">GitHub username</label>
+            <input type="text" id="readerCommentLogin" maxlength="39" placeholder="your-github-username" autocomplete="username" spellcheck="false">
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <button type="submit" id="readerCommentSubmit" class="px-4 py-2 rounded-lg bg-brand-700 hover:bg-brand-600 text-white font-medium">Post comment</button>
+            <span id="readerCommentStatus" role="status" aria-live="polite" class="text-sm text-slate-400"></span>
+          </div>
+          ${state.commentSettings.requireApproval === false ? '' : '<p class="comment-meta">Comments appear after the author approves them.</p>'}
+        </form>` : '';
+
+      // Keep a half-written comment if the list re-renders.
+      const draft = document.getElementById('readerCommentText');
+      const draftText = draft ? draft.value : '';
+      commentsEl.innerHTML = `<h2 id="readerCommentsHeading">Reader comments${list.length ? ` (${list.length})` : ''}</h2>${items}${form}`;
+      if (draftText && document.getElementById('readerCommentText')) document.getElementById('readerCommentText').value = draftText;
+    }
+
+    async function submitReaderComment(e) {
+      e.preventDefault();
+      const relay = state.commentSettings.relayUrl;
+      const textEl = document.getElementById('readerCommentText');
+      const statusEl = document.getElementById('readerCommentStatus');
+      const btn = document.getElementById('readerCommentSubmit');
+      const sign = document.getElementById('readerCommentSign').checked;
+      const login = document.getElementById('readerCommentLogin').value.trim().replace(/^@/, '');
+      const text = textEl.value.trim();
+      const setStatus = (msg, cls) => { statusEl.className = `text-sm ${cls}`; statusEl.innerText = msg; };
+      if (!text) { setStatus('Please write a comment first.', 'text-rose-400'); textEl.focus(); return; }
+      if (sign && !/^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$/.test(login)) {
+        setStatus("That doesn't look like a GitHub username.", 'text-rose-400');
+        document.getElementById('readerCommentLogin').focus();
+        return;
+      }
+      btn.disabled = true;
+      setStatus('Posting…', 'text-slate-400');
+      const bookId = state.currentBookId, chapterId = state.currentChapterId;
+      try {
+        const res = await fetch(relay, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ bookId, chapterId, text, githubUser: sign ? login : '', website: document.getElementById('readerCommentWebsite').value })
+        });
+        let data = {};
+        try { data = await res.json(); } catch (err) {}
+        if (!res.ok || !data.ok) throw new Error(data.error || `The comment couldn't be posted (error ${res.status}).`);
+        textEl.value = '';
+        if (data.comment && state.bookComments.bookId === bookId) state.bookComments.comments.push(data.comment);
+        if (data.status === 'approved') {
+          renderReaderComments();
+          const s2 = document.getElementById('readerCommentStatus');
+          if (s2) { s2.className = 'text-sm text-emerald-400'; s2.innerText = '✓ Your comment was posted.'; }
+        } else {
+          setStatus("✓ Thanks! Your comment will appear once the author approves it.", 'text-emerald-400');
+        }
+      } catch (err) {
+        setStatus(/Failed to fetch|NetworkError/i.test(err.message) ? "Couldn't reach the comment service. Please try again later." : err.message, 'text-rose-400');
+      } finally {
+        const b = document.getElementById('readerCommentSubmit');
+        if (b) b.disabled = false;
+      }
+    }
+
+    // --- Author: approve / delete comments ---
+    function updatePendingBadge() {
+      const badge = document.getElementById('pendingCommentsBadge');
+      const n = state.bookComments.bookId === state.currentBookId ? state.bookComments.comments.filter(c => c.status === 'pending').length : 0;
+      badge.innerText = n;
+      badge.classList.toggle('hidden', !n);
+      document.getElementById('moderateCommentsBtn').setAttribute('aria-label', n ? `Comments, ${n} waiting for approval` : 'Comments');
+    }
+
+    function setCommentsFilter(filter) {
+      state.commentsFilter = filter;
+      renderCommentsModal();
+    }
+
+    async function openCommentsModal() {
+      if (!state.currentBookId) return;
+      openModal('commentsModal');
+      document.getElementById('commentsModalList').innerHTML = '<p class="text-slate-400">Loading comments…</p>';
+      await loadBookComments(state.currentBookId);
+      const pending = state.bookComments.comments.some(c => c.status === 'pending');
+      state.commentsFilter = pending ? 'pending' : 'chapter';
+      renderCommentsModal();
+    }
+
+    function renderCommentsModal() {
+      const book = state.booksData.books.find(b => b.id === state.currentBookId);
+      document.getElementById('commentsModalTitle').innerText = `Reader comments: ${book ? book.title : ''}`;
+      document.querySelectorAll('.comments-filter').forEach(b => {
+        const on = b.dataset.filter === state.commentsFilter;
+        b.className = `comments-filter px-2.5 py-1 rounded border ${on ? 'bg-slate-700 border-slate-600 text-white' : 'border-slate-700 text-slate-300 hover:bg-slate-800'}`;
+        b.setAttribute('aria-pressed', String(on));
+      });
+      const chapTitle = id => { const c = book && book.chapters.find(x => x.id === id); return c ? c.title : id; };
+      let list = state.bookComments.comments.slice();
+      if (state.commentsFilter === 'pending') list = list.filter(c => c.status === 'pending');
+      if (state.commentsFilter === 'chapter') list = list.filter(c => c.chapterId === state.currentChapterId);
+      list.sort((a, b) => (a.status === 'pending' ? 0 : 1) - (b.status === 'pending' ? 0 : 1) || String(b.createdAt).localeCompare(String(a.createdAt)));
+      const empty = { pending: 'No comments are waiting for approval.', chapter: 'No comments on this chapter yet.', all: 'No comments on this book yet.' }[state.commentsFilter];
+      document.getElementById('commentsModalList').innerHTML = list.length ? list.map(c => `
+        <div class="p-3 rounded-lg border ${c.status === 'pending' ? 'border-amber-700/60 bg-amber-950/20' : 'border-slate-800 bg-slate-800/30'}">
+          <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
+            <span>${c.status === 'pending' ? '<span class="text-amber-300 font-semibold">Pending</span> · ' : ''}${commentAuthorHtml(c)} · ${escText(commentDate(c.createdAt))} · ${escText(chapTitle(c.chapterId))}</span>
+            <span class="flex gap-2">
+              ${c.status === 'pending' ? `<button onclick="moderateComment('${escText(c.id)}', 'approve')" class="px-2 py-1 rounded bg-brand-700 hover:bg-brand-600 text-white font-medium">Approve</button>` : ''}
+              <button onclick="moderateComment('${escText(c.id)}', 'delete')" class="px-2 py-1 rounded border border-rose-800 text-rose-300 hover:bg-rose-950/40">Delete</button>
+            </span>
+          </div>
+          <p class="mt-1 text-slate-200 whitespace-pre-wrap" style="overflow-wrap: anywhere;">${escText(c.text)}</p>
+        </div>`).join('') : `<p class="text-slate-400">${empty}</p>`;
+    }
+
+    async function moderateComment(commentId, action) {
+      const bookId = state.currentBookId;
+      const statusEl = document.getElementById('commentsModalStatus');
+      if (!state.settings.ghToken) { statusEl.innerText = 'Add your GitHub token in Settings (⚙) to approve or delete comments.'; return; }
+      if (action === 'delete' && !confirm('Delete this comment? This removes it from reader-comments.json.')) return;
+      statusEl.innerText = 'Saving…';
+      // Work on the latest copy so comments posted in the meantime aren't lost.
+      const path = `books/${bookId}/reader-comments.json`;
+      let data;
+      try {
+        const raw = await fetchGitHubRaw(path);
+        data = raw ? JSON.parse(raw) : { comments: [] };
+        if (!Array.isArray(data.comments)) data.comments = [];
+      } catch (e) { statusEl.innerText = "Couldn't load the comments file. Please try again."; return; }
+      const idx = data.comments.findIndex(c => c.id === commentId);
+      if (idx === -1) { statusEl.innerText = 'That comment is no longer in the file.'; await loadBookComments(bookId); renderCommentsModal(); return; }
+      if (action === 'approve') data.comments[idx].status = 'approved';
+      else data.comments.splice(idx, 1);
+      const ok = await commitGitHubFile(path, JSON.stringify(data, null, 2) + '\n', `${action === 'approve' ? 'Approve' : 'Delete'} reader comment ${commentId.slice(0, 8)}`);
+      if (!ok) { statusEl.innerText = "Couldn't save the change to GitHub. Check your token in Settings (⚙)."; return; }
+      state.bookComments = { bookId, comments: data.comments };
+      statusEl.innerText = action === 'approve' ? '✓ Approved: readers can now see it.' : '✓ Deleted.';
+      renderCommentsModal();
+      renderReaderComments();
+      updatePendingBadge();
     }
 
     // --- EMPTY STATES: no books at all, or a book with no chapters ---
@@ -1283,7 +1516,7 @@ No text, captions, speech bubbles, signatures or watermarks in the image.`;
       // Buttons that need a book / a chapter
       const noBook = status === 'no-books';
       const noChapter = status !== 'ok';
-      ['commitChapterBtn', 'runAllBtn', 'runCurrentAgentBtn', 'runDemographicsBtn', 'renameChapterBtn', 'exportBtn', 'editSubTabBtn', 'previewSubTabBtn', 'illustrateBtn']
+      ['commitChapterBtn', 'runAllBtn', 'runCurrentAgentBtn', 'runDemographicsBtn', 'renameChapterBtn', 'exportBtn', 'editSubTabBtn', 'previewSubTabBtn', 'illustrateBtn', 'moderateCommentsBtn']
         .forEach(id => setDisabled(id, noChapter));
       setDisabled('newChapterBtn', noBook);
       setDisabled('calcWordCountBtn', noBook);
@@ -1472,6 +1705,12 @@ No text, captions, speech bubbles, signatures or watermarks in the image.`;
 
       if (!Array.isArray(state.booksData.books)) state.booksData.books = [];
 
+      // Comment settings live in a separate public file (no secrets in it).
+      try {
+        const rawSettings = state.settings.ghOwner && state.settings.ghRepo ? await fetchGitHubRaw('comment-settings.json') : null;
+        state.commentSettings = rawSettings ? JSON.parse(rawSettings) : {};
+      } catch (e) { state.commentSettings = {}; }
+
       renderBookDropdown();
       if (state.booksData.books.length > 0) {
         // Reopen the book (and chapter) this browser was last reading, if it still exists.
@@ -1597,6 +1836,7 @@ No text, captions, speech bubbles, signatures or watermarks in the image.`;
       }
       updateEmptyState();
       rememberPlace();
+      loadBookComments(bookId);
     }
 
     function renderChapterList(book) {
@@ -1697,6 +1937,7 @@ No text, captions, speech bubbles, signatures or watermarks in the image.`;
       statusEl.className = "text-slate-400 text-xs";
 
       loadChapterDemographics();
+      renderReaderComments();
       if (state.reviewScope === 'chapter') loadReviews();
     }
 
