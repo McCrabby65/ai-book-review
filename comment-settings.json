@@ -1,5 +1,5 @@
 {
-  "relayUrl": "",
+  "relayUrl": "https://ai-book-review-qr9g.netlify.app/api/comments",
   "requireApproval": true,
   "maxLength": 2000
 }
