@@ -19,10 +19,13 @@ const ID_RE = /^[a-z0-9][a-z0-9-]{0,150}$/;
 const GITHUB_LOGIN_RE = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$/;
 
 export async function handle(request, env) {
+  const tidy = s => String(s || '').trim().replace(/\/+$/, '').toLowerCase();
   const origin = request.headers.get('Origin') || '';
-  const allowed = (env.ALLOWED_ORIGINS || '').split(',').map(s => s.trim()).filter(Boolean);
+  const allowed = (env.ALLOWED_ORIGINS || '').split(',').map(tidy).filter(Boolean);
+  // Let the browser read every reply (errors included) so readers see the real reason.
+  // Which sites may post is enforced by the ALLOWED_ORIGINS check below.
   const cors = {
-    'Access-Control-Allow-Origin': allowed.includes(origin) ? origin : (allowed[0] || ''),
+    'Access-Control-Allow-Origin': origin || '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Vary': 'Origin'
@@ -33,7 +36,7 @@ export async function handle(request, env) {
 
   if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
   if (request.method !== 'POST') return reply(405, { error: 'Use POST.' });
-  if (!allowed.includes(origin)) return reply(403, { error: 'This site is not allowed to post comments.' });
+  if (!allowed.includes(tidy(origin))) return reply(403, { error: 'This site is not allowed to post comments.' });
   if (!env.GITHUB_TOKEN || !env.GITHUB_REPO) return reply(500, { error: 'The comment relay is not configured yet.' });
 
   let input;
