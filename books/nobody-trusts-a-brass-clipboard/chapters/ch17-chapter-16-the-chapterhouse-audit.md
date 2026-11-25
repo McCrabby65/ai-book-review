@@ -142,6 +142,14 @@ Smith Master Torren stood by his central anvil, gripping Hammer, as a tall, impo
 
 <br/>
 
+<!-- illustration:auto -->
+<p align="center">
+  <img src="books/nobody-trusts-a-brass-clipboard/images/ch17-chapter-16-the-chapterhouse-audit-mww7oa0i.png" alt="A wide shot of the south armory forge yard at morning as the gates burst open.">
+</p>
+<!-- /illustration:auto -->
+
+<br/>
+
 High Inspector Valerius had cold, sunken eyes, a razor-thin mustache, and an aura of sharp, dogmatic authority. He held a glowing crystal pendulum in his gloved hand, its needle pointing directly toward the rear storage shed behind the coal pit.
 
 <br/>
