@@ -1,6 +1,8 @@
 {
   "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 7-8 Level",
+  "reading_level": "Grade 8-9 Level",
   "content_rating": "Mild",
-  "rationale": "The narrative features accessible prose with mild bureaucratic terminology, low-intensity legal tension centered around a fourteen-year-old protagonist, and clean fantasy themes without graphic violence or explicit content."
+  "rationale": "The prose is accessible but sprinkled with invented terminology and bureaucratic vocabulary (Aether Anchor, Imperial Statute 402, Prodigy Clause), the stakes (arrest, forge seizure, imprisonment for heresy) are tense but non-graphic, and the humor and teenage protagonist suit YA fantasy readers, while the legal-loophole plot and workplace satire add some thematic complexity.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
 }
