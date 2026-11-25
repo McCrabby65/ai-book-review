@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses plain, conversational vocabulary and straightforward dialogue-driven plotting (heist planning, isekai fantasy tropes, light romantic humor) with no graphic violence, sexual content, or heavy themes, making it suited to teen and crossover readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
