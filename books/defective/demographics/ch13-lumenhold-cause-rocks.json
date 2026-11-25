@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 8-9 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose is plain and accessible with short sentences and simple vocabulary, but the dry political satire, a morally compromised protagonist, and the casual bureaucratic handling of mass ritual sacrifice and the purchase of enslaved people, including children, signal mature thematic complexity, while the violence stays off-page and non-graphic.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
