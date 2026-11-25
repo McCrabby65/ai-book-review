@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses plain, accessible vocabulary and short, direct sentences in a familiar fantasy-adventure setting, while the premise of a hired assassin stalking a list of targets (including families) brings moderate tension and implied lethal intent, though the violence on the page is non-graphic and ends with a humorous, subverted reversal by a cane-wielding old woman.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
