@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The accessible, first-person voice uses mostly plain vocabulary and modern references (keys, index card, Christmas, historian mindset) in a portal-fantasy adventure, with a tense but non-graphic tone, no violence, sex, or profanity, and moderately sophisticated themes of identity, concealment, and deductive reasoning that suit teen readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
