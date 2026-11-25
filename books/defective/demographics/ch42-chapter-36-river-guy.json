@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses simple, direct vocabulary and short sentences with italicized internal monologue, while the scenes of flood aftermath (an impaled body, a child's apparent death, survivor's guilt and hints of suicidal ideation) and the practical hypothermia and fire-starting sequence suit teen readers in a LitRPG-style fantasy, with emotional weight but no graphic gore or explicit content.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
