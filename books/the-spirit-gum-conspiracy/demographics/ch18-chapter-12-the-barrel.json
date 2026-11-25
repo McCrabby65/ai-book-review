@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The accessible vocabulary, short punchy sentences, and lighthearted comedic set pieces (an orc war dance, a runaway goat, a broken barometer) suit a young audience, while the moderate thematic complexity of political intrigue, a falsified fire report, and depression-like withdrawal and friendship stays free of graphic violence, sexual content, or profanity.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
