@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The accessible first-person voice, clear sentence structure, and dry humor (the wig, the throat-clearing dwarf) fit YA fantasy, while the political themes of collective defiance, shifting loyalties, and historical injustice add moderate thematic depth, and the scene has no graphic violence or mature content.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
