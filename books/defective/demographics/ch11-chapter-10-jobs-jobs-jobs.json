@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, conversational vocabulary and a lighthearted, humorous first-person voice with pop-culture references, while its scene intensity stays mild (an off-page death in a mine and a mention of goblin fights) and its themes of poverty, teamwork, and problem-solving with science are accessible to teen readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
