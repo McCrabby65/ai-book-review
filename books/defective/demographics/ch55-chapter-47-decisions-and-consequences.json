@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 5-6 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses simple vocabulary, short declarative sentences, and straightforward dialogue, while the content features a teen-accessible fantasy adventure with an impending battle, references to killing guards and ritual sacrifice (all non-graphic), and thematic weight around a protagonist's choice between worlds, romantic longing, and sacrifice.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
