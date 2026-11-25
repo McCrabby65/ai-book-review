@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The vocabulary is simple and the sentences are short and direct, while the scenes of flood aftermath, hypothermia rescue, and a hint of a sinister past (the 'stone table') are handled without graphic detail, and the themes of guilt, responsibility, and trust in a fantasy setting with light humor suit a teen audience.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
