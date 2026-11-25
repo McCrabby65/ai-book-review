@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 6-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The vocabulary and sentence structure are plain and accessible, and the scene is a low-violence, dialogue-driven exchange (kobold deaths are only referenced, with a brief mention of grief), but the adult protagonist, quiet subtext about a suspicious Guild job, and slow-burn mystery tone suit mature fantasy readers more than younger audiences.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
