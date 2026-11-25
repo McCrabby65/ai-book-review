@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses plain, conversational vocabulary, short sentences, and humorous inner-monologue banter typical of YA isekai/portal fantasy, while the content includes torture aftermath, a body being dumped in a river, and a mass human-sacrifice summoning (hundreds killed), which is intense but depicted without graphic gore or explicit material, and the themes of gods, sacrifice, and moral cost are moderately complex.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
