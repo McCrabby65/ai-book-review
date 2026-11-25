@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The prose uses simple, conversational vocabulary and short sentences with light banter and a fantasy-adventure plot of a summoned hero, a secret identity, and a mysterious pursuer, while the intensity stays low (no graphic violence or mature content) and the themes of identity, trust, and hidden mortality are only moderately complex.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
