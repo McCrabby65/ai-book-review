@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, conversational vocabulary and short sentences with light humor, playful teasing about a dinner date, and brief mentions of acid burns and monster-hunting, while its themes of friendship, debt, and guild bureaucracy are straightforward and carry no graphic or mature content.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
