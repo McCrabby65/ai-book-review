@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 10-11 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose is restrained but sophisticated, with political intrigue, implied genocide ('leave no witnesses'), and a casually calculated threat to assassinate a prince, all conveyed through subtext and irony rather than graphic detail, which demands mature thematic inference and familiarity with a larger fantasy world.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
