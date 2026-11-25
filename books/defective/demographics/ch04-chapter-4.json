@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 7-8 Level",
-  "content_rating": "Mild",
-  "rationale": "The chapter uses accessible vocabulary, short banter-driven dialogue, and light fantasy adventure conventions, with only mild intensity from mild profanity (\"ass\"), non-graphic references to wounds and nudity played for humor, and a simple mystery-driven plot with modest thematic complexity.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}
