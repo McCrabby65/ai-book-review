@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses simple, direct vocabulary and short sentences typical of YA portal-fantasy/LitRPG, while the scenes carry moderate intensity through references to slavery, ritual sacrifice, a tortured soul trapped in a monster that consumed people, and characters' trauma-driven nightmares, all handled without graphic detail and with thematic focus on moral guilt, mercy, and compassion.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
