@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The prose uses simple, clean vocabulary and short sentences, but the quiet, melancholic tone and mature themes of lost time, aging, identity, and a parent-child role reversal (a man who disappeared at 22 and returns at 60 to his now-younger mother) point to adult or older-reader appeal, while the scene itself contains no graphic violence, sexuality, or strong language.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
