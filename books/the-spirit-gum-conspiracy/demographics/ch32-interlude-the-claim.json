@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 9-10 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter relies on dry bureaucratic satire and absurdist humor (a goat that bit off a royal ear, forms for 'Sacred Rash', a claim for 'emotional damages'), with moderately sophisticated vocabulary and parody, while the violence is only referenced in passing and nothing is graphic, making it fit for a broad young adult to adult fantasy readership.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
