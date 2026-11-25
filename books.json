@@ -576,6 +576,21 @@
           "file": "ch31-chapter-29-it-s-about-time.md"
         }
       ]
+    },
+    {
+      "id": "the-spirit-gum-conspiracy",
+      "title": "The Spirit Gum Conspiracy",
+      "tagline": "How I Faked Being an Elf Prince, Ate Their Dinner, and Accidentally Stopped a War",
+      "author": "P. D. McSwain",
+      "genre": "Fantasy",
+      "blurb": "One fake elf. One real war. One travel-size bottle of glue.\n\nMarcus Delaney is twenty-three, broke, and paying tuition for the privilege of student-teaching seventh grade. He needs to win a fantasy convention's costume contest to make rent. His elf prince costume is a pair of party-store latex ears, a blonde wig named Gwendolyn, a bathtub-dyed bedsheet cape, a foam sword, and a lot of glitter, all held together with a travel-size bottle of spirit gum.\n\nThen the stage opens under him, and he lands in Verathis.\n\nThe elves there take one look at him and kneel. Their ancient texts promised that the Lost Prince would return, mighty of stature, great of appetite, and radiant, and nobody has ever been more radiant than a man who overdid the glitter. Now they want their Prince to lead them on one last crusade: against the humans they wiped out three hundred years ago, the few who are still hiding in the north.\n\nMarcus is human. Everyone in power wants humans dead. And spirit gum fails in water.\n\nArmed with nothing but a seventh-grade curriculum and a lifetime of video games, Marcus has to bluff his way through banquets of single dewdrops, an archery trial when he's never held a bow, and an inquisitor whose human-detecting crystal won't stop glowing near him. His only allies are a devoted one-eared orc who's afraid of geese, a shaman's apprentice who can cast exactly one spell, and the dwarf who summoned him and won't stop sending him invoices. And the deeper Marcus digs into the royal archives, the clearer it becomes that the war he's meant to lead was built on a lie.\n\nHe has a lesson plan. He has a barometer made from a wine bottle. He has a court that copies everything he does, including his table manners.\n\nAnd it's about to rain.\n\nA satirical comedy about costumes, propaganda, and the importance of reading the fine print, for anyone who has ever faked it until they made it, and then had to stop a war.",
+      "chapters": [
+        {
+          "id": "ch01-best-in-show",
+          "title": "Chapter 1: Best in Show",
+          "file": "ch01-best-in-show.md"
+        }
+      ]
     }
   ]
 }
