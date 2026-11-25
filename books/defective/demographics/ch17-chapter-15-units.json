@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses simple, accessible vocabulary and short sentences typical of YA or mainstream fantasy, but the chapter depicts sustained torture, forced killing of animals, and the mercy killing of a tortured child, and it explores trauma and moral injury, which pushes the thematic weight and emotional intensity beyond middle grade and toward an older teen-to-adult audience, though the violence is recounted in testimony rather than shown graphically.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
