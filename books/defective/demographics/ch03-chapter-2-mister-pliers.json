@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-8 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses simple, accessible vocabulary and quippy, humorous first-person narration with familiar isekai/litRPG tropes, but the scene includes graphic torture (fingers broken with pliers) and mild profanity, which raises the intensity beyond middle grade and suits teen-to-adult readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
