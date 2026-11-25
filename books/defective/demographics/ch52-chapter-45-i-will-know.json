@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, dialogue-driven prose and everyday vocabulary, features low-stakes family logistics and humorous teen romance with only a brief passionate kiss, and has light thematic complexity (e.g., a family member's routine-related distress) typical of YA fantasy.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
