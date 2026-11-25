@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, conversational vocabulary and short sentences with light, comedic isekai/fantasy banter, and its only conflict is a low-stakes goblin-clearing job with no graphic violence, though the protagonist's adult workplace jadedness and the genre's tone point to older teens and new adults rather than younger children.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
