@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-8 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses simple, conversational vocabulary and short, punchy paragraphs with italicized internal-thought humor typical of YA portal fantasy, while the confession scene touches on heavier themes like torture (pliers mentioned but not depicted), trust, and trauma, handled with restraint and no graphic content.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
