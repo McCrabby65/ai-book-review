@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The accessible vocabulary, short paragraphs, and quippy first-person humor suit teen and crossover readers, while the isekai fantasy setting, brief references to ritual trauma, nudity, and a breakup dream carry only light, non-graphic intensity, and the themes of loss, displacement, and disbelief add modest emotional depth.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
