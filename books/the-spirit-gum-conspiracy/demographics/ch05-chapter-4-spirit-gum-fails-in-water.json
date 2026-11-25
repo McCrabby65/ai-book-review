@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The conversational first-person voice, accessible vocabulary, humor built on a teacher's lesson-plan framing, and a gently comic, low-gore tension (a disguise nearly slipping during a ritual) fit a YA portal-fantasy audience, while the brief references to genocide and fear of being murdered add moderate thematic weight without graphic detail.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
