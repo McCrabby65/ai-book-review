@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The prose uses short, plain sentences and simple dialogue-driven exposition, while the themes of displacement, suffering, mortality, sacrifice, and a choice about going home are fairly mature, though handled without graphic violence, sexual content, or strong language.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
