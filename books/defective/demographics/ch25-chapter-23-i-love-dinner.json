@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, dialogue-driven prose and everyday vocabulary, its only heavy moment is a gentle, non-graphic burial scene, and its themes of kindness, teamwork, and a lighthearted first-date invitation are easy to follow and suitable for teens and younger readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
