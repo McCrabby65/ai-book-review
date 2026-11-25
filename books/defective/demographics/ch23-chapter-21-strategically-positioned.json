@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The prose uses simple, accessible vocabulary and short dialogue-driven exchanges typical of LitRPG/progression fantasy, with mild emotional weight (grief, guilt, and remorse over a dead nurse's memories) but no graphic violence, sexual content, or strong language, and only light thematic complexity around moral responsibility and planning.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
