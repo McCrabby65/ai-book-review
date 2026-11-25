@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Middle Grade (8-12)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses accessible vocabulary, a humorous first-person voice, and whimsical portal-fantasy imagery (a foam sword, a goat, a mare named Pudding) with no violence, romance, or mature content, though its themes of deception, imposter identity, and political maneuvering add enough complexity to appeal to upper middle grade readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
