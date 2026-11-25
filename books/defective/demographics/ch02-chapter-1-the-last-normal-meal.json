@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The vocabulary is accessible and the prose is conversational, but the adult first-person narrator (a full-time software developer with a dry, self-deprecating wit), the college-age peer dynamics, and the foreboding near-drowning anecdote place it with adult readers, while the scene intensity stays mild with no explicit content and only a tense safety story as its darkest moment.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
