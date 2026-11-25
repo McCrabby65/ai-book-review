@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-9 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses accessible, conversational vocabulary and a comedic isekai-fantasy tone with pop-culture and classroom references, while its low-stakes slapstick peril (ears falling off), satirical court politics, and light thematic complexity suit teen readers, with no graphic violence, sexual content, or mature themes.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
