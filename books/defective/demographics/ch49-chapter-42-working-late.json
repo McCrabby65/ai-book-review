@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The prose uses simple, conversational vocabulary and short sentences with a light first-person voice, while the scene stays mild with only implied violence (a drowned town, an assassin's threat) and no graphic content, though themes of guilt, isolation, and redemption add some thematic maturity that suits teen-to-adult fantasy readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
