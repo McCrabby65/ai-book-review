@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 5-6 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, conversational vocabulary and short, direct sentences in a low-stakes fantasy party quest setting, with only mild menace (kobold raids, a threatened toddler, missing pets) and straightforward themes of community and duty that suit upper middle grade to young adult readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
