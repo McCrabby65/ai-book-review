@@ -252,6 +252,21 @@
           "file": "ch13-chapter-13-the-appeals-office.md"
         }
       ]
+    },
+    {
+      "id": "defective",
+      "title": "Defective",
+      "tagline": "No Ability Detected",
+      "author": "P. D. McSwain",
+      "genre": "Fantasy",
+      "blurb": "Every isekai hero gets a cheat skill. Evan McIntyre got a file.\n\nSubject Thirteen. Cost: four hundred units. Result: no ability detected. Status: defective, disposed of.\n\nOne minute Evan is a software developer on a kayaking trip. The next he's naked on a riverbank in another world, with broken fingers and a guild registration that lists his injuries as \"rocks.\" Guildmaster Cuthbert writes it down without blinking. The kingdom that summoned him wanted a weapon, and he isn't one. He can't fight, can't cast a spell, and can't so much as haggle for bread. Stella, the Guild's two-hundred-year-old sword instructor, is working on the fighting. Mostly by hitting him.\n\nWhat he can do is debug. With Plan B, the adventuring party nobody hires first, and two Guild clerks—Prue, who is unimpressed by everything, and Mara, who is delighted by everyone—Evan starts to pull at the threads of how heroes get made. They lead to Chancellor Silas Malgrave, who counts lives in \"units\"; to General Garrick Ashford, the only officer in the kingdom who never bought his rank; and to Johan, the last summon, whom the kingdom calls the Tide of Death.\n\nMeanwhile, a very tired god has run out of patience. The world is about to be reset. A man with no abilities may be the only one who can stop it.\n\nDefective is a comic fantasy about bureaucracy, power, and what you're worth when the paperwork says nothing.",
+      "chapters": [
+        {
+          "id": "ch01-dedication",
+          "title": "Dedication",
+          "file": "ch01-dedication.md"
+        }
+      ]
     }
   ]
 }
