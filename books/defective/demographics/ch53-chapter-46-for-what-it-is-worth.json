@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The prose uses simple vocabulary, short sentences, and dialogue-driven scenes with light banter and teasing, while the mild thematic weight (a character revisiting the site where his body was dumped, along with a rebellion-style infiltration plan) is handled without graphic detail, making it suitable for teens and younger readers of portal-fantasy adventures.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
