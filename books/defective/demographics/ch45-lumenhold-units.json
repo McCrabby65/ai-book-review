@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 8-9 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses accessible vocabulary and short, direct sentences, but the themes are mature and morally complex: a ritual involving hundreds of imprisoned 'units,' a child dragged to the dungeons, assassins, class cruelty, and a conflicted double-agent protagonist, all conveyed through restrained, implied menace rather than graphic depiction.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
