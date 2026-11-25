@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, direct vocabulary and short sentences in a first-person portal-fantasy style, with only mild tension (a brief water-magic threat and a passing mention of torture) and moderately complex ideas about time dilation and being summoned between worlds, which suits a broad YA and crossover readership.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
