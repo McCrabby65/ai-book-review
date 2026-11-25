@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-8 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses simple, direct sentences and accessible vocabulary typical of YA fantasy, while the political intrigue, an unstable tyrant's threats of torture, references to plague, stolen bodies and a knocked-out scribe add moderate intensity and thematic depth without graphic violence or explicit content.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
