@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses straightforward vocabulary and short, declarative sentences in a clear mystery/fantasy investigation, with moderate intensity from a dead assassin, poison, and blood evidence that is described without graphic gore, and thematic complexity limited to political intrigue, secrecy, and a possible betrayal by the Chancellor.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
