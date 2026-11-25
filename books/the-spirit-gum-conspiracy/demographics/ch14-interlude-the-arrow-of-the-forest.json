@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The comic ballad uses accessible vocabulary, a bouncy rhyme scheme, and humor like the lying goat and the barracks door, with no graphic violence or mature content, while the references to seers, the Veil, fate, and the forest's will add some fantasy-lore and thematic depth suited to young adult readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
