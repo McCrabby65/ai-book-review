@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The prose uses accessible vocabulary and clear, rhythmic sentences, features a 16-year-old protagonist, and builds suspense through atmosphere and implication without any graphic violence or mature content, though the themes of sustainability, generational duty, and doomed resistance add moderate thematic depth that suits teen and crossover adult readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
