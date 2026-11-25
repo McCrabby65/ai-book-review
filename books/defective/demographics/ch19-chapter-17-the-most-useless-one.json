@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Middle Grade (8-12)",
+  "reading_level": "Grade 4-6 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple vocabulary, short sentences, and light dialogue-driven humor (food-spraying gags, a playful flirtation slip, teasing about coach fare), while its darker elements, such as a ritual deadline, a murdered researcher, and a blighted farm, are only referenced briefly and without graphic detail, resulting in low thematic and scene intensity.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
