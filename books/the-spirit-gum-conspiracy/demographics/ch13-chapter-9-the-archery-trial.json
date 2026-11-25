@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter pairs accessible, quippy first-person narration and light fantasy vocabulary (scrolls, High Houses, Trial of the First Line) with only mild, non-graphic stakes of political intrigue and public humiliation, while its themes of impostor identity, court scheming, and looming war suit teen readers and cross-over adults.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
