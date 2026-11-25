@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Adult (18+)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The text is an acknowledgments page with simple vocabulary, short sentences, and no scene intensity, and its heartfelt thanks to the author's adult family members (including a daughter-in-law) provide too little narrative content to indicate a younger audience, so the age group is a low-confidence estimate, with only the river metaphor adding slight figurative depth.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
