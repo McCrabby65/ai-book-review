@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, conversational vocabulary and short sentences with a light, comedic isekai-parody tone (DMV and Austin Powers gags, a looping receptionist), contains no violence or mature content beyond a passing mention of a bodies-in-the-river job, and relies on genre-savvy humor that appeals most to teen and young-adult fantasy readers.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
