@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 8-9 Level",
-  "content_rating": "Mild",
-  "rationale": "The text uses a deadpan, bureaucratic comic voice with moderately sophisticated vocabulary (e.g., 'insufficiently,' 'confiscated,' 'Inquisitorial Code') and relies on irony and implication to deliver its humor, while the fantasy setting contains no violence or mature content beyond a passing mention of untaxed brandy, so it suits teens and crossover adult readers of comic fantasy.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

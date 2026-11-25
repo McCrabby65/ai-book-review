@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 8-9 Level",
-  "content_rating": "Mild",
-  "rationale": "The vocabulary is accessible but varied, with long, rhythmic sentences and dry, whimsical humor (bureaucratic fantasy, a bleeding-yet-polite wall of 'ADEQUATE' frames); the scene intensity is limited to creeping supernatural unease with no graphic violence, profanity, or sexual content, while the countdown-to-demon plot and satire of workplace and institutional life give it enough thematic sophistication to appeal to teens and crossover adult readers.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

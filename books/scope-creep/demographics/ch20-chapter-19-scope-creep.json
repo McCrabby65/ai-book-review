@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Adult (18+)",
-  "reading_level": "Grade 8-9 Level",
-  "content_rating": "Mild",
-  "rationale": "The vocabulary is accessible, and the scenes are low in intensity: a comic fantasy office-satire with no graphic violence, sex, or profanity. The humor depends on adult workplace concepts like stand-ups, scope creep, client management, and labor strikes, plus a protagonist whose past child labor is only lightly touched on, so it fits adult or crossover readers better than middle-grade or YA.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

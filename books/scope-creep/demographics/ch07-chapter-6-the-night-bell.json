@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 8-9 Level",
-  "content_rating": "Mild",
-  "rationale": "The chapter uses accessible but witty vocabulary, with lighthearted comic fantasy scenes free of violence or sexual content, though its satire of bureaucracy and office culture (such as Raleigh and Hartwell Logistics) leans on adult workplace experience that suggests a crossover Young Adult to Adult audience.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

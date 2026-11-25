@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Adult (18+)",
-  "reading_level": "Grade 9-10 Level",
-  "content_rating": "Mild",
-  "rationale": "The chapter uses accessible but witty vocabulary and no violence, profanity, or sexual content, but its satirical take on corporate culture (vague contracts, absurd sales tactics, unrealistic deadlines) relies on workplace experience and dry irony that mainly appeal to adult readers.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

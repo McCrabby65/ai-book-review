@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 9-10 Level",
-  "content_rating": "Mild",
-  "rationale": "The chapter uses a witty, deadpan bureaucratic-parody format with moderately sophisticated vocabulary (e.g., 'Conveyance,' 'illegible,' 'archival evidence') and dry, ironic humor that suits teens and crossover adult readers, while containing no violence, sexual content, or heavy themes beyond light satire of fantasy 'chosen one' tropes.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

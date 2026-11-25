@@ -1,8 +1,0 @@
-{
-  "target_age_group": "New Adult (18-25)",
-  "reading_level": "Grade 8-9 Level",
-  "content_rating": "Mild",
-  "rationale": "The vocabulary is accessible and conversational, and the scenes are lighthearted comic setups with no violence, sexual content, or strong language, but the 23-year-old protagonist's self-deprecating, ironic voice, his early-career teaching anxieties, and the pop-culture and fandom references suit readers in their late teens to mid-twenties.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

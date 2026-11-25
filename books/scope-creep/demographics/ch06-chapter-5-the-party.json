@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Adult (18+)",
-  "reading_level": "Grade 9-10 Level",
-  "content_rating": "Mild",
-  "rationale": "The vocabulary is accessible, but the humor is built on workplace satire (changelogs, reorganizations, 'Head of Client Delight', being 'the documentation') that appeals most to adults with office experience, and the themes of career stagnation and institutional dysfunction are adult in nature, though the chapter has no graphic violence, sexual content, or strong language.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

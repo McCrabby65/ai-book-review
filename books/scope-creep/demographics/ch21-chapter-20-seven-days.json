@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 8-9 Level",
-  "content_rating": "Mild",
-  "rationale": "The prose uses accessible vocabulary and a light, comedic tone satirizing corporate jargon (value stream maps, Lean Six Sigma, 'Chief Ink Officer') through a fantasy guild setting, with no violence, sexual content, or intense scenes, though the workplace-satire humor and themes of debt, finance, and bureaucracy lean toward older teen and adult readers who recognize the business references.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

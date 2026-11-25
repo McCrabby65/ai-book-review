@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 8-9 Level",
-  "content_rating": "Mild",
-  "rationale": "The chapter uses accessible but witty vocabulary, a first-person narrator, and gentle satirical humor (round-ear fashion, a goat eating a treaty), with no violence or mature content, while its themes of post-war reconciliation, rule of law, sustainable forestry, and cultural appropriation add enough thematic depth to suit teen and crossover adult readers.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

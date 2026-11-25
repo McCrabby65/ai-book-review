@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 7-8 Level",
-  "content_rating": "Mild",
-  "rationale": "The chapter uses accessible vocabulary, clean sentence structure, and gentle workplace-satire humor (a pointless stand-up meeting, an empty mug, a sleepy dog) with no violence, sexual content, or disturbing scenes, though its parody of corporate agile culture and subtle irony may appeal most to older teens and adults familiar with office life.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

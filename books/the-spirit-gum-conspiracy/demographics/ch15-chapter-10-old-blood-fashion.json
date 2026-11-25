@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 7-9 Level",
-  "content_rating": "Mild",
-  "rationale": "The chapter uses accessible modern vocabulary and a light, comedic fish-out-of-water tone, with no violence or sexual content and only gentle satire of culture clash and social conformity, though its pop-culture humor, wry first-person voice, and fantasy court setting suit teens and crossover adult readers.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

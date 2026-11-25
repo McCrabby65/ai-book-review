@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 7-8 Level",
-  "content_rating": "Mild",
-  "rationale": "The chapter uses accessible, conversational first-person vocabulary with light humor, a low-stakes problem-solving scene (a failing costume ear fixed with tree resin), no violence or mature content, and mild thematic depth around identity, deception, and a developing friendship with a nervous servant.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

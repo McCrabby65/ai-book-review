@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 8-9 Level",
-  "content_rating": "Mild",
-  "rationale": "The prose uses a polished, wry vocabulary and gentle bureaucratic-fantasy humor with a veiled sense of menace (a polite contract devil, crackling magic) but no graphic violence, sexuality, or profanity, and its themes of rules, trust, and unexpected camaraderie suit teen readers while remaining accessible to adults.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

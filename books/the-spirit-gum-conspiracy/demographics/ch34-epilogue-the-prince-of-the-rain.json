@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 5-7 Level",
-  "content_rating": "Mild",
-  "rationale": "The text uses simple, rhythmic ballad vocabulary and whimsical, humorous fantasy imagery (a coughing barrel, a goat eating an ear, a pie-loving prince) with only light, non-graphic references to war and death, while its thematic layers of identity, leadership, loyalty, and unreliable narration give it appeal for older middle-grade through young adult readers.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

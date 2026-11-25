@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Adult (18+)",
-  "reading_level": "Grade 9-10 Level",
-  "content_rating": "Mild",
-  "rationale": "The chapter relies on satirical workplace humor (HR jargon, resignation etiquette, corporate euphemisms like 'four-day runway') and a dry, ironic narrative voice that depend on adult office experience, while the vocabulary is accessible, the death and impending-collapse themes are treated comically, and there is no graphic violence, sexual content, or strong language.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 7-8 Level",
-  "content_rating": "Mild",
-  "rationale": "The accessible vocabulary, short punchy sentences, and wry first-person voice suit teen readers, while the tense but non-graphic public-unmasking scene (bound hands, a drawn arrow, a fantasy village's judgment) and themes of identity, deception, and vulnerability add moderate emotional depth without any violence, profanity, or mature content.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

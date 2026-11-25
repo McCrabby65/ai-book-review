@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Adult (18+)",
-  "reading_level": "Grade 9-11 Level",
-  "content_rating": "Mild",
-  "rationale": "The vocabulary is moderately sophisticated and the humor depends on adult workplace satire (bug trackers, estimates, dependencies, 'urgent' versus volume), while the scenes contain no graphic violence, sexual content, or strong language, making it mild in intensity but aimed at readers with professional experience.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

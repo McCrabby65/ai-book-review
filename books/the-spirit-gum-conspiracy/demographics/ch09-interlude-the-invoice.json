@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Middle Grade (8-12)",
-  "reading_level": "Grade 7-8 Level",
-  "content_rating": "Mild",
-  "rationale": "The chapter is a short, comedic fantasy invoice with accessible vocabulary and light satirical humor (absurd fees, a runaway sacrificial goat, a ham-smudged seal), no violence or mature content, and only mild bureaucratic-satire irony that suits middle grade through young adult readers, with the dry wit and fantasy-trope parody nudging the complexity slightly higher.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

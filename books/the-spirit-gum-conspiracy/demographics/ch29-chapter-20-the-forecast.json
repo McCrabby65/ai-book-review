@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 7-8 Level",
-  "content_rating": "Mild",
-  "rationale": "The chapter uses accessible vocabulary, a conversational first-person voice, and light humor (a teacher's weather log in a fantasy world), with low-intensity tension about a disguise failing before a trial, and a plot built on practical problem-solving rather than mature or graphic themes.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

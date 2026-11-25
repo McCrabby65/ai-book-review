@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Adult (18+)",
-  "reading_level": "Grade 9-10 Level",
-  "content_rating": "Mild",
-  "rationale": "The vocabulary is moderately sophisticated and the prose is dry and witty, while the violence is almost nonexistent and the scenes are low-intensity; the humor depends on adult workplace satire (legacy systems, documentation, project estimates, bureaucratic oversight) layered over a fantasy dungeon setting, which suggests an adult readership comfortable with corporate irony.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Middle Grade (8-12)",
-  "reading_level": "Grade 6-8 Level",
-  "content_rating": "Mild",
-  "rationale": "The chapter uses accessible, playful vocabulary with a few ornate words (e.g., 'automata,' 'purveyors'), contains no violence or mature content, and its comic workplace-satire themes of modernization and institutional knowledge, delivered through deadpan humor, suit middle-grade readers while still appealing to older ones.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

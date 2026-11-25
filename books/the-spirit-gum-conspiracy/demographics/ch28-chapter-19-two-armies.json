@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 7-8 Level",
-  "content_rating": "Mild",
-  "rationale": "The prose uses accessible vocabulary and a light, whimsical comic tone built on children's antics (a 'committee' holding an ear hostage, a wooden-spoon talking stick, a shouted 'Pineapple!' code word), with no graphic violence or mature content, while the wry first-person voice, in-jokes about military and council procedure, and callbacks to earlier events imply an established fantasy series and a teen-to-adult crossover readership.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}

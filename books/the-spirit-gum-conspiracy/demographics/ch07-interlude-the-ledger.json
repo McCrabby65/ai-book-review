@@ -1,8 +1,0 @@
-{
-  "target_age_group": "Young Adult (12-18)",
-  "reading_level": "Grade 8-9 Level",
-  "content_rating": "Mild",
-  "rationale": "The chapter relies on accessible but witty vocabulary and a deadpan bureaucratic-parody format with fantasy tropes (elves, dwarves, orcs, inquisitors), contains no violence or mature content, and its thematic complexity lies in satire of institutional infallibility, which suits teen and crossover adult readers.",
-  "provider": "anthropic",
-  "model": "claude-sonnet-5-5"
-}
