@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, conversational vocabulary and short sentences in a light, comedic romance-and-fantasy scene with only hand-holding, playful shin-kicking and spicy-food humor, while hinting at a mystery (the foreigner at the grey-lake keep and Mara's flickering smile) that adds modest thematic intrigue suited to YA readers and up.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
