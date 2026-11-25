@@ -2,7 +2,7 @@
   "target_age_group": "Young Adult (12-18)",
   "reading_level": "Grade 8-9 Level",
   "content_rating": "Mild",
-  "rationale": "The chapter uses accessible but witty vocabulary, slapstick fantasy-comedy scenes (a goose-infested cellar, a bandaged hand, bureaucratic non-disclosure forms) with no graphic violence or sexual content, and layers in light satire of court politics, euphemism, and RPG tropes that suits teen and crossover adult readers.",
+  "rationale": "The chapter relies on accessible, comedic vocabulary and slapstick tension (menacing geese, bureaucratic forms, euphemisms) with only mild injury, while its satire of court politics and RPG tropes gives it enough thematic wit to appeal to teens and crossover adult readers.",
   "provider": "anthropic",
   "model": "claude-sonnet-5-5"
 }
