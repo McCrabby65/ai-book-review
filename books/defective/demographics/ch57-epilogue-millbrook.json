@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The prose uses simple, conversational vocabulary and short, dialogue-driven sentences with light humor, while the content stays gentle (a kiss, playful marriage and family-planning banter, no violence or explicit material) and the themes of community healing, bureaucracy, and a maturing romance suit a broad YA-to-adult fantasy audience.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
