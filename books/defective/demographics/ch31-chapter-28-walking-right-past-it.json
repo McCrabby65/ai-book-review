@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, conversational vocabulary, short dialogue-driven paragraphs, and light comic banter in a portal-fantasy setting with no graphic violence, sexual content, or strong language, though the adult protagonist's self-deprecating voice and the isekai premise suggest a broad YA-to-adult readership.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
