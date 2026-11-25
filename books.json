@@ -265,6 +265,11 @@
           "id": "ch01-dedication",
           "title": "Dedication",
           "file": "ch01-dedication.md"
+        },
+        {
+          "id": "ch02-chapter-1-the-last-normal-meal",
+          "title": "Chapter 1: The Last Normal Meal",
+          "file": "ch02-chapter-1-the-last-normal-meal.md"
         }
       ]
     }
