@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Middle Grade (8-12)",
+  "reading_level": "Grade 5-6 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple rhyming verse, playful humor, and accessible vocabulary, while its fantasy battle imagery (demons, spirit-beasts, a Prince wielding a skillet) is cartoonish and non-graphic, with light satirical themes of heroism and bravado that are easily understood by younger readers though also enjoyable to older ones.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
