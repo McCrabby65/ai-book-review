@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, conversational vocabulary and short, clear sentences with light humor (the 'Huff' dialogue, the receptionist gag, isekai-style asides), while its darker elements, such as bodies turning up in fishing nets, are only mentioned briefly with no graphic detail, and the investigative and fantasy-guild themes are accessible and not thematically complex.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
