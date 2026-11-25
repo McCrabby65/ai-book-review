@@ -619,6 +619,11 @@
           "id": "ch07-interlude-the-ledger",
           "title": "Interlude: The Ledger",
           "file": "ch07-interlude-the-ledger.md"
+        },
+        {
+          "id": "ch08-chapter-6-the-invoice",
+          "title": "Chapter 6: The Invoice",
+          "file": "ch08-chapter-6-the-invoice.md"
         }
       ]
     }
