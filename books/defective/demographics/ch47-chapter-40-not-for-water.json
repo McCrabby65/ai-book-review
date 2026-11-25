@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses plain, accessible vocabulary and short, dialogue-driven sentences, with serious but non-graphic themes such as the death of a child, guilt, and ritual sacrifice discussed only in summary, and a straightforward plot about weighing risk and responsibility that suits teen readers in an isekai-style fantasy.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
