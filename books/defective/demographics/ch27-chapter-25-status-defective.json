@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The vocabulary is accessible and the sentences are short and action-driven, with only brief, non-graphic violence (a scribe knocked unconscious) and hints of darker themes such as a confined test subject; the stealth-heist plot and fantasy dungeon setting are easy to follow and suit teen readers, though the clear plotting and mild peril could also appeal to upper middle grade.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
