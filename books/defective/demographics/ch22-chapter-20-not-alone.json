@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-8 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses simple, dialogue-driven prose and light humor with accessible vocabulary, while its mild intensity (implied dark themes such as engineered plagues and a chilling bureaucratic document that hints at human trafficking or ritual sacrifice, with no graphic depiction) and moral stakes, such as choosing duty over going home, suit a young adult audience.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
