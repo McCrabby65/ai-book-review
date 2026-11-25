@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 6-7 Level",
+  "content_rating": "Moderate",
+  "rationale": "The prose uses plain, accessible vocabulary, short sentences, and light humor, while the themes of grief, guilt, forgiveness, and references to torture, a flooded town, and a slap between friends are handled with restraint and no graphic detail, suiting a young adult fantasy audience.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
