@@ -1,0 +1,8 @@
+{
+  "target_age_group": "Young Adult (12-18)",
+  "reading_level": "Grade 7-9 Level",
+  "content_rating": "Mild",
+  "rationale": "The chapter uses accessible vocabulary, a wry first-person comic voice, and light farce (invented pie-wedding customs, a petition wall of taunting questions), while its thematic complexity, hinting at propaganda and historical lies about a war, fits older middle-grade to young-adult readers, and it contains no graphic violence, sexual content, or strong language.",
+  "provider": "anthropic",
+  "model": "claude-sonnet-5-5"
+}
